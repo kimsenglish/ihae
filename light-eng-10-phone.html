@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>지문 이해 보조 자료 · 수능특강 Light 영어 10강</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   김가영어학원 · KIM KA YOUNG ENGLISH
+   수능특강 영어독해연습 08강 지문 이해 — 도구 상자(Toolbox) 디지털 자료
+   Brand v2.1 · System B (학습자료 본문 전용)
+   ============================================================ */
+
+:root {
+  --paper:    #ffffff;
+  --ink:      #1a1a1a;
+  --ink-80:   #333333;
+  --ink-60:   #5e5e5e;
+  --ink-40:   #999999;
+  --ink-20:   #cccccc;
+  --ink-10:   #e8e8e8;
+  --ink-05:   #f6f6f6;
+  --red:      #c8102e;
+  --red-tint: #fdf2f4;
+  --green:    #1FA34A;
+  --green-tint: #f0faf3;
+  --serif-kr: 'Noto Serif KR', serif;
+  --serif-en: 'Noto Serif', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--serif-kr);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+em { font-family: var(--serif-en); font-style: italic; }
+.en { font-family: var(--serif-en); }
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 18px 18px 80px;
+}
+
+/* ============================================================
+   학원 브랜드 헤더
+   ============================================================ */
+.brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: 4px;
+}
+.brand .b-title h1 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.brand .b-title .b-sub {
+  font-size: 11px;
+  color: var(--ink-60);
+  margin-top: 2px;
+  font-family: var(--serif-en);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+.brand .b-meta {
+  font-size: 11.5px;
+  color: var(--ink-60);
+  text-align: right;
+  line-height: 1.5;
+}
+.brand .b-meta .en { font-style: italic; }
+
+/* ============================================================
+   사용 안내 (도구 상자 가이드)
+   ============================================================ */
+.guide {
+  background: var(--ink-05);
+  border-left: 3px solid var(--red);
+  padding: 13px 16px 12px;
+  margin: 14px 0;
+  border-radius: 0 4px 4px 0;
+}
+.guide .g-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 9px;
+  font-family: var(--serif-kr);
+}
+.guide .g-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.guide .g-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+.guide .g-when {
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: var(--ink);
+  min-width: 96px;
+}
+.guide .g-sep {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  flex: 0 0 auto;
+}
+.guide .g-tools {
+  color: var(--ink-80);
+  flex: 1;
+}
+.guide .g-tools .k {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 12px;
+  padding: 0 3px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 3px;
+  margin-right: 2px;
+}
+.guide .g-note {
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+  font-size: 12px;
+  color: var(--ink-60);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.guide .g-note b { color: var(--red); }
+
+/* ============================================================
+   탭 (지문 선택)
+   ============================================================ */
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink-10);
+  z-index: 10;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 10px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 0 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 5px;
+  padding: 7px 12px 5px;
+  font-family: var(--serif-kr);
+  color: var(--ink-60);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  min-width: 78px;
+}
+.tab .tab-no {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.tab .tab-field {
+  display: block;
+  font-size: 10.5px;
+  color: var(--ink-40);
+  margin-top: 1px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.tab:hover { border-color: var(--ink-60); color: var(--ink); }
+.tab.active {
+  background: var(--red-tint);
+  border-color: var(--red);
+  color: var(--red);
+}
+.tab.active .tab-field { color: var(--red); }
+
+/* ============================================================
+   PASSAGE PANEL
+   ============================================================ */
+.passage { display: none; padding-top: 18px; }
+.passage.active { display: block; animation: fadeIn 0.22s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.p-head .field {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--red);
+  border: 0.7px solid var(--red);
+  padding: 2px 8px;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+.p-head h2 {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.p-head .p-kt {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.p-head .p-page {
+  font-size: 10.5px;
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  letter-spacing: 0.12em;
+  margin-top: 5px;
+}
+
+/* ============================================================
+   한 줄 핵심 (anchor)
+   ============================================================ */
+.oneline {
+  margin: 18px 0 22px;
+  padding: 16px 18px 17px;
+  background: var(--ink-05);
+  border-left: 3px solid var(--ink);
+  border-radius: 0 6px 6px 0;
+  font-size: 17.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  word-break: keep-all;
+  letter-spacing: -0.005em;
+}
+.oneline::before {
+  content: "한 줄 핵심";
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 7px;
+}
+.oneline .r { color: var(--red); font-weight: 700; }
+.oneline .g { color: var(--green); font-weight: 700; }
+.oneline em { font-style: italic; }
+
+/* ============================================================
+   메타포 SVG (지문별 한 컷 — 항상 펼쳐짐)
+   ============================================================ */
+.metaphor {
+  margin: 20px 0 22px;
+  border: 1px solid var(--ink-20);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.metaphor .m-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--ink-10);
+  background: var(--ink-05);
+}
+.metaphor .m-head .label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--ink-60);
+}
+.metaphor .m-head .sub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-60);
+}
+.metaphor figure { padding: 18px 18px 14px; }
+.metaphor figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.metaphor figcaption {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-60);
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+  line-height: 1.55;
+}
+.metaphor figcaption .en { font-style: italic; color: var(--ink-80); }
+.metaphor figcaption .r { color: var(--red); font-weight: 700; }
+.metaphor figcaption .g { color: var(--green); font-weight: 700; }
+
+/* ============================================================
+   TOOLBOX 안내 라인
+   ============================================================ */
+.tools-intro {
+  font-size: 12px;
+  color: var(--ink-60);
+  letter-spacing: 0.04em;
+  margin: 18px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tools-intro::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--ink);
+  display: inline-block;
+}
+.tools-intro b { color: var(--ink); font-weight: 700; }
+
+/* ============================================================
+   도구 카드 (Tool) — 아코디언
+   ============================================================ */
+.tool {
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.tool[open] { border-color: var(--ink-80); }
+.tool > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+.tool > summary::-webkit-details-marker { display: none; }
+.tool > summary:hover { background: var(--ink-05); }
+.tool > summary .tname {
+  flex: 1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.tool > summary .thint {
+  font-size: 11.5px;
+  color: var(--ink-40);
+  font-weight: 400;
+}
+.tool > summary .arr {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  font-size: 11px;
+  transition: transform 0.2s;
+  flex: 0 0 auto;
+}
+.tool[open] > summary .arr { transform: rotate(90deg); color: var(--ink); }
+.tool > summary .ticon {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  background: var(--ink-05);
+  border: 0.7px solid var(--ink-20);
+}
+.tool[open] > summary .ticon {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.tool .body { padding: 4px 16px 18px; }
+
+/* ============================================================
+   도구별 컨텐츠 스타일
+   ============================================================ */
+
+/* 30초 요약 */
+.tldr {
+  list-style: none;
+  counter-reset: t;
+}
+.tldr li {
+  position: relative;
+  padding: 9px 0 9px 30px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  border-bottom: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+.tldr li:last-child { border-bottom: none; }
+.tldr li::before {
+  counter-increment: t;
+  content: counter(t);
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 20px;
+  height: 20px;
+  background: var(--paper);
+  border: 1px solid var(--green);
+  color: var(--green);
+  border-radius: 50%;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 비유 / 배경지식 */
+.callout {
+  font-size: 14.5px;
+  line-height: 1.7;
+  padding: 13px 15px;
+  border-radius: 6px;
+  word-break: keep-all;
+  background: var(--ink-05);
+}
+.callout.analogy { border-left: 3px solid var(--green); }
+.callout.bg      { border-left: 3px solid var(--ink); }
+.callout em { font-style: italic; }
+
+/* 논지 흐름 */
+.flow { display: flex; flex-direction: column; gap: 6px; }
+.flow-step {
+  display: flex;
+  gap: 12px;
+  padding: 12px 13px;
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  background: var(--paper);
+  align-items: flex-start;
+}
+.flow-step .kind {
+  flex: 0 0 60px;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 0;
+  text-align: center;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  background: var(--ink-05);
+  color: var(--ink-80);
+  border: 0.7px solid var(--ink-20);
+}
+.flow-step.pivot .kind {
+  background: var(--red-tint); color: var(--red); border-color: var(--red);
+}
+.flow-step.close .kind {
+  background: var(--green-tint); color: var(--green); border-color: var(--green);
+}
+.flow-step .body { flex: 1; }
+.flow-step .t {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.flow-step .t .r { color: var(--red); font-weight: 700; }
+.flow-step .t .g { color: var(--green); font-weight: 700; }
+.flow-step .d {
+  font-size: 12.5px;
+  color: var(--ink-60);
+  margin-top: 4px;
+  word-break: keep-all;
+}
+.flow-arrow {
+  text-align: center;
+  color: var(--ink-20);
+  font-size: 13px;
+  font-family: var(--serif-en);
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+/* 끊어읽기 */
+.read-sent {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 11px 13px 11px;
+  margin-bottom: 8px;
+  background: var(--paper);
+}
+.read-sent .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.read-sent .chunks {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+}
+.read-sent .chunk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px 16px;
+  padding: 3px 0;
+  font-size: 12.5px;
+  border-bottom: 1px dotted var(--ink-10);
+}
+.read-sent .chunk:last-child { border-bottom: none; }
+.read-sent .chunk .ce {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.read-sent .chunk .ck { color: var(--ink-60); word-break: keep-all; }
+.read-sent .ko {
+  margin-top: 9px;
+  padding: 7px 11px;
+  background: var(--ink-05);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--ink-80);
+  word-break: keep-all;
+  line-height: 1.6;
+}
+.read-sent .ko b { color: var(--ink); font-weight: 700; }
+
+/* 어휘 chip */
+.vocab {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--ink-10);
+}
+.vocab .vlabel {
+  width: 100%;
+  font-size: 11px;
+  color: var(--ink-60);
+  letter-spacing: 0.18em;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.vocab .chip {
+  font-size: 12.5px;
+  padding: 5px 9px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.vocab .chip b {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--red);
+  font-weight: 700;
+}
+.vocab .chip span { color: var(--ink-80); margin-left: 5px; }
+
+/* 퀴즈 */
+.quiz-item {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  margin-bottom: 6px;
+  background: var(--paper);
+}
+.quiz-item > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 11px 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.quiz-item > summary::-webkit-details-marker { display: none; }
+.quiz-item .qn {
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--green);
+  border-radius: 3px;
+  padding: 2px 6px;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+.quiz-item .qarr {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--green);
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 700;
+}
+.quiz-item[open] .qarr { visibility: hidden; }
+.quiz-item .qa {
+  padding: 0 13px 13px 44px;
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+.quiz-item .qa b { color: var(--green); font-weight: 700; }
+
+/* 영어 원문 + 한글 해석 */
+.src {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 14px 16px;
+}
+.src .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+.src .ko {
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.85;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot {
+  margin-top: 36px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink-10);
+  font-size: 10.5px;
+  color: var(--ink-40);
+  text-align: center;
+  font-family: var(--serif-kr);
+  letter-spacing: 0.03em;
+}
+.foot .pub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-60);
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 540px) {
+  .wrap { padding: 14px 13px 60px; }
+  .brand { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .brand .b-meta { text-align: left; }
+  .guide .g-row { flex-direction: column; gap: 1px; padding-bottom: 4px; }
+  .guide .g-row + .g-row { border-top: 1px dashed var(--ink-10); padding-top: 5px; }
+  .guide .g-when { font-size: 12px; min-width: 0; }
+  .guide .g-sep { display: none; }
+  .guide .g-tools { font-size: 12.5px; }
+  .p-head h2 { font-size: 20px; }
+  .oneline { font-size: 16px; padding: 14px 14px; }
+  .read-sent .chunk { grid-template-columns: 1fr; gap: 1px; }
+  .read-sent .chunk .ck { padding-left: 4px; color: var(--ink-60); font-size: 12px; }
+  .flow-step { padding: 10px 11px; gap: 9px; }
+  .flow-step .kind { flex-basis: 52px; font-size: 10.5px; }
+  .tool > summary { padding: 12px 13px; font-size: 14px; }
+  .tool > summary .thint { display: none; }
+  .metaphor figure { padding: 13px 13px 10px; }
+  .metaphor figcaption { font-size: 12px; }
+}
+</style>
+</head>
+<body class="dev-phone">
+<div class="wrap">
+
+<!-- 학원 브랜드 헤더 -->
+<header class="brand">
+  <div class="b-title">
+    <h1>지문 이해 보조 자료</h1>
+    <div class="b-sub">수능특강 Light 영어 10강</div>
+  </div>
+  <div class="b-meta">
+    김가영어학원<br>
+    <span class="en">KIM KA YOUNG ENGLISH</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs"></nav>
+
+<!-- 지문 패널 -->
+<main id="main"></main>
+
+<!-- 콜로폰 -->
+<footer class="foot">
+  김가영어학원 · KIM KA YOUNG ENGLISH &nbsp;·&nbsp; 지문 이해 보조 자료
+  <span class="pub">published by warm &amp; wise books</span>
+</footer>
+
+</div>
+
+<script>
+/* ============================================================
+   데이터 (P.data) — 수능특강 Light 영어 10강
+   각 지문에 metaphor(SVG 문자열) + caption 필드 추가
+   ============================================================ */
+const P = {"data":[{"no":"1","title":"Why Moths Are Drawn to Light","ktitle":"나방은 빛에 ‘갇힌다’","field":"생물·행동","page":"p62)","oneline":"나방은 빛에 ‘끌리는’ 게 아니라 빛에 ‘갇힌다’.","tldr":["나방은 빛에 ‘끌리는’ 게 아니라 빛에 ‘갇힌다’.","빛이 감각 과부하를 일으켜 방향을 잃게 한다.","어두운 영역을 ‘출구’로 착각해 향하다 오히려 광원에 빨려든다."],"analogy":"밝은 무대 조명을 정면으로 받으면 방향 감각이 무너지죠. 나방도 빛에 감각이 마비돼 ‘여기가 출구다’ 싶은 어두운 쪽을 찾다, 오히려 빛 속으로 말려 들어가요.","bg":"나방이 빛에 모이는 이유 — ‘끌림’이 아니라 ‘감각 과부하로 방향 상실’이라는 글. 마하 밴드 이론(어두운 영역을 향함) 같은 가설이 나와요.","flow":[{"kind":"통념","t":"나방은 빛에 ‘끌린다’"},{"kind":"반전","t":"끌리는 게 아니라 ‘갇힌다’"},{"kind":"원리","t":"빛 = 감각 과부하 → 방향 상실","d":"제자리를 맴돈다."},{"kind":"가설","t":"어두운 영역을 ‘입구(출구)’로 착각","d":"마하 밴드 이론."},{"kind":"결론","t":"피하려다 오히려 광원에 빨려듦"}],"quiz":[["나방이 빛으로 모이는 진짜 이유는?","빛에 ‘끌려서’가 아니라, 빛이 감각 과부하를 일으켜 방향을 잃기 때문이에요(끌림이 아니라 갇힘)."],["나방은 왜 광원 쪽으로 더 다가가나?","광원 주변의 어두운 영역을 ‘출구’로 착각해 그쪽으로 향하다 오히려 빛에 더 가까워져요."],["핵심 한 문장?","나방은 빛에 끌리는 게 아니라 감각 과부하로 빛에 갇힌다."]],"vocab":[["consensus","합의, 일치된 견해"],["attract","끌어들이다"],["trap","가두다, 함정에 빠뜨리다"],["sensory overload","감각 과부하"],["disorient","방향 감각을 잃게 하다"],["holding pattern","제자리 맴돌기 (선회 비행)"]],"en":"There has been a lot of discussion on why moths are attracted to light. The consensus seems to hold that moths are not so much attracted to lights as they are trapped by them. The light becomes a sensory overload that disorients the insects and sends them into a holding pattern. A hypothesis called the Mach band theory suggests that moths see a dark area around a light source and head for it to escape the light. Another theory suggests that moths perceive the light coming from a source as a diffuse halo with a dark spot in the center. The moths, attempting to escape the light, fly toward that imagined \"portal,\" bringing them closer to the source. As they approach the light, their reference point changes and they circle the light hopelessly trying to reach the portal. Everyone is familiar with moths circling their porch lights. Their flight appears to have no purpose, but they are, it is believed, trying to escape the pull of the light.","ko":"나방이 왜 빛에 끌리는지에 관한 많은 논의가 있어 왔다. 나방이 빛에 끌리는 것이 아니라 빛에 의해 갇힌다는 것이 합의인 것처럼 보인다. 빛은 감각 과부하를 일으켜 곤충이 방향을 잃게 하고 그것이 제자리를 맴돌게 한다. 마하 밴드 이론이라는 가설에 따르면, 나방은 광원 주변의 어두운 영역을 보고 빛을 피하고자 그쪽으로 향한다. 또 다른 이론은 나방이 광원에서 나오는 빛을 중앙에 어두운 점이 있는, 널리 퍼진 광륜으로 인식한다는 것을 보여 준다. 나방은 빛을 피하려고 애쓰면서, 상상 속의 '입구'를 향해 날아가 광원에 더 가까이 다가가게 된다. 빛에 가까워지면서 나방의 기준점이 바뀌고 나방은 입구에 도달하기 위해 어쩔 도리 없이 빛 주위를 맴돈다. 누구나 현관 불빛을 맴도는 나방에 익숙하다. 나방의 비행은 아무런 목적이 없는 것처럼 보이지만, 그것들은 빛의 끌어당김에서 벗어나려고 애쓰고 있는 것으로 여겨진다.","read":[{"en":"There has been a lot of discussion on why moths are attracted to light.","ko":"나방이 왜 빛에 끌리는지에 관한 많은 논의가 있어 왔다.","chunks":[["There has been a lot of discussion","많은 논의가 있어 왔다"],["on why moths are attracted to light","나방이 왜 빛에 끌리는지에 관한"]]},{"en":"The consensus seems to hold that moths are not so much attracted to lights as they are trapped by them.","ko":"나방이 빛에 끌리는 것이 아니라 빛에 의해 갇힌다는 것이 합의인 것처럼 보인다.","chunks":[["The consensus seems to hold","합의는 ~인 것처럼 보인다"],["that moths are not so much attracted to lights","나방이 빛에 끌리는 것이 아니라"],["as they are trapped by them","빛에 의해 갇힌다"]]},{"en":"The light becomes a sensory overload that disorients the insects and sends them into a holding pattern.","ko":"빛은 감각 과부하를 일으켜 곤충이 방향을 잃게 하고 그것이 제자리를 맴돌게 한다.","chunks":[["The light becomes a sensory overload","빛은 감각 과부하가 되어"],["that disorients the insects","곤충이 방향을 잃게 하고"],["and sends them into a holding pattern","제자리를 맴돌게 한다"]]},{"en":"A hypothesis called the Mach band theory suggests that moths see a dark area around a light source and head for it to escape the light.","ko":"마하 밴드 이론이라는 가설에 따르면, 나방은 광원 주변의 어두운 영역을 보고 빛을 피하고자 그쪽으로 향한다.","chunks":[["A hypothesis called the Mach band theory","마하 밴드 이론이라는 가설은"],["suggests that moths see a dark area around a light source","나방이 광원 주변의 어두운 영역을 본다"],["and head for it to escape the light","빛을 피하려고 그곳으로 향한다고 말한다"]]},{"en":"Another theory suggests that moths perceive the light coming from a source as a diffuse halo with a dark spot in the center.","ko":"또 다른 이론은 나방이 광원에서 나오는 빛을 중앙에 어두운 점이 있는, 널리 퍼진 광륜으로 인식한다는 것을 보여 준다.","chunks":[["Another theory suggests","또 다른 이론은 ~라고 시사한다"],["that moths perceive the light coming from a source","나방이 광원에서 나오는 빛을 인식한다"],["as a diffuse halo with a dark spot in the center","중앙에 어두운 점이 있는 널리 퍼진 광륜으로"]]},{"en":"The moths, attempting to escape the light, fly toward that imagined \"portal,\" bringing them closer to the source.","ko":"나방은 빛을 피하려고 애쓰면서, 상상 속의 '입구'를 향해 날아가 광원에 더 가까이 다가가게 된다.","chunks":[["The moths, attempting to escape the light,","나방은 빛을 피하려고 애쓰면서"],["fly toward that imagined \"portal,\"","상상 속의 '입구'를 향해 날아가"],["bringing them closer to the source","광원에 더 가까이 다가가게 된다"]]},{"en":"As they approach the light, their reference point changes and they circle the light hopelessly trying to reach the portal.","ko":"빛에 가까워지면서 나방의 기준점이 바뀌고 나방은 입구에 도달하기 위해 어쩔 도리 없이 빛 주위를 맴돈다.","chunks":[["As they approach the light,","빛에 가까워지면서"],["their reference point changes","기준점이 바뀌고"],["and they circle the light hopelessly","어쩔 도리 없이 빛 주위를 맴돈다"],["trying to reach the portal","입구에 도달하기 위해 애쓰면서"]]},{"en":"Everyone is familiar with moths circling their porch lights.","ko":"누구나 현관 불빛을 맴도는 나방에 익숙하다.","chunks":[["Everyone is familiar with","누구나 ~에 익숙하다"],["moths circling their porch lights","현관 불빛을 맴도는 나방"]]},{"en":"Their flight appears to have no purpose, but they are, it is believed, trying to escape the pull of the light.","ko":"나방의 비행은 아무런 목적이 없는 것처럼 보이지만, 그것들은 빛의 끌어당김에서 벗어나려고 애쓰고 있는 것으로 여겨진다.","chunks":[["Their flight appears to have no purpose,","나방의 비행은 목적이 없는 것처럼 보이지만,"],["but they are, it is believed,","그것들은 — 그렇게 여겨지듯이 —"],["trying to escape the pull of the light","빛의 끌어당김에서 벗어나려고 애쓰고 있다"]]}],"metaphor":"<svg viewBox=\"0 0 600 290\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"상단은 통념 attracts와 진짜 trapped의 대조이고 하단은 두 이론 박스로 Mach band는 광원 주변 어두운 영역으로 향하는 나방, Diffuse halo는 가운데 어두운 점이 있는 빛의 halo에서 그 portal로 향하는 나방을 보여주는 그림\">\n  <!-- ━━━━━ 상단 통념 vs 진짜 ━━━━━ -->\n  <!-- 좌: 통념 -->\n  <g transform=\"translate(20, 25)\">\n    <text x=\"125\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">통념 — 빛에 끌림</text>\n    <rect x=\"0\" y=\"0\" width=\"250\" height=\"135\" fill=\"#fdf2f4\" fill-opacity=\"0.3\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/>\n    <!-- 빛 -->\n    <g transform=\"translate(40, 65)\">\n      <circle cx=\"0\" cy=\"0\" r=\"18\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.8\"/>\n      <g stroke=\"#c8102e\" stroke-width=\"1.2\">\n        <line x1=\"0\" y1=\"-24\" x2=\"0\" y2=\"-30\"/>\n        <line x1=\"17\" y1=\"-17\" x2=\"20\" y2=\"-20\"/>\n        <line x1=\"24\" y1=\"0\" x2=\"30\" y2=\"0\"/>\n        <line x1=\"17\" y1=\"17\" x2=\"20\" y2=\"20\"/>\n        <line x1=\"0\" y1=\"24\" x2=\"0\" y2=\"30\"/>\n        <line x1=\"-17\" y1=\"17\" x2=\"-20\" y2=\"20\"/>\n        <line x1=\"-24\" y1=\"0\" x2=\"-30\" y2=\"0\"/>\n        <line x1=\"-17\" y1=\"-17\" x2=\"-20\" y2=\"-20\"/>\n      </g>\n      <text x=\"0\" y=\"4\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">light</text>\n    </g>\n    <!-- 직진 화살표 -->\n    <line x1=\"80\" y1=\"65\" x2=\"170\" y2=\"65\" stroke=\"#c8102e\" stroke-width=\"2\"/>\n    <polygon points=\"170,65 162,60 162,70\" fill=\"#c8102e\"/>\n    <text x=\"125\" y=\"55\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">attracts</text>\n    <!-- 나방 -->\n    <g transform=\"translate(195, 65)\">\n      <ellipse cx=\"0\" cy=\"0\" rx=\"3\" ry=\"9\" fill=\"#1a1a1a\"/>\n      <ellipse cx=\"-9\" cy=\"-2\" rx=\"11\" ry=\"6\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\" transform=\"rotate(-25, -9, -2)\"/>\n      <ellipse cx=\"9\" cy=\"-2\" rx=\"11\" ry=\"6\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\" transform=\"rotate(25, 9, -2)\"/>\n      <text x=\"0\" y=\"22\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\">moth</text>\n    </g>\n    <text x=\"125\" y=\"123\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\">intuitive — drawn toward light</text>\n  </g>\n\n  <!-- 가운데 -->\n  <g transform=\"translate(287, 85)\">\n    <text x=\"0\" y=\"0\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">not so much</text>\n    <text x=\"0\" y=\"14\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">as</text>\n  </g>\n\n  <!-- 우: 진짜 -->\n  <g transform=\"translate(330, 25)\">\n    <text x=\"125\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">진짜 — 빛에 갇힘</text>\n    <rect x=\"0\" y=\"0\" width=\"250\" height=\"135\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n    <!-- 광원 (중앙) -->\n    <g transform=\"translate(125, 65)\">\n      <circle cx=\"0\" cy=\"0\" r=\"15\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.8\"/>\n      <text x=\"0\" y=\"4\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">light</text>\n    </g>\n    <!-- 헤매는 경로 -->\n    <g fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.2\" stroke-dasharray=\"3 2\">\n      <path d=\"M 40 65 Q 60 40 95 50 Q 130 30 160 55 Q 200 65 210 90 Q 195 115 155 105 Q 110 115 85 95 Q 55 80 50 65\"/>\n    </g>\n    <!-- 나방 4마리 -->\n    <g transform=\"translate(50, 65) scale(0.5) rotate(0)\">\n      <ellipse cx=\"0\" cy=\"0\" rx=\"3\" ry=\"8\" fill=\"#1a1a1a\"/>\n      <ellipse cx=\"-8\" cy=\"-2\" rx=\"10\" ry=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" transform=\"rotate(-25)\"/>\n      <ellipse cx=\"8\" cy=\"-2\" rx=\"10\" ry=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" transform=\"rotate(25)\"/>\n    </g>\n    <g transform=\"translate(85, 45) scale(0.5) rotate(40)\">\n      <ellipse cx=\"0\" cy=\"0\" rx=\"3\" ry=\"8\" fill=\"#1a1a1a\"/>\n      <ellipse cx=\"-8\" cy=\"-2\" rx=\"10\" ry=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" transform=\"rotate(-25)\"/>\n      <ellipse cx=\"8\" cy=\"-2\" rx=\"10\" ry=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" transform=\"rotate(25)\"/>\n    </g>\n    <g transform=\"translate(170, 50) scale(0.5) rotate(90)\">\n      <ellipse cx=\"0\" cy=\"0\" rx=\"3\" ry=\"8\" fill=\"#1a1a1a\"/>\n      <ellipse cx=\"-8\" cy=\"-2\" rx=\"10\" ry=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" transform=\"rotate(-25)\"/>\n      <ellipse cx=\"8\" cy=\"-2\" rx=\"10\" ry=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" transform=\"rotate(25)\"/>\n    </g>\n    <g transform=\"translate(200, 100) scale(0.5) rotate(150)\">\n      <ellipse cx=\"0\" cy=\"0\" rx=\"3\" ry=\"8\" fill=\"#1a1a1a\"/>\n      <ellipse cx=\"-8\" cy=\"-2\" rx=\"10\" ry=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" transform=\"rotate(-25)\"/>\n      <ellipse cx=\"8\" cy=\"-2\" rx=\"10\" ry=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" transform=\"rotate(25)\"/>\n    </g>\n    <text x=\"125\" y=\"15\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">trapped (not attracted)</text>\n    <text x=\"125\" y=\"123\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\">sensory overload · disoriented</text>\n  </g>\n\n  <!-- ━━━━━ 하단 두 이론 ━━━━━ -->\n  <text x=\"300\" y=\"180\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">왜 갇히는가 — 두 가설</text>\n\n  <!-- 좌 하단: Mach band theory -->\n  <g transform=\"translate(20, 190)\">\n    <rect x=\"0\" y=\"0\" width=\"275\" height=\"80\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n    <text x=\"137\" y=\"14\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">Mach band theory</text>\n    <!-- 광원 -->\n    <g transform=\"translate(75, 50)\">\n      <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n      <!-- 광원 주변 어두운 영역 (점선 큰 원) -->\n      <circle cx=\"0\" cy=\"0\" r=\"22\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" stroke-dasharray=\"3 2\"/>\n      <text x=\"0\" y=\"3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">light</text>\n      <text x=\"0\" y=\"-30\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#1a1a1a\">dark area</text>\n    </g>\n    <!-- 나방 (밖에서 어두운 영역으로 향함) -->\n    <g transform=\"translate(200, 50)\">\n      <ellipse cx=\"0\" cy=\"0\" rx=\"3\" ry=\"7\" fill=\"#1a1a1a\"/>\n      <ellipse cx=\"-7\" cy=\"-2\" rx=\"9\" ry=\"4.5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" transform=\"rotate(-25)\"/>\n      <ellipse cx=\"7\" cy=\"-2\" rx=\"9\" ry=\"4.5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" transform=\"rotate(25)\"/>\n    </g>\n    <!-- 화살표 (어두운 영역 방향) -->\n    <line x1=\"185\" y1=\"50\" x2=\"115\" y2=\"50\" stroke=\"#1a1a1a\" stroke-width=\"1.4\" stroke-dasharray=\"3 2\"/>\n    <polygon points=\"115,50 122,46 122,54\" fill=\"#1a1a1a\"/>\n    <text x=\"150\" y=\"72\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#1FA34A\">heads for dark area</text>\n  </g>\n\n  <!-- 우 하단: Diffuse halo theory -->\n  <g transform=\"translate(305, 190)\">\n    <rect x=\"0\" y=\"0\" width=\"275\" height=\"80\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n    <text x=\"137\" y=\"14\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">Diffuse halo theory</text>\n    <!-- 큰 빛 halo + 가운데 dark spot (portal) -->\n    <g transform=\"translate(75, 50)\">\n      <circle cx=\"0\" cy=\"0\" r=\"22\" fill=\"#f0faf3\" fill-opacity=\"0.5\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <!-- 빛 방사 -->\n      <g stroke=\"#1FA34A\" stroke-width=\"0.9\" opacity=\"0.7\">\n        <line x1=\"0\" y1=\"-26\" x2=\"0\" y2=\"-22\"/>\n        <line x1=\"18\" y1=\"-18\" x2=\"15\" y2=\"-15\"/>\n        <line x1=\"26\" y1=\"0\" x2=\"22\" y2=\"0\"/>\n        <line x1=\"18\" y1=\"18\" x2=\"15\" y2=\"15\"/>\n        <line x1=\"0\" y1=\"26\" x2=\"0\" y2=\"22\"/>\n        <line x1=\"-18\" y1=\"18\" x2=\"-15\" y2=\"15\"/>\n        <line x1=\"-26\" y1=\"0\" x2=\"-22\" y2=\"0\"/>\n        <line x1=\"-18\" y1=\"-18\" x2=\"-15\" y2=\"-15\"/>\n      </g>\n      <!-- 가운데 dark spot -->\n      <circle cx=\"0\" cy=\"0\" r=\"6\" fill=\"#1a1a1a\"/>\n      <text x=\"0\" y=\"-30\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">\"portal\"</text>\n    </g>\n    <!-- 나방 -->\n    <g transform=\"translate(200, 50)\">\n      <ellipse cx=\"0\" cy=\"0\" rx=\"3\" ry=\"7\" fill=\"#1a1a1a\"/>\n      <ellipse cx=\"-7\" cy=\"-2\" rx=\"9\" ry=\"4.5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" transform=\"rotate(-25)\"/>\n      <ellipse cx=\"7\" cy=\"-2\" rx=\"9\" ry=\"4.5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" transform=\"rotate(25)\"/>\n    </g>\n    <!-- 화살표 (dark spot 방향) -->\n    <line x1=\"185\" y1=\"50\" x2=\"95\" y2=\"50\" stroke=\"#1a1a1a\" stroke-width=\"1.4\" stroke-dasharray=\"3 2\"/>\n    <polygon points=\"95,50 102,46 102,54\" fill=\"#1a1a1a\"/>\n    <text x=\"150\" y=\"72\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#1FA34A\">heads for \"portal\" → closer to light</text>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"285\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">moths chase darkness — and that's what traps them in light</text>\n</svg>","caption":"통념(빛에 *끌림*) ↔ 진짜(빛에 *갇힘* — 어두운 영역 헤맴)"},{"no":"2","title":"Accent as a Social Tag","ktitle":"억양 = 사회적 표식","field":"사회언어","page":"p64)","oneline":"억양은 ‘무엇을 말하느냐’와 무관하게 작동한다.","tldr":["억양은 ‘무엇을 말하느냐’와 무관하게 작동한다.","출신·사회경제적 지위·소속 집단을 드러내는 ‘표식’이다.","발음 선택과 달리 통제·위조가 어려워 ‘신뢰할 신호’가 된다."],"analogy":"교복만 봐도 어느 학교인지 알 수 있죠. 억양도 비슷해요 — 무슨 말을 하든, 말투 자체가 ‘나는 이런 집단 사람’이라고 알려주는 표식이에요.","bg":"‘억양(accent)’이 내용과 무관하게 화자의 출신·사회경제적 지위·소속을 드러내는 ‘신뢰할 만한 사회적 신호(표식)’라는 사회언어학 글이에요.","flow":[{"kind":"전제","t":"언어는 거짓말도, 신뢰 신호도 된다"},{"kind":"핵심","t":"억양 = 내용과 무관한 ‘표식’"},{"kind":"내용","t":"출신·계층·소속을 드러냄"},{"kind":"특성","t":"통제·위조 어려움 → 신뢰할 신호"},{"kind":"결론","t":"억양이 사회적 관계를 규정한다"}],"quiz":[["억양이 드러내는 것은?","무엇을 말하든, 화자의 출신·사회경제적 지위·소속 집단을 드러내요(사회적 표식)."],["억양이 ‘신뢰할 만한 신호’인 이유는?","발음 선택과 달리 통제·위조가 어려워, 진짜 정보를 드러내기 때문이에요."],["핵심 한 문장?","억양은 내용과 무관하게 ‘내가 어떤 집단인지’를 드러내는 표식이다."]],"vocab":[["reliable","신뢰할 수 있는"],["independent of","~와 무관하게"],["accent","억양, 말씨"],["reveal","드러내다, 밝히다"],["socioeconomic socio-","사회 경제적인"],["which side of the tracks","어느 쪽 출신인지"]],"en":"Language can be used to lie, but it can also be a reliable signal. Quite independent of what you say, the accent you say it with reveals things about who you are ─ where you grew up, your socioeconomic status, which side of the tracks you are from. Your accent is a tag, telling people which social category you're in. Not unlike the stories we tell and the greetings we give, this kind of tag defines your social relationship with others. It says who you are more likely to be affiliated with. And unlike the choice of how to pronounce the word Hi when you greet someone at the door, your accent is less under your flexible control. It is harder to fake.","ko":"언어는 거짓말을 하는 데 사용될 수 있지만, 신뢰할 수 있는 신호가 될 수도 있다. 여러분이 무엇을 말하느냐와는 아주 무관하게, 여러분이 그것을 말할 때 사용하는 억양은 여러분이 누구인지에 관한 것 — 즉 여러분이 어디서 성장했는지, 사회 경제적 지위, 어느 쪽 출신인지를 드러낸다. 여러분의 억양은 하나의 표식으로, 여러분이 어떤 사회적 범주에 속해 있는지를 사람들에게 말해 준다. 우리가 하는 이야기들과 우리가 건네는 인사들과 다르지 않게, 이런 종류의 표식은 여러분과 다른 사람들과의 사회적 관계를 규정한다. 그것은 여러분이 누구와 어울릴 가능성이 더 큰지를 말해 준다. 그리고 누군가를 문 앞에서 맞이할 때 '안녕'이라는 단어를 어떻게 발음할지를 선택하는 것과는 달리, 여러분의 억양은 여러분의 융통성 있는 통제 아래에 덜 놓여 있다. 그것은 꾸며 내기가 더 어렵다.","read":[{"en":"Language can be used to lie, but it can also be a reliable signal.","ko":"언어는 거짓말을 하는 데 사용될 수 있지만, 신뢰할 수 있는 신호가 될 수도 있다.","chunks":[["Language can be used to lie,","언어는 거짓말을 하는 데 사용될 수 있지만,"],["but it can also be a reliable signal","그것은 신뢰할 수 있는 신호가 될 수도 있다"]]},{"en":"Quite independent of what you say, the accent you say it with reveals things about who you are ─ where you grew up, your socioeconomic status, which side of the tracks you are from.","ko":"여러분이 무엇을 말하느냐와는 아주 무관하게, 여러분이 그것을 말할 때 사용하는 억양은 여러분이 누구인지에 관한 것 — 즉 여러분이 어디서 성장했는지, 사회 경제적 지위, 어느 쪽 출신인지를 드러낸다.","chunks":[["Quite independent of what you say,","여러분이 무엇을 말하느냐와는 아주 무관하게,"],["the accent you say it with","여러분이 그것을 말할 때 사용하는 억양은"],["reveals things about who you are","여러분이 누구인지에 관한 것을 드러낸다"],["─ where you grew up, your socioeconomic status,","즉 여러분이 어디서 성장했는지, 사회 경제적 지위,"],["which side of the tracks you are from","여러분이 어느 쪽 출신인지를"]]},{"en":"Your accent is a tag, telling people which social category you're in.","ko":"여러분의 억양은 하나의 표식으로, 여러분이 어떤 사회적 범주에 속해 있는지를 사람들에게 말해 준다.","chunks":[["Your accent is a tag,","여러분의 억양은 하나의 표식으로,"],["telling people which social category you're in","어떤 사회적 범주에 속해 있는지 사람들에게 말해 준다"]]},{"en":"Not unlike the stories we tell and the greetings we give, this kind of tag defines your social relationship with others.","ko":"우리가 하는 이야기들과 우리가 건네는 인사들과 다르지 않게, 이런 종류의 표식은 여러분과 다른 사람들과의 사회적 관계를 규정한다.","chunks":[["Not unlike the stories we tell and the greetings we give,","우리가 하는 이야기와 우리가 건네는 인사들과 다르지 않게,"],["this kind of tag defines your social relationship with others","이런 종류의 표식은 다른 사람들과의 사회적 관계를 규정한다"]]},{"en":"It says who you are more likely to be affiliated with.","ko":"그것은 여러분이 누구와 어울릴 가능성이 더 큰지를 말해 준다.","chunks":[["It says","그것은 ~을 말해 준다"],["who you are more likely to be affiliated with","여러분이 누구와 어울릴 가능성이 더 큰지를"]]},{"en":"And unlike the choice of how to pronounce the word Hi when you greet someone at the door, your accent is less under your flexible control.","ko":"그리고 누군가를 문 앞에서 맞이할 때 '안녕'이라는 단어를 어떻게 발음할지를 선택하는 것과는 달리, 여러분의 억양은 여러분의 융통성 있는 통제 아래에 덜 놓여 있다.","chunks":[["And unlike the choice of how to pronounce the word Hi","그리고 'Hi'라는 단어를 어떻게 발음할지를 선택하는 것과는 달리"],["when you greet someone at the door,","누군가를 문 앞에서 맞이할 때,"],["your accent is less under your flexible control","여러분의 억양은 융통성 있는 통제 아래에 덜 놓여 있다"]]},{"en":"It is harder to fake.","ko":"그것은 꾸며 내기가 더 어렵다.","chunks":[["It is harder to fake","그것은 꾸며 내기가 더 어렵다"]]}],"metaphor":"<svg viewBox=\"0 0 600 260\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"중앙에 사람 한 명이 서 있고 옆구리에 출신·계층·소속이라는 세 개의 빨강 점선 태그가 매달려 있으며, 위쪽 풍선에는 자유롭게 선택 가능한 말 내용이 초록 체크로, 아래에는 통제 불가능한 억양이 빨강 X 표시로 대비되는 그림\">\n  <!-- 중앙 사람 stick figure -->\n  <g transform=\"translate(300, 135)\">\n    <!-- 머리 -->\n    <circle cx=\"0\" cy=\"-32\" r=\"16\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <circle cx=\"-5\" cy=\"-33\" r=\"1.6\" fill=\"#1a1a1a\"/>\n    <circle cx=\"5\" cy=\"-33\" r=\"1.6\" fill=\"#1a1a1a\"/>\n    <path d=\"M -5 -27 Q 0 -24 5 -27\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n    <!-- 몸 -->\n    <line x1=\"0\" y1=\"-16\" x2=\"0\" y2=\"32\" stroke=\"#1a1a1a\" stroke-width=\"1.6\"/>\n    <!-- 팔 -->\n    <line x1=\"0\" y1=\"-6\" x2=\"-15\" y2=\"8\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <line x1=\"0\" y1=\"-6\" x2=\"15\" y2=\"8\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <!-- 다리 -->\n    <line x1=\"0\" y1=\"32\" x2=\"-11\" y2=\"55\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <line x1=\"0\" y1=\"32\" x2=\"11\" y2=\"55\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n  </g>\n\n  <!-- 위 풍선: what(말 내용) — 자유 -->\n  <g transform=\"translate(300, 32)\">\n    <ellipse cx=\"0\" cy=\"0\" rx=\"92\" ry=\"20\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n    <!-- 꼬리 -->\n    <path d=\"M -10 18 Q -8 26 -3 30 L 4 22 Z\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n    <text x=\"0\" y=\"-2\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">what (말 내용)</text>\n    <text x=\"0\" y=\"11\" font-family=\"Noto Serif KR\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1FA34A\">자유롭게 선택 가능</text>\n  </g>\n  <g transform=\"translate(395, 32)\">\n    <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#1FA34A\"/>\n    <path d=\"M -4 0 L -1 4 L 5 -3\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2\"/>\n  </g>\n\n  <!-- 좌측 — 매달린 tag 들 (출신·계층·소속) -->\n  <g>\n    <!-- 끈 -->\n    <line x1=\"290\" y1=\"115\" x2=\"245\" y2=\"100\" stroke=\"#c8102e\" stroke-width=\"1\" stroke-dasharray=\"2 2\"/>\n    <!-- tag 1: origin -->\n    <g transform=\"translate(170, 80)\">\n      <path d=\"M 0 0 L 70 0 L 80 11 L 70 22 L 0 22 Z\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"3 2\"/>\n      <circle cx=\"6\" cy=\"11\" r=\"2.5\" fill=\"#c8102e\"/>\n      <text x=\"45\" y=\"15\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">origin</text>\n    </g>\n\n    <!-- 끈 -->\n    <line x1=\"290\" y1=\"130\" x2=\"250\" y2=\"130\" stroke=\"#c8102e\" stroke-width=\"1\" stroke-dasharray=\"2 2\"/>\n    <!-- tag 2: class -->\n    <g transform=\"translate(170, 119)\">\n      <path d=\"M 0 0 L 70 0 L 80 11 L 70 22 L 0 22 Z\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"3 2\"/>\n      <circle cx=\"6\" cy=\"11\" r=\"2.5\" fill=\"#c8102e\"/>\n      <text x=\"45\" y=\"15\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">class</text>\n    </g>\n\n    <!-- 끈 -->\n    <line x1=\"290\" y1=\"150\" x2=\"252\" y2=\"160\" stroke=\"#c8102e\" stroke-width=\"1\" stroke-dasharray=\"2 2\"/>\n    <!-- tag 3: group -->\n    <g transform=\"translate(170, 158)\">\n      <path d=\"M 0 0 L 70 0 L 80 11 L 70 22 L 0 22 Z\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"3 2\"/>\n      <circle cx=\"6\" cy=\"11\" r=\"2.5\" fill=\"#c8102e\"/>\n      <text x=\"45\" y=\"15\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">group</text>\n    </g>\n  </g>\n\n  <!-- 좌측 라벨 -->\n  <text x=\"210\" y=\"60\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">사회적 표식 (tag)</text>\n  <text x=\"210\" y=\"200\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-style=\"italic\">출신 · 계층 · 소속을 드러냄</text>\n\n  <!-- 우측: how(억양) — 통제 불가 -->\n  <g transform=\"translate(395, 135)\">\n    <rect x=\"0\" y=\"-22\" width=\"135\" height=\"50\" rx=\"5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"3 2\"/>\n    <text x=\"67\" y=\"-7\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">how (억양)</text>\n    <text x=\"67\" y=\"9\" font-family=\"Noto Serif KR\" font-size=\"10\" text-anchor=\"middle\" fill=\"#c8102e\">통제 어려움</text>\n    <text x=\"67\" y=\"22\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\">hard to fake</text>\n    <!-- 자물쇠 표시 (잠김) -->\n    <g transform=\"translate(150, 0)\">\n      <rect x=\"-7\" y=\"-3\" width=\"14\" height=\"11\" rx=\"1\" fill=\"#c8102e\"/>\n      <path d=\"M -4 -3 L -4 -8 Q -4 -12 0 -12 Q 4 -12 4 -8 L 4 -3\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.6\"/>\n    </g>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"250\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">accent = social tag · regardless of what you say, it reveals who you are</text>\n</svg>","caption":"사람에 매달린 tag — 출신·계층·소속 (what 자유 vs how 통제 불가)"},{"no":"3","title":"Breaking the Rumination Trap","ktitle":"반추의 함정 끊기","field":"심리·자기조절","page":"p65)","oneline":"고통스러운 생각은 휘저을수록 더 쉽게 떠오른다(반추의 함정).","tldr":["고통스러운 생각은 휘저을수록 더 쉽게 떠오른다(반추의 함정).","머릿속 ‘생각’만으로는 그 흐름을 끊기 매우 어렵다.","‘몸을 움직이는’ 적극적 접근으로 마음의 흐름을 전환하라."],"analogy":"안 좋은 생각이 꼬리를 물 때 가만히 ‘그만하자’ 해봐야 안 되죠. 자리에서 일어나 걷거나 움직이면 그 고리가 끊깁니다 — 머리가 아니라 ‘몸’으로요.","bg":"‘반추(rumination)’의 악순환을 끊는 법을 다루는 글. 머릿속 생각만으론 어렵고, ‘신체적 움직임(적극적 접근)’으로 마음의 흐름을 바꾸라고 해요.","flow":[{"kind":"문제","t":"반추 — 고통 생각이 꼬리를 문다"},{"kind":"심화","t":"다시 촉발 → 어두운 곳으로 가라앉음"},{"kind":"한계","t":"‘생각’만으론 전환이 매우 어렵다"},{"kind":"해법","t":"적극적 접근 — 신체적 움직임"},{"kind":"결론","t":"몸으로 마음의 흐름을 끊는다"}],"quiz":[["고통스러운 반추를 ‘생각만으로’ 끊기 어려운 이유는?","머릿속 정신적 개념만으로 새로운 것에 다시 집중하는 게 매우 어렵기 때문이에요."],["글이 권하는 ‘적극적 접근법’은?","신체적 움직임 — 몸을 움직여 마음의 흐름을 강제로 전환하는 거예요."],["핵심 한 문장?","반추는 생각이 아니라 ‘몸의 움직임’으로 끊는 게 효과적이다."]],"vocab":[["churn over","(생각·기억을) 휘젓다, 곱씹다"],["retrigger re-","다시 촉발하다"],["distress","심리적 고통, 괴로움"],["rumination","반추, 곱씹기"],["re-focus","다시 집중하다"],["hugely","매우, 엄청나게"]],"en":"The more you churn over painful thoughts or memories, the easier it becomes for you to bring those things to mind. You find yourself in a trap in which you continuously retrigger painful emotions and distress and sink into a dark place. So, what can we do to stop the rumination that feeds painful emotion? When trying to change something in the moment, purely using a mental concept in our heads to re-focus on something new can be hugely difficult. I have seen many people use an active approach to good effect. When you notice that you are sliding down the slippery slope of rumination, try a firm hand pushed out in front and one word, 'Stop!', quickly followed by physical movement, such as standing up and moving away from the position you are in. Change activity for a moment, or even just walk around or step outside for a few minutes, whatever is possible at the time. Physically moving your body can help to shift your mind when it is otherwise very difficult.","ko":"고통스러운 생각이나 기억을 더 많이 휘저을수록, 그것을 떠올리기가 더 쉬워진다. 여러분은 자신이 고통스러운 감정과 심리적 고통을 계속해서 다시 촉발하고 어두운 곳으로 가라앉는 함정에 빠지게 된다. 그래서 고통스러운 감정을 돋우는 반추를 멈추기 위해 우리는 무엇을 할 수 있을까? 당장 뭔가를 바꾸려고 할 때 머릿속의 정신적 개념만을 사용해서 새로운 것에 다시 집중하는 것은 매우 어려울 수 있다. 나는 많은 이들이 적극적인 접근법을 효과적으로 사용하는 것을 보아 왔다. 반추라는 미끄러운 비탈을 자신이 내려가고 있음을 알아차리게 되면, 흔들림 없는 손을 앞으로 내밀며 '멈춰!'라는 한 단어를 말하고, 일어나서 있던 위치에서 이동하는 것과 같은 신체적 움직임을 곧바로 해 보라. 잠시 활동을 바꾸거나 심지어 단지 걸어 다니거나 몇 분간 밖에 나가거나 그 순간 가능한 무엇이든 상관없다. 신체를 물리적으로 움직이는 것은, 그렇지 않으면 매우 어려운 상황에서 마음을 전환하는 데 도움이 될 수 있다.","read":[{"en":"The more you churn over painful thoughts or memories, the easier it becomes for you to bring those things to mind.","ko":"고통스러운 생각이나 기억을 더 많이 휘저을수록, 그것을 떠올리기가 더 쉬워진다.","chunks":[["The more you churn over painful thoughts or memories,","고통스러운 생각이나 기억을 더 많이 휘저을수록,"],["the easier it becomes for you to bring those things to mind","그것을 떠올리기가 더 쉬워진다"]]},{"en":"You find yourself in a trap in which you continuously retrigger painful emotions and distress and sink into a dark place.","ko":"여러분은 자신이 고통스러운 감정과 심리적 고통을 계속해서 다시 촉발하고 어두운 곳으로 가라앉는 함정에 빠지게 된다.","chunks":[["You find yourself in a trap","여러분은 자신이 함정에 빠지게 된다"],["in which you continuously retrigger painful emotions and distress","고통스러운 감정과 심리적 고통을 계속해서 다시 촉발하고"],["and sink into a dark place","어두운 곳으로 가라앉는"]]},{"en":"So, what can we do to stop the rumination that feeds painful emotion?","ko":"그래서 고통스러운 감정을 돋우는 반추를 멈추기 위해 우리는 무엇을 할 수 있을까?","chunks":[["So, what can we do","그래서 우리는 무엇을 할 수 있을까"],["to stop the rumination","반추를 멈추기 위해"],["that feeds painful emotion","고통스러운 감정을 돋우는"]]},{"en":"When trying to change something in the moment, purely using a mental concept in our heads to re-focus on something new can be hugely difficult.","ko":"당장 뭔가를 바꾸려고 할 때 머릿속의 정신적 개념만을 사용해서 새로운 것에 다시 집중하는 것은 매우 어려울 수 있다.","chunks":[["When trying to change something in the moment,","당장 뭔가를 바꾸려고 할 때,"],["purely using a mental concept in our heads","오로지 머릿속의 정신적 개념만을 사용해서"],["to re-focus on something new","새로운 것에 다시 집중하기 위해"],["can be hugely difficult","매우 어려울 수 있다"]]},{"en":"I have seen many people use an active approach to good effect.","ko":"나는 많은 이들이 적극적인 접근법을 효과적으로 사용하는 것을 보아 왔다.","chunks":[["I have seen many people use an active approach","나는 많은 이들이 적극적인 접근법을 사용하는 것을 보아 왔다"],["to good effect","효과적으로"]]},{"en":"When you notice that you are sliding down the slippery slope of rumination, try a firm hand pushed out in front and one word, 'Stop!', quickly followed by physical movement, such as standing up and moving away from the position you are in.","ko":"반추라는 미끄러운 비탈을 자신이 내려가고 있음을 알아차리게 되면, 흔들림 없는 손을 앞으로 내밀며 '멈춰!'라는 한 단어를 말하고, 일어나서 있던 위치에서 이동하는 것과 같은 신체적 움직임을 곧바로 해 보라.","chunks":[["When you notice that you are sliding down the slippery slope of rumination,","반추라는 미끄러운 비탈을 자신이 내려가고 있음을 알아차리게 되면,"],["try a firm hand pushed out in front","흔들림 없는 손을 앞으로 내미는 것을 해 보라"],["and one word, 'Stop!',","그리고 '멈춰!'라는 한 단어를"],["quickly followed by physical movement,","곧바로 신체적 움직임이 뒤따르는"],["such as standing up and moving away from the position you are in","일어서서 있던 위치에서 이동하는 것 같은"]]},{"en":"Change activity for a moment, or even just walk around or step outside for a few minutes, whatever is possible at the time.","ko":"잠시 활동을 바꾸거나 심지어 단지 걸어 다니거나 몇 분간 밖에 나가거나 그 순간 가능한 무엇이든 상관없다.","chunks":[["Change activity for a moment,","잠시 활동을 바꾸거나,"],["or even just walk around or step outside for a few minutes,","심지어 단지 걸어 다니거나 몇 분간 밖에 나가거나,"],["whatever is possible at the time","그 순간 가능한 무엇이든"]]},{"en":"Physically moving your body can help to shift your mind when it is otherwise very difficult.","ko":"신체를 물리적으로 움직이는 것은, 그렇지 않으면 매우 어려운 상황에서 마음을 전환하는 데 도움이 될 수 있다.","chunks":[["Physically moving your body","신체를 물리적으로 움직이는 것은"],["can help to shift your mind","마음을 전환하는 데 도움이 될 수 있다"],["when it is otherwise very difficult","그렇지 않으면 매우 어려운 상황에서"]]}],"metaphor":"<svg viewBox=\"0 0 600 240\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽에 머리 안 부정 생각이 빙빙 도는 반추의 루프가 갇혀 있고, 가운데 Stop 표시와 함께 신체 움직임 화살표가 개입해 오른쪽에서 일어나 걸어 나가는 사람의 모습으로 탈출하는 함정에서 빠져나오는 그림\">\n  <!-- 좌: 반추 함정 -->\n  <g transform=\"translate(20, 30)\">\n    <text x=\"115\" y=\"-10\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">반추의 함정 — rumination</text>\n    <rect x=\"0\" y=\"0\" width=\"230\" height=\"175\" fill=\"#fdf2f4\" fill-opacity=\"0.3\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/>\n\n    <!-- 머리 (큰 원) + 안의 루프 -->\n    <g transform=\"translate(115, 88)\">\n      <!-- 머리 -->\n      <ellipse cx=\"0\" cy=\"0\" rx=\"62\" ry=\"56\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <!-- 안의 루프 (원형 화살표 — 같은 생각 반복) -->\n      <g stroke=\"#c8102e\" stroke-width=\"1.6\" fill=\"none\">\n        <path d=\"M -32 0 Q -32 -30 0 -30 Q 32 -30 32 0\"/>\n        <polygon points=\"32,0 27,-7 38,-3\" fill=\"#c8102e\"/>\n        <path d=\"M 32 0 Q 32 30 0 30 Q -32 30 -32 0\"/>\n        <polygon points=\"-32,0 -27,7 -38,3\" fill=\"#c8102e\"/>\n      </g>\n      <!-- 안의 반복 생각 -->\n      <text x=\"0\" y=\"-3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">why why why</text>\n      <text x=\"0\" y=\"11\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\">again · again</text>\n    </g>\n\n    <text x=\"115\" y=\"160\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\">stuck in mental loop · \"thinking alone won't break it\"</text>\n  </g>\n\n  <!-- 가운데: Stop! + 신체 움직임 화살표 -->\n  <g transform=\"translate(265, 110)\">\n    <!-- Stop 빨강 팔각형 -->\n    <polygon points=\"-22,-12 -8,-22 8,-22 22,-12 22,4 8,14 -8,14 -22,4\" fill=\"#c8102e\" stroke=\"#c8102e\" stroke-width=\"1.6\"/>\n    <text x=\"0\" y=\"-1\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#ffffff\">Stop!</text>\n    <!-- 큰 화살표 -->\n    <line x1=\"0\" y1=\"25\" x2=\"0\" y2=\"48\" stroke=\"#1FA34A\" stroke-width=\"2.2\"/>\n    <polygon points=\"0,48 -5,40 5,40\" fill=\"#1FA34A\"/>\n    <text x=\"0\" y=\"65\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">physical move</text>\n    <text x=\"0\" y=\"78\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\">신체 움직임</text>\n  </g>\n\n  <!-- 우: 탈출 (걷는 사람) -->\n  <g transform=\"translate(330, 30)\">\n    <text x=\"125\" y=\"-10\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">탈출 — active approach</text>\n    <rect x=\"0\" y=\"0\" width=\"250\" height=\"175\" fill=\"#f0faf3\" fill-opacity=\"0.3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n\n    <!-- 일어서서 걷는 stick figure -->\n    <g transform=\"translate(70, 95)\">\n      <!-- 머리 -->\n      <circle cx=\"0\" cy=\"-30\" r=\"13\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <circle cx=\"-4\" cy=\"-31\" r=\"1.5\" fill=\"#1a1a1a\"/>\n      <circle cx=\"4\" cy=\"-31\" r=\"1.5\" fill=\"#1a1a1a\"/>\n      <path d=\"M -4 -25 Q 0 -23 4 -25\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      <!-- 몸 (똑바로) -->\n      <line x1=\"0\" y1=\"-17\" x2=\"0\" y2=\"20\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <!-- 팔 (걷는 자세 — 한 쪽 앞/한 쪽 뒤) -->\n      <line x1=\"0\" y1=\"-8\" x2=\"14\" y2=\"0\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"-8\" x2=\"-14\" y2=\"5\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <!-- 다리 (걷는 자세) -->\n      <line x1=\"0\" y1=\"20\" x2=\"-9\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <line x1=\"0\" y1=\"20\" x2=\"14\" y2=\"40\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    </g>\n\n    <!-- 걷는 방향 화살표 + 움직임 라인 -->\n    <g stroke=\"#1FA34A\" stroke-width=\"1.3\" fill=\"none\">\n      <path d=\"M 105 100 L 130 100\" stroke-dasharray=\"4 3\"/>\n      <path d=\"M 105 90 L 130 90\" stroke-dasharray=\"4 3\" opacity=\"0.7\"/>\n      <path d=\"M 105 110 L 130 110\" stroke-dasharray=\"4 3\" opacity=\"0.5\"/>\n    </g>\n\n    <!-- 활동 라벨 (점선 경로) -->\n    <g font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" font-weight=\"700\" fill=\"#1FA34A\">\n      <g transform=\"translate(165, 70)\">\n        <rect x=\"-32\" y=\"-10\" width=\"64\" height=\"20\" rx=\"3\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n        <text x=\"0\" y=\"4\" text-anchor=\"middle\">stand up</text>\n      </g>\n      <g transform=\"translate(195, 105)\">\n        <rect x=\"-32\" y=\"-10\" width=\"64\" height=\"20\" rx=\"3\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n        <text x=\"0\" y=\"4\" text-anchor=\"middle\">walk</text>\n      </g>\n      <g transform=\"translate(165, 140)\">\n        <rect x=\"-32\" y=\"-10\" width=\"64\" height=\"20\" rx=\"3\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n        <text x=\"0\" y=\"4\" text-anchor=\"middle\">go out</text>\n      </g>\n    </g>\n\n    <text x=\"125\" y=\"165\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\">force the redirection · break the trap</text>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"230\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">body breaks what the mind cannot — physical move ends the loop</text>\n</svg>","caption":"머릿속 반추 루프(폐쇄) → 신체 움직임 → 탈출"},{"no":"4","title":"Mirror Neurons and Emotional Contagion","ktitle":"거울 뉴런과 감정 전염","field":"신경과학","page":"p66)","oneline":"‘거울 뉴런’은 자신·타인의 행동을 모두 나타내는 세포다.","tldr":["‘거울 뉴런’은 자신·타인의 행동을 모두 나타내는 세포다.","분노 전염·미소 파급·군중 일체감이 그 예다.","우리는 논리·분석 없이 ‘무의식적으로’ 남의 감정을 흉내 낸다."],"analogy":"옆 사람이 하품하면 나도 따라 하품하죠. 누가 웃으면 덩달아 웃고요. 거울 뉴런이 ‘생각 없이’ 남의 행동·감정을 따라 하게 만드는 거예요.","bg":"‘거울 뉴런(mirror neuron)’이 타인의 행동·감정을 무의식적으로 모방하게 한다는 신경과학 글. 분노 전염·미소 파급·콘서트 군중의 일체감이 예시예요.","flow":[{"kind":"정의","t":"거울 뉴런 = 자기·타인 행동 모두 나타냄"},{"kind":"현상","t":"분노 전염·미소 파급·군중 일체"},{"kind":"작동","t":"논리·분석 없이 무의식적 모방"},{"kind":"확장","t":"‘느끼는 법’까지 모방"},{"kind":"결론","t":"감정 전염의 신경 기전"}],"quiz":[["‘거울 뉴런’이 설명하는 현상은?","분노 전염, 미소의 파급, 콘서트 군중의 일체감 같은 ‘감정 모방’이에요."],["우리는 타인의 감정을 어떻게 따라 하나?","논리·사고·분석 없이 ‘무의식적으로’ 흉내 내요."],["핵심 한 문장?","거울 뉴런이 타인의 행동·감정을 무의식적으로 모방하게 한다."]],"vocab":[["mirror neuron","거울 뉴런"],["phenomena phenomenon","현상 (phenomenon의 복수)"],["tendency","경향, 성향"],["contagious","전염성의"],["light up","환하게 밝히다, 활성화되다"],["move as one","하나가 되어 움직이다"]],"en":"Mirror neuron systems help explain a wide range of phenomena, including the human tendency to respond emotionally to other people's expressions of emotions. For example, it is often the case that 'anger is contagious', or that a person's smile can 'light up a room', or that audiences at large pop concerts 'move as one to the music'. Mirror neurons are cells within certain high-level body maps that represent actions performed both by oneself and others. We simulate others' movements and emotional expressions 'automatically, without logic, thinking, analyzing'. Mirror neurons might also explain anthropologist Ruth Finnegan's observation that 'we learn how to feel, and how to deploy particular emotions in ways and contexts appropriate to your situation'. The same holds for musical expressions and experience of happiness, anger and distress.","ko":"거울 뉴런 체계는 다른 사람의 감정 표현에 감정적으로 반응하는 인간의 경향을 포함하여 다양한 현상을 설명하는 데 도움이 된다. 예를 들어, '분노가 전염된다'거나 사람의 미소가 '방을 환하게 밝힌다'거나 대규모 팝 콘서트의 관객이 '음악에 맞춰 하나가 되어 움직이는' 것은 흔히 일어나는 일이다. 거울 뉴런은 자신과 타인 둘 다에 의해 수행되는 행동을 나타내는 특정 고차원 신체 지도 내의 세포이다. 우리는 다른 사람의 움직임과 감정 표현을 '논리, 사고, 분석 없이 무의식적으로' 흉내 낸다. 거울 뉴런은 또한 '우리는 느끼는 방법, 그리고 상황에 적합한 방식과 맥락으로 특정 감정을 전개하는 방법을 배운다'라는 인류학자 Ruth Finnegan의 의견을 설명할 수도 있을 것이다. 음악적 표현과 행복, 분노, 그리고 고통의 경험에도 같은 것이 적용된다.","read":[{"en":"Mirror neuron systems help explain a wide range of phenomena, including the human tendency to respond emotionally to other people's expressions of emotions.","ko":"거울 뉴런 체계는 다른 사람의 감정 표현에 감정적으로 반응하는 인간의 경향을 포함하여 다양한 현상을 설명하는 데 도움이 된다.","chunks":[["Mirror neuron systems help explain a wide range of phenomena,","거울 뉴런 체계는 다양한 현상을 설명하는 데 도움이 된다,"],["including the human tendency","인간의 경향을 포함하여"],["to respond emotionally to other people's expressions of emotions","다른 사람의 감정 표현에 감정적으로 반응하는"]]},{"en":"For example, it is often the case that 'anger is contagious', or that a person's smile can 'light up a room', or that audiences at large pop concerts 'move as one to the music'.","ko":"예를 들어, '분노가 전염된다'거나 사람의 미소가 '방을 환하게 밝힌다'거나 대규모 팝 콘서트의 관객이 '음악에 맞춰 하나가 되어 움직이는' 것은 흔히 일어나는 일이다.","chunks":[["For example, it is often the case that 'anger is contagious',","예를 들어, '분노가 전염된다'거나,"],["or that a person's smile can 'light up a room',","사람의 미소가 '방을 환하게 밝힌다'거나,"],["or that audiences at large pop concerts","대규모 팝 콘서트의 관객이"],["'move as one to the music'","'음악에 맞춰 하나가 되어 움직이는' 것은 흔히 일어나는 일이다"]]},{"en":"Mirror neurons are cells within certain high-level body maps that represent actions performed both by oneself and others.","ko":"거울 뉴런은 자신과 타인 둘 다에 의해 수행되는 행동을 나타내는 특정 고차원 신체 지도 내의 세포이다.","chunks":[["Mirror neurons are cells","거울 뉴런은 세포이다"],["within certain high-level body maps","특정 고차원 신체 지도 내에 있는"],["that represent actions","행동을 나타내는"],["performed both by oneself and others","자신과 타인 둘 다에 의해 수행되는"]]},{"en":"We simulate others' movements and emotional expressions 'automatically, without logic, thinking, analyzing'.","ko":"우리는 다른 사람의 움직임과 감정 표현을 '논리, 사고, 분석 없이 무의식적으로' 흉내 낸다.","chunks":[["We simulate others' movements and emotional expressions","우리는 다른 사람의 움직임과 감정 표현을 흉내 낸다"],["'automatically, without logic, thinking, analyzing'","'논리, 사고, 분석 없이 무의식적으로'"]]},{"en":"Mirror neurons might also explain anthropologist Ruth Finnegan's observation that 'we learn how to feel, and how to deploy particular emotions in ways and contexts appropriate to your situation'.","ko":"거울 뉴런은 또한 '우리는 느끼는 방법, 그리고 상황에 적합한 방식과 맥락으로 특정 감정을 전개하는 방법을 배운다'라는 인류학자 Ruth Finnegan의 의견을 설명할 수도 있을 것이다.","chunks":[["Mirror neurons might also explain","거울 뉴런은 또한 설명할 수도 있을 것이다"],["anthropologist Ruth Finnegan's observation","인류학자 Ruth Finnegan의 의견을"],["that 'we learn how to feel,","'우리는 느끼는 방법,"],["and how to deploy particular emotions","그리고 특정 감정을 전개하는 방법을 배운다"],["in ways and contexts appropriate to your situation'","상황에 적합한 방식과 맥락으로'"]]},{"en":"The same holds for musical expressions and experience of happiness, anger and distress.","ko":"음악적 표현과 행복, 분노, 그리고 고통의 경험에도 같은 것이 적용된다.","chunks":[["The same holds for musical expressions","같은 것이 음악적 표현에 적용된다"],["and experience of happiness, anger and distress","그리고 행복, 분노, 그리고 고통의 경험에도"]]}],"metaphor":"<svg viewBox=\"0 0 600 290\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"중앙에 거울 뉴런이라 적힌 거울이 박힌 뇌가 있고 주변에 분노 전염·미소 파급·군중 일체감·콘서트 일체·어른 표정을 아이가 배우는 학습 사례가 방사형으로 뻗어 나가는 그림\">\n  <!-- 외곽 점선 영역 (자동적·무의식 + 학습·문화화) -->\n  <rect x=\"20\" y=\"20\" width=\"560\" height=\"240\" fill=\"#f0faf3\" fill-opacity=\"0.15\" stroke=\"#1FA34A\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/>\n  <text x=\"300\" y=\"15\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">automatic mimicry · also learning emotional life</text>\n\n  <!-- 중심 — 거울 뉴런 (뇌 + 거울) -->\n  <g transform=\"translate(300, 140)\">\n    <path d=\"M -40 -20 Q -45 -35 -30 -38 Q -25 -45 -10 -42 Q 0 -48 12 -42 Q 28 -45 32 -38 Q 45 -35 40 -20 Q 50 -10 42 5 Q 48 18 35 22 Q 30 32 15 30 Q 0 36 -12 30 Q -28 32 -33 22 Q -48 18 -42 5 Q -50 -10 -40 -20 Z\" \n          fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.6\"/>\n    <g stroke=\"#1a1a1a\" stroke-width=\"0.9\" fill=\"none\">\n      <path d=\"M -28 -10 Q -20 -18 -12 -10\"/>\n      <path d=\"M 5 -15 Q 12 -22 22 -15\"/>\n      <path d=\"M -20 8 Q -8 0 5 8\"/>\n      <path d=\"M 8 12 Q 18 5 28 12\"/>\n    </g>\n    <g transform=\"translate(0, -5)\">\n      <rect x=\"-10\" y=\"-12\" width=\"20\" height=\"24\" rx=\"2\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n      <line x1=\"-7\" y1=\"-9\" x2=\"-3\" y2=\"-5\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <line x1=\"-7\" y1=\"-3\" x2=\"-2\" y2=\"2\" stroke=\"#1FA34A\" stroke-width=\"0.9\" opacity=\"0.7\"/>\n      <line x1=\"-7\" y1=\"3\" x2=\"-3\" y2=\"7\" stroke=\"#1FA34A\" stroke-width=\"0.7\" opacity=\"0.5\"/>\n    </g>\n    <text x=\"0\" y=\"58\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">Mirror Neurons</text>\n  </g>\n\n  <!-- 좌상: 분노 전염 -->\n  <line x1=\"265\" y1=\"115\" x2=\"135\" y2=\"75\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" stroke-dasharray=\"3 2\"/>\n  <g transform=\"translate(75, 55)\">\n    <rect x=\"0\" y=\"0\" width=\"115\" height=\"46\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <g transform=\"translate(28, 25)\">\n      <circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n      <line x1=\"-4\" y1=\"-3\" x2=\"-1\" y2=\"-1\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <line x1=\"4\" y1=\"-3\" x2=\"1\" y2=\"-1\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <path d=\"M -3 4 Q 0 1 3 4\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n    </g>\n    <text x=\"50\" y=\"29\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" fill=\"#c8102e\">→</text>\n    <g transform=\"translate(85, 25)\">\n      <circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n      <line x1=\"-4\" y1=\"-3\" x2=\"-1\" y2=\"-1\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <line x1=\"4\" y1=\"-3\" x2=\"1\" y2=\"-1\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <path d=\"M -3 4 Q 0 1 3 4\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n    </g>\n    <text x=\"57\" y=\"-3\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">분노 전염</text>\n  </g>\n\n  <!-- 우상: 미소 파급 -->\n  <line x1=\"335\" y1=\"115\" x2=\"465\" y2=\"75\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" stroke-dasharray=\"3 2\"/>\n  <g transform=\"translate(410, 55)\">\n    <rect x=\"0\" y=\"0\" width=\"115\" height=\"46\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <g transform=\"translate(28, 25)\">\n      <circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n      <circle cx=\"-3\" cy=\"-2\" r=\"0.9\" fill=\"#1FA34A\"/>\n      <circle cx=\"3\" cy=\"-2\" r=\"0.9\" fill=\"#1FA34A\"/>\n      <path d=\"M -4 3 Q 0 6 4 3\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n    </g>\n    <text x=\"50\" y=\"29\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" fill=\"#1FA34A\">→</text>\n    <g transform=\"translate(85, 25)\">\n      <circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n      <circle cx=\"-3\" cy=\"-2\" r=\"0.9\" fill=\"#1FA34A\"/>\n      <circle cx=\"3\" cy=\"-2\" r=\"0.9\" fill=\"#1FA34A\"/>\n      <path d=\"M -4 3 Q 0 6 4 3\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n    </g>\n    <text x=\"57\" y=\"-3\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">미소 파급</text>\n  </g>\n\n  <!-- 좌하: 군중 일체 -->\n  <line x1=\"265\" y1=\"165\" x2=\"135\" y2=\"195\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" stroke-dasharray=\"3 2\"/>\n  <g transform=\"translate(75, 178)\">\n    <rect x=\"0\" y=\"0\" width=\"115\" height=\"46\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <g>\n      <g transform=\"translate(20, 30)\">\n        <circle cx=\"0\" cy=\"-8\" r=\"4\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-4\" x2=\"0\" y2=\"6\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-1\" x2=\"-4\" y2=\"-5\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n        <line x1=\"0\" y1=\"-1\" x2=\"4\" y2=\"-5\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      </g>\n      <g transform=\"translate(40, 30)\">\n        <circle cx=\"0\" cy=\"-8\" r=\"4\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-4\" x2=\"0\" y2=\"6\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-1\" x2=\"-4\" y2=\"-5\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n        <line x1=\"0\" y1=\"-1\" x2=\"4\" y2=\"-5\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      </g>\n      <g transform=\"translate(60, 30)\">\n        <circle cx=\"0\" cy=\"-8\" r=\"4\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-4\" x2=\"0\" y2=\"6\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-1\" x2=\"-4\" y2=\"-5\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n        <line x1=\"0\" y1=\"-1\" x2=\"4\" y2=\"-5\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      </g>\n      <g transform=\"translate(80, 30)\">\n        <circle cx=\"0\" cy=\"-8\" r=\"4\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-4\" x2=\"0\" y2=\"6\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-1\" x2=\"-4\" y2=\"-5\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n        <line x1=\"0\" y1=\"-1\" x2=\"4\" y2=\"-5\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      </g>\n    </g>\n    <text x=\"57\" y=\"-3\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">군중 일체</text>\n  </g>\n\n  <!-- 우하: 콘서트 일체 -->\n  <line x1=\"335\" y1=\"165\" x2=\"465\" y2=\"195\" stroke=\"#1a1a1a\" stroke-width=\"1.1\" stroke-dasharray=\"3 2\"/>\n  <g transform=\"translate(410, 178)\">\n    <rect x=\"0\" y=\"0\" width=\"115\" height=\"46\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <g>\n      <g transform=\"translate(25, 32)\">\n        <circle cx=\"0\" cy=\"-8\" r=\"4\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-4\" x2=\"0\" y2=\"5\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-2\" x2=\"-5\" y2=\"-9\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n        <line x1=\"0\" y1=\"-2\" x2=\"5\" y2=\"-9\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      </g>\n      <g transform=\"translate(50, 32)\">\n        <circle cx=\"0\" cy=\"-8\" r=\"4\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-4\" x2=\"0\" y2=\"5\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-2\" x2=\"-5\" y2=\"-9\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n        <line x1=\"0\" y1=\"-2\" x2=\"5\" y2=\"-9\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      </g>\n      <g transform=\"translate(75, 32)\">\n        <circle cx=\"0\" cy=\"-8\" r=\"4\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-4\" x2=\"0\" y2=\"5\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"-2\" x2=\"-5\" y2=\"-9\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n        <line x1=\"0\" y1=\"-2\" x2=\"5\" y2=\"-9\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      </g>\n    </g>\n    <g transform=\"translate(100, 12)\" fill=\"#1FA34A\">\n      <ellipse cx=\"0\" cy=\"0\" rx=\"3\" ry=\"2\"/>\n      <line x1=\"3\" y1=\"0\" x2=\"3\" y2=\"-9\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n    </g>\n    <text x=\"57\" y=\"-3\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">콘서트 일체</text>\n  </g>\n\n  <!-- 하단 가운데: 5번째 — learn how to feel (Finnegan) -->\n  <line x1=\"300\" y1=\"190\" x2=\"300\" y2=\"225\" stroke=\"#1FA34A\" stroke-width=\"1.4\" stroke-dasharray=\"3 2\"/>\n  <polygon points=\"300,225 296,217 304,217\" fill=\"#1FA34A\"/>\n  <g transform=\"translate(220, 230)\">\n    <rect x=\"0\" y=\"0\" width=\"160\" height=\"46\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n    <text x=\"80\" y=\"-3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">learn how to feel</text>\n    <!-- 어른 → 아이 -->\n    <g transform=\"translate(38, 25)\">\n      <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <circle cx=\"-3\" cy=\"-3\" r=\"1\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"-3\" r=\"1\" fill=\"#1a1a1a\"/>\n      <path d=\"M -4 3 Q 0 6 4 3\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <text x=\"0\" y=\"20\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">adult</text>\n    </g>\n    <text x=\"80\" y=\"29\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">→</text>\n    <g transform=\"translate(122, 27)\">\n      <circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <circle cx=\"-2.5\" cy=\"-2\" r=\"0.8\" fill=\"#1a1a1a\"/>\n      <circle cx=\"2.5\" cy=\"-2\" r=\"0.8\" fill=\"#1a1a1a\"/>\n      <path d=\"M -3 2 Q 0 4 3 2\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <text x=\"0\" y=\"18\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">child</text>\n    </g>\n  </g>\n  <text x=\"300\" y=\"285\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">Finnegan · cultural transmission of emotional expressions</text>\n</svg>","caption":"중심 거울 뉴런 → 분노 전염·미소 파급·군중 일체감 (무의식 모방)"},{"no":"5","title":"Zig When Everyone Zags","ktitle":"모두가 zag할 때 zig하라","field":"마케팅·인지","page":"p67)","oneline":"다수가 향하는 패턴(zag)은 뇌의 ‘심리적 기준점’이다.","tldr":["다수가 향하는 패턴(zag)은 뇌의 ‘심리적 기준점’이다.","거기서 벗어나는 ‘zig’가 뇌의 주의를 사로잡는다.","브랜드는 기존 연상을 활용·역이용해 ‘튐’을 만든다."],"analogy":"다들 검은 옷 입은 자리에 혼자 빨간 옷 입으면 시선이 확 쏠리죠. 뇌는 ‘다수 패턴(zag)’을 기준 삼아, 거기서 튀는 것(zig)에 주의를 줍니다. 브랜드도 익숙한 이미지를 일부러 비틀어 갑자기 다르게 보이게 만들어 시선을 낚아채요.","bg":"‘Zig when everyone zags’ — 모두가 향하는 패턴(zag)에서 벗어나면(zig) 뇌의 주의를 끈다는 마케팅·인지 글. 브랜드는 기존 연상을 활용·역이용해요.","flow":[{"kind":"핵심","t":"다수 패턴(zag) = 심리적 기준점"},{"kind":"주의","t":"거기서 벗어난 ‘zig’가 주의를 끈다"},{"kind":"원리","t":"뇌 주의 체계의 ‘단순함’을 포착"},{"kind":"적용","t":"브랜드 = 갑작스러운 변화로 주의 포착"},{"kind":"결론","t":"기존 연상을 활용·역이용한다"}],"quiz":[["‘zag’와 ‘zig’는 각각 무엇인가?","zag = 모두가 향하는 다수 패턴(기준점), zig = 거기서 벗어나는 움직임이에요."],["왜 ‘zig’가 주의를 끄나?","뇌가 다수 패턴(zag)을 기준 삼기에, 거기서 벗어난 것이 도드라져 주의를 사로잡아요."],["핵심 한 문장?","다수 패턴에서 벗어나는 ‘zig’가 뇌의 주의를 끈다."]],"vocab":[["zig/zag","급히 방향 전환하다 / 그 동작"],["apply to","~에 적용되다"],["branding","브랜딩, 상표화"],["capture","포착하다, 사로잡다"],["simplicity","단순함"],["anchor","기준점, 닻"]],"en":"\"Zig when everyone else zags\" is a saying often applied to branding. It also perfectly captures the simplicity of the brain's attention system. The psychological anchor is the zag, the direction in which everyone is headed ─ the pattern. To capture the attention of the brain, you have to zig by going in a different direction. Brands are great at zigging in order to get your attention. One of the ways they do so is by utilizing existing associations, which act as a premade anchor. All a brand has to do is break from the anchoring association and voila ─ our pattern-seeking brains detect the sudden change, and we respond by giving the brand our attention.","ko":"\"다른 모두가 어느 한쪽으로 급히 방향 전환할(재그할) 때 다른 쪽으로 급히 방향 전환하라(지그하라)\"라는 말은 종종 브랜딩에 적용되는 말이다. 그것은 또한 뇌의 주의 체계의 단순함을 완벽하게 포착한다. 심리적 기준점이 되는 것은 '재그', 즉 모두가 향하고 있는 방향, 즉 패턴이다. 뇌의 주의를 포착하기 위해서, 여러분은 다른 방향으로 움직임으로써 '지그'해야 한다. 브랜드는 여러분의 주의를 끌기 위해 다른 쪽으로 급히 방향 전환하는 것에 매우 능숙하다. 그것이 그렇게 하는 방법 중 하나는 기존의 연상을 활용하는 것인데, 그것은 미리 만들어진 기준점 역할을 한다. 브랜드는 그저 마음을 고정시키는 연상에서 벗어나기만 하면 되고, 자 봐라, 패턴을 찾으려는 우리의 뇌는 갑작스러운 변화를 감지하고, 우리는 그 브랜드에 주의를 기울임으로써 반응한다.","read":[{"en":"\"Zig when everyone else zags\" is a saying often applied to branding.","ko":"\"다른 모두가 어느 한쪽으로 급히 방향 전환할(재그할) 때 다른 쪽으로 급히 방향 전환하라(지그하라)\"라는 말은 종종 브랜딩에 적용되는 말이다.","chunks":[["\"Zig when everyone else zags\"","\"다른 모두가 재그할 때 지그하라\""],["is a saying often applied to branding","는 종종 브랜딩에 적용되는 말이다"]]},{"en":"It also perfectly captures the simplicity of the brain's attention system.","ko":"그것은 또한 뇌의 주의 체계의 단순함을 완벽하게 포착한다.","chunks":[["It also perfectly captures","그것은 또한 완벽하게 포착한다"],["the simplicity of the brain's attention system","뇌의 주의 체계의 단순함을"]]},{"en":"The psychological anchor is the zag, the direction in which everyone is headed ─ the pattern.","ko":"심리적 기준점이 되는 것은 '재그', 즉 모두가 향하고 있는 방향, 즉 패턴이다.","chunks":[["The psychological anchor is the zag,","심리적 기준점이 되는 것은 '재그',"],["the direction in which everyone is headed","즉 모두가 향하고 있는 방향,"],["─ the pattern","─ 즉 패턴이다"]]},{"en":"To capture the attention of the brain, you have to zig by going in a different direction.","ko":"뇌의 주의를 포착하기 위해서, 여러분은 다른 방향으로 움직임으로써 '지그'해야 한다.","chunks":[["To capture the attention of the brain,","뇌의 주의를 포착하기 위해서,"],["you have to zig","당신은 지그해야 한다"],["by going in a different direction","다른 방향으로 움직임으로써"]]},{"en":"Brands are great at zigging in order to get your attention.","ko":"브랜드는 여러분의 주의를 끌기 위해 다른 쪽으로 급히 방향 전환하는 것에 매우 능숙하다.","chunks":[["Brands are great at zigging","브랜드는 지그하는 데 매우 능숙하다"],["in order to get your attention","당신의 주의를 끌기 위해"]]},{"en":"One of the ways they do so is by utilizing existing associations, which act as a premade anchor.","ko":"그것이 그렇게 하는 방법 중 하나는 기존의 연상을 활용하는 것인데, 그것은 미리 만들어진 기준점 역할을 한다.","chunks":[["One of the ways they do so","그것이 그렇게 하는 방법 중 하나는"],["is by utilizing existing associations,","기존의 연상을 활용하는 것인데,"],["which act as a premade anchor","그것은 미리 만들어진 기준점 역할을 한다"]]},{"en":"All a brand has to do is break from the anchoring association and voila ─ our pattern-seeking brains detect the sudden change, and we respond by giving the brand our attention.","ko":"브랜드는 그저 마음을 고정시키는 연상에서 벗어나기만 하면 되고, 자 봐라, 패턴을 찾으려는 우리의 뇌는 갑작스러운 변화를 감지하고, 우리는 그 브랜드에 주의를 기울임으로써 반응한다.","chunks":[["All a brand has to do is break from the anchoring association","브랜드가 해야 할 것은 마음을 고정시키는 연상에서 벗어나는 것뿐이다"],["and voila ─ our pattern-seeking brains detect the sudden change,","그리고 자 봐라 — 패턴을 찾으려는 우리의 뇌는 갑작스러운 변화를 감지하고,"],["and we respond by giving the brand our attention","우리는 그 브랜드에 주의를 기울임으로써 반응한다"]]}],"metaphor":"<svg viewBox=\"0 0 600 280\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"상단은 회색 zag 화살표 다수와 한 개의 초록 zig가 시선을 끄는 비유 시각화이고, 하단은 브랜드가 이 원리를 활용하는 4단계 흐름으로 premade anchor에서 break로, brain이 변화를 감지하고, attention으로 이어지는 그림\">\n  <!-- ━━━━━ 상단 zig/zag 시각화 ━━━━━ -->\n  <!-- 상단: 시선(눈) -->\n  <g transform=\"translate(450, 50)\">\n    <ellipse cx=\"0\" cy=\"0\" rx=\"22\" ry=\"13\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <circle cx=\"-3\" cy=\"2\" r=\"7\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <circle cx=\"-3\" cy=\"2\" r=\"3.5\" fill=\"#1a1a1a\"/>\n    <circle cx=\"-4\" cy=\"0\" r=\"1\" fill=\"#ffffff\"/>\n    <text x=\"0\" y=\"32\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">attention</text>\n  </g>\n\n  <!-- 시선 화살표 -->\n  <line x1=\"430\" y1=\"58\" x2=\"240\" y2=\"102\" stroke=\"#1FA34A\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/>\n  <polygon points=\"240,102 250,99 248,107\" fill=\"#1FA34A\"/>\n\n  <!-- 다수 zag 화살표 7개 -->\n  <g>\n    <g transform=\"translate(50, 100)\"><line x1=\"0\" y1=\"0\" x2=\"50\" y2=\"0\" stroke=\"#999\" stroke-width=\"2\"/><polygon points=\"50,0 42,-5 42,5\" fill=\"#999\"/></g>\n    <g transform=\"translate(50, 135)\"><line x1=\"0\" y1=\"0\" x2=\"50\" y2=\"0\" stroke=\"#999\" stroke-width=\"2\"/><polygon points=\"50,0 42,-5 42,5\" fill=\"#999\"/></g>\n    <g transform=\"translate(50, 170)\"><line x1=\"0\" y1=\"0\" x2=\"50\" y2=\"0\" stroke=\"#999\" stroke-width=\"2\"/><polygon points=\"50,0 42,-5 42,5\" fill=\"#999\"/></g>\n    <g transform=\"translate(170, 100)\"><line x1=\"0\" y1=\"0\" x2=\"50\" y2=\"0\" stroke=\"#999\" stroke-width=\"2\"/><polygon points=\"50,0 42,-5 42,5\" fill=\"#999\"/></g>\n    <g transform=\"translate(170, 170)\"><line x1=\"0\" y1=\"0\" x2=\"50\" y2=\"0\" stroke=\"#999\" stroke-width=\"2\"/><polygon points=\"50,0 42,-5 42,5\" fill=\"#999\"/></g>\n    <g transform=\"translate(290, 100)\"><line x1=\"0\" y1=\"0\" x2=\"50\" y2=\"0\" stroke=\"#999\" stroke-width=\"2\"/><polygon points=\"50,0 42,-5 42,5\" fill=\"#999\"/></g>\n    <g transform=\"translate(290, 170)\"><line x1=\"0\" y1=\"0\" x2=\"50\" y2=\"0\" stroke=\"#999\" stroke-width=\"2\"/><polygon points=\"50,0 42,-5 42,5\" fill=\"#999\"/></g>\n  </g>\n  <text x=\"75\" y=\"92\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#999\">zag (pattern)</text>\n\n  <!-- zig 화살표 -->\n  <g transform=\"translate(170, 135)\">\n    <line x1=\"0\" y1=\"0\" x2=\"60\" y2=\"-35\" stroke=\"#1FA34A\" stroke-width=\"3.5\"/>\n    <polygon points=\"60,-35 49,-33 53,-25\" fill=\"#1FA34A\"/>\n    <text x=\"35\" y=\"-42\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">zig</text>\n  </g>\n\n  <text x=\"100\" y=\"55\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#999\">다수 패턴 — psychological anchor</text>\n\n  <!-- ━━━━━ 하단: 브랜드 활용 메커니즘 4단계 ━━━━━ -->\n  <text x=\"300\" y=\"208\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">brands use this — how zigging works</text>\n  \n  <g transform=\"translate(20, 215)\">\n    <rect x=\"0\" y=\"0\" width=\"560\" height=\"48\" fill=\"#f0faf3\" fill-opacity=\"0.3\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n  </g>\n\n  <!-- Step 1: premade anchor -->\n  <g transform=\"translate(30, 225)\">\n    <rect x=\"0\" y=\"0\" width=\"105\" height=\"28\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1.3\"/>\n    <text x=\"52\" y=\"13\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">premade anchor</text>\n    <text x=\"52\" y=\"23\" font-family=\"Noto Serif KR\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">기존 연상</text>\n  </g>\n\n  <!-- arrow 1 -->\n  <line x1=\"138\" y1=\"239\" x2=\"160\" y2=\"239\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n  <polygon points=\"160,239 153,235 153,243\" fill=\"#1a1a1a\"/>\n\n  <!-- Step 2: break -->\n  <g transform=\"translate(168, 225)\">\n    <rect x=\"0\" y=\"0\" width=\"105\" height=\"28\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"3 2\"/>\n    <text x=\"52\" y=\"13\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">break (zig!)</text>\n    <text x=\"52\" y=\"23\" font-family=\"Noto Serif KR\" font-size=\"8\" text-anchor=\"middle\" fill=\"#c8102e\">연상을 깸</text>\n  </g>\n\n  <!-- arrow 2 -->\n  <line x1=\"276\" y1=\"239\" x2=\"298\" y2=\"239\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n  <polygon points=\"298,239 291,235 291,243\" fill=\"#1a1a1a\"/>\n\n  <!-- Step 3: brain detects -->\n  <g transform=\"translate(306, 225)\">\n    <rect x=\"0\" y=\"0\" width=\"125\" height=\"28\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <text x=\"62\" y=\"13\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">brain detects change</text>\n    <text x=\"62\" y=\"23\" font-family=\"Noto Serif KR\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">패턴 변화 감지</text>\n  </g>\n\n  <!-- arrow 3 -->\n  <line x1=\"434\" y1=\"239\" x2=\"456\" y2=\"239\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n  <polygon points=\"456,239 447,234 447,244\" fill=\"#1FA34A\"/>\n\n  <!-- Step 4: attention -->\n  <g transform=\"translate(464, 225)\">\n    <rect x=\"0\" y=\"0\" width=\"105\" height=\"28\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n    <text x=\"52\" y=\"13\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">attention to brand</text>\n    <text x=\"52\" y=\"23\" font-family=\"Noto Serif KR\" font-size=\"8\" text-anchor=\"middle\" fill=\"#1FA34A\">브랜드 주의 집중</text>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"275\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">break the anchor — that's where attention goes</text>\n</svg>","caption":"다수 동방향(zag) ↔ 한 개 이탈(zig) — 시선은 zig로"},{"no":"6","title":"Putting On Identity","ktitle":"정체성을 ‘걸치다’","field":"인류·문화","page":"p68)","oneline":"사냥 의례에서 동물 가죽을 ‘걸치는’ 행위는 그 동물의 특성과 하나가 되려는 상징적 행동이다.","tldr":["사냥 의례에서 동물 가죽을 ‘걸치는’ 행위는 그 동물의 특성과 하나가 되려는 상징적 행동이다.","스포츠 팀명·향수·음악 이름도 같은 심리다.","인간은 무언가를 ‘걸쳐’ 자기 너머의 무언가와 연결되려 한다."],"analogy":"응원하는 팀 유니폼을 입으면 ‘내가 그 팀의 일원’ 같은 기분이 들죠. 지문은 동물 가죽을 걸쳐 그 동물의 힘과 하나가 되려는 의례도 같은 심리로 설명해요.","bg":"인간이 동물 가죽·스포츠 팀명·향수·음악 등을 ‘걸쳐(put on)’ 그 특성을 취하고 더 큰 무언가와 연결되려 한다는 인류·문화 글이에요.","flow":[{"kind":"사례 ①","t":"사냥 의례 — 동물 가죽을 걸치고 특성과 하나 되려 함"},{"kind":"사례 ②","t":"스포츠 팀명 (Falcons·Bears 등)"},{"kind":"사례 ③","t":"향수·음악 이름 (Passion 등)"},{"kind":"공통","t":"‘걸쳐서’ 그 대상의 특성을 취함"},{"kind":"결론","t":"자기 너머와 연결되려는 욕구"}],"quiz":[["사냥 의례에서 동물 가죽을 걸치는 행위가 뜻하는 것은?","그 동물의 특성(힘 등)을 ‘취해’ 그것과 하나가 되려 했기 때문이에요."],["스포츠 팀명·향수 이름의 공통점은?","무언가를 ‘걸쳐’ 그 대상의 특성·이미지를 취하려는 같은 심리를 보여줘요."],["핵심 한 문장?","인간은 무언가를 ‘걸쳐’ 그 특성을 취하고 자기 너머와 연결되려 한다."]],"vocab":[["put on","걸치다, 입다, 취하다"],["skin","가죽, 피부"],["buffalo","들소"],["take on","(특성을) 취하다, 떠맡다"],["characteristic","특성, 특질"],["hunt","사냥 / 사냥하다"]],"en":"Native American Indians would put on the skins of animals such as deer or buffalo and become one with them, taking on their characteristics as they prepared for the hunt. The practice, in a way, exists today in sports with teams such as the Atlanta Falcons, Buffalo Bills, Chicago Bears, Cincinnati Bengals, Detroit Lions, Los Angeles Rams, Miami Dolphins, Philadelphia Eagles, and so on. The same can be said of the names given to perfumes that women put on: Tabu, Passion, Beautiful, Temptation. If a person becomes one with what they \"put on,\" they can assume the characteristics of what is put on ─ glamour, beauty, risk, danger, strength, power, or whatever. Music is also a \"put on,\" and our body and mind respond to its tempo and rhythm. In some way, when we put something on, depending on what our needs are, we can try to connect with someone or something else.","ko":"아메리카 원주민들은 사슴이나 들소 같은 동물의 가죽을 몸에 걸치고 사냥을 준비할 때 그 동물의 특성을 취해 그것들과 하나가 되곤 했다. 그 관행은 어떤 면에서는 오늘날 스포츠에 존재하는데, 예를 들어 Atlanta Falcons, Buffalo Bills, Chicago Bears, Cincinnati Bengals 등과 같은 팀들에서 그러하다. 여성이 사용하는 향수에 붙여진 이름에 대해서도 같은 말을 할 수 있는데, 예를 들면 Tabu, Passion, Beautiful, Temptation 같은 것들이다. 사람이 자신이 '걸친' 것과 하나가 된다면, 걸쳐진 것의 특성, 즉 화려함, 아름다움, 위험, 강인함, 힘 또는 그 밖의 어떤 것이든 취할 수 있다. 음악 또한 '걸치는' 것이며, 우리의 몸과 마음은 그것의 박자와 리듬에 반응한다. 어떤 면에서 우리가 무언가를 걸칠 때, 우리의 필요가 무엇인지에 따라 우리는 누군가 또는 어떤 것과 연결되고자 할 수 있다.","read":[{"en":"Native American Indians would put on the skins of animals such as deer or buffalo and become one with them, taking on their characteristics as they prepared for the hunt.","ko":"아메리카 원주민들은 사슴이나 들소 같은 동물의 가죽을 몸에 걸치고 사냥을 준비할 때 그 동물의 특성을 취해 그것들과 하나가 되곤 했다.","chunks":[["Native American Indians would put on the skins of animals","아메리카 원주민들은 동물의 가죽을 몸에 걸치고"],["such as deer or buffalo","사슴이나 들소 같은"],["and become one with them,","그것들과 하나가 되곤 했다,"],["taking on their characteristics","그 동물의 특성을 취하면서"],["as they prepared for the hunt","사냥을 준비할 때"]]},{"en":"The practice, in a way, exists today in sports with teams such as the Atlanta Falcons, Buffalo Bills, Chicago Bears, Cincinnati Bengals, Detroit Lions, Los Angeles Rams, Miami Dolphins, Philadelphia Eagles, and so on.","ko":"그 관행은 어떤 면에서는 오늘날 스포츠에 존재하는데, 예를 들어 Atlanta Falcons, Buffalo Bills, Chicago Bears, Cincinnati Bengals 등과 같은 팀들에서 그러하다.","chunks":[["The practice, in a way, exists today in sports with teams such as the Atlanta Falcons, Buffalo Bills, Chicago Bears, Cincinnati Bengals, Detroit Lions, Los Angeles Rams, Miami Dolphins, Philadelphia Eagles, and so on.","그 관행은 어떤 면에서는 오늘날 스포츠에 존재하는데, 예를 들어 Atlanta Falcons, Buffalo Bills, Chicago Bears, Cincinnati Bengals 등과 같은 팀들에서 그러하다."]]},{"en":"The same can be said of the names given to perfumes that women put on: Tabu, Passion, Beautiful, Temptation.","ko":"여성이 사용하는 향수에 붙여진 이름에 대해서도 같은 말을 할 수 있는데, 예를 들면 Tabu, Passion, Beautiful, Temptation 같은 것들이다.","chunks":[["The same can be said of the names","같은 말을 이름에 대해서 할 수 있다"],["given to perfumes","향수에 붙여진"],["that women put on:","여성이 사용하는:"],["Tabu, Passion, Beautiful, Temptation","Tabu, Passion, Beautiful, Temptation"]]},{"en":"If a person becomes one with what they \"put on,\" they can assume the characteristics of what is put on ─ glamour, beauty, risk, danger, strength, power, or whatever.","ko":"사람이 자신이 '걸친' 것과 하나가 된다면, 걸쳐진 것의 특성, 즉 화려함, 아름다움, 위험, 강인함, 힘 또는 그 밖의 어떤 것이든 취할 수 있다.","chunks":[["If a person becomes one with what they \"put on,\"","사람이 자신이 '걸친' 것과 하나가 된다면,"],["they can assume the characteristics of what is put on","걸쳐진 것의 특성을 취할 수 있다"],["─ glamour, beauty, risk, danger, strength, power, or whatever","─ 화려함, 아름다움, 위험, 위태로움, 강인함, 힘 또는 그 밖의 어떤 것이든"]]},{"en":"Music is also a \"put on,\" and our body and mind respond to its tempo and rhythm.","ko":"음악 또한 '걸치는' 것이며, 우리의 몸과 마음은 그것의 박자와 리듬에 반응한다.","chunks":[["Music is also a \"put on,\"","음악 또한 '걸치는 것'이며,"],["and our body and mind respond to its tempo and rhythm","우리의 몸과 마음은 그것의 박자와 리듬에 반응한다"]]},{"en":"In some way, when we put something on, depending on what our needs are, we can try to connect with someone or something else.","ko":"어떤 면에서 우리가 무언가를 걸칠 때, 우리의 필요가 무엇인지에 따라 우리는 누군가 또는 어떤 것과 연결되고자 할 수 있다.","chunks":[["In some way,","어떤 면에서,"],["when we put something on,","우리가 무언가를 걸칠 때,"],["depending on what our needs are,","우리의 필요가 무엇인지에 따라,"],["we can try to connect with someone or something else","우리는 누군가 또는 어떤 것과 연결되고자 할 수 있다"]]}],"metaphor":"<svg viewBox=\"0 0 600 270\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"중앙의 사람 stick figure를 둘러싸고 사슴 뿔·팀 로고·향수병·이어폰·문자 새겨진 옷 같은 사물들이 방사형으로 배치되어 각 사물에서 사람으로 특성이 흡수되는 화살표가 그려진 그림\">\n  <!-- 외곽 -->\n  <rect x=\"20\" y=\"20\" width=\"560\" height=\"225\" fill=\"#f0faf3\" fill-opacity=\"0.15\" stroke=\"#1FA34A\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/>\n  <text x=\"300\" y=\"15\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">putting on — taking on traits beyond the self</text>\n\n  <!-- 중앙: 사람 -->\n  <g transform=\"translate(300, 135)\">\n    <circle cx=\"0\" cy=\"-22\" r=\"14\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.6\"/>\n    <circle cx=\"-4\" cy=\"-23\" r=\"1.5\" fill=\"#1a1a1a\"/>\n    <circle cx=\"4\" cy=\"-23\" r=\"1.5\" fill=\"#1a1a1a\"/>\n    <path d=\"M -4 -18 Q 0 -16 4 -18\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n    <line x1=\"0\" y1=\"-8\" x2=\"0\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.6\"/>\n    <line x1=\"0\" y1=\"0\" x2=\"-14\" y2=\"12\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <line x1=\"0\" y1=\"0\" x2=\"14\" y2=\"12\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <line x1=\"0\" y1=\"22\" x2=\"-10\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <line x1=\"0\" y1=\"22\" x2=\"10\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <text x=\"0\" y=\"60\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">self</text>\n  </g>\n\n  <!-- 좌상: 사슴 뿔/가죽 (동물 가죽 의례) -->\n  <line x1=\"165\" y1=\"85\" x2=\"270\" y2=\"120\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n  <polygon points=\"270,120 261,118 264,126\" fill=\"#1FA34A\"/>\n  <g transform=\"translate(110, 78)\">\n    <!-- 사슴 머리 단순화 -->\n    <ellipse cx=\"0\" cy=\"0\" rx=\"15\" ry=\"11\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <!-- 뿔 -->\n    <g stroke=\"#1FA34A\" stroke-width=\"1.6\" fill=\"none\">\n      <path d=\"M -7 -8 L -12 -18 M -9 -14 L -14 -16\"/>\n      <path d=\"M 7 -8 L 12 -18 M 9 -14 L 14 -16\"/>\n    </g>\n    <!-- 눈 -->\n    <circle cx=\"-4\" cy=\"-2\" r=\"1.2\" fill=\"#1FA34A\"/>\n    <circle cx=\"4\" cy=\"-2\" r=\"1.2\" fill=\"#1FA34A\"/>\n    <text x=\"0\" y=\"25\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">deer hide</text>\n    <text x=\"0\" y=\"36\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1FA34A\">동물 가죽 의례</text>\n  </g>\n\n  <!-- 우상: 팀 로고 (F) -->\n  <line x1=\"435\" y1=\"85\" x2=\"330\" y2=\"120\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n  <polygon points=\"330,120 339,118 336,126\" fill=\"#1FA34A\"/>\n  <g transform=\"translate(490, 78)\">\n    <!-- 방패 모양 -->\n    <path d=\"M 0 -16 L 15 -16 L 18 0 L 9 14 L -9 14 L -18 0 L -15 -16 Z\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <text x=\"0\" y=\"2\" font-family=\"Noto Serif\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">F</text>\n    <text x=\"0\" y=\"28\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">Falcons</text>\n    <text x=\"0\" y=\"39\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1FA34A\">팀명</text>\n  </g>\n\n  <!-- 좌하: 향수병 -->\n  <line x1=\"165\" y1=\"195\" x2=\"270\" y2=\"160\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n  <polygon points=\"270,160 263,166 261,158\" fill=\"#1FA34A\"/>\n  <g transform=\"translate(110, 200)\">\n    <!-- 향수병 -->\n    <rect x=\"-10\" y=\"-6\" width=\"20\" height=\"22\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"-5\" y=\"-13\" width=\"10\" height=\"7\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n    <rect x=\"-3\" y=\"-18\" width=\"6\" height=\"5\" fill=\"#1FA34A\"/>\n    <!-- 라벨 -->\n    <line x1=\"-7\" y1=\"2\" x2=\"7\" y2=\"2\" stroke=\"#1FA34A\" stroke-width=\"0.7\"/>\n    <line x1=\"-7\" y1=\"8\" x2=\"7\" y2=\"8\" stroke=\"#1FA34A\" stroke-width=\"0.7\"/>\n    <text x=\"0\" y=\"32\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">\"Tabu\"</text>\n    <text x=\"0\" y=\"43\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1FA34A\">향수 이름</text>\n  </g>\n\n  <!-- 우하: 이어폰/음표 -->\n  <line x1=\"435\" y1=\"195\" x2=\"330\" y2=\"160\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n  <polygon points=\"330,160 337,166 339,158\" fill=\"#1FA34A\"/>\n  <g transform=\"translate(490, 200)\">\n    <!-- 헤드폰 -->\n    <path d=\"M -16 0 L -16 -10 Q -16 -22 0 -22 Q 16 -22 16 -10 L 16 0\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n    <rect x=\"-19\" y=\"-2\" width=\"6\" height=\"14\" rx=\"2\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"13\" y=\"-2\" width=\"6\" height=\"14\" rx=\"2\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <!-- 음표 -->\n    <g transform=\"translate(0, 8)\" fill=\"#1FA34A\">\n      <ellipse cx=\"-4\" cy=\"0\" rx=\"3\" ry=\"2\"/>\n      <line x1=\"-1\" y1=\"0\" x2=\"-1\" y2=\"-9\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <path d=\"M -1 -9 Q 5 -10 5 -4\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    </g>\n    <text x=\"0\" y=\"32\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">music</text>\n    <text x=\"0\" y=\"43\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1FA34A\">음악</text>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"260\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">put on the trait · connect with something beyond yourself</text>\n</svg>","caption":"사람이 동물 가죽·팀명·향수·음악 등을 “걸치며” 그 대상의 특성이나 소속감을 자기 정체성에 덧입히는 구조"},{"no":"7","title":"Face-to-Face vs. Digital Bonding","ktitle":"대면 vs 디지털 유대","field":"사회·소통","page":"p69)","oneline":"디지털로 더 자주 연결되지만 정서 유대는 약하다(‘lives of less’).","tldr":["디지털로 더 자주 연결되지만 정서 유대는 약하다(‘lives of less’).","연구: 대면·영상·음성·문자 네 방식을 비교했다.","대면 대화가 가장 강한 정서적 연결을 만든다."],"analogy":"메시지로 ‘ㅋㅋ’ 백 번 주고받는 것보다, 직접 만나 얼굴 보고 웃는 한 번이 더 가까워지죠. 연결 횟수가 아니라 ‘얼굴·목소리’가 유대를 만들어요.","bg":"소통 방식(대면·영상·음성·문자)별 정서적 유대를 비교한 연구. 디지털로 자주 연결돼도(‘moments of more’) 정서 유대는 약하고(‘lives of less’), 대면이 가장 강해요.","flow":[{"kind":"배경","t":"연구 — 4가지 방식으로 소통"},{"kind":"방식","t":"대면·영상·음성·문자"},{"kind":"측정","t":"느낌 + 행동 관찰"},{"kind":"결과","t":"대면 = 가장 강한 정서 연결"},{"kind":"결론","t":"얼굴·목소리가 유대를 만든다"}],"quiz":[["어떤 소통 방식이 가장 강한 정서적 유대를 만들었나?","대면(face-to-face) 대화예요."],["‘moments of more, lives of less’의 뜻은?","연결 ‘순간’은 더 많아졌지만 정서적으로는 ‘더 적은’ 삶 — 자주 연결돼도 유대는 약하다는 뜻이에요."],["핵심 한 문장?","연결 횟수가 아니라 ‘대면(얼굴·목소리)’이 정서적 유대를 만든다."]],"vocab":[["moments of more","더 많은 순간 (디지털 연결)"],["lives of less","더 적음의 삶 (정서적 결핍)"],["pair","쌍, 짝"],["face-to-face","대면의, 얼굴을 마주하는"],["emotional bonding","정서적 유대"],["assess","평가하다, 측정하다"]],"en":"The idea that we are living moments of more and lives of less is supported by a recent study in which pairs of college-aged friends were asked to communicate in four different ways: face-to-face conversation, video chat, audio chat, and online instant messaging. Then, the degree of emotional bonding in these friendships was assessed both by asking how people felt and watching how they behaved toward each other. The results were clear: In-person conversation led to the most emotional connection and online messaging led to the least. The students had tried to \"warm up\" their digital messages by using emoticons, typing out the sounds of laughter (\"Hahaha\"), and using the forced urgency of TYPING IN ALL CAPS. But these techniques had not done the job. It is when we see each other's faces and hear each other's voices that we become most human to each other.","ko":"우리가 더 많은 순간의 삶과 더 적음의 삶을 살고 있다는 생각은 한 최근 연구에 의해 뒷받침되는데, 그 연구에서 대학생 또래 친구들로 이루어진 쌍들이 대면 대화, 영상 채팅, 음성 채팅, 그리고 온라인 인스턴트 메시지 주고받기를 이용한 네 가지 서로 다른 방식으로 소통하도록 요청받았다. 그다음에 이러한 친구 관계에서 정서적 유대의 정도가 사람들이 어떻게 느꼈는지를 묻는 것과 서로를 향해 그들이 어떻게 행동했는지를 관찰하는 두 가지 방법으로 평가되었다. 그 결과는 명확했다. 대면 대화는 가장 강한 정서적 연결을 이끌었고, 온라인 메시지 주고받기는 가장 약한 연결을 이끌었다. 학생들은 이모티콘을 사용하고, 웃음소리를 글자로 입력하며('하하하'), '전부 대문자로 입력하는' 억지 긴박감을 활용해 자신들의 디지털 메시지를 '훈훈하게' 만들려고 했다. 그러나 이러한 기법들은 제 역할을 해내지 못했다. 우리가 서로의 얼굴을 보고, 서로의 목소리를 들을 때야말로, 우리는 서로에게 가장 인간적인 존재가 된다.","read":[{"en":"The idea that we are living moments of more and lives of less is supported by a recent study in which pairs of college-aged friends were asked to communicate in four different ways: face-to-face conversation, video chat, audio chat, and online instant messaging.","ko":"우리가 더 많은 순간의 삶과 더 적음의 삶을 살고 있다는 생각은 한 최근 연구에 의해 뒷받침되는데, 그 연구에서 대학생 또래 친구들로 이루어진 쌍들이 대면 대화, 영상 채팅, 음성 채팅, 그리고 온라인 인스턴트 메시지 주고받기를 이용한 네 가지 서로 다른 방식으로 소통하도록 요청받았다.","chunks":[["The idea that we are living moments of more and lives of less","우리가 더 많은 순간의 삶과 더 적음의 삶을 살고 있다는 생각은"],["is supported by a recent study","한 최근 연구에 의해 뒷받침된다"],["in which pairs of college-aged friends were asked to communicate","그 연구에서 대학생 또래 친구 쌍들이 소통하도록 요청받았다"],["in four different ways:","네 가지 다른 방식으로:"],["face-to-face conversation, video chat, audio chat, and online instant messaging","대면 대화, 영상 채팅, 음성 채팅, 온라인 인스턴트 메시지"]]},{"en":"Then, the degree of emotional bonding in these friendships was assessed both by asking how people felt and watching how they behaved toward each other.","ko":"그다음에 이러한 친구 관계에서 정서적 유대의 정도가 사람들이 어떻게 느꼈는지를 묻는 것과 서로를 향해 그들이 어떻게 행동했는지를 관찰하는 두 가지 방법으로 평가되었다.","chunks":[["Then, the degree of emotional bonding in these friendships","그다음에 이러한 친구 관계에서 정서적 유대의 정도가"],["was assessed both by asking how people felt","사람들이 어떻게 느꼈는지를 묻는 것과"],["and watching how they behaved toward each other","그들이 서로를 향해 어떻게 행동했는지를 관찰하는 것 두 가지 방법으로 평가되었다"]]},{"en":"The results were clear: In-person conversation led to the most emotional connection and online messaging led to the least.","ko":"그 결과는 명확했다. 대면 대화는 가장 강한 정서적 연결을 이끌었고, 온라인 메시지 주고받기는 가장 약한 연결을 이끌었다.","chunks":[["The results were clear:","그 결과는 명확했다:"],["In-person conversation led to the most emotional connection","대면 대화는 가장 강한 정서적 연결을 이끌었고"],["and online messaging led to the least","온라인 메시지 주고받기는 가장 약한 연결을 이끌었다"]]},{"en":"The students had tried to \"warm up\" their digital messages by using emoticons, typing out the sounds of laughter (\"Hahaha\"), and using the forced urgency of TYPING IN ALL CAPS.","ko":"학생들은 이모티콘을 사용하고, 웃음소리를 글자로 입력하며('하하하'), '전부 대문자로 입력하는' 억지 긴박감을 활용해 자신들의 디지털 메시지를 '훈훈하게' 만들려고 했다.","chunks":[["The students had tried to \"warm up\" their digital messages","학생들은 자신의 디지털 메시지를 '훈훈하게' 만들려고 노력했다"],["by using emoticons,","이모티콘을 사용하고,"],["typing out the sounds of laughter (\"Hahaha\"),","웃음소리를 글자로 입력하고('하하하'),"],["and using the forced urgency of TYPING IN ALL CAPS","전부 대문자로 입력하는 억지 긴박감을 활용함으로써"]]},{"en":"But these techniques had not done the job.","ko":"그러나 이러한 기법들은 제 역할을 해내지 못했다.","chunks":[["But these techniques had not done the job","그러나 이러한 기법들은 제 역할을 해내지 못했다"]]},{"en":"It is when we see each other's faces and hear each other's voices that we become most human to each other.","ko":"우리가 서로의 얼굴을 보고, 서로의 목소리를 들을 때야말로, 우리는 서로에게 가장 인간적인 존재가 된다.","chunks":[["It is when we see each other's faces and hear each other's voices","우리가 서로의 얼굴을 보고 서로의 목소리를 들을 때야말로"],["that we become most human to each other","우리가 서로에게 가장 인간적인 존재가 되는 때이다"]]}],"metaphor":"<svg viewBox=\"0 0 600 250\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽은 두 사람이 마주보며 얼굴과 목소리를 통해 굵은 초록 유대선으로 연결된 대면 대화의 모습이고, 오른쪽은 두 사람이 폰을 들고 메시지 다발을 주고받지만 얇은 회색 유대선으로 연결된 디지털 소통의 모습으로 moments of more 와 lives of less 가 대비되는 그림\">\n  <!-- 좌: 대면 -->\n  <g transform=\"translate(20, 30)\">\n    <text x=\"135\" y=\"-10\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">대면 — face to face</text>\n    <rect x=\"0\" y=\"0\" width=\"270\" height=\"180\" fill=\"#f0faf3\" fill-opacity=\"0.3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n\n    <!-- 두 사람 마주봄 -->\n    <!-- 사람 A -->\n    <g transform=\"translate(75, 100)\">\n      <circle cx=\"0\" cy=\"-22\" r=\"14\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <!-- 오른쪽 향한 얼굴 -->\n      <circle cx=\"-2\" cy=\"-23\" r=\"1.5\" fill=\"#1a1a1a\"/>\n      <circle cx=\"6\" cy=\"-23\" r=\"1.5\" fill=\"#1a1a1a\"/>\n      <path d=\"M -2 -18 Q 2 -16 6 -18\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <line x1=\"0\" y1=\"-8\" x2=\"0\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <line x1=\"0\" y1=\"0\" x2=\"-12\" y2=\"10\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"0\" x2=\"12\" y2=\"10\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"22\" x2=\"-9\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"22\" x2=\"9\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    </g>\n    <!-- 사람 B -->\n    <g transform=\"translate(195, 100)\">\n      <circle cx=\"0\" cy=\"-22\" r=\"14\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <!-- 왼쪽 향한 얼굴 -->\n      <circle cx=\"2\" cy=\"-23\" r=\"1.5\" fill=\"#1a1a1a\"/>\n      <circle cx=\"-6\" cy=\"-23\" r=\"1.5\" fill=\"#1a1a1a\"/>\n      <path d=\"M 2 -18 Q -2 -16 -6 -18\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <line x1=\"0\" y1=\"-8\" x2=\"0\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <line x1=\"0\" y1=\"0\" x2=\"-12\" y2=\"10\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"0\" x2=\"12\" y2=\"10\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"22\" x2=\"-9\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"22\" x2=\"9\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    </g>\n\n    <!-- 굵은 유대선 (초록 실선) -->\n    <line x1=\"93\" y1=\"80\" x2=\"177\" y2=\"80\" stroke=\"#1FA34A\" stroke-width=\"4.5\"/>\n\n    <!-- 음성 곡선 (가운데 위) -->\n    <g transform=\"translate(135, 60)\" stroke=\"#1FA34A\" stroke-width=\"1.4\" fill=\"none\">\n      <path d=\"M -15 0 Q -10 -5 -5 0 Q 0 5 5 0 Q 10 -5 15 0\"/>\n    </g>\n\n    <text x=\"135\" y=\"160\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">strongest emotional bond</text>\n    <text x=\"135\" y=\"174\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\">얼굴 · 목소리 · 함께 있음</text>\n  </g>\n\n  <!-- 가운데 vs -->\n  <text x=\"300\" y=\"125\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">vs</text>\n\n  <!-- 우: 디지털 -->\n  <g transform=\"translate(310, 30)\">\n    <text x=\"135\" y=\"-10\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">디지털 — digital messaging</text>\n    <rect x=\"0\" y=\"0\" width=\"270\" height=\"180\" fill=\"#fdf2f4\" fill-opacity=\"0.3\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/>\n\n    <!-- 두 사람 (서로 등 돌리고 폰 보는) -->\n    <g transform=\"translate(60, 100)\">\n      <circle cx=\"0\" cy=\"-22\" r=\"14\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <circle cx=\"-5\" cy=\"-23\" r=\"1.3\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"-23\" r=\"1.3\" fill=\"#1a1a1a\"/>\n      <path d=\"M -5 -18 Q -1 -16 3 -18\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      <line x1=\"0\" y1=\"-8\" x2=\"0\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <line x1=\"0\" y1=\"0\" x2=\"-10\" y2=\"10\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <!-- 폰 들고 있는 팔 -->\n      <line x1=\"0\" y1=\"0\" x2=\"14\" y2=\"8\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <rect x=\"14\" y=\"3\" width=\"11\" height=\"16\" rx=\"1\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"22\" x2=\"-8\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"22\" x2=\"8\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    </g>\n    <g transform=\"translate(210, 100)\">\n      <circle cx=\"0\" cy=\"-22\" r=\"14\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <circle cx=\"5\" cy=\"-23\" r=\"1.3\" fill=\"#1a1a1a\"/>\n      <circle cx=\"-3\" cy=\"-23\" r=\"1.3\" fill=\"#1a1a1a\"/>\n      <path d=\"M 5 -18 Q 1 -16 -3 -18\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      <line x1=\"0\" y1=\"-8\" x2=\"0\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <line x1=\"0\" y1=\"0\" x2=\"10\" y2=\"10\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <!-- 폰 -->\n      <line x1=\"0\" y1=\"0\" x2=\"-14\" y2=\"8\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <rect x=\"-25\" y=\"3\" width=\"11\" height=\"16\" rx=\"1\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"22\" x2=\"-8\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"22\" x2=\"8\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    </g>\n\n    <!-- 메시지 다발 (가운데 위) -->\n    <g font-family=\"Noto Serif\" font-size=\"9\" fill=\"#c8102e\">\n      <g transform=\"translate(100, 50)\">\n        <rect x=\"0\" y=\"0\" width=\"22\" height=\"12\" rx=\"2\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"0.9\"/>\n        <line x1=\"3\" y1=\"6\" x2=\"18\" y2=\"6\" stroke=\"#c8102e\" stroke-width=\"0.7\"/>\n      </g>\n      <g transform=\"translate(135, 45)\">\n        <rect x=\"0\" y=\"0\" width=\"22\" height=\"12\" rx=\"2\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"0.9\"/>\n        <line x1=\"3\" y1=\"6\" x2=\"18\" y2=\"6\" stroke=\"#c8102e\" stroke-width=\"0.7\"/>\n      </g>\n      <g transform=\"translate(170, 50)\">\n        <rect x=\"0\" y=\"0\" width=\"22\" height=\"12\" rx=\"2\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"0.9\"/>\n        <line x1=\"3\" y1=\"6\" x2=\"18\" y2=\"6\" stroke=\"#c8102e\" stroke-width=\"0.7\"/>\n      </g>\n      <g transform=\"translate(120, 30)\">\n        <rect x=\"0\" y=\"0\" width=\"22\" height=\"12\" rx=\"2\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"0.9\"/>\n        <line x1=\"3\" y1=\"6\" x2=\"18\" y2=\"6\" stroke=\"#c8102e\" stroke-width=\"0.7\"/>\n      </g>\n      <g transform=\"translate(155, 32)\">\n        <rect x=\"0\" y=\"0\" width=\"22\" height=\"12\" rx=\"2\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"0.9\"/>\n        <line x1=\"3\" y1=\"6\" x2=\"18\" y2=\"6\" stroke=\"#c8102e\" stroke-width=\"0.7\"/>\n      </g>\n    </g>\n\n    <!-- 얇은 유대선 (회색 점선) -->\n    <line x1=\"80\" y1=\"83\" x2=\"190\" y2=\"83\" stroke=\"#999\" stroke-width=\"1.2\" stroke-dasharray=\"3 3\"/>\n\n    <text x=\"135\" y=\"160\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">moments of more — lives of less</text>\n    <text x=\"135\" y=\"174\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\">많은 메시지 · 얇은 유대</text>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"240\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">face · voice make us human — strongest bond is in-person</text>\n</svg>","caption":"대면(강한 유대선·얼굴·목소리) ↔ 디지털(많은 메시지·얇은 유대선)"},{"no":"8","title":"Why Myths Share Common Features","ktitle":"신화가 닮은 이유","field":"인류·신화","page":"p70)","oneline":"다양한 문화의 신화가 공통 특징을 갖는다.","tldr":["다양한 문화의 신화가 공통 특징을 갖는다.","이유: 인류 모두가 ‘같은 사회적 관계’를 공유하기 때문.","친구·적, 강자·약자, 사랑·죽음 — 어디서나 같다."],"analogy":"어느 나라 드라마든 사랑·배신·가족 갈등이 나오죠. 사람 사는 관계가 어디나 비슷하니까요. 신화도 같은 이유로 세계 어디서나 닮은 이야기를 가져요.","bg":"전 세계 신화가 ‘공통 특징’을 공유하는 이유 — 인류가 친구·적, 강자·약자, 사랑·죽음 같은 동일한 사회적 관계와 동력을 공유하기 때문이라는 글이에요.","flow":[{"kind":"질문 Q","t":"왜 멀리 떨어진 신화들이 닮았을까?"},{"kind":"답","t":"인류가 ‘같은 사회적 관계’를 공유"},{"kind":"예시","t":"친구·적, 강자·약자, 영웅·악당"},{"kind":"보편","t":"사랑·출산·죽음의 슬픔"},{"kind":"결론","t":"환경 달라도 공통점이 많다"}],"quiz":[["다양한 문화의 신화가 공통 특징을 갖는 이유는?","인류 모두가 사랑·죽음·갈등 같은 ‘같은 사회적 관계와 동력’을 공유하기 때문이에요."],["글이 드는 ‘공통된 사회적 관계’의 예는?","친구와 적, 강자와 약자, 영웅과 악당, 사랑·출산·죽음의 슬픔 같은 것들이에요."],["핵심 한 문장?","신화가 닮은 건 인류가 같은 사회적 관계를 공유하기 때문이다."]],"vocab":[["myth","신화"],["diverse","다양한"],["ultimately","궁극적으로, 결국"],["share","공유하다"],["no matter what","무엇이든 상관없이"],["sure bet","확실한 일"]],"en":"It's possible that myths from diverse cultures share common features because ultimately we all share the same social relationships. No matter what your background is, it's a sure bet that you have friends and relations you like and acquaintances and enemies you don't. There are top cats and underdogs, 'haves' and 'have-nots', heroes and scoundrels. You fall in love, have babies and mourn one another's death. It doesn't matter if you live in the desert, in the Arctic chill, in a massive city, on the edge of a vast savannah or on a tropical island ─ fundamentally, you'll have a great deal in common with every other person on the planet. Naturally, the stories we all tell would reflect these same social forces of love, death, anxiety and competition for resources.","ko":"다양한 문화의 신화가 공통된 특징을 공유하는 것이 가능한 것은 궁극적으로 우리는 모두 같은 사회적 관계를 공유하기 때문이다. 여러분의 배경이 무엇이든, 좋아하는 친구와 인연이 있고 그렇지 않은 지인과 적이 있다는 것은 분명한 사실이다. 사회적 강자와 약자, '가진 자'와 '못 가진 자', 영웅과 악당이 존재한다. 사랑에 빠지고, 아기를 낳고, 서로의 죽음을 슬퍼한다. 여러분이 사막에 살든, 북극의 추위 속에 살든, 대도시에 살든, 광활한 사바나 끝에 살든, 열대 섬에 살든 상관없이 기본적으로 지구상의 다른 모든 사람과 많은 공통점을 가질 것이다. 당연히 우리 모두가 하는 이야기에는 사랑, 죽음, 불안, 자원에 대한 경쟁이라는 이러한 같은 사회적 동력이 반영되어 있을 것이다.","read":[{"en":"It's possible that myths from diverse cultures share common features because ultimately we all share the same social relationships.","ko":"다양한 문화의 신화가 공통된 특징을 공유하는 것이 가능한 것은 궁극적으로 우리는 모두 같은 사회적 관계를 공유하기 때문이다.","chunks":[["It's possible that myths from diverse cultures share common features","다양한 문화의 신화가 공통된 특징을 공유하는 것이 가능한 것은"],["because ultimately we all share the same social relationships","궁극적으로 우리 모두가 같은 사회적 관계를 공유하기 때문이다"]]},{"en":"No matter what your background is, it's a sure bet that you have friends and relations you like and acquaintances and enemies you don't.","ko":"여러분의 배경이 무엇이든, 좋아하는 친구와 인연이 있고 그렇지 않은 지인과 적이 있다는 것은 분명한 사실이다.","chunks":[["No matter what your background is, it's a sure bet that you have friends and relations you like and acquaintances and enemies you don't.","여러분의 배경이 무엇이든, 좋아하는 친구와 인연이 있고 그렇지 않은 지인과 적이 있다는 것은 분명한 사실이다."]]},{"en":"There are top cats and underdogs, 'haves' and 'have-nots', heroes and scoundrels.","ko":"사회적 강자와 약자, '가진 자'와 '못 가진 자', 영웅과 악당이 존재한다.","chunks":[["There are top cats and underdogs,","사회적 강자와 약자가 있고,"],["'haves' and 'have-nots',","'가진 자'와 '못 가진 자',"],["heroes and scoundrels","영웅과 악당이 존재한다"]]},{"en":"You fall in love, have babies and mourn one another's death.","ko":"사랑에 빠지고, 아기를 낳고, 서로의 죽음을 슬퍼한다.","chunks":[["You fall in love,","여러분은 사랑에 빠지고,"],["have babies","아기를 낳고,"],["and mourn one another's death","서로의 죽음을 슬퍼한다"]]},{"en":"It doesn't matter if you live in the desert, in the Arctic chill, in a massive city, on the edge of a vast savannah or on a tropical island ─ fundamentally, you'll have a great deal in common with every other person on the planet.","ko":"여러분이 사막에 살든, 북극의 추위 속에 살든, 대도시에 살든, 광활한 사바나 끝에 살든, 열대 섬에 살든 상관없이 기본적으로 지구상의 다른 모든 사람과 많은 공통점을 가질 것이다.","chunks":[["It doesn't matter if you live in the desert,","여러분이 사막에 살든,"],["in the Arctic chill,","북극의 추위 속에 살든,"],["in a massive city,","대도시에 살든,"],["on the edge of a vast savannah or on a tropical island ─","광활한 사바나 끝에 살든, 열대 섬에 살든 상관없이 ─"],["fundamentally, you'll have a great deal in common","기본적으로 많은 공통점을 갖게 될 것이다"],["with every other person on the planet","지구상의 다른 모든 사람과"]]},{"en":"Naturally, the stories we all tell would reflect these same social forces of love, death, anxiety and competition for resources.","ko":"당연히 우리 모두가 하는 이야기에는 사랑, 죽음, 불안, 자원에 대한 경쟁이라는 이러한 같은 사회적 동력이 반영되어 있을 것이다.","chunks":[["Naturally, the stories we all tell","당연히, 우리 모두가 하는 이야기는"],["would reflect these same social forces","이러한 같은 사회적 동력을 반영할 것이다"],["of love, death, anxiety and competition for resources","즉 사랑, 죽음, 불안, 자원에 대한 경쟁이라는"]]}],"metaphor":"<svg viewBox=\"0 0 600 270\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"상단에 그리스 기둥·아시아 탑·아프리카 마스크·북유럽 룬 등 다양한 문화의 신화 상징 네 개가 있고 화살표가 모두 아래로 수렴해 사랑·죽음·갈등·자원 경쟁이라는 인류 공통 사회 동력이라는 박스로 모이는 그림\">\n  <!-- 상단: 4개 다양 문화 신화 -->\n  <text x=\"300\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">다양 문화의 신화</text>\n\n  <!-- 그리스 (기둥) -->\n  <g transform=\"translate(80, 65)\">\n    <!-- 기둥 -->\n    <rect x=\"-12\" y=\"-20\" width=\"24\" height=\"4\" fill=\"#1a1a1a\"/>\n    <rect x=\"-9\" y=\"-16\" width=\"18\" height=\"32\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <!-- 세로줄 -->\n    <line x1=\"-5\" y1=\"-16\" x2=\"-5\" y2=\"16\" stroke=\"#1a1a1a\" stroke-width=\"0.7\"/>\n    <line x1=\"0\" y1=\"-16\" x2=\"0\" y2=\"16\" stroke=\"#1a1a1a\" stroke-width=\"0.7\"/>\n    <line x1=\"5\" y1=\"-16\" x2=\"5\" y2=\"16\" stroke=\"#1a1a1a\" stroke-width=\"0.7\"/>\n    <rect x=\"-12\" y=\"16\" width=\"24\" height=\"4\" fill=\"#1a1a1a\"/>\n    <text x=\"0\" y=\"38\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">Greek</text>\n  </g>\n\n  <!-- 아시아 (탑/용) -->\n  <g transform=\"translate(225, 65)\">\n    <!-- 탑 -->\n    <polygon points=\"-12,15 -10,5 0,-3 10,5 12,15\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <polygon points=\"-10,5 -8,-2 0,-9 8,-2 10,5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <polygon points=\"-8,-2 -5,-8 0,-14 5,-8 8,-2\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <line x1=\"0\" y1=\"-14\" x2=\"0\" y2=\"-20\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <circle cx=\"0\" cy=\"-20\" r=\"1.8\" fill=\"#1a1a1a\"/>\n    <text x=\"0\" y=\"38\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">Asian</text>\n  </g>\n\n  <!-- 아프리카 (마스크) -->\n  <g transform=\"translate(375, 65)\">\n    <ellipse cx=\"0\" cy=\"0\" rx=\"11\" ry=\"18\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <!-- 눈 -->\n    <ellipse cx=\"-4\" cy=\"-4\" rx=\"1.8\" ry=\"2.5\" fill=\"#1a1a1a\"/>\n    <ellipse cx=\"4\" cy=\"-4\" rx=\"1.8\" ry=\"2.5\" fill=\"#1a1a1a\"/>\n    <!-- 줄무늬 -->\n    <line x1=\"-8\" y1=\"3\" x2=\"-6\" y2=\"3\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n    <line x1=\"6\" y1=\"3\" x2=\"8\" y2=\"3\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n    <!-- 입 -->\n    <ellipse cx=\"0\" cy=\"8\" rx=\"3\" ry=\"2\" fill=\"#1a1a1a\"/>\n    <text x=\"0\" y=\"38\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">African</text>\n  </g>\n\n  <!-- 북유럽 (룬) -->\n  <g transform=\"translate(520, 65)\">\n    <rect x=\"-15\" y=\"-18\" width=\"30\" height=\"36\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <!-- 룬 글자 (간단한 ㅏ 형태) -->\n    <line x1=\"0\" y1=\"-12\" x2=\"0\" y2=\"12\" stroke=\"#1a1a1a\" stroke-width=\"2\"/>\n    <line x1=\"0\" y1=\"-8\" x2=\"6\" y2=\"-12\" stroke=\"#1a1a1a\" stroke-width=\"2\"/>\n    <line x1=\"0\" y1=\"0\" x2=\"-6\" y2=\"-3\" stroke=\"#1a1a1a\" stroke-width=\"2\"/>\n    <text x=\"0\" y=\"38\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">Norse</text>\n  </g>\n\n  <!-- 수렴 화살표 -->\n  <g stroke=\"#1FA34A\" stroke-width=\"1.6\" fill=\"#1FA34A\">\n    <line x1=\"80\" y1=\"115\" x2=\"225\" y2=\"170\"/>\n    <polygon points=\"225,170 217,166 220,174\"/>\n    <line x1=\"225\" y1=\"115\" x2=\"275\" y2=\"170\"/>\n    <polygon points=\"275,170 268,164 268,173\"/>\n    <line x1=\"375\" y1=\"115\" x2=\"325\" y2=\"170\"/>\n    <polygon points=\"325,170 332,164 332,173\"/>\n    <line x1=\"520\" y1=\"115\" x2=\"375\" y2=\"170\"/>\n    <polygon points=\"375,170 383,166 380,174\"/>\n  </g>\n\n  <!-- 하단: 공통 기저 박스 -->\n  <g transform=\"translate(140, 170)\">\n    <rect x=\"0\" y=\"0\" width=\"320\" height=\"62\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"2\"/>\n    <text x=\"160\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">공통 기저 — common social dynamics</text>\n    <text x=\"160\" y=\"38\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">love · death · conflict · scarcity</text>\n    <text x=\"160\" y=\"53\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\">사랑 · 죽음 · 갈등 · 자원 경쟁</text>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"255\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">myths differ in form — but reflect the same human relationships</text>\n</svg>","caption":"다양 문화 신화 → 공통 기저(사랑·죽음·갈등·자원 경쟁)"},{"no":"9","title":"Empathy Becomes Compassion","ktitle":"공감에서 연민으로","field":"심리·신경","page":"p71)","oneline":"공감(empathy)은 고통을 ‘함께 느끼는’ 것이라 혼자선 압도된다.","tldr":["공감(empathy)은 고통을 ‘함께 느끼는’ 것이라 혼자선 압도된다.","연민(compassion)이 더해지면 다른 뇌 부위가 켜진다.","옥시토신·유대가 활성화돼 공감이 ‘돕는 힘’이 된다."],"analogy":"친구의 슬픔을 ‘같이’ 느끼기만 하면(공감) 둘 다 가라앉죠. 거기에 ‘도와주고 싶다’는 마음(연민)이 더해지면, 비로소 실제로 손을 내밀 힘이 생겨요.","bg":"‘공감(empathy)’과 ‘연민(compassion)’의 차이를 뇌과학으로 다루는 글. Tania Singer 연구 — 연민일 때 다른 뇌 부위가 켜지고 옥시토신·유대가 활성화돼 ‘돕는 힘’이 돼요.","flow":[{"kind":"전제","t":"공감 = 고통을 함께 느낌"},{"kind":"한계","t":"공감만으론 압도된다"},{"kind":"전환","t":"연민 = 친절히 반응하려는 마음"},{"kind":"기전","t":"Singer — 다른 뇌부위·옥시토신·유대 활성","d":"심박↓, 돌봄·쾌락 부위 켜짐."},{"kind":"결론","t":"연민이 공감을 ‘변화의 힘’으로"}],"quiz":[["‘공감’과 ‘연민’은 어떻게 다른가?","공감은 남의 고통을 ‘함께 느끼는’ 것, 연민은 그 고통에 ‘친절히 반응하려는’ 마음이에요 — 활성화되는 뇌 부위도 달라요."],["연민이 개입하면 몸·뇌에 무슨 일이?","심박이 느려지고 ‘유대 호르몬’ 옥시토신이 분비되며, 돌봄·쾌락과 연결된 뇌 부위가 켜져요."],["핵심 한 문장?","공감만으론 압도되지만, 연민이 더해지면 비로소 ‘돕는 힘’이 된다."]],"vocab":[["empathy","공감"],["compassion","연민"],["chemistry","화학 작용, 화학"],["activate","활성화하다"],["versus","~에 대해, ~와 대비하여"],["oxytocin","옥시토신 ('유대 호르몬')"]],"en":"When we switch from empathy to compassion, we change our very brain chemistry. Indeed, leading compassion researcher Tania Singer found that different parts of the brain are activated when we share someone's pain (empathy) versus when we want to respond warmly to someone's suffering (compassion). Our heart rate slows, we release the \"bonding hormone\" oxytocin, and the parts of the brain linked to caregiving and pleasure light up. Once compassion enters the picture, we do not necessarily experience other people's pain with them, explains Singer, but we feel concern for them and a strong desire to help. Rather than turning us away from others, our compassion connects us even more deeply to them and strengthens our social ties. To be clear, empathy is, in itself, a wonderful thing. It's a superpower all sensitive people share. But empathy alone can become overwhelming. That's where compassion comes in. It's what allows us to use our empathy to make a difference.","ko":"우리가 공감에서 연민으로 전환할 때, 우리는 바로 우리의 뇌 화학 작용을 변경한다. 실제로 선도적인 연민 연구자인 Tania Singer는 우리가 누군가의 고통을 공유할 때(공감)와 대비하여 누군가의 고통에 친절하게 반응하고 싶어 할 때(연민)는 다른 뇌 부위가 활성화된다는 것을 발견했다. 우리는 심장 박동 수가 느려지고, '유대 호르몬'인 옥시토신을 분비하며, 돌봄과 쾌락과 연결된 뇌 부분이 켜진다. 일단 연민이 개입하면, 우리는 필연적으로 다른 사람의 고통을 그들과 함께 경험하지는 않지만, 그들에 대한 걱정과 돕고 싶은 강한 욕구를 느낀다고 Singer는 설명한다. 우리의 연민은 타인으로부터 우리를 멀어지게 하기보다 그들과 훨씬 더 깊게 연결하고 우리의 사회적 유대를 강화한다. 분명히 말하자면 공감은 그 자체로 훌륭한 것이다. 그것은 모든 감수성이 강한 사람들이 공유하는 특별한 능력이다. 하지만 공감만으로는 압도될 수 있다. 거기가 연민이 개입하는 지점이다. 그것이 우리가 공감을 사용하여 변화를 이룰 수 있게 해 주는 것이다.","read":[{"en":"When we switch from empathy to compassion, we change our very brain chemistry.","ko":"우리가 공감에서 연민으로 전환할 때, 우리는 바로 우리의 뇌 화학 작용을 변경한다.","chunks":[["When we switch from empathy to compassion,","우리가 공감에서 연민으로 전환할 때,"],["we change our very brain chemistry","바로 우리의 뇌 화학 작용을 변경한다"]]},{"en":"Indeed, leading compassion researcher Tania Singer found that different parts of the brain are activated when we share someone's pain (empathy) versus when we want to respond warmly to someone's suffering (compassion).","ko":"실제로 선도적인 연민 연구자인 Tania Singer는 우리가 누군가의 고통을 공유할 때(공감)와 대비하여 누군가의 고통에 친절하게 반응하고 싶어 할 때(연민)는 다른 뇌 부위가 활성화된다는 것을 발견했다.","chunks":[["Indeed, leading compassion researcher Tania Singer found","실제로 선도적인 연민 연구자 Tania Singer는 발견했다"],["that different parts of the brain are activated","뇌의 다른 부위가 활성화된다는 것을"],["when we share someone's pain (empathy)","누군가의 고통을 공유할 때(공감)"],["versus when we want to respond warmly to someone's suffering (compassion)","와 대비하여 누군가의 고통에 친절하게 반응하고 싶어 할 때(연민)"]]},{"en":"Our heart rate slows, we release the \"bonding hormone\" oxytocin, and the parts of the brain linked to caregiving and pleasure light up.","ko":"우리는 심장 박동 수가 느려지고, '유대 호르몬'인 옥시토신을 분비하며, 돌봄과 쾌락과 연결된 뇌 부분이 켜진다.","chunks":[["Our heart rate slows,","우리의 심장 박동 수가 느려지고,"],["we release the \"bonding hormone\" oxytocin,","'유대 호르몬'인 옥시토신을 분비하며,"],["and the parts of the brain linked to caregiving and pleasure light up","돌봄과 쾌락과 연결된 뇌 부분이 켜진다"]]},{"en":"Once compassion enters the picture, we do not necessarily experience other people's pain with them, explains Singer, but we feel concern for them and a strong desire to help.","ko":"일단 연민이 개입하면, 우리는 필연적으로 다른 사람의 고통을 그들과 함께 경험하지는 않지만, 그들에 대한 걱정과 돕고 싶은 강한 욕구를 느낀다고 Singer는 설명한다.","chunks":[["Once compassion enters the picture,","일단 연민이 개입하면,"],["we do not necessarily experience other people's pain with them,","우리는 다른 사람의 고통을 그들과 함께 경험하지는 않지만,"],["explains Singer,","Singer는 설명한다,"],["but we feel concern for them and a strong desire to help","그들에 대한 걱정과 돕고 싶은 강한 욕구를 느낀다"]]},{"en":"Rather than turning us away from others, our compassion connects us even more deeply to them and strengthens our social ties.","ko":"우리의 연민은 타인으로부터 우리를 멀어지게 하기보다 그들과 훨씬 더 깊게 연결하고 우리의 사회적 유대를 강화한다.","chunks":[["Rather than turning us away from others,","타인으로부터 우리를 멀어지게 하기보다,"],["our compassion connects us even more deeply to them","우리의 연민은 그들과 훨씬 더 깊게 우리를 연결하고"],["and strengthens our social ties","우리의 사회적 유대를 강화한다"]]},{"en":"To be clear, empathy is, in itself, a wonderful thing.","ko":"분명히 말하자면 공감은 그 자체로 훌륭한 것이다.","chunks":[["To be clear,","분명히 말하자면,"],["empathy is, in itself, a wonderful thing","공감은 그 자체로 훌륭한 것이다"]]},{"en":"It's a superpower all sensitive people share.","ko":"그것은 모든 감수성이 강한 사람들이 공유하는 특별한 능력이다.","chunks":[["It's a superpower","그것은 특별한 능력이다"],["all sensitive people share","모든 감수성이 강한 사람들이 공유하는"]]},{"en":"But empathy alone can become overwhelming.","ko":"하지만 공감만으로는 압도될 수 있다.","chunks":[["But empathy alone","그러나 공감만으로는"],["can become overwhelming","압도될 수 있다"]]},{"en":"That's where compassion comes in. It's what allows us to use our empathy to make a difference.","ko":"거기가 연민이 개입하는 지점이다. 그것이 우리가 공감을 사용하여 변화를 이룰 수 있게 해 주는 것이다.","chunks":[["That's where compassion comes in.","거기가 연민이 개입하는 지점이다."],["It's what allows us to use our empathy","그것은 우리가 공감을 사용하게 해 주는 것이다"],["to make a difference","변화를 이룰 수 있도록"]]}],"metaphor":"<svg viewBox=\"0 0 600 250\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽은 두 사람이 모두 고통스러운 표정으로 함께 압도된 공감의 모습이고 가운데 화살표를 거쳐 오른쪽은 한 사람이 다른 사람을 따뜻하게 안아주며 옥시토신·돌봄 뇌부위가 활성화된 연민의 모습으로 전환되는 그림\">\n  <!-- 좌: Empathy -->\n  <g transform=\"translate(20, 30)\">\n    <text x=\"125\" y=\"-10\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">공감 — Empathy</text>\n    <rect x=\"0\" y=\"0\" width=\"240\" height=\"180\" fill=\"#fdf2f4\" fill-opacity=\"0.3\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/>\n\n    <!-- 두 사람 (둘 다 고통 표정 — 둘 다 같이 압도) -->\n    <g transform=\"translate(65, 110)\">\n      <!-- 머리 (찌푸린 표정) -->\n      <circle cx=\"0\" cy=\"-22\" r=\"13\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n      <!-- 찌푸린 눈썹 -->\n      <line x1=\"-5\" y1=\"-26\" x2=\"-2\" y2=\"-25\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <line x1=\"5\" y1=\"-26\" x2=\"2\" y2=\"-25\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <circle cx=\"-3\" cy=\"-23\" r=\"1.2\" fill=\"#c8102e\"/>\n      <circle cx=\"3\" cy=\"-23\" r=\"1.2\" fill=\"#c8102e\"/>\n      <!-- 슬픈 입 -->\n      <path d=\"M -4 -16 Q 0 -19 4 -16\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <!-- 몸 (구부정) -->\n      <line x1=\"0\" y1=\"-9\" x2=\"-3\" y2=\"20\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"-2\" x2=\"-12\" y2=\"6\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"-2\" x2=\"12\" y2=\"6\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n      <line x1=\"-3\" y1=\"20\" x2=\"-11\" y2=\"38\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n      <line x1=\"-3\" y1=\"20\" x2=\"5\" y2=\"38\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n    </g>\n    <g transform=\"translate(165, 110)\">\n      <circle cx=\"0\" cy=\"-22\" r=\"13\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n      <line x1=\"-5\" y1=\"-26\" x2=\"-2\" y2=\"-25\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <line x1=\"5\" y1=\"-26\" x2=\"2\" y2=\"-25\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <circle cx=\"-3\" cy=\"-23\" r=\"1.2\" fill=\"#c8102e\"/>\n      <circle cx=\"3\" cy=\"-23\" r=\"1.2\" fill=\"#c8102e\"/>\n      <path d=\"M -4 -16 Q 0 -19 4 -16\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"-9\" x2=\"-3\" y2=\"20\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"-2\" x2=\"-12\" y2=\"6\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"-2\" x2=\"12\" y2=\"6\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n      <line x1=\"-3\" y1=\"20\" x2=\"-11\" y2=\"38\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n      <line x1=\"-3\" y1=\"20\" x2=\"5\" y2=\"38\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n    </g>\n\n    <!-- 둘 사이 고통 공유 표시 (구름·번개?) — 빨강 점선 둘러쌈 -->\n    <ellipse cx=\"115\" cy=\"90\" rx=\"80\" ry=\"38\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.2\" stroke-dasharray=\"3 3\" opacity=\"0.7\"/>\n\n    <!-- 뇌 부위 a 작은 표시 (둘 다 같은 부위) -->\n    <g transform=\"translate(65, 60)\">\n      <circle cx=\"0\" cy=\"-32\" r=\"4\" fill=\"#c8102e\" fill-opacity=\"0.5\" stroke=\"#c8102e\" stroke-width=\"1\"/>\n    </g>\n    <g transform=\"translate(165, 60)\">\n      <circle cx=\"0\" cy=\"-32\" r=\"4\" fill=\"#c8102e\" fill-opacity=\"0.5\" stroke=\"#c8102e\" stroke-width=\"1\"/>\n    </g>\n\n    <text x=\"125\" y=\"160\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">sharing pain · overwhelmed</text>\n    <text x=\"125\" y=\"172\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\">함께 고통 — 압도</text>\n  </g>\n\n  <!-- 가운데 화살표 — 전환 -->\n  <g transform=\"translate(268, 115)\">\n    <line x1=\"0\" y1=\"0\" x2=\"60\" y2=\"0\" stroke=\"#1FA34A\" stroke-width=\"2.2\"/>\n    <polygon points=\"60,0 51,-6 51,6\" fill=\"#1FA34A\"/>\n    <text x=\"30\" y=\"-10\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">transition</text>\n    <text x=\"30\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\">전환</text>\n  </g>\n\n  <!-- 우: Compassion -->\n  <g transform=\"translate(340, 30)\">\n    <text x=\"120\" y=\"-10\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">연민 — Compassion</text>\n    <rect x=\"0\" y=\"0\" width=\"240\" height=\"180\" fill=\"#f0faf3\" fill-opacity=\"0.3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n\n    <!-- 두 사람 — A가 B를 안아주는 형태 -->\n    <!-- A (왼쪽, 돌보는 자) -->\n    <g transform=\"translate(85, 110)\">\n      <circle cx=\"0\" cy=\"-22\" r=\"13\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n      <circle cx=\"-3\" cy=\"-23\" r=\"1.2\" fill=\"#1FA34A\"/>\n      <circle cx=\"3\" cy=\"-23\" r=\"1.2\" fill=\"#1FA34A\"/>\n      <path d=\"M -4 -16 Q 0 -13 4 -16\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"-9\" x2=\"0\" y2=\"20\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n      <!-- 안는 팔 (오른쪽으로 뻗음) -->\n      <line x1=\"0\" y1=\"-2\" x2=\"20\" y2=\"3\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n      <line x1=\"0\" y1=\"-2\" x2=\"-10\" y2=\"8\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"20\" x2=\"-8\" y2=\"38\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"20\" x2=\"8\" y2=\"38\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    </g>\n    <!-- B (오른쪽, 돌봄 받는 자) -->\n    <g transform=\"translate(140, 110)\">\n      <circle cx=\"0\" cy=\"-22\" r=\"13\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <circle cx=\"-3\" cy=\"-23\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"-23\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <!-- 평온해진 입 -->\n      <path d=\"M -4 -18 Q 0 -16 4 -18\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <line x1=\"0\" y1=\"-9\" x2=\"0\" y2=\"20\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <line x1=\"0\" y1=\"-2\" x2=\"-12\" y2=\"6\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"-2\" x2=\"12\" y2=\"6\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"20\" x2=\"-8\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"20\" x2=\"8\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    </g>\n\n    <!-- 따뜻한 원 (옥시토신·돌봄) — 두 사람 둘러쌈 -->\n    <ellipse cx=\"112\" cy=\"90\" rx=\"75\" ry=\"55\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n\n    <!-- 뇌 부위 b (다른 부위 — 옥시토신 영역) -->\n    <g transform=\"translate(85, 60)\">\n      <circle cx=\"0\" cy=\"-32\" r=\"4\" fill=\"#1FA34A\" stroke=\"#1FA34A\" stroke-width=\"1\"/>\n    </g>\n\n    <!-- 옥시토신 라벨 -->\n    <g transform=\"translate(195, 75)\">\n      <text x=\"0\" y=\"0\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" font-weight=\"700\" fill=\"#1FA34A\">oxytocin</text>\n      <text x=\"0\" y=\"13\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" font-weight=\"700\" fill=\"#1FA34A\">care</text>\n      <text x=\"0\" y=\"25\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" font-weight=\"700\" fill=\"#1FA34A\">bond</text>\n    </g>\n\n    <text x=\"120\" y=\"160\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">warm response · acts to help</text>\n    <text x=\"120\" y=\"172\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\">따뜻한 반응 — 행동으로</text>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"240\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">empathy alone overwhelms — compassion turns it into change</text>\n</svg>","caption":"공감(고통 함께·압도) → 전환 → 연민(옥시토신·돌봄·행동)"}]};
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function renderTabs() {
+  const tabs = P.data.map((d, i) =>
+    `<button class="tab${i===0?' active':''}" data-t="${d.no}">
+       <span class="tab-no">${d.no}</span>
+       <span class="tab-field">${d.field}</span>
+     </button>`).join('');
+  document.getElementById('tabs').innerHTML = tabs;
+}
+
+function renderTLDR(d) {
+  if (!d.tldr || !d.tldr.length) return '';
+  const items = d.tldr.map(t => `<li>${t}</li>`).join('');
+  return `<details class="tool" data-tool="tldr" open>
+    <summary>
+      <span class="ticon">B</span>
+      <span class="tname">핵심 요약</span>
+      <span class="thint">— 읽고 나서 핵심 정리</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><ol class="tldr">${items}</ol></div>
+  </details>`;
+}
+
+function renderAnalogy(d) {
+  if (!d.analogy) return '';
+  return `<details class="tool" data-tool="analogy">
+    <summary>
+      <span class="ticon">B</span>
+      <span class="tname">이게 무슨 말이냐면</span>
+      <span class="thint">— 일상 비유</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><p class="callout analogy">${d.analogy}</p></div>
+  </details>`;
+}
+
+function renderBG(d) {
+  if (!d.bg && !d.analogy) return '';
+  const bg = d.bg ? `<p class="callout bg">${d.bg}</p>` : '';
+  const analogy = d.analogy ? `<p class="callout analogy"><b>비유로 보면</b><br>${d.analogy}</p>` : '';
+  return `<details class="tool" data-tool="bg">
+    <summary>
+      <span class="ticon">A</span>
+      <span class="tname">읽기 전 30초</span>
+      <span class="thint">— 배경 개념과 읽는 방향</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${bg}${analogy}</div>
+  </details>`;
+}
+
+function renderFlow(d) {function renderFlow(d) {
+  if (!d.flow || !d.flow.length) return '';
+  let body = '<div class="flow">';
+  d.flow.forEach((s, i) => {
+    const cls = s.cls ? ' ' + s.cls : '';
+    body += `<div class="flow-step${cls}">
+      <div class="kind">${s.kind}</div>
+      <div class="body">
+        <div class="t">${s.t}</div>
+        ${s.d ? `<div class="d">${s.d}</div>` : ''}
+      </div>
+    </div>`;
+    if (i < d.flow.length - 1) body += '<div class="flow-arrow">▼</div>';
+  });
+  body += '</div>';
+  return `<details class="tool" data-tool="flow">
+    <summary>
+      <span class="ticon">C</span>
+      <span class="tname">논리 흐름</span>
+      <span class="thint">— 글의 전개</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}</div>
+  </details>`;
+}
+
+function renderQuiz(d) {
+  if (!d.quiz || !d.quiz.length) return '';
+  const items = d.quiz.map((q, i) =>
+    `<details class="quiz-item">
+      <summary>
+        <span class="qn">Q${i+1}</span>
+        <span>${q[0]}</span>
+        <span class="qarr">정답 ▾</span>
+      </summary>
+      <div class="qa">${q[1]}</div>
+    </details>`).join('');
+  return `<details class="tool" data-tool="quiz">
+    <summary>
+      <span class="ticon">D</span>
+      <span class="tname">확인 퀴즈</span>
+      <span class="thint">— 스스로 점검</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${items}</div>
+  </details>`;
+}
+
+function renderRead(d) {
+  if (!d.read || !d.read.length) return '';
+  let body = '';
+  d.read.forEach(r => {
+    let chunks = '';
+    if (r.chunks && r.chunks.length) {
+      chunks = '<div class="chunks">' + r.chunks.map(ch =>
+        `<div class="chunk"><div class="ce">${ch[0]}</div><div class="ck">${ch[1]}</div></div>`
+      ).join('') + '</div>';
+    }
+    body += `<div class="read-sent">
+      <div class="en">${r.en}</div>
+      ${chunks}
+      <div class="ko"><b>전체 해석:</b> ${r.ko}</div>
+    </div>`;
+  });
+  let vocab = '';
+  if (d.vocab && d.vocab.length) {
+    vocab = '<div class="vocab"><div class="vlabel">핵심 어휘</div>' +
+      d.vocab.map(v => `<div class="chip"><b>${v[0]}</b><span>${v[1]}</span></div>`).join('') +
+      '</div>';
+  }
+  return `<details class="tool" data-tool="read">
+    <summary>
+      <span class="ticon">E</span>
+      <span class="tname">끊어읽기 + 어휘</span>
+      <span class="thint">— 문장 단위</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}${vocab}</div>
+  </details>`;
+}
+
+function renderSource(d) {
+  if (!d.en && !d.ko) return '';
+  return `<details class="tool" data-tool="source">
+    <summary>
+      <span class="ticon">F</span>
+      <span class="tname">영어 원문 + 해석</span>
+      <span class="thint">— 시험 직전 점검용</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">
+      <div class="src">
+        <div class="en">${d.en}</div>
+        <div class="ko">${d.ko}</div>
+      </div>
+    </div>
+  </details>`;
+}
+
+function renderPassage(d, idx) {
+  let html = `<section class="passage${idx===0?' active':''}" id="p${d.no}">`;
+  html += `<div class="p-head">
+    <span class="field">${d.field}</span>
+    <h2>${d.title}</h2>
+    <p class="p-kt">${d.ktitle}</p>
+    <p class="p-page">${d.page}</p>
+  </div>`;
+  html += `<div class="oneline">${d.oneline}</div>`;
+  if (d.metaphor) {
+    html += `<div class="metaphor">
+      <div class="m-head">
+        <span class="label">중심 비유</span>
+        <span class="sub">visual metaphor</span>
+      </div>
+      <figure>
+        ${d.metaphor}
+        ${d.caption ? `<figcaption>${d.caption}</figcaption>` : ''}
+      </figure>
+    </div>`;
+  }
+  html += `<div class="tools-intro">막힌 곳만 펴 보세요 · <b>도구 상자</b></div>`;
+  html += renderBG(d);
+  html += renderTLDR(d);
+  html += renderFlow(d);
+  html += renderQuiz(d);
+  html += renderRead(d);
+  html += renderSource(d);
+  html += `</section>`;
+  return html;
+}
+
+renderTabs();
+document.getElementById('main').innerHTML = P.data.map((d, i) => renderPassage(d, i)).join('');
+
+/* 탭 클릭 */
+document.querySelectorAll('.tab').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.passage').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('p' + b.dataset.t).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

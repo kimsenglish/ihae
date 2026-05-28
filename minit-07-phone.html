@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>지문 이해 보조 자료 · 수능특강 미니특강(미닛15) 7회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   김가영어학원 · KIM KA YOUNG ENGLISH
+   수능특강 영어독해연습 08강 지문 이해 — 도구 상자(Toolbox) 디지털 자료
+   Brand v2.1 · System B (학습자료 본문 전용)
+   ============================================================ */
+
+:root {
+  --paper:    #ffffff;
+  --ink:      #1a1a1a;
+  --ink-80:   #333333;
+  --ink-60:   #5e5e5e;
+  --ink-40:   #999999;
+  --ink-20:   #cccccc;
+  --ink-10:   #e8e8e8;
+  --ink-05:   #f6f6f6;
+  --red:      #c8102e;
+  --red-tint: #fdf2f4;
+  --green:    #1FA34A;
+  --green-tint: #f0faf3;
+  --serif-kr: 'Noto Serif KR', serif;
+  --serif-en: 'Noto Serif', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--serif-kr);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+em { font-family: var(--serif-en); font-style: italic; }
+.en { font-family: var(--serif-en); }
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 18px 18px 80px;
+}
+
+/* ============================================================
+   학원 브랜드 헤더
+   ============================================================ */
+.brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: 4px;
+}
+.brand .b-title h1 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.brand .b-title .b-sub {
+  font-size: 11px;
+  color: var(--ink-60);
+  margin-top: 2px;
+  font-family: var(--serif-en);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+.brand .b-meta {
+  font-size: 11.5px;
+  color: var(--ink-60);
+  text-align: right;
+  line-height: 1.5;
+}
+.brand .b-meta .en { font-style: italic; }
+
+/* ============================================================
+   사용 안내 (도구 상자 가이드)
+   ============================================================ */
+.guide {
+  background: var(--ink-05);
+  border-left: 3px solid var(--red);
+  padding: 13px 16px 12px;
+  margin: 14px 0;
+  border-radius: 0 4px 4px 0;
+}
+.guide .g-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 9px;
+  font-family: var(--serif-kr);
+}
+.guide .g-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.guide .g-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+.guide .g-when {
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: var(--ink);
+  min-width: 96px;
+}
+.guide .g-sep {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  flex: 0 0 auto;
+}
+.guide .g-tools {
+  color: var(--ink-80);
+  flex: 1;
+}
+.guide .g-tools .k {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 12px;
+  padding: 0 3px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 3px;
+  margin-right: 2px;
+}
+.guide .g-note {
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+  font-size: 12px;
+  color: var(--ink-60);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.guide .g-note b { color: var(--red); }
+
+/* ============================================================
+   탭 (지문 선택)
+   ============================================================ */
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink-10);
+  z-index: 10;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 10px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 0 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 5px;
+  padding: 7px 12px 5px;
+  font-family: var(--serif-kr);
+  color: var(--ink-60);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  min-width: 78px;
+}
+.tab .tab-no {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.tab .tab-field {
+  display: block;
+  font-size: 10.5px;
+  color: var(--ink-40);
+  margin-top: 1px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.tab:hover { border-color: var(--ink-60); color: var(--ink); }
+.tab.active {
+  background: var(--red-tint);
+  border-color: var(--red);
+  color: var(--red);
+}
+.tab.active .tab-field { color: var(--red); }
+
+/* ============================================================
+   PASSAGE PANEL
+   ============================================================ */
+.passage { display: none; padding-top: 18px; }
+.passage.active { display: block; animation: fadeIn 0.22s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.p-head .field {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--red);
+  border: 0.7px solid var(--red);
+  padding: 2px 8px;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+.p-head h2 {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.p-head .p-kt {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.p-head .p-page {
+  font-size: 10.5px;
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  letter-spacing: 0.12em;
+  margin-top: 5px;
+}
+
+/* ============================================================
+   한 줄 핵심 (anchor)
+   ============================================================ */
+.oneline {
+  margin: 18px 0 22px;
+  padding: 16px 18px 17px;
+  background: var(--ink-05);
+  border-left: 3px solid var(--ink);
+  border-radius: 0 6px 6px 0;
+  font-size: 17.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  word-break: keep-all;
+  letter-spacing: -0.005em;
+}
+.oneline::before {
+  content: "한 줄 핵심";
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 7px;
+}
+.oneline .r { color: var(--red); font-weight: 700; }
+.oneline .g { color: var(--green); font-weight: 700; }
+.oneline em { font-style: italic; }
+
+/* ============================================================
+   메타포 SVG (지문별 한 컷 — 항상 펼쳐짐)
+   ============================================================ */
+.metaphor {
+  margin: 20px 0 22px;
+  border: 1px solid var(--ink-20);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.metaphor .m-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--ink-10);
+  background: var(--ink-05);
+}
+.metaphor .m-head .label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--ink-60);
+}
+.metaphor .m-head .sub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-60);
+}
+.metaphor figure { padding: 18px 18px 14px; }
+.metaphor figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.metaphor figcaption {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-60);
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+  line-height: 1.55;
+}
+.metaphor figcaption .en { font-style: italic; color: var(--ink-80); }
+.metaphor figcaption .r { color: var(--red); font-weight: 700; }
+.metaphor figcaption .g { color: var(--green); font-weight: 700; }
+
+/* ============================================================
+   TOOLBOX 안내 라인
+   ============================================================ */
+.tools-intro {
+  font-size: 12px;
+  color: var(--ink-60);
+  letter-spacing: 0.04em;
+  margin: 18px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tools-intro::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--ink);
+  display: inline-block;
+}
+.tools-intro b { color: var(--ink); font-weight: 700; }
+
+/* ============================================================
+   도구 카드 (Tool) — 아코디언
+   ============================================================ */
+.tool {
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.tool[open] { border-color: var(--ink-80); }
+.tool > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+.tool > summary::-webkit-details-marker { display: none; }
+.tool > summary:hover { background: var(--ink-05); }
+.tool > summary .tname {
+  flex: 1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.tool > summary .thint {
+  font-size: 11.5px;
+  color: var(--ink-40);
+  font-weight: 400;
+}
+.tool > summary .arr {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  font-size: 11px;
+  transition: transform 0.2s;
+  flex: 0 0 auto;
+}
+.tool[open] > summary .arr { transform: rotate(90deg); color: var(--ink); }
+.tool > summary .ticon {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  background: var(--ink-05);
+  border: 0.7px solid var(--ink-20);
+}
+.tool[open] > summary .ticon {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.tool .body { padding: 4px 16px 18px; }
+
+/* ============================================================
+   도구별 컨텐츠 스타일
+   ============================================================ */
+
+/* 30초 요약 */
+.tldr {
+  list-style: none;
+  counter-reset: t;
+}
+.tldr li {
+  position: relative;
+  padding: 9px 0 9px 30px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  border-bottom: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+.tldr li:last-child { border-bottom: none; }
+.tldr li::before {
+  counter-increment: t;
+  content: counter(t);
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 20px;
+  height: 20px;
+  background: var(--paper);
+  border: 1px solid var(--green);
+  color: var(--green);
+  border-radius: 50%;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 비유 / 배경지식 */
+.callout {
+  font-size: 14.5px;
+  line-height: 1.7;
+  padding: 13px 15px;
+  border-radius: 6px;
+  word-break: keep-all;
+  background: var(--ink-05);
+}
+.callout.analogy { border-left: 3px solid var(--green); }
+.callout.bg      { border-left: 3px solid var(--ink); }
+.callout em { font-style: italic; }
+
+/* 논지 흐름 */
+.flow { display: flex; flex-direction: column; gap: 6px; }
+.flow-step {
+  display: flex;
+  gap: 12px;
+  padding: 12px 13px;
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  background: var(--paper);
+  align-items: flex-start;
+}
+.flow-step .kind {
+  flex: 0 0 60px;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 0;
+  text-align: center;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  background: var(--ink-05);
+  color: var(--ink-80);
+  border: 0.7px solid var(--ink-20);
+}
+.flow-step.pivot .kind {
+  background: var(--red-tint); color: var(--red); border-color: var(--red);
+}
+.flow-step.close .kind {
+  background: var(--green-tint); color: var(--green); border-color: var(--green);
+}
+.flow-step .body { flex: 1; }
+.flow-step .t {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.flow-step .t .r { color: var(--red); font-weight: 700; }
+.flow-step .t .g { color: var(--green); font-weight: 700; }
+.flow-step .d {
+  font-size: 12.5px;
+  color: var(--ink-60);
+  margin-top: 4px;
+  word-break: keep-all;
+}
+.flow-arrow {
+  text-align: center;
+  color: var(--ink-20);
+  font-size: 13px;
+  font-family: var(--serif-en);
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+/* 끊어읽기 */
+.read-sent {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 11px 13px 11px;
+  margin-bottom: 8px;
+  background: var(--paper);
+}
+.read-sent .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.read-sent .chunks {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+}
+.read-sent .chunk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px 16px;
+  padding: 3px 0;
+  font-size: 12.5px;
+  border-bottom: 1px dotted var(--ink-10);
+}
+.read-sent .chunk:last-child { border-bottom: none; }
+.read-sent .chunk .ce {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.read-sent .chunk .ck { color: var(--ink-60); word-break: keep-all; }
+.read-sent .ko {
+  margin-top: 9px;
+  padding: 7px 11px;
+  background: var(--ink-05);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--ink-80);
+  word-break: keep-all;
+  line-height: 1.6;
+}
+.read-sent .ko b { color: var(--ink); font-weight: 700; }
+
+/* 어휘 chip */
+.vocab {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--ink-10);
+}
+.vocab .vlabel {
+  width: 100%;
+  font-size: 11px;
+  color: var(--ink-60);
+  letter-spacing: 0.18em;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.vocab .chip {
+  font-size: 12.5px;
+  padding: 5px 9px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.vocab .chip b {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--red);
+  font-weight: 700;
+}
+.vocab .chip span { color: var(--ink-80); margin-left: 5px; }
+
+/* 퀴즈 */
+.quiz-item {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  margin-bottom: 6px;
+  background: var(--paper);
+}
+.quiz-item > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 11px 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.quiz-item > summary::-webkit-details-marker { display: none; }
+.quiz-item .qn {
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--green);
+  border-radius: 3px;
+  padding: 2px 6px;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+.quiz-item .qarr {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--green);
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 700;
+}
+.quiz-item[open] .qarr { visibility: hidden; }
+.quiz-item .qa {
+  padding: 0 13px 13px 44px;
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+.quiz-item .qa b { color: var(--green); font-weight: 700; }
+
+/* 영어 원문 + 한글 해석 */
+.src {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 14px 16px;
+}
+.src .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+.src .ko {
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.85;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot {
+  margin-top: 36px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink-10);
+  font-size: 10.5px;
+  color: var(--ink-40);
+  text-align: center;
+  font-family: var(--serif-kr);
+  letter-spacing: 0.03em;
+}
+.foot .pub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-60);
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 540px) {
+  .wrap { padding: 14px 13px 60px; }
+  .brand { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .brand .b-meta { text-align: left; }
+  .guide .g-row { flex-direction: column; gap: 1px; padding-bottom: 4px; }
+  .guide .g-row + .g-row { border-top: 1px dashed var(--ink-10); padding-top: 5px; }
+  .guide .g-when { font-size: 12px; min-width: 0; }
+  .guide .g-sep { display: none; }
+  .guide .g-tools { font-size: 12.5px; }
+  .p-head h2 { font-size: 20px; }
+  .oneline { font-size: 16px; padding: 14px 14px; }
+  .read-sent .chunk { grid-template-columns: 1fr; gap: 1px; }
+  .read-sent .chunk .ck { padding-left: 4px; color: var(--ink-60); font-size: 12px; }
+  .flow-step { padding: 10px 11px; gap: 9px; }
+  .flow-step .kind { flex-basis: 52px; font-size: 10.5px; }
+  .tool > summary { padding: 12px 13px; font-size: 14px; }
+  .tool > summary .thint { display: none; }
+  .metaphor figure { padding: 13px 13px 10px; }
+  .metaphor figcaption { font-size: 12px; }
+}
+</style>
+</head>
+<body class="dev-phone">
+<div class="wrap">
+
+<!-- 학원 브랜드 헤더 -->
+<header class="brand">
+  <div class="b-title">
+    <h1>지문 이해 보조 자료</h1>
+    <div class="b-sub">수능특강 미니특강(미닛15) 7회</div>
+  </div>
+  <div class="b-meta">
+    김가영어학원<br>
+    <span class="en">KIM KA YOUNG ENGLISH</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs"></nav>
+
+<!-- 지문 패널 -->
+<main id="main"></main>
+
+<!-- 콜로폰 -->
+<footer class="foot">
+  김가영어학원 · KIM KA YOUNG ENGLISH &nbsp;·&nbsp; 지문 이해 보조 자료
+  <span class="pub">published by warm &amp; wise books</span>
+</footer>
+
+</div>
+
+<script>
+/* ============================================================
+   데이터 (P.data) — 수능특강 미니특강(미닛15) 7회
+   각 지문에 metaphor(SVG 문자열) + caption 필드 추가
+   ============================================================ */
+const P = {"data":[{"no":"1","title":"Authentic Education Demands Novelty","ktitle":"진짜 교육 = 낯섦에 도전","field":"교육·인지","page":"7회 01번 (주장)","oneline":"교육은 ‘낯선 것’에 다가가 배우는 일이다(안 먹어본 음식 시도처럼).","tldr":["교육은 ‘낯선 것’에 다가가 배우는 일이다(안 먹어본 음식 시도처럼).","친숙함에만 머물면 삶의 메뉴가 제한적·지루해진다.","호기심·독창성은 ‘길러야’ 하는 것 — 새 도전을 희생하면 안 된다."],"analogy":"맨날 같은 메뉴만 시키면 입맛이 안 넓어지죠. 새 음식을 도전해야 입맛이 자라듯, 교육도 ‘낯선 것’에 부딪쳐야 진짜 배움이 생겨요.","bg":"‘진짜 교육은 친숙함이 아니라 낯섦(새로움)을 요구한다’는 글. 호기심·즐거움은 저절로 생기지 않고 길러야 한다는 점이 핵심이에요.","flow":[{"kind":"정의","t":"교육 = 낯선 것에 다가가 배우는 일"},{"kind":"비유","t":"안 먹어본 음식을 시도하듯"},{"kind":"문제","t":"친숙함에 머물면 제한적·지루"},{"kind":"주장","t":"호기심·독창성은 ‘길러야’ 한다","d":"새 도전 경험을 희생 ✗."},{"kind":"결론","t":"낯섦이 진짜 교육이다"}],"quiz":[["글이 말하는 ‘진짜 교육’은?","친숙한 것에 머물지 않고 ‘낯선 것’에 다가가 배우는 거예요."],["호기심·독창성에 대해 글은 뭐라 하나?","저절로 생기는 게 아니라 ‘길러야’ 한다고 해요."],["핵심 한 문장?","진짜 교육은 친숙함이 아니라 낯섦(새로움)에 도전하는 것이다."]],"vocab":[["unfamiliar un-","친숙하지 않은·낯선"],["approach","접근하다·다가가다"],["innovative innovate","혁신적인"],["varied","다양한"],["delightful delight","즐거운·기쁜"],["unappetizing un-","매력적이지 않은·구미가 당기지 않는"]],"en":"An education is about learning things. Just as we need to try foods we've never eaten before, we need to approach unfamiliar subjects. Life's menu can be innovative, varied and delightful, but without outside influences, it can too often be limited, boring and unappetizing. Curiosity, like originality and delight, has to be nurtured. But if we keep emphasizing the notion of familiarity and security at the expense of new and potentially challenging experiences, then we'll be stuck in the same cycle. Authentic education demands that students learn a novelty, and not merely that they are taught familiarities. It's not about simply offering access to familiar information or data. The challenge of external novelty makes students hesitant at first, but in the end, their true abilities shine through. Students should be required to take classes from outside their areas of specialization.","ko":"교육은 뭔가를 배우는 것이다. 우리가 전에 결코 먹어 본 적 없는 음식을 시도해 볼 필요가 있는 것처럼, 우리는 친숙하지 않은 주제에 접근할 필요가 있다. 삶의 메뉴는 혁신적이고 다양하며 즐거울 수 있지만, 외부의 영향이 없다면, 그것은 너무 자주 제한적이고 지루하며 매력적이지 않을 수 있다. 독창성과 즐거움처럼 호기심은 길러져야만 한다. 그러나 우리가 새롭고 잠재적으로 도전이 될 만한 경험을 희생하면서 친숙함과 안전의 개념을 계속 강조한다면, 우리는 똑같은 순환에 갇히게 될 것이다. 진정한 교육은 학생들에게 단순히 익숙한 것을 가르치는 것이 아니라, 그들이 새로운 것을 배울 것을 요구한다. 그것은 단순히 친숙한 정보나 자료에 대한 접근을 제공하는 문제가 아니다. 외부적인 새로움에 대한 도전은 처음에는 학생들을 주저하게 만들지만, 결국에는 그들의 진정한 능력이 빛을 발한다. 학생들은 자신들의 전문 영역이 아닌 외부의 수업을 듣도록 요구된다.","read":[{"en":"An education is about learning things.","ko":"교육은 뭔가를 배우는 것이다.","chunks":[["An education","교육은"],["is about learning things.","뭔가를 배우는 것이다."]]},{"en":"Just as we need to try foods we've never eaten before, we need to approach unfamiliar subjects.","ko":"우리가 전에 결코 먹어 본 적 없는 음식을 시도해 볼 필요가 있는 것처럼, 우리는 친숙하지 않은 주제에 접근할 필요가 있다.","chunks":[["Just as we need to try foods","우리가 음식을 시도해 볼 필요가 있는 것처럼"],["we've never eaten before,","전에 결코 먹어 본 적 없는"],["we need to approach unfamiliar subjects.","우리는 친숙하지 않은 주제에 접근할 필요가 있다."]]},{"en":"Life's menu can be innovative, varied and delightful, but without outside influences, it can too often be limited, boring and unappetizing.","ko":"삶의 메뉴는 혁신적이고 다양하며 즐거울 수 있지만, 외부의 영향이 없다면, 그것은 너무 자주 제한적이고 지루하며 매력적이지 않을 수 있다.","chunks":[["Life's menu can be","삶의 메뉴는 ~할 수 있다"],["innovative, varied and delightful,","혁신적이고 다양하며 즐거울 수,"],["but without outside influences,","그러나 외부의 영향이 없다면,"],["it can too often be limited, boring and unappetizing.","그것은 너무 자주 제한적이고 지루하며 매력적이지 않을 수 있다."]]},{"en":"Curiosity, like originality and delight, has to be nurtured.","ko":"독창성과 즐거움처럼 호기심은 길러져야만 한다.","chunks":[["Curiosity,","호기심은,"],["like originality and delight,","독창성과 즐거움처럼,"],["has to be nurtured.","길러져야 한다."]]},{"en":"But if we keep emphasizing the notion of familiarity and security at the expense of new and potentially challenging experiences, then we'll be stuck in the same cycle.","ko":"그러나 우리가 새롭고 잠재적으로 도전이 될 만한 경험을 희생하면서 친숙함과 안전의 개념을 계속 강조한다면, 우리는 똑같은 순환에 갇히게 될 것이다.","chunks":[["But if we keep emphasizing","그러나 만약 우리가 계속 강조한다면"],["the notion of familiarity and security","친숙함과 안전이라는 개념을"],["at the expense of new and potentially challenging experiences,","새롭고 잠재적으로 도전적인 경험을 희생하면서,"],["then we'll be stuck in the same cycle.","그러면 우리는 똑같은 순환에 갇히게 될 것이다."]]},{"en":"Authentic education demands that students learn a novelty, and not merely that they are taught familiarities.","ko":"진정한 교육은 학생들에게 단순히 익숙한 것을 가르치는 것이 아니라, 그들이 새로운 것을 배울 것을 요구한다.","chunks":[["Authentic education demands","진정한 교육은 요구한다"],["that students learn a novelty,","학생들이 새로움을 배우는 것을,"],["and not merely that","그리고 단지 ~가 아니라"],["they are taught familiarities.","그들이 친숙한 것들을 배우는 것이."]]},{"en":"It's not about simply offering access to familiar information or data.","ko":"그것은 단순히 친숙한 정보나 자료에 대한 접근을 제공하는 문제가 아니다.","chunks":[["It's not about","그것은 ~에 관한 것이 아니다"],["simply offering access","단순히 접근을 제공하는 것"],["to familiar information or data.","친숙한 정보나 자료에 대한."]]},{"en":"The challenge of external novelty makes students hesitant at first, but in the end, their true abilities shine through.","ko":"외부적인 새로움에 대한 도전은 처음에는 학생들을 주저하게 만들지만, 결국에는 그들의 진정한 능력이 빛을 발한다.","chunks":[["The challenge of external novelty","외부적인 새로움에 대한 도전은"],["makes students hesitant at first,","학생들을 처음에 주저하게 만들지만,"],["but in the end,","결국에는,"],["their true abilities shine through.","그들의 진정한 능력이 빛을 발한다."]]},{"en":"Students should be required to take classes from outside their areas of specialization.","ko":"학생들은 자신들의 전문 영역이 아닌 외부의 수업을 듣도록 요구된다.","chunks":[["Students should be required","학생들은 요구되어야 한다"],["to take classes","수업을 듣도록"],["from outside their areas of specialization.","자신들의 전문 영역 밖의."]]}],"metaphor":"<svg viewBox=\"0 0 600 285\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽 같은 음식만 반복되는 빨강 점선 친숙한 메뉴(제한·지루·매력 없음, 같은 순환에 갇힌 학생)와, 오른쪽 새로운 다양한 음식이 놓인 초록 새 메뉴(호기심·즐거움 + 능력이 빛을 발하는 학생) 대조. 하단에 전공 밖 수업 의무라는 결론.\">\n  <!-- 상단 라벨 -->\n  <text x=\"300\" y=\"18\" font-family=\"Noto Serif KR\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">Life's Menu — 교육의 두 가지 길</text>\n\n  <!-- 좌측: 친숙한 메뉴 (같은 순환) -->\n  <g transform=\"translate(15, 44)\">\n    <text x=\"135\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">familiar menu only — 같은 순환</text>\n    <rect x=\"0\" y=\"0\" width=\"265\" height=\"170\" fill=\"#fdf2f4\" fill-opacity=\"0.35\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/>\n\n    <!-- 접시 — 같은 빵 3개 반복 -->\n    <g transform=\"translate(135, 60)\">\n      <!-- 접시 -->\n      <ellipse cx=\"0\" cy=\"0\" rx=\"78\" ry=\"11\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n      <ellipse cx=\"0\" cy=\"-2\" rx=\"72\" ry=\"9\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"0.8\" stroke-dasharray=\"2 2\"/>\n      <!-- 빵 1 -->\n      <g transform=\"translate(-50, -8)\">\n        <ellipse cx=\"0\" cy=\"0\" rx=\"13\" ry=\"8\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1.1\"/>\n        <line x1=\"-7\" y1=\"-2\" x2=\"7\" y2=\"-2\" stroke=\"#999\" stroke-width=\"0.5\"/>\n        <line x1=\"-7\" y1=\"2\" x2=\"7\" y2=\"2\" stroke=\"#999\" stroke-width=\"0.5\"/>\n      </g>\n      <!-- 빵 2 (똑같음) -->\n      <g transform=\"translate(0, -8)\">\n        <ellipse cx=\"0\" cy=\"0\" rx=\"13\" ry=\"8\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1.1\"/>\n        <line x1=\"-7\" y1=\"-2\" x2=\"7\" y2=\"-2\" stroke=\"#999\" stroke-width=\"0.5\"/>\n        <line x1=\"-7\" y1=\"2\" x2=\"7\" y2=\"2\" stroke=\"#999\" stroke-width=\"0.5\"/>\n      </g>\n      <!-- 빵 3 (똑같음) -->\n      <g transform=\"translate(50, -8)\">\n        <ellipse cx=\"0\" cy=\"0\" rx=\"13\" ry=\"8\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1.1\"/>\n        <line x1=\"-7\" y1=\"-2\" x2=\"7\" y2=\"-2\" stroke=\"#999\" stroke-width=\"0.5\"/>\n        <line x1=\"-7\" y1=\"2\" x2=\"7\" y2=\"2\" stroke=\"#999\" stroke-width=\"0.5\"/>\n      </g>\n    </g>\n\n    <!-- 학생 (지루) -->\n    <g transform=\"translate(135, 110)\">\n      <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <circle cx=\"-4\" cy=\"-1\" r=\"1.1\" fill=\"#1a1a1a\"/>\n      <circle cx=\"4\" cy=\"-1\" r=\"1.1\" fill=\"#1a1a1a\"/>\n      <!-- 입 처짐 (지루) -->\n      <path d=\"M -5 5 Q 0 3 5 5\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      <line x1=\"0\" y1=\"11\" x2=\"0\" y2=\"30\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"17\" x2=\"-9\" y2=\"24\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"17\" x2=\"9\" y2=\"24\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    </g>\n\n    <!-- 같은 순환 (점선 원) -->\n    <g transform=\"translate(60, 130)\">\n      <circle cx=\"0\" cy=\"0\" r=\"14\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.3\" stroke-dasharray=\"3 2\"/>\n      <path d=\"M 12 -2 L 14 -7 L 10 -5\" fill=\"#c8102e\" stroke=\"#c8102e\" stroke-width=\"1\"/>\n      <text x=\"0\" y=\"3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">stuck</text>\n    </g>\n\n    <text x=\"135\" y=\"160\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">\"limited · boring · unappetizing\"</text>\n  </g>\n\n  <!-- 가운데 화살표 -->\n  <g transform=\"translate(290, 117)\">\n    <line x1=\"0\" y1=\"0\" x2=\"25\" y2=\"0\" stroke=\"#1FA34A\" stroke-width=\"2\"/>\n    <polygon points=\"25,0 17,-5 17,5\" fill=\"#1FA34A\"/>\n    <text x=\"13\" y=\"-10\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">try unfamiliar</text>\n    <text x=\"13\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">새로움 시도</text>\n  </g>\n\n  <!-- 우측: 새 메뉴 -->\n  <g transform=\"translate(323, 44)\">\n    <text x=\"135\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">varied menu — novelty + curiosity</text>\n    <rect x=\"0\" y=\"0\" width=\"262\" height=\"170\" fill=\"#f0faf3\" fill-opacity=\"0.4\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n\n    <!-- 접시 — 다양한 음식 -->\n    <g transform=\"translate(135, 60)\">\n      <!-- 접시 -->\n      <ellipse cx=\"0\" cy=\"0\" rx=\"80\" ry=\"11\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n      <ellipse cx=\"0\" cy=\"-2\" rx=\"74\" ry=\"9\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"0.8\"/>\n      <!-- 사과 -->\n      <g transform=\"translate(-55, -8)\">\n        <circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n        <line x1=\"-1\" y1=\"-8\" x2=\"-1\" y2=\"-12\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <ellipse cx=\"3\" cy=\"-11\" rx=\"2.5\" ry=\"1.5\" fill=\"#1FA34A\" stroke=\"#1FA34A\" stroke-width=\"0.7\"/>\n      </g>\n      <!-- 생선 -->\n      <g transform=\"translate(-22, -8)\">\n        <path d=\"M -10 0 Q -7 -4 0 -4 Q 8 -4 10 0 Q 8 4 0 4 Q -7 4 -10 0 Z\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <path d=\"M 10 0 L 15 -4 L 15 4 Z\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n        <circle cx=\"-6\" cy=\"-1\" r=\"0.7\" fill=\"#1a1a1a\"/>\n      </g>\n      <!-- 케이크 -->\n      <g transform=\"translate(15, -8)\">\n        <path d=\"M -8 4 L -8 -3 L -5 -7 L 5 -7 L 8 -3 L 8 4 Z\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"-7\" y1=\"-3\" x2=\"7\" y2=\"-3\" stroke=\"#1a1a1a\" stroke-width=\"0.6\"/>\n        <!-- 촛불 -->\n        <line x1=\"0\" y1=\"-7\" x2=\"0\" y2=\"-12\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n        <ellipse cx=\"0\" cy=\"-13\" rx=\"1\" ry=\"2\" fill=\"#c8102e\"/>\n      </g>\n      <!-- 포도 -->\n      <g transform=\"translate(50, -8)\">\n        <circle cx=\"-3\" cy=\"0\" r=\"2.5\" fill=\"#fdf2f4\" stroke=\"#1FA34A\" stroke-width=\"0.9\"/>\n        <circle cx=\"3\" cy=\"0\" r=\"2.5\" fill=\"#fdf2f4\" stroke=\"#1FA34A\" stroke-width=\"0.9\"/>\n        <circle cx=\"0\" cy=\"-3\" r=\"2.5\" fill=\"#fdf2f4\" stroke=\"#1FA34A\" stroke-width=\"0.9\"/>\n        <circle cx=\"-2\" cy=\"3\" r=\"2.5\" fill=\"#fdf2f4\" stroke=\"#1FA34A\" stroke-width=\"0.9\"/>\n        <circle cx=\"3\" cy=\"-3\" r=\"2.5\" fill=\"#fdf2f4\" stroke=\"#1FA34A\" stroke-width=\"0.9\"/>\n        <line x1=\"0\" y1=\"-5\" x2=\"0\" y2=\"-9\" stroke=\"#1a1a1a\" stroke-width=\"0.7\"/>\n      </g>\n    </g>\n\n    <!-- 학생 (호기심·빛) -->\n    <g transform=\"translate(135, 110)\">\n      <!-- 빛 (방사) -->\n      <g stroke=\"#1FA34A\" stroke-width=\"1.2\">\n        <line x1=\"0\" y1=\"-20\" x2=\"0\" y2=\"-25\"/>\n        <line x1=\"-15\" y1=\"-13\" x2=\"-19\" y2=\"-17\"/>\n        <line x1=\"15\" y1=\"-13\" x2=\"19\" y2=\"-17\"/>\n        <line x1=\"-18\" y1=\"-3\" x2=\"-22\" y2=\"-3\"/>\n        <line x1=\"18\" y1=\"-3\" x2=\"22\" y2=\"-3\"/>\n      </g>\n      <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n      <circle cx=\"-4\" cy=\"-1\" r=\"1.1\" fill=\"#1FA34A\"/>\n      <circle cx=\"4\" cy=\"-1\" r=\"1.1\" fill=\"#1FA34A\"/>\n      <!-- 입 미소 -->\n      <path d=\"M -5 4 Q 0 7 5 4\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"11\" x2=\"0\" y2=\"30\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n      <line x1=\"0\" y1=\"17\" x2=\"-10\" y2=\"11\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"17\" x2=\"10\" y2=\"11\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n    </g>\n\n    <text x=\"135\" y=\"160\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">\"innovative · varied · delightful → true abilities shine through\"</text>\n  </g>\n\n  <!-- 하단: 결론 권고 -->\n  <g transform=\"translate(0, 232)\">\n    <rect x=\"60\" y=\"0\" width=\"480\" height=\"40\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n    <text x=\"300\" y=\"18\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">→ 결론: 학생은 <tspan fill=\"#1FA34A\">전공 밖(outside their specialization) 수업</tspan>도 들어야 한다</text>\n    <text x=\"300\" y=\"33\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">\"required to take classes from outside their areas of specialization\"</text>\n  </g>\n</svg>","caption":"Life's menu = 교육 — 친숙한 음식만 = 제한·지루·매력 ✗ / 새 음식 시도 = 혁신·다양·즐거움 ✓ → 전공 밖 수업 의무"},{"no":"2","title":"Variation as the Raw Material of Evolution","ktitle":"변이 = 진화의 원재료","field":"진화·문화","page":"7회 02번 (요지)","oneline":"‘변이’는 문화·유전 진화 모두의 원재료다.","tldr":["‘변이’는 문화·유전 진화 모두의 원재료다.","정보가 전달될 때 오류·변화가 자주 생긴다(필경사의 성경 실수).","그 변화가 새로움(새 신념·새 노래)을 낳는다."],"analogy":"‘말 전하기’ 게임에서 말이 조금씩 바뀌듯, 정보가 전해질 때 생기는 ‘변이’가 새 문화·새 신념의 씨앗이 돼요.","bg":"‘변이(variation)’가 문화·유전 진화의 원재료라는 글. 전달 중 생기는 오류(필경사의 성경 숫자 실수 — 4만↔4천)가 변화의 예시예요.","flow":[{"kind":"핵심","t":"변이 = 진화의 원재료"},{"kind":"예 ①","t":"고래의 우연한 노래 변화가 퍼짐"},{"kind":"예 ②","t":"영적 지도자의 통찰이 신념으로"},{"kind":"오류","t":"전달 중 실수","d":"필경사 성경: 0 하나 빠져 4만↔4천."},{"kind":"결론","t":"변이가 새로움을 낳는다"}],"quiz":[["‘변이’가 진화에서 하는 역할은?","문화·유전 진화의 ‘원재료’ — 변화가 있어야 새로움이 생겨요."],["필경사의 성경 실수 예가 보여주는 것은?","정보 전달 중 오류(변이)가 끼어든다는 점이에요(4만↔4천처럼 0 하나 차이)."],["핵심 한 문장?","변이는 진화의 원재료이고, 전달 중 생기는 변화가 새로움을 낳는다."]],"vocab":[["variation vary","변이·변화"],["raw material","원재료·재료"],["cultural culture","문화적인"],["genetic gene","유전적인·유전의"],["evolution evolve","진화"],["spiritual spirit","영적인"]],"en":"Variation is the raw material of both cultural and genetic evolution. A spiritual leader's unusual vision may become religious belief, just as a whale's accidental change in song might spread among its peers. Errors often arise when information transfers between individuals. Scribes, for example, have introduced mistakes into religious texts. In the King James Bible, King Solomon's horse stalls are listed as either forty thousand or four thousand—likely a copying error, similar to dropping a zero. Likewise, whales may miscount repetitions of a song phrase, unintentionally altering the melody. Such mistakes accumulate over time, leading to gradual cultural evolution. Religious rituals and song patterns shift as these random changes take hold. These variations, whether intentional or accidental, shape traditions and behaviors, much like mutations drive genetic evolution. Over generations, small modifications compound, influencing the way cultures and species develop.","ko":"변이는 문화적 진화와 유전적 진화 모두의 원재료이다. 고래의 우연한 노래 변화가 동료들 사이에 퍼질 수 있는 것처럼, 영적 지도자의 비범한 통찰이 종교적 신념이 되기도 한다. 개인 간에 정보가 전달될 때 오류가 자주 발생한다. 예를 들어, 필경사들이 종교 경전에 실수를 끼워 넣은 적이 있다. King James 성경에서 솔로몬왕의 마구간은 4만 개 또는 4천 개로 기록되어 있는데, 이는 아마도 0 하나를 빠뜨리는 것과 비슷한 필사 오류일 가능성이 높다. 마찬가지로 고래들도 노래 구절이 반복되는 부분을 잘못 세어, 의도치 않게 멜로디를 변경할 수도 있다. 이러한 실수는 시간이 지남에 따라 축적되어 점진적인 문화적 진화를 이끈다. 종교 의식과 노래 패턴은 이러한 무작위적인 변화가 자리 잡음에 따라 바뀐다. 의도적이든 우연적이든 이러한 변이는 전통과 행동을 형성하며, 이는 돌연변이가 유전적 진화를 이끄는 것과 유사하다. 여러 세대를 거치며, 이러한 작은 변이가 혼합되어 문화와 종이 발달하는 방식에 영향을 미친다.","read":[{"en":"Variation is the raw material of both cultural and genetic evolution.","ko":"변이는 문화적 진화와 유전적 진화 모두의 원재료이다.","chunks":[["Variation is","변이는 ~이다"],["the raw material","원재료"],["of both cultural and genetic evolution.","문화적 진화와 유전적 진화 모두의."]]},{"en":"A spiritual leader's unusual vision may become religious belief, just as a whale's accidental change in song might spread among its peers.","ko":"고래의 우연한 노래 변화가 동료들 사이에 퍼질 수 있는 것처럼, 영적 지도자의 비범한 통찰이 종교적 신념이 되기도 한다.","chunks":[["A spiritual leader's unusual vision","영적 지도자의 비범한 통찰이"],["may become religious belief,","종교적 신념이 될지도 모른다,"],["just as a whale's accidental change in song","고래의 우연한 노래 변화가 ~인 것처럼"],["might spread among its peers.","동료들 사이에 퍼질 수 있는."]]},{"en":"Errors often arise when information transfers between individuals.","ko":"개인 간에 정보가 전달될 때 오류가 자주 발생한다.","chunks":[["Errors often arise","오류가 자주 발생한다"],["when information transfers","정보가 전달될 때"],["between individuals.","개인 간에."]]},{"en":"Scribes, for example, have introduced mistakes into religious texts.","ko":"예를 들어, 필경사들이 종교 경전에 실수를 끼워 넣은 적이 있다.","chunks":[["Scribes, for example,","예를 들어 필경사들이,"],["have introduced mistakes","실수를 끼워 넣어 왔다"],["into religious texts.","종교 경전에."]]},{"en":"In the King James Bible, King Solomon's horse stalls are listed as either forty thousand or four thousand—likely a copying error, similar to dropping a zero.","ko":"King James 성경에서 솔로몬왕의 마구간은 4만 개 또는 4천 개로 기록되어 있는데, 이는 아마도 0 하나를 빠뜨리는 것과 비슷한 필사 오류일 가능성이 높다.","chunks":[["In the King James Bible,","King James 성경에서,"],["King Solomon's horse stalls","솔로몬왕의 마구간이"],["are listed as","~로 기록되어 있다"],["either forty thousand or four thousand—","4만 또는 4천—"],["likely a copying error,","아마도 필사 오류일 것,"],["similar to dropping a zero.","0 하나를 빠뜨리는 것과 비슷한."]]},{"en":"Likewise, whales may miscount repetitions of a song phrase, unintentionally altering the melody.","ko":"마찬가지로 고래들도 노래 구절이 반복되는 부분을 잘못 세어, 의도치 않게 멜로디를 변경할 수도 있다.","chunks":[["Likewise, whales may miscount","마찬가지로 고래는 잘못 셀 수 있다"],["repetitions of a song phrase,","노래 구절의 반복을,"],["unintentionally altering the melody.","의도치 않게 멜로디를 바꾸면서."]]},{"en":"Such mistakes accumulate over time, leading to gradual cultural evolution.","ko":"이러한 실수는 시간이 지남에 따라 축적되어 점진적인 문화적 진화를 이끈다.","chunks":[["Such mistakes accumulate","그러한 실수는 축적된다"],["over time,","시간이 지남에 따라,"],["leading to gradual cultural evolution.","점진적인 문화적 진화로 이어지면서."]]},{"en":"Religious rituals and song patterns shift as these random changes take hold.","ko":"종교 의식과 노래 패턴은 이러한 무작위적인 변화가 자리 잡음에 따라 바뀐다.","chunks":[["Religious rituals and song patterns shift","종교 의식과 노래 패턴은 바뀐다"],["as these random changes","이러한 무작위 변화가"],["take hold.","자리 잡으면서."]]},{"en":"These variations, whether intentional or accidental, shape traditions and behaviors, much like mutations drive genetic evolution.","ko":"의도적이든 우연적이든 이러한 변이는 전통과 행동을 형성하며, 이는 돌연변이가 유전적 진화를 이끄는 것과 유사하다.","chunks":[["These variations,","이러한 변이는,"],["whether intentional or accidental,","의도적이든 우연적이든,"],["shape traditions and behaviors,","전통과 행동을 형성한다,"],["much like mutations drive genetic evolution.","돌연변이가 유전적 진화를 이끄는 것과 매우 유사하게."]]},{"en":"Over generations, small modifications compound, influencing the way cultures and species develop.","ko":"여러 세대를 거치며, 이러한 작은 변이가 혼합되어 문화와 종이 발달하는 방식에 영향을 미친다.","chunks":[["Over generations,","여러 세대를 거치며,"],["small modifications compound,","작은 변이들이 혼합되어,"],["influencing the way","방식에 영향을 미친다"],["cultures and species develop.","문화와 종이 발달하는."]]}],"metaphor":"<svg viewBox=\"0 0 600 305\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽 문화 진화 영역에서 필경사 오타로 4만이 4천으로 바뀐 두루마리와 고래의 노래 변형, 오른쪽 유전 진화 영역에서 DNA 이중나선의 돌연변이 빨강 점이 평행 구조로 배치되고, 하단에 두 영역 공통으로 작은 변이가 누적되어 발달 방향을 형성한다는 결론.\">\n  <!-- 상단 라벨 -->\n  <text x=\"300\" y=\"18\" font-family=\"Noto Serif KR\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">variation = raw material · 두 영역 평행</text>\n\n  <!-- 좌측: 문화 진화 -->\n  <g transform=\"translate(15, 44)\">\n    <text x=\"135\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">① cultural evolution — 문화 진화</text>\n    <rect x=\"0\" y=\"0\" width=\"265\" height=\"195\" fill=\"#f6f6f6\" fill-opacity=\"0.4\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n\n    <!-- 사례 1: 필경사 오타 (윗부분) -->\n    <g transform=\"translate(135, 35)\">\n      <!-- 두루마리 -->\n      <g transform=\"translate(-65, 0)\">\n        <rect x=\"-22\" y=\"-15\" width=\"44\" height=\"42\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n        <!-- 두루마리 상하 봉 -->\n        <ellipse cx=\"0\" cy=\"-15\" rx=\"22\" ry=\"4\" fill=\"#f6f6f6\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n        <ellipse cx=\"0\" cy=\"27\" rx=\"22\" ry=\"4\" fill=\"#f6f6f6\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n        <!-- 글자 라인 -->\n        <line x1=\"-15\" y1=\"-7\" x2=\"15\" y2=\"-7\" stroke=\"#1a1a1a\" stroke-width=\"0.6\"/>\n        <line x1=\"-15\" y1=\"-2\" x2=\"15\" y2=\"-2\" stroke=\"#1a1a1a\" stroke-width=\"0.6\"/>\n        <line x1=\"-15\" y1=\"3\" x2=\"15\" y2=\"3\" stroke=\"#1a1a1a\" stroke-width=\"0.6\"/>\n        <text x=\"0\" y=\"13\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">King James</text>\n        <line x1=\"-15\" y1=\"18\" x2=\"15\" y2=\"18\" stroke=\"#1a1a1a\" stroke-width=\"0.6\"/>\n        <line x1=\"-15\" y1=\"23\" x2=\"15\" y2=\"23\" stroke=\"#1a1a1a\" stroke-width=\"0.6\"/>\n      </g>\n      \n      <!-- 화살표: 4만 → 4천 -->\n      <g transform=\"translate(-20, 5)\">\n        <text x=\"0\" y=\"0\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"13\" text-anchor=\"middle\" fill=\"#1a1a1a\">40,000</text>\n        <!-- 빨강 점선 화살 + 줄어드는 0 -->\n        <g transform=\"translate(0, 12)\">\n          <line x1=\"-15\" y1=\"0\" x2=\"15\" y2=\"0\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"3 2\"/>\n          <polygon points=\"15,0 9,-4 9,4\" fill=\"#c8102e\"/>\n          <text x=\"0\" y=\"-2\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">drop a 0</text>\n        </g>\n        <text x=\"0\" y=\"32\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"13\" text-anchor=\"middle\" fill=\"#c8102e\">4,000</text>\n      </g>\n\n      <!-- 필경사 (스크라이브) -->\n      <g transform=\"translate(55, 12)\">\n        <!-- 머리 -->\n        <circle cx=\"0\" cy=\"-12\" r=\"7\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n        <circle cx=\"-2\" cy=\"-13\" r=\"0.7\" fill=\"#1a1a1a\"/>\n        <circle cx=\"2\" cy=\"-13\" r=\"0.7\" fill=\"#1a1a1a\"/>\n        <!-- 몸 -->\n        <line x1=\"0\" y1=\"-5\" x2=\"0\" y2=\"14\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n        <!-- 펜 든 팔 -->\n        <line x1=\"0\" y1=\"-1\" x2=\"-14\" y2=\"6\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <line x1=\"-14\" y1=\"6\" x2=\"-22\" y2=\"2\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n        <line x1=\"0\" y1=\"-1\" x2=\"10\" y2=\"3\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        <text x=\"0\" y=\"28\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">scribe</text>\n      </g>\n    </g>\n    \n    <text x=\"135\" y=\"93\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\" font-weight=\"700\">\"scribes introduced mistakes — Solomon's stalls\"</text>\n\n    <!-- 사례 2: 고래 노래 (아랫부분) -->\n    <g transform=\"translate(135, 130)\">\n      <!-- 고래 -->\n      <g transform=\"translate(-55, 0)\">\n        <!-- 몸 -->\n        <path d=\"M -25 0 Q -20 -10 0 -10 Q 20 -10 22 0 Q 20 8 0 8 Q -20 8 -25 0 Z\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n        <!-- 꼬리 -->\n        <path d=\"M 22 0 L 32 -8 L 28 0 L 32 8 Z\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n        <!-- 눈 -->\n        <circle cx=\"-15\" cy=\"-3\" r=\"1\" fill=\"#1a1a1a\"/>\n        <!-- 분기공 위 물 -->\n        <path d=\"M -8 -10 Q -8 -16 -10 -18 M -8 -10 Q -8 -16 -6 -18 M -8 -10 Q -8 -16 -8 -19\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      </g>\n\n      <!-- 노래 (음표) -->\n      <g transform=\"translate(0, -4)\">\n        <!-- 음표 1 -->\n        <g>\n          <ellipse cx=\"0\" cy=\"0\" rx=\"3\" ry=\"2.3\" fill=\"#1a1a1a\"/>\n          <line x1=\"2.5\" y1=\"-1\" x2=\"2.5\" y2=\"-10\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        </g>\n        <!-- 음표 2 -->\n        <g transform=\"translate(12, 0)\">\n          <ellipse cx=\"0\" cy=\"0\" rx=\"3\" ry=\"2.3\" fill=\"#1a1a1a\"/>\n          <line x1=\"2.5\" y1=\"-1\" x2=\"2.5\" y2=\"-10\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n        </g>\n        <!-- 음표 3 (변형 - 빨강) -->\n        <g transform=\"translate(24, -2)\">\n          <ellipse cx=\"0\" cy=\"0\" rx=\"3\" ry=\"2.3\" fill=\"#c8102e\"/>\n          <line x1=\"2.5\" y1=\"-1\" x2=\"2.5\" y2=\"-12\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n          <!-- 변형 표시 (별 또는 강조) -->\n          <text x=\"0\" y=\"-15\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\">★</text>\n        </g>\n      </g>\n\n      <text x=\"0\" y=\"22\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\" font-weight=\"700\">\"whales miscount, unintentionally alter melody\"</text>\n    </g>\n\n    <text x=\"135\" y=\"180\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">errors → accumulate → traditions shift</text>\n  </g>\n\n  <!-- 평행 라벨 (가운데) -->\n  <text x=\"295\" y=\"137\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">‖</text>\n  <text x=\"295\" y=\"154\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">parallel</text>\n\n  <!-- 우측: 유전 진화 -->\n  <g transform=\"translate(320, 44)\">\n    <text x=\"135\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">② genetic evolution — 유전 진화</text>\n    <rect x=\"0\" y=\"0\" width=\"265\" height=\"195\" fill=\"#f6f6f6\" fill-opacity=\"0.4\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n\n    <!-- DNA 이중나선 -->\n    <g transform=\"translate(135, 95)\">\n      <!-- 좌측 가닥 -->\n      <path d=\"M -50 -70 Q -25 -55 -50 -40 Q -75 -25 -50 -10 Q -25 5 -50 20 Q -75 35 -50 50 Q -25 65 -50 70\" \n            fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"2\"/>\n      <!-- 우측 가닥 -->\n      <path d=\"M 50 -70 Q 25 -55 50 -40 Q 75 -25 50 -10 Q 25 5 50 20 Q 75 35 50 50 Q 25 65 50 70\" \n            fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"2\"/>\n      \n      <!-- 베이스 페어 -->\n      <g stroke=\"#1a1a1a\" stroke-width=\"1\">\n        <line x1=\"-35\" y1=\"-62\" x2=\"35\" y2=\"-62\"/>\n        <line x1=\"-44\" y1=\"-50\" x2=\"44\" y2=\"-50\"/>\n        <line x1=\"-48\" y1=\"-35\" x2=\"48\" y2=\"-35\"/>\n        <line x1=\"-42\" y1=\"-20\" x2=\"42\" y2=\"-20\"/>\n        <line x1=\"-32\" y1=\"-7\" x2=\"32\" y2=\"-7\"/>\n        <line x1=\"-44\" y1=\"8\" x2=\"44\" y2=\"8\"/>\n        <line x1=\"-48\" y1=\"20\" x2=\"48\" y2=\"20\"/>\n        <line x1=\"-42\" y1=\"35\" x2=\"42\" y2=\"35\"/>\n        <line x1=\"-32\" y1=\"48\" x2=\"32\" y2=\"48\"/>\n        <line x1=\"-44\" y1=\"60\" x2=\"44\" y2=\"60\"/>\n      </g>\n\n      <!-- 돌연변이 (빨강 점들) -->\n      <g fill=\"#c8102e\">\n        <circle cx=\"0\" cy=\"-35\" r=\"4\"/>\n      </g>\n      <text x=\"0\" y=\"-31\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"6\" text-anchor=\"middle\" fill=\"#ffffff\">!</text>\n      <g fill=\"#c8102e\">\n        <circle cx=\"0\" cy=\"20\" r=\"4\"/>\n      </g>\n      <text x=\"0\" y=\"24\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"6\" text-anchor=\"middle\" fill=\"#ffffff\">!</text>\n\n      <!-- 돌연변이 라벨 -->\n      <g transform=\"translate(75, -35)\">\n        <line x1=\"-15\" y1=\"0\" x2=\"-3\" y2=\"0\" stroke=\"#c8102e\" stroke-width=\"1\" stroke-dasharray=\"2 2\"/>\n        <text x=\"0\" y=\"3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" fill=\"#c8102e\" font-weight=\"700\">mutation</text>\n      </g>\n      <g transform=\"translate(75, 20)\">\n        <line x1=\"-15\" y1=\"0\" x2=\"-3\" y2=\"0\" stroke=\"#c8102e\" stroke-width=\"1\" stroke-dasharray=\"2 2\"/>\n        <text x=\"0\" y=\"3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" fill=\"#c8102e\" font-weight=\"700\">mutation</text>\n      </g>\n    </g>\n\n    <text x=\"135\" y=\"180\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">mutations drive genetic evolution</text>\n  </g>\n\n  <!-- 하단 결론 -->\n  <g transform=\"translate(0, 252)\">\n    <rect x=\"60\" y=\"0\" width=\"480\" height=\"42\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n    <text x=\"300\" y=\"17\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">→ 양쪽 영역 공통: 작은 <tspan fill=\"#c8102e\">변이가 누적 (compound)</tspan> → <tspan fill=\"#1FA34A\">발달 방향 결정</tspan></text>\n    <text x=\"300\" y=\"34\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">over generations · small variations compound · shape how cultures and species develop</text>\n  </g>\n</svg>","caption":"변이 = 문화 진화 ‖ 유전 진화 공통 원재료 — 필경사 오타·고래 노래 변화 (문화) · 돌연변이 (유전) → 두 영역 평행"},{"no":"3","title":"Handwritten Notes Outperform Digital","ktitle":"손 필기가 더 깊다","field":"학습·인지","page":"7회 03번 (주제)","oneline":"교실이 종이에서 태블릿·노트북으로 바뀌었다.","tldr":["교실이 종이에서 태블릿·노트북으로 바뀌었다.","타이핑은 빠르지만 ‘그대로 받아적기’가 되기 쉽다.","손 필기는 핵심을 ‘생각하며’ 처리해 시험 점수가 더 높다."],"analogy":"받아쓰기처럼 그대로 옮기면 머리에 안 남죠. 손으로 쓰면 느린 대신 ‘무슨 말이지?’ 추리며 적게 돼, 더 깊이 남아요.","bg":"손 필기 vs 디지털 타이핑을 비교한 글 — 타이핑은 빠르지만 ‘그대로 받아적기’가 되고, 손 필기는 핵심을 생각하며 처리해 학습 효과가 크다는 연구예요.","flow":[{"kind":"변화","t":"종이 → 태블릿·노트북"},{"kind":"타이핑","t":"빠르고 많이 받아적음"},{"kind":"대가","t":"학습엔 손해일 수 있다"},{"kind":"연구","t":"손 필기 = 핵심을 ‘생각하며’ 처리","d":"말 그대로 암기 ✗."},{"kind":"결론","t":"손 필기가 시험 점수↑"}],"quiz":[["타이핑 필기의 ‘대가’는?","빠르고 많이 적지만 ‘그대로 받아적기’가 돼 학습엔 손해일 수 있어요."],["손 필기가 더 효과적인 이유는?","말 그대로 옮기기보다 핵심 개념을 ‘생각하며’ 다르게 처리하기 때문이에요."],["핵심 한 문장?","손 필기는 핵심을 생각하며 처리해 디지털 타이핑보다 깊은 학습을 만든다."]],"vocab":[["absorb ab-","흡수하다·받아들이다"],["convenience convene","편리함"],["at a cost","대가를 치르고"],["disturbing disturb","충격적인·우려스러운"],["process","처리하다·이해하다"],["verbatim  verb-","말 그대로·축어적으로"]],"en":"In recent years, many classrooms have moved from paper notebooks to tablets and laptops. Students type quickly and absorb more of the teacher's words than ever before. But this speed and convenience can come at a cost to learning. Researchers have noticed disturbing patterns when comparing test scores. Those who write by hand process information differently, thinking about key concepts rather than memorizing everything verbatim. Typing on digital devices often leads students to copy information without deeply processing it, which weakens memory retention. The physical act of forming letters connects to memory pathways that are not activated by typing. When studying for exams, students with handwritten notes often have a deeper understanding of the material, even though fewer details are captured. Digital note-taking, despite its organizational advantages, can lead to more superficial learning and poorer recall of important ideas. While technology offers convenience and organization, the cognitive benefits of traditional methods reveal clear drawbacks to our digital learning tools that many educators are only beginning to recognize.","ko":"최근 몇 년 동안, 많은 교실이 종이 공책에서 태블릿과 노트북으로 바뀌어 왔다. 학생들은 예전 그 어느 때보다 교사가 하는 말 중 더 많은 말을 빠르게 타이핑하고 받아들인다. 하지만 이러한 속도와 편리함은 학습에 대가를 치를 수 있다. 연구자들은 시험 점수를 비교할 때 충격적인 패턴을 알아차렸다. 손으로 필기하는 사람들은 모든 내용을 말 그대로 암기하기보다는 핵심 개념을 생각하면서 정보를 다르게 처리한다. 디지털 기기로 타이핑을 하면 학생들은 정보를 깊이 있게 처리하지 않고 복사하는 경우가 많아 기억 유지가 약해진다. 글자를 형성하는 물리적 행위는 타이핑에 의해 활성화되지 않는 기억 경로에 연결된다. 시험 공부를 할 때 손으로 쓴 노트를 사용하는 학생들은 더 적은 세부 사항을 기록하더라도 자료를 더 깊이 이해하는 경우가 많다. 디지털 노트 필기는 체계적 정리가 가능한 장점에도 불구하고, 더 피상적인 학습 및 중요한 개념에 대한 더 낮은 기억력으로 이어질 수 있다. 기술은 편리함과 정리를 제공하지만, 전통적인 방법의 인지적 이점은 많은 교육자들이 이제 막 인식하기 시작하기 시작하고 있는 디지털 학습 도구의 분명한 단점을 드러낸다.","read":[{"en":"In recent years, many classrooms have moved from paper notebooks to tablets and laptops.","ko":"최근 몇 년 동안, 많은 교실이 종이 공책에서 태블릿과 노트북으로 바뀌어 왔다.","chunks":[["In recent years,","최근 몇 년 동안,"],["many classrooms have moved","많은 교실이 바뀌어 왔다"],["from paper notebooks","종이 공책에서"],["to tablets and laptops.","태블릿과 노트북으로."]]},{"en":"Students type quickly and absorb more of the teacher's words than ever before.","ko":"학생들은 예전 그 어느 때보다 교사가 하는 말 중 더 많은 말을 빠르게 타이핑하고 받아들인다.","chunks":[["Students type quickly","학생들은 빠르게 타이핑한다"],["and absorb more of the teacher's words","그리고 교사의 말 중 더 많은 부분을 받아들인다"],["than ever before.","예전 그 어느 때보다."]]},{"en":"But this speed and convenience can come at a cost to learning.","ko":"하지만 이러한 속도와 편리함은 학습에 대가를 치를 수 있다.","chunks":[["But this speed and convenience","하지만 이러한 속도와 편리함은"],["can come at a cost","대가를 치를 수 있다"],["to learning.","학습에."]]},{"en":"Researchers have noticed disturbing patterns when comparing test scores.","ko":"연구자들은 시험 점수를 비교할 때 충격적인 패턴을 알아차렸다.","chunks":[["Researchers have noticed","연구자들은 알아차렸다"],["disturbing patterns","충격적인 패턴을"],["when comparing test scores.","시험 점수를 비교할 때."]]},{"en":"Those who write by hand process information differently, thinking about key concepts rather than memorizing everything verbatim.","ko":"손으로 필기하는 사람들은 모든 내용을 말 그대로 암기하기보다는 핵심 개념을 생각하면서 정보를 다르게 처리한다.","chunks":[["Those who write by hand","손으로 쓰는 사람들은"],["process information differently,","정보를 다르게 처리한다,"],["thinking about key concepts","핵심 개념을 생각하면서"],["rather than memorizing everything verbatim.","모든 것을 말 그대로 암기하기보다는."]]},{"en":"Typing on digital devices often leads students to copy information without deeply processing it, which weakens memory retention.","ko":"디지털 기기로 타이핑을 하면 학생들은 정보를 깊이 있게 처리하지 않고 복사하는 경우가 많아 기억 유지가 약해진다.","chunks":[["Typing on digital devices","디지털 기기로 타이핑하는 것은"],["often leads students to copy information","학생들이 정보를 복사하도록 자주 이끈다"],["without deeply processing it,","그것을 깊이 처리하지 않고,"],["which weakens memory retention.","그리고 이는 기억 유지를 약화시킨다."]]},{"en":"The physical act of forming letters connects to memory pathways that are not activated by typing.","ko":"글자를 형성하는 물리적 행위는 타이핑에 의해 활성화되지 않는 기억 경로에 연결된다.","chunks":[["The physical act of forming letters","글자를 형성하는 물리적 행위는"],["connects to memory pathways","기억 경로에 연결된다"],["that are not activated by typing.","타이핑에 의해 활성화되지 않는."]]},{"en":"When studying for exams, students with handwritten notes often have a deeper understanding of the material, even though fewer details are captured.","ko":"시험 공부를 할 때 손으로 쓴 노트를 사용하는 학생들은 더 적은 세부 사항을 기록하더라도 자료를 더 깊이 이해하는 경우가 많다.","chunks":[["When studying for exams,","시험 공부를 할 때,"],["students with handwritten notes","손으로 쓴 노트를 가진 학생들은"],["often have a deeper understanding of the material,","자료를 더 깊이 이해하는 경우가 많다,"],["even though fewer details are captured.","비록 더 적은 세부 사항이 기록되더라도."]]},{"en":"Digital note-taking, despite its organizational advantages, can lead to more superficial learning and poorer recall of important ideas.","ko":"디지털 노트 필기는 체계적 정리가 가능한 장점에도 불구하고, 더 피상적인 학습 및 중요한 개념에 대한 더 낮은 기억력으로 이어질 수 있다.","chunks":[["Digital note-taking,","디지털 필기는,"],["despite its organizational advantages,","체계적 정리의 장점에도 불구하고,"],["can lead to more superficial learning","더 피상적인 학습으로 이어질 수 있다"],["and poorer recall of important ideas.","그리고 중요한 개념에 대한 더 낮은 기억력으로."]]},{"en":"While technology offers convenience and organization, the cognitive benefits of traditional methods reveal clear drawbacks to our digital learning tools that many educators are only beginning to recognize.","ko":"기술은 편리함과 정리를 제공하지만, 전통적인 방법의 인지적 이점은 많은 교육자들이 이제 막 인식하기 시작하기 시작하고 있는 디지털 학습 도구의 분명한 단점을 드러낸다.","chunks":[["While technology offers convenience and organization,","기술이 편리함과 정리를 제공하긴 하지만,"],["the cognitive benefits of traditional methods","전통적인 방법의 인지적 이점은"],["reveal clear drawbacks","분명한 단점을 드러낸다"],["to our digital learning tools","우리의 디지털 학습 도구의"],["that many educators are only beginning to recognize.","많은 교육자들이 이제 막 인식하기 시작하고 있는."]]}],"metaphor":"<svg viewBox=\"0 0 600 285\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽 키보드 타이핑이 모든 단어를 그대로 복사해 얕은 학습으로 이어지는 빨강 점선 영역과, 오른쪽 손글씨가 핵심 개념을 처리해 뇌의 기억 경로를 활성화하고 깊은 이해를 만드는 초록 영역 대조. 하단에 시험 점수에서 손글씨가 깊은 이해를 보이는 결론.\">\n  <!-- 상단 라벨 -->\n  <text x=\"300\" y=\"18\" font-family=\"Noto Serif KR\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">노트 필기 — 두 방식의 인지 차이</text>\n\n  <!-- 좌측: 디지털 타이핑 -->\n  <g transform=\"translate(15, 44)\">\n    <text x=\"135\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">① digital typing — 복사·피상</text>\n    <rect x=\"0\" y=\"0\" width=\"262\" height=\"170\" fill=\"#fdf2f4\" fill-opacity=\"0.35\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/>\n\n    <!-- 노트북 (laptop) -->\n    <g transform=\"translate(135, 60)\">\n      <!-- 화면 -->\n      <path d=\"M -50 -22 L 50 -22 L 45 8 L -45 8 Z\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <rect x=\"-45\" y=\"-19\" width=\"90\" height=\"24\" fill=\"#f6f6f6\"/>\n      <!-- 화면 텍스트 라인 (verbatim copy) -->\n      <line x1=\"-40\" y1=\"-15\" x2=\"40\" y2=\"-15\" stroke=\"#c8102e\" stroke-width=\"0.7\"/>\n      <line x1=\"-40\" y1=\"-11\" x2=\"40\" y2=\"-11\" stroke=\"#c8102e\" stroke-width=\"0.7\"/>\n      <line x1=\"-40\" y1=\"-7\" x2=\"40\" y2=\"-7\" stroke=\"#c8102e\" stroke-width=\"0.7\"/>\n      <line x1=\"-40\" y1=\"-3\" x2=\"40\" y2=\"-3\" stroke=\"#c8102e\" stroke-width=\"0.7\"/>\n      <line x1=\"-40\" y1=\"1\" x2=\"40\" y2=\"1\" stroke=\"#c8102e\" stroke-width=\"0.7\"/>\n      <!-- 키보드 -->\n      <path d=\"M -55 8 L 55 8 L 60 18 L -60 18 Z\" fill=\"#f6f6f6\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <!-- 키 점들 -->\n      <g fill=\"#999\">\n        <rect x=\"-45\" y=\"11\" width=\"4\" height=\"3\"/>\n        <rect x=\"-38\" y=\"11\" width=\"4\" height=\"3\"/>\n        <rect x=\"-31\" y=\"11\" width=\"4\" height=\"3\"/>\n        <rect x=\"-24\" y=\"11\" width=\"4\" height=\"3\"/>\n        <rect x=\"-17\" y=\"11\" width=\"4\" height=\"3\"/>\n        <rect x=\"-10\" y=\"11\" width=\"4\" height=\"3\"/>\n        <rect x=\"-3\" y=\"11\" width=\"4\" height=\"3\"/>\n        <rect x=\"4\" y=\"11\" width=\"4\" height=\"3\"/>\n        <rect x=\"11\" y=\"11\" width=\"4\" height=\"3\"/>\n        <rect x=\"18\" y=\"11\" width=\"4\" height=\"3\"/>\n        <rect x=\"25\" y=\"11\" width=\"4\" height=\"3\"/>\n        <rect x=\"32\" y=\"11\" width=\"4\" height=\"3\"/>\n        <rect x=\"39\" y=\"11\" width=\"4\" height=\"3\"/>\n      </g>\n    </g>\n\n    <!-- 화살표: copy → -->\n    <g transform=\"translate(135, 80)\">\n      <text x=\"0\" y=\"0\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">verbatim copy</text>\n      <line x1=\"0\" y1=\"5\" x2=\"0\" y2=\"15\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"3 2\"/>\n      <polygon points=\"0,15 -3,11 3,11\" fill=\"#c8102e\"/>\n    </g>\n\n    <!-- 결과: 얕은 그릇 (피상) -->\n    <g transform=\"translate(135, 113)\">\n      <!-- 얕은 그릇 -->\n      <path d=\"M -32 0 Q -32 8 -24 10 L 24 10 Q 32 8 32 0 Z\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n      <ellipse cx=\"0\" cy=\"0\" rx=\"32\" ry=\"3\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n      <text x=\"0\" y=\"22\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">shallow · superficial</text>\n    </g>\n\n    <text x=\"135\" y=\"160\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">\"lower recall of important concepts\"</text>\n  </g>\n\n  <!-- 가운데: VS -->\n  <text x=\"295\" y=\"138\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">vs</text>\n\n  <!-- 우측: 손글씨 -->\n  <g transform=\"translate(320, 44)\">\n    <text x=\"135\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">② handwriting — 처리·깊이</text>\n    <rect x=\"0\" y=\"0\" width=\"262\" height=\"170\" fill=\"#f0faf3\" fill-opacity=\"0.4\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n\n    <!-- 종이 + 펜 -->\n    <g transform=\"translate(135, 60)\">\n      <!-- 종이 -->\n      <rect x=\"-45\" y=\"-25\" width=\"90\" height=\"38\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <!-- 종이 줄 -->\n      <line x1=\"-40\" y1=\"-18\" x2=\"40\" y2=\"-18\" stroke=\"#999\" stroke-width=\"0.6\"/>\n      <line x1=\"-40\" y1=\"-12\" x2=\"40\" y2=\"-12\" stroke=\"#999\" stroke-width=\"0.6\"/>\n      <line x1=\"-40\" y1=\"-6\" x2=\"40\" y2=\"-6\" stroke=\"#999\" stroke-width=\"0.6\"/>\n      <line x1=\"-40\" y1=\"0\" x2=\"40\" y2=\"0\" stroke=\"#999\" stroke-width=\"0.6\"/>\n      <line x1=\"-40\" y1=\"6\" x2=\"40\" y2=\"6\" stroke=\"#999\" stroke-width=\"0.6\"/>\n      <!-- 손글씨 (핵심 단어들, 빨강 강조) -->\n      <text x=\"-30\" y=\"-13\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7\" fill=\"#1FA34A\" font-weight=\"700\">key</text>\n      <text x=\"-15\" y=\"-13\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7\" fill=\"#1a1a1a\">concept</text>\n      <text x=\"-30\" y=\"-1\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7\" fill=\"#1a1a1a\">main</text>\n      <text x=\"-12\" y=\"-1\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7\" fill=\"#1FA34A\" font-weight=\"700\">idea</text>\n      <text x=\"-30\" y=\"11\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7\" fill=\"#1FA34A\" font-weight=\"700\">core</text>\n      <!-- 손글씨 강조 동그라미 -->\n      <ellipse cx=\"-26\" cy=\"-13\" rx=\"8\" ry=\"4\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1\" stroke-dasharray=\"2 1\"/>\n      <ellipse cx=\"-7\" cy=\"-1\" rx=\"7\" ry=\"4\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1\" stroke-dasharray=\"2 1\"/>\n      <!-- 펜 -->\n      <g transform=\"translate(35, 7) rotate(35)\">\n        <rect x=\"0\" y=\"-1.5\" width=\"22\" height=\"3\" fill=\"#1FA34A\" stroke=\"#1FA34A\" stroke-width=\"0.9\"/>\n        <path d=\"M 22 -1.5 L 28 0 L 22 1.5 Z\" fill=\"#1a1a1a\"/>\n        <rect x=\"-3\" y=\"-1.5\" width=\"3\" height=\"3\" fill=\"#1a1a1a\"/>\n      </g>\n    </g>\n\n    <!-- 화살표: process → -->\n    <g transform=\"translate(135, 80)\">\n      <text x=\"0\" y=\"0\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">process key concepts</text>\n      <line x1=\"0\" y1=\"5\" x2=\"0\" y2=\"15\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n      <polygon points=\"0,15 -3,11 3,11\" fill=\"#1FA34A\"/>\n    </g>\n\n    <!-- 결과: 깊은 그릇 (뇌 경로) -->\n    <g transform=\"translate(135, 113)\">\n      <!-- 깊은 그릇 -->\n      <path d=\"M -28 -5 Q -32 18 -16 24 L 16 24 Q 32 18 28 -5 Z\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n      <ellipse cx=\"0\" cy=\"-5\" rx=\"28\" ry=\"3\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n      <!-- 내용 (뇌 경로 점) -->\n      <g fill=\"#1FA34A\">\n        <circle cx=\"-12\" cy=\"8\" r=\"2\"/>\n        <circle cx=\"-4\" cy=\"14\" r=\"2\"/>\n        <circle cx=\"6\" cy=\"11\" r=\"2\"/>\n        <circle cx=\"13\" cy=\"17\" r=\"2\"/>\n      </g>\n      <line x1=\"-12\" y1=\"8\" x2=\"-4\" y2=\"14\" stroke=\"#1FA34A\" stroke-width=\"0.8\"/>\n      <line x1=\"-4\" y1=\"14\" x2=\"6\" y2=\"11\" stroke=\"#1FA34A\" stroke-width=\"0.8\"/>\n      <line x1=\"6\" y1=\"11\" x2=\"13\" y2=\"17\" stroke=\"#1FA34A\" stroke-width=\"0.8\"/>\n      <text x=\"0\" y=\"38\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">deep · memory pathway active</text>\n    </g>\n\n    <text x=\"135\" y=\"160\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">\"deeper understanding · retention\"</text>\n  </g>\n\n  <!-- 하단: 결론 -->\n  <g transform=\"translate(0, 230)\">\n    <rect x=\"60\" y=\"0\" width=\"480\" height=\"42\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n    <text x=\"300\" y=\"17\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">→ 결론: 전통적 손글씨의 <tspan fill=\"#1FA34A\">인지적 이점</tspan>이 디지털 도구의 <tspan fill=\"#c8102e\">분명한 단점(drawbacks)</tspan>을 드러낸다</text>\n    <text x=\"300\" y=\"34\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">cognitive benefits of traditional methods reveal clear drawbacks of digital tools</text>\n  </g>\n</svg>","caption":"디지털 타이핑 = 빠름·정리 ✓ / 복사·피상·낮은 기억 ✗ ↔ 손글씨 = 핵심 개념 처리·뇌 경로 활성·깊은 이해"},{"no":"4","title":"Sociability and Pair Bonding","ktitle":"거친 환경이 사회성을 키운다","field":"진화생물","page":"7회 04번 (주제)","oneline":"인간의 사교성 진화는 개·까마귀·거위 등과 ‘평행’하다.","tldr":["인간의 사교성 진화는 개·까마귀·거위 등과 ‘평행’하다.","비사회적 종 = 균질한 환경에서 흩어진 자원을 찾는다.","사회적 종 = 거칠고 예측 불가, 먹이가 ‘군집’인 환경 → 강한 짝 결속."],"analogy":"먹을 게 사방에 골고루 있으면 혼자 다녀도 되지만, 한곳에 몰려 있고 언제 생길지 모르면 무리를 지어야 유리하죠. 게다가 혼자서는 새끼를 먹이며 지키기 어려워 짝을 지어 함께 키우게 돼요 — 강한 사회성·짝 결속은 그런 ‘거친 환경’에서 자라요.","bg":"인간의 사교성 진화가 여러 동물(개·까마귀·거위 등)과 ‘평행’하게 일어났다는 글. 거칠고 예측 불가하며 먹이가 군집인 환경이 강한 사회성·짝 결속을 낳는다는 점이 핵심이에요.","flow":[{"kind":"주장","t":"인간 사교성 진화 = 동물들과 평행"},{"kind":"비사회적 종","t":"균질 환경 + 흩어진 자원"},{"kind":"사회적 종","t":"거친·예측 불가 + 먹이가 군집"},{"kind":"결과","t":"강하고 장기적인 짝 결속"},{"kind":"결론","t":"환경이 사회성을 빚는다"}],"quiz":[["비사회적 종과 사회적 종의 환경 차이는?","비사회적 종은 ‘균질·흩어진 자원’ 환경, 사회적 종은 ‘거칠고 예측 불가·먹이가 군집’인 환경에 살아요."],["거친 환경이 사회성과 어떻게 연결되나?","먹이가 몰려 있고 예측 불가하면 무리·짝을 지어야 유리해, 강한 사회성·짝 결속이 진화해요."],["핵심 한 문장?","거칠고 예측 불가한 환경이 강한 사회성과 짝 결속을 진화시킨다."]],"vocab":[["sociability socia-","사교성"],["parallel","~와 유사하다·평행하다"],["canine  canis","개과 동물"],["crow","까마귀"],["jay","어치"],["bee eater","벌잡이새"]],"en":"The evolution of sociability in the human line parallels the evolution of social life among canines, crows and jays, bee eaters, geese, and other lineages. Typically, in these groups, the less social species forage for widely distributed resources in more or less homogeneous environments, while the more socially complex species live in harsh or unpredictable environments where food tends to occur in big clumps or patches. It is somewhat thought provoking that this is especially true of those social animals that have strong, long-term pair bonds between mated pairs. (Contrary to some claims in the literature, humans are normally pair-bonded animals, though they can be otherwise with ease.) The conventional wisdom, since Darwin and even before, has been that pair bonding is largely about raising young in situations where a single parent cannot reliably find enough food while also protecting the young. An animal that must feed a fast-growing brain and protect a young one for fifteen years or so is obviously a good candidate for pair bonding.","ko":"인간 계통의 사교성 진화는 개, 까마귀와 어치, 벌잡이새, 거위, 그리고 다른 계통들 사이에서의 사회적 생활의 진화와 유사하다. 전형적으로 이 집단들 내에서 사회성이 부족한 종들은 다소 균질한 환경 안에서 널리 분포된 자원을 찾아다니지만, 사회적으로 더 복잡한 종들은 먹이가 큰 무더기나 군데군데 모인 형태로 나타나는 거칠거나 예측할 수 없는 환경에서 살아간다. 이것이 특히 짝을 이룬 쌍 사이의 강하고 장기간의 유대 관계를 갖는 사회적 동물에게 해당한다는 사실은 어느 정도 시사하는 바가 있다. (문헌에서의 일부 주장과는 반대로, 비록 인간이 쉽게 그렇지 않을 수는 있지만, 인간은 보통 쌍이 결합한 동물이다.) 다윈 이후와 심지어 다윈 이전에도 통념은 암수 한 쌍의 유대는 대개 단일 부모가 충분한 먹이를 확실하게 찾을 수 없는 환경에서 어린 새끼들을 기르는 동시에 어린 새끼를 보호하는 것과 관련이 있다는 것이었다. 빠르게 성장하는 뇌에 먹을 것을 공급하고 어린 새끼를 15년 정도 보호해야 하는 동물은 암수 한 쌍의 긴밀한 유대에 딱 어울리는 후보자라는 것이 분명하다.","read":[{"en":"The evolution of sociability in the human line parallels the evolution of social life among canines, crows and jays, bee eaters, geese, and other lineages.","ko":"인간 계통의 사교성 진화는 개, 까마귀와 어치, 벌잡이새, 거위, 그리고 다른 계통들 사이에서의 사회적 생활의 진화와 유사하다.","chunks":[["The evolution of sociability","사교성의 진화는"],["in the human line","인간 계통에서"],["parallels the evolution of social life","사회적 생활의 진화와 유사하다"],["among canines, crows and jays, bee eaters, geese, and other lineages.","개, 까마귀와 어치, 벌잡이새, 거위, 그리고 다른 계통들에서."]]},{"en":"Typically, in these groups, the less social species forage for widely distributed resources in more or less homogeneous environments, while the more socially complex species live in harsh or unpredictable environments where food tends to occur in big clumps or patches.","ko":"전형적으로 이 집단들 내에서 사회성이 부족한 종들은 다소 균질한 환경 안에서 널리 분포된 자원을 찾아다니지만, 사회적으로 더 복잡한 종들은 먹이가 큰 무더기나 군데군데 모인 형태로 나타나는 거칠거나 예측할 수 없는 환경에서 살아간다.","chunks":[["Typically, in these groups,","전형적으로 이 집단들에서,"],["the less social species forage for","사회성이 부족한 종들은 ~을 찾아다닌다"],["widely distributed resources","널리 분포된 자원"],["in more or less homogeneous environments,","다소 균질한 환경 안에서,"],["while the more socially complex species","반면 사회적으로 더 복잡한 종들은"],["live in harsh or unpredictable environments","거칠거나 예측할 수 없는 환경에서 산다"],["where food tends to occur in big clumps or patches.","먹이가 큰 무더기나 군데군데 모인 형태로 나타나는."]]},{"en":"It is somewhat thought provoking that this is especially true of those social animals that have strong, long-term pair bonds between mated pairs.","ko":"이것이 특히 짝을 이룬 쌍 사이의 강하고 장기간의 유대 관계를 갖는 사회적 동물에게 해당한다는 사실은 어느 정도 시사하는 바가 있다.","chunks":[["It is somewhat thought provoking","다소 시사하는 바가 있다"],["that this is especially true of","이것이 특히 ~에 해당한다는 것이"],["those social animals","그러한 사회적 동물들"],["that have strong, long-term pair bonds","강하고 장기간의 유대 관계를 갖는"],["between mated pairs.","짝을 이룬 쌍 사이의."]]},{"en":"(Contrary to some claims in the literature, humans are normally pair-bonded animals, though they can be otherwise with ease.)","ko":"(문헌에서의 일부 주장과는 반대로, 비록 인간이 쉽게 그렇지 않을 수는 있지만, 인간은 보통 쌍이 결합한 동물이다.)","chunks":[["Contrary to some claims in the literature,","문헌에서의 일부 주장과는 반대로,"],["humans are normally pair-bonded animals,","인간은 보통 쌍이 결합한 동물이다,"],["though they can be otherwise with ease.","비록 그렇지 않을 수도 쉽게 있긴 하지만."]]},{"en":"The conventional wisdom, since Darwin and even before, has been that pair bonding is largely about raising young in situations where a single parent cannot reliably find enough food while also protecting the young.","ko":"다윈 이후와 심지어 다윈 이전에도 통념은 암수 한 쌍의 유대는 대개 단일 부모가 충분한 먹이를 확실하게 찾을 수 없는 환경에서 어린 새끼들을 기르는 동시에 어린 새끼를 보호하는 것과 관련이 있다는 것이었다.","chunks":[["The conventional wisdom,","통념은,"],["since Darwin and even before,","다윈 이후와 심지어 다윈 이전부터,"],["has been that pair bonding is largely about","쌍 유대는 대개 ~에 관한 것이라고 여겨져 왔다"],["raising young in situations","상황에서 새끼를 기르는 일"],["where a single parent cannot reliably find enough food","단일 부모가 충분한 먹이를 확실하게 찾을 수 없는"],["while also protecting the young.","동시에 새끼를 보호하면서."]]},{"en":"An animal that must feed a fast-growing brain and protect a young one for fifteen years or so is obviously a good candidate for pair bonding.","ko":"빠르게 성장하는 뇌에 먹을 것을 공급하고 어린 새끼를 15년 정도 보호해야 하는 동물은 암수 한 쌍의 긴밀한 유대에 딱 어울리는 후보자라는 것이 분명하다.","chunks":[["An animal that must","~해야 하는 동물은"],["feed a fast-growing brain","빠르게 성장하는 뇌에 먹을 것을 공급하고"],["and protect a young one","그리고 어린 새끼를 보호해야"],["for fifteen years or so","15년 정도 동안"],["is obviously a good candidate for pair bonding.","암수 한 쌍의 유대에 분명히 어울리는 후보자이다."]]}],"metaphor":"<svg viewBox=\"0 0 600 295\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"상단에 개·까마귀·벌잡이새·거위·인간 다섯 종이 가로로 평행 배치되고, 가운데 공통 조건(거친 환경·큰 먹이 무더기·15년 양육)이 박스로 표시되며, 하단에 두 stick figure가 어린 아이를 함께 보호하는 강한 짝 유대 결과 그림.\">\n  <!-- 상단 라벨 -->\n  <text x=\"300\" y=\"18\" font-family=\"Noto Serif KR\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">사교성 진화 — 5개 종 평행</text>\n\n  <!-- 상단: 5개 종 가로 평행 -->\n  <g transform=\"translate(0, 32)\">\n    <!-- 개 -->\n    <g transform=\"translate(70, 25)\">\n      <!-- 몸 -->\n      <ellipse cx=\"0\" cy=\"0\" rx=\"16\" ry=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <!-- 머리 -->\n      <circle cx=\"-14\" cy=\"-3\" r=\"7\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <!-- 귀 -->\n      <path d=\"M -19 -8 L -15 -16 L -12 -8 Z\" fill=\"#1a1a1a\"/>\n      <!-- 눈 -->\n      <circle cx=\"-15\" cy=\"-3\" r=\"0.7\" fill=\"#1a1a1a\"/>\n      <!-- 입 -->\n      <path d=\"M -20 -1 L -22 0\" stroke=\"#1a1a1a\" stroke-width=\"0.8\"/>\n      <!-- 다리 -->\n      <line x1=\"-8\" y1=\"8\" x2=\"-8\" y2=\"16\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"8\" x2=\"0\" y2=\"16\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"8\" y1=\"8\" x2=\"8\" y2=\"16\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <!-- 꼬리 -->\n      <line x1=\"14\" y1=\"-3\" x2=\"22\" y2=\"-8\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <text x=\"0\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\">개</text>\n      <text x=\"0\" y=\"42\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">canine</text>\n    </g>\n\n    <!-- 까마귀 -->\n    <g transform=\"translate(170, 25)\">\n      <!-- 몸 -->\n      <ellipse cx=\"0\" cy=\"0\" rx=\"12\" ry=\"7\" fill=\"#1a1a1a\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      <!-- 머리 -->\n      <circle cx=\"-10\" cy=\"-4\" r=\"5\" fill=\"#1a1a1a\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      <!-- 부리 -->\n      <path d=\"M -15 -4 L -22 -3 L -15 -2 Z\" fill=\"#1a1a1a\"/>\n      <!-- 눈 (흰점) -->\n      <circle cx=\"-10\" cy=\"-5\" r=\"0.8\" fill=\"#ffffff\"/>\n      <!-- 다리 -->\n      <line x1=\"-3\" y1=\"7\" x2=\"-3\" y2=\"14\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      <line x1=\"3\" y1=\"7\" x2=\"3\" y2=\"14\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      <!-- 꼬리 -->\n      <path d=\"M 12 0 L 18 -2 L 18 2 Z\" fill=\"#1a1a1a\"/>\n      <text x=\"0\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\">까마귀</text>\n      <text x=\"0\" y=\"42\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">crow</text>\n    </g>\n\n    <!-- 벌잡이새 -->\n    <g transform=\"translate(280, 25)\">\n      <!-- 몸 (작고 색상) -->\n      <ellipse cx=\"0\" cy=\"0\" rx=\"10\" ry=\"6\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <!-- 머리 -->\n      <circle cx=\"-9\" cy=\"-3\" r=\"4.5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <!-- 긴 부리 -->\n      <line x1=\"-13\" y1=\"-3\" x2=\"-22\" y2=\"-2\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n      <!-- 눈 -->\n      <circle cx=\"-9\" cy=\"-4\" r=\"0.6\" fill=\"#1a1a1a\"/>\n      <!-- 다리 -->\n      <line x1=\"-3\" y1=\"6\" x2=\"-3\" y2=\"13\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      <line x1=\"3\" y1=\"6\" x2=\"3\" y2=\"13\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      <!-- 꼬리 -->\n      <path d=\"M 10 -1 L 16 -3 L 16 3 L 10 1 Z\" fill=\"#1FA34A\" opacity=\"0.7\"/>\n      <!-- 부리에 벌 (점) -->\n      <circle cx=\"-25\" cy=\"-2\" r=\"1.5\" fill=\"#1a1a1a\"/>\n      <text x=\"0\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\">벌잡이새</text>\n      <text x=\"0\" y=\"42\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">bee eater</text>\n    </g>\n\n    <!-- 거위 -->\n    <g transform=\"translate(390, 25)\">\n      <!-- 몸 -->\n      <ellipse cx=\"0\" cy=\"3\" rx=\"14\" ry=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <!-- 목 (길게) -->\n      <path d=\"M -3 -3 Q -10 -8 -10 -15\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <!-- 머리 -->\n      <circle cx=\"-10\" cy=\"-15\" r=\"4\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <!-- 부리 -->\n      <path d=\"M -14 -15 L -18 -14 L -14 -13 Z\" fill=\"#c8102e\"/>\n      <!-- 눈 -->\n      <circle cx=\"-11\" cy=\"-16\" r=\"0.6\" fill=\"#1a1a1a\"/>\n      <!-- 다리 -->\n      <line x1=\"-3\" y1=\"11\" x2=\"-3\" y2=\"18\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <line x1=\"3\" y1=\"11\" x2=\"3\" y2=\"18\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <!-- 꼬리 -->\n      <path d=\"M 13 3 L 19 1 L 19 5 Z\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      <text x=\"0\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\">거위</text>\n      <text x=\"0\" y=\"42\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">goose</text>\n    </g>\n\n    <!-- 인간 -->\n    <g transform=\"translate(515, 25)\">\n      <circle cx=\"0\" cy=\"-8\" r=\"6\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <circle cx=\"-1.5\" cy=\"-9\" r=\"0.6\" fill=\"#1a1a1a\"/>\n      <circle cx=\"1.5\" cy=\"-9\" r=\"0.6\" fill=\"#1a1a1a\"/>\n      <line x1=\"0\" y1=\"-2\" x2=\"0\" y2=\"15\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"3\" x2=\"-8\" y2=\"10\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <line x1=\"0\" y1=\"3\" x2=\"8\" y2=\"10\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <line x1=\"0\" y1=\"15\" x2=\"-6\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <line x1=\"0\" y1=\"15\" x2=\"6\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <text x=\"0\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\">인간</text>\n      <text x=\"0\" y=\"42\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">human</text>\n    </g>\n\n    <!-- 평행 라벨 (전체 위에) -->\n    <text x=\"300\" y=\"0\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">parallel evolution — 같은 원리</text>\n  </g>\n\n  <!-- 가운데: 공통 조건 -->\n  <g transform=\"translate(70, 122)\">\n    <text x=\"230\" y=\"-3\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">공통 조건 — 같은 진화 압력</text>\n    <rect x=\"0\" y=\"3\" width=\"460\" height=\"55\" fill=\"#fdf2f4\" fill-opacity=\"0.4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n    \n    <!-- 조건 1: 거친 환경 -->\n    <g transform=\"translate(75, 30)\">\n      <!-- 폭풍/번개 도형 -->\n      <path d=\"M -5 -10 L -2 -3 L -6 -3 L 0 6 L 2 -1 L 6 -1 L -1 -10 Z\" fill=\"#c8102e\" stroke=\"#c8102e\" stroke-width=\"1\"/>\n      <text x=\"0\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">거친 환경</text>\n    </g>\n\n    <!-- + -->\n    <text x=\"155\" y=\"33\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"14\" text-anchor=\"middle\" fill=\"#1a1a1a\">+</text>\n\n    <!-- 조건 2: 큰 먹이 무더기 -->\n    <g transform=\"translate(230, 30)\">\n      <!-- 클럼프 (점들 무더기) -->\n      <g fill=\"#c8102e\">\n        <circle cx=\"-7\" cy=\"-3\" r=\"2.5\"/>\n        <circle cx=\"-2\" cy=\"-7\" r=\"2.5\"/>\n        <circle cx=\"4\" cy=\"-4\" r=\"2.5\"/>\n        <circle cx=\"-3\" cy=\"0\" r=\"2.5\"/>\n        <circle cx=\"3\" cy=\"1\" r=\"2.5\"/>\n        <circle cx=\"8\" cy=\"-1\" r=\"2.5\"/>\n      </g>\n      <text x=\"0\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">큰 먹이 무더기</text>\n    </g>\n\n    <!-- + -->\n    <text x=\"305\" y=\"33\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"14\" text-anchor=\"middle\" fill=\"#1a1a1a\">+</text>\n\n    <!-- 조건 3: 15년 양육 -->\n    <g transform=\"translate(380, 30)\">\n      <!-- 시계/연도 -->\n      <circle cx=\"0\" cy=\"-2\" r=\"9\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n      <text x=\"0\" y=\"1\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\">15y</text>\n      <text x=\"0\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">15년 양육</text>\n    </g>\n  </g>\n\n  <!-- 화살표 ↓ -->\n  <g transform=\"translate(300, 195)\">\n    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"20\" stroke=\"#1FA34A\" stroke-width=\"2\"/>\n    <polygon points=\"0,20 -5,12 5,12\" fill=\"#1FA34A\"/>\n    <text x=\"35\" y=\"13\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" fill=\"#1FA34A\" font-weight=\"700\">drives evolution of</text>\n  </g>\n\n  <!-- 하단: pair bonding 결과 -->\n  <g transform=\"translate(0, 225)\">\n    <rect x=\"60\" y=\"0\" width=\"480\" height=\"62\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n    <text x=\"170\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">pair bonding — 강한 짝 유대</text>\n\n    <!-- 두 stick figure + 아이 -->\n    <g transform=\"translate(170, 38)\">\n      <!-- 아빠 -->\n      <g transform=\"translate(-25, 0)\">\n        <circle cx=\"0\" cy=\"-8\" r=\"5\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n        <line x1=\"0\" y1=\"-3\" x2=\"0\" y2=\"10\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n        <!-- 손 잡은 팔 -->\n        <line x1=\"0\" y1=\"0\" x2=\"13\" y2=\"3\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n        <line x1=\"0\" y1=\"0\" x2=\"-9\" y2=\"6\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"10\" x2=\"-5\" y2=\"18\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"10\" x2=\"5\" y2=\"18\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      </g>\n      <!-- 아이 (중앙, 작음) -->\n      <g transform=\"translate(0, 5)\">\n        <circle cx=\"0\" cy=\"-2\" r=\"3.5\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"1\" x2=\"0\" y2=\"9\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"4\" x2=\"-4\" y2=\"8\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"4\" x2=\"4\" y2=\"8\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"9\" x2=\"-3\" y2=\"14\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"9\" x2=\"3\" y2=\"14\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n      </g>\n      <!-- 엄마 -->\n      <g transform=\"translate(25, 0)\">\n        <circle cx=\"0\" cy=\"-8\" r=\"5\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n        <line x1=\"0\" y1=\"-3\" x2=\"0\" y2=\"10\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n        <line x1=\"0\" y1=\"0\" x2=\"-13\" y2=\"3\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n        <line x1=\"0\" y1=\"0\" x2=\"9\" y2=\"6\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"10\" x2=\"-5\" y2=\"18\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"10\" x2=\"5\" y2=\"18\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      </g>\n      <!-- 위 하트 (유대) -->\n      <text x=\"0\" y=\"-15\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"13\" text-anchor=\"middle\" fill=\"#1FA34A\">♥</text>\n    </g>\n\n    <!-- 우측: 인간 결론 (요점) -->\n    <g transform=\"translate(320, 8)\">\n      <text x=\"120\" y=\"9\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">인간 = <tspan fill=\"#1FA34A\">pair-bonded animal</tspan></text>\n      <text x=\"120\" y=\"25\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">\"fast-growing brain + 15 yrs\"</text>\n      <text x=\"120\" y=\"38\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">→ good candidate for pair bonding</text>\n    </g>\n  </g>\n</svg>","caption":"개·까마귀·벌잡이새·거위·인간 평행 — 거친 환경 + 큰 먹이 무더기 + 긴 양육기(15년) → 강한 짝 유대 진화"},{"no":"5","title":"Humanity's Quest to Measure Time","ktitle":"시간을 재려는 인류의 여정","field":"역사·과학","page":"7회 05번","oneline":"인류는 늘 ‘시간의 흐름’에 매료돼 왔다.","tldr":["인류는 늘 ‘시간의 흐름’에 매료돼 왔다.","천체 관찰 → 물시계 → 기계식 → 진자 → 원자시계로 ‘더 정확히’ 재려는 노력이 이어졌다.","이 끊임없는 개선이 인류의 근본적 과학 여정을 보여 준다."],"analogy":"스마트폰 시계가 없던 시절엔 해 그림자·별·물 떨어지는 속도로 시간을 쟀어요. 그 뒤로 물시계→기계식 시계→진자→원자시계로 ‘더 정확히 재려는’ 노력이 끝없이 이어졌죠 — 시간 측정의 발전사가 곧 인류의 오랜 과학 여정이에요.","bg":"인류가 시간을 측정해 온 역사 — 천체 관찰·물시계 같은 초기 방법부터 기계식·진자·원자시계까지 ‘점점 더 정확하게’ 발전해 온 과정 — 이 인류의 근본적 과학 여정을 보여 준다는 글이에요.","flow":[{"kind":"전제","t":"인류는 늘 시간에 매료돼 왔다"},{"kind":"초기","t":"해·달·별 관찰 → 패턴","d":"농업·여행을 안내."},{"kind":"고대 체계","t":"이집트·바빌로니아·중국 물시계(BC3000)·메소포타미아 하루 분할"},{"kind":"발전","t":"기계식 시계 → 진자 → 원자시계","d":"점점 더 정확하게."},{"kind":"결론","t":"끝없는 개선 = 인류의 근본적 과학 여정"}],"quiz":[["초기 인류는 무엇으로 시간 패턴을 찾았나?","해·달·별 같은 천체를 관찰해 농업·여행을 안내하는 패턴을 발견했어요."],["시간 측정 방법은 어떻게 변해 왔나?","천체 관찰·물시계 같은 초기 방법에서 기계식·진자·원자시계로, 점점 더 정확하게 발전해 왔어요."],["핵심 한 문장?","시간을 더 정확히 재려는 끊임없는 개선이 인류의 근본적 과학 여정을 보여 준다."]],"vocab":[["civilization civilize","문명"],["fascinate","매료시키다"],["passage of time","시간의 흐름"],["agriculture","농업"],["predict pre-","예측하다"],["equinox  equi-","주야 평분일 (낮·밤 같음)"]],"en":"Across civilizations, people have always been fascinated by the passage of time. Early humans watched the sun, moon, and stars and noticed patterns that guided agriculture and travel. The Egyptians and Babylonians created systems to predict the longest and shortest days of the year and the times when day and night were equal, all without modern tools. In China, water clocks were used as early as 3,000 B.C., while the Mesopotamians divided days into parts that became our system of hours. These early efforts to measure time represent humanity's first organized scientific endeavor. In the Middle Ages, inventions such as mechanical clocks and tower clocks helped people plan their daily lives and community events. The swinging pendulum made clocks much more accurate, and special marine clocks helped sailors find their position at sea, changing travel forever. Today's atomic clocks measure time using the tiniest parts of atoms, achieving a level of accuracy our ancestors could not imagine. This constant improvement in the way we measure time illustrates humanity's fundamental scientific journey—our most enduring quest for knowledge.","ko":"문명을 통틀어 사람들은 항상 시간의 흐름에 매료되어 왔다. 초기 인류는 해, 달, 별을 관찰하고 농업과 여행을 안내하는 패턴을 발견했다. 이집트인과 바빌로니아인들은 모두 현대적인 도구 없이도 일 년 중 가장 길고 짧은 날 및 낮과 밤이 같은 시간을 예측하는 시스템을 만들었다. 중국에서는 기원전 3천년 전부터 물시계가 사용되었으며, 메소포타미아인들은 우리의 시간 체계가 된 부분으로 하루를 나누었다. 시간을 측정하려는 이러한 초기 노력은 인류 최초의 조직적인 과학적 노력을 나타낸다. 중세 시대에는, 기계식 시계와 탑 시계 같은 발명품이 사람들이 일상생활과 공동체 행사를 계획하는 데 도움을 주었다. 흔들리는 진자(추)는 시계를 훨씬 더 정확하게 만들었고, 특수 해상용 시계는 선원들이 바다에서 자신의 위치를 찾는 데 도움을 주어 여행(방식)을 영원히 바꿔 놓았다. 오늘날의 원자 시계는 원자의 가장 작은 부분을 사용해 시간을 측정하여, 우리 조상들이 상상할 수 없었던 수준의 정확성을 달성한다. 시간을 측정하는 방식의 이러한 끊임없는 개선은 인류의 가장 근본적인 과학적 여정, 즉 지식을 향한 우리의 가장 오래 지속되는 탐구를 분명히 보여 준다.","read":[{"en":"Across civilizations, people have always been fascinated by the passage of time.","ko":"문명을 통틀어 사람들은 항상 시간의 흐름에 매료되어 왔다.","chunks":[["Across civilizations,","문명을 통틀어,"],["people have always been fascinated","사람들은 항상 매료되어 왔다"],["by the passage of time.","시간의 흐름에."]]},{"en":"Early humans watched the sun, moon, and stars and noticed patterns that guided agriculture and travel.","ko":"초기 인류는 해, 달, 별을 관찰하고 농업과 여행을 안내하는 패턴을 발견했다.","chunks":[["Early humans watched","초기 인류는 관찰했다"],["the sun, moon, and stars","해, 달, 별을"],["and noticed patterns","그리고 패턴을 발견했다"],["that guided agriculture and travel.","농업과 여행을 안내하는."]]},{"en":"The Egyptians and Babylonians created systems to predict the longest and shortest days of the year and the times when day and night were equal, all without modern tools.","ko":"이집트인과 바빌로니아인들은 모두 현대적인 도구 없이도 일 년 중 가장 길고 짧은 날 및 낮과 밤이 같은 시간을 예측하는 시스템을 만들었다.","chunks":[["The Egyptians and Babylonians created systems","이집트인과 바빌로니아인들은 체계를 만들었다"],["to predict the longest and shortest days of the year","일 년 중 가장 길고 짧은 날을 예측하기 위해"],["and the times when day and night were equal,","그리고 낮과 밤이 같았던 시간을,"],["all without modern tools.","모두 현대적인 도구 없이."]]},{"en":"In China, water clocks were used as early as 3,000 B.C., while the Mesopotamians divided days into parts that became our system of hours.","ko":"중국에서는 기원전 3천년 전부터 물시계가 사용되었으며, 메소포타미아인들은 우리의 시간 체계가 된 부분으로 하루를 나누었다.","chunks":[["In China, water clocks were used","중국에서는 물시계가 사용되었다"],["as early as 3,000 B.C.,","기원전 3천 년 전부터,"],["while the Mesopotamians divided days","반면 메소포타미아인들은 하루를 나누었다"],["into parts that became our system of hours.","우리의 시간 체계가 된 부분들로."]]},{"en":"These early efforts to measure time represent humanity's first organized scientific endeavor.","ko":"시간을 측정하려는 이러한 초기 노력은 인류 최초의 조직적인 과학적 노력을 나타낸다.","chunks":[["These early efforts","이러한 초기 노력은"],["to measure time","시간을 측정하려는"],["represent humanity's first organized scientific endeavor.","인류 최초의 조직적 과학 노력을 나타낸다."]]},{"en":"In the Middle Ages, inventions such as mechanical clocks and tower clocks helped people plan their daily lives and community events.","ko":"중세 시대에는, 기계식 시계와 탑 시계 같은 발명품이 사람들이 일상생활과 공동체 행사를 계획하는 데 도움을 주었다.","chunks":[["In the Middle Ages,","중세 시대에는,"],["inventions such as mechanical clocks and tower clocks","기계식 시계와 탑 시계 같은 발명품들이"],["helped people plan their daily lives","사람들이 일상생활을 계획하는 데 도움을 주었다"],["and community events.","그리고 공동체 행사를."]]},{"en":"The swinging pendulum made clocks much more accurate, and special marine clocks helped sailors find their position at sea, changing travel forever.","ko":"흔들리는 진자(추)는 시계를 훨씬 더 정확하게 만들었고, 특수 해상용 시계는 선원들이 바다에서 자신의 위치를 찾는 데 도움을 주어 여행(방식)을 영원히 바꿔 놓았다.","chunks":[["The swinging pendulum made clocks much more accurate,","흔들리는 진자는 시계를 훨씬 더 정확하게 만들었다,"],["and special marine clocks helped sailors find their position","특수 해상용 시계는 선원들이 위치를 찾는 데 도움을 주었다"],["at sea,","바다에서,"],["changing travel forever.","여행을 영원히 바꾸면서."]]},{"en":"Today's atomic clocks measure time using the tiniest parts of atoms, achieving a level of accuracy our ancestors could not imagine.","ko":"오늘날의 원자 시계는 원자의 가장 작은 부분을 사용해 시간을 측정하여, 우리 조상들이 상상할 수 없었던 수준의 정확성을 달성한다.","chunks":[["Today's atomic clocks measure time","오늘날의 원자 시계는 시간을 측정한다"],["using the tiniest parts of atoms,","원자의 가장 작은 부분을 사용하여,"],["achieving a level of accuracy","정확성의 수준을 달성하면서"],["our ancestors could not imagine.","우리 조상들이 상상할 수 없었던."]]},{"en":"This constant improvement in the way we measure time illustrates humanity's fundamental scientific journey—our most enduring quest for knowledge.","ko":"시간을 측정하는 방식의 이러한 끊임없는 개선은 인류의 가장 근본적인 과학적 여정, 즉 지식을 향한 우리의 가장 오래 지속되는 탐구를 분명히 보여 준다.","chunks":[["This constant improvement","이러한 끊임없는 개선은"],["in the way we measure time","시간을 측정하는 방식에 있어"],["illustrates humanity's fundamental scientific journey—","인류의 근본적인 과학적 여정을 분명히 보여 준다—"],["our most enduring quest for knowledge.","지식을 향한 우리의 가장 오래 지속되는 탐구를."]]}],"metaphor":"<svg viewBox=\"0 0 600 280\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"해·달·별에서 물시계, 기계 시계와 진자, 해상 시계, 원자 시계로 5단계 발전하는 가로 연표와, 그 아래 정확도가 점점 상승하는 게이지가 그려진 시간 측정 발달사. 하단에 인류의 가장 오래 지속되는 지식 탐구라는 결론.\">\n  <!-- 상단 라벨 -->\n  <text x=\"300\" y=\"18\" font-family=\"Noto Serif KR\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">시간 측정 발달사 — 5단계 + 정확도 상승</text>\n\n  <!-- 시간 축 (가로) -->\n  <line x1=\"40\" y1=\"180\" x2=\"560\" y2=\"180\" stroke=\"#1a1a1a\" stroke-width=\"2\"/>\n  <polygon points=\"560,180 553,176 553,184\" fill=\"#1a1a1a\"/>\n  <text x=\"565\" y=\"183\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" fill=\"#5e5e5e\">time</text>\n\n  <!-- 5단계 -->\n  <!-- ① 해·달·별 -->\n  <g transform=\"translate(85, 70)\">\n    <!-- 해 -->\n    <circle cx=\"-10\" cy=\"0\" r=\"9\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n    <g stroke=\"#c8102e\" stroke-width=\"1.1\">\n      <line x1=\"-10\" y1=\"-13\" x2=\"-10\" y2=\"-17\"/>\n      <line x1=\"-19\" y1=\"-9\" x2=\"-22\" y2=\"-12\"/>\n      <line x1=\"-1\" y1=\"-9\" x2=\"2\" y2=\"-12\"/>\n      <line x1=\"-22\" y1=\"0\" x2=\"-25\" y2=\"0\"/>\n      <line x1=\"2\" y1=\"0\" x2=\"5\" y2=\"0\"/>\n    </g>\n    <!-- 달 -->\n    <path d=\"M 5 0 A 8 8 0 1 0 5 -14 A 6 6 0 1 1 5 0 Z\" fill=\"#999\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n    <!-- 별 -->\n    <text x=\"14\" y=\"3\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"9\" fill=\"#1a1a1a\">★</text>\n    <!-- 축점 -->\n    <circle cx=\"0\" cy=\"110\" r=\"4\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <line x1=\"0\" y1=\"35\" x2=\"0\" y2=\"106\" stroke=\"#999\" stroke-width=\"0.8\" stroke-dasharray=\"3 2\"/>\n    <text x=\"0\" y=\"125\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">해·달·별</text>\n    <text x=\"0\" y=\"138\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">early humans</text>\n  </g>\n\n  <!-- ② 물시계 -->\n  <g transform=\"translate(190, 70)\">\n    <!-- 물시계 (모래시계 모양 + 물방울) -->\n    <path d=\"M -10 -14 L 10 -14 L 10 -11 L 1 0 L 10 11 L 10 14 L -10 14 L -10 11 L -1 0 L -10 -11 Z\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <!-- 물 (위쪽) -->\n    <path d=\"M -8 -10 L 8 -10 L 1 -2 L -1 -2 Z\" fill=\"#1FA34A\" opacity=\"0.5\"/>\n    <!-- 물 (아래쪽) -->\n    <path d=\"M -8 12 L 8 12 L 8 5 L -8 5 Z\" fill=\"#1FA34A\" opacity=\"0.5\"/>\n    <!-- 떨어지는 물 -->\n    <circle cx=\"0\" cy=\"2\" r=\"0.9\" fill=\"#1FA34A\"/>\n    <circle cx=\"0\" cy=\"6\" r=\"0.9\" fill=\"#1FA34A\"/>\n    <circle cx=\"0\" cy=\"115\" r=\"4\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <line x1=\"0\" y1=\"20\" x2=\"0\" y2=\"111\" stroke=\"#999\" stroke-width=\"0.8\" stroke-dasharray=\"3 2\"/>\n    <text x=\"0\" y=\"125\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">물시계</text>\n    <text x=\"0\" y=\"138\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">3000 BCE China</text>\n  </g>\n\n  <!-- ③ 기계·진자 -->\n  <g transform=\"translate(300, 70)\">\n    <!-- 시계 본체 -->\n    <rect x=\"-13\" y=\"-15\" width=\"26\" height=\"22\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <circle cx=\"0\" cy=\"-5\" r=\"7\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <!-- 시계 바늘 -->\n    <line x1=\"0\" y1=\"-5\" x2=\"0\" y2=\"-10\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <line x1=\"0\" y1=\"-5\" x2=\"4\" y2=\"-3\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <!-- 진자 (아래) -->\n    <line x1=\"0\" y1=\"7\" x2=\"0\" y2=\"20\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <circle cx=\"0\" cy=\"22\" r=\"3.5\" fill=\"#1a1a1a\"/>\n    <!-- 진동 호 -->\n    <path d=\"M -8 22 Q 0 26 8 22\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.8\" stroke-dasharray=\"2 2\"/>\n    <circle cx=\"0\" cy=\"130\" r=\"4\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <line x1=\"0\" y1=\"30\" x2=\"0\" y2=\"126\" stroke=\"#999\" stroke-width=\"0.8\" stroke-dasharray=\"3 2\"/>\n    <text x=\"0\" y=\"105\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">기계 시계</text>\n    <text x=\"0\" y=\"118\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">+ pendulum</text>\n    <text x=\"0\" y=\"143\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">Middle Ages</text>\n  </g>\n\n  <!-- ④ 해상 시계 -->\n  <g transform=\"translate(410, 70)\">\n    <!-- 둥근 회중시계 -->\n    <circle cx=\"0\" cy=\"-2\" r=\"13\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n    <circle cx=\"0\" cy=\"-2\" r=\"11\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"0.7\"/>\n    <!-- 시계 바늘 -->\n    <line x1=\"0\" y1=\"-2\" x2=\"0\" y2=\"-10\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n    <line x1=\"0\" y1=\"-2\" x2=\"6\" y2=\"2\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n    <circle cx=\"0\" cy=\"-2\" r=\"1.3\" fill=\"#c8102e\"/>\n    <!-- 위 고리 -->\n    <circle cx=\"0\" cy=\"-15\" r=\"2\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n    <!-- 시간 표시 -->\n    <circle cx=\"0\" cy=\"-11\" r=\"0.5\" fill=\"#1a1a1a\"/>\n    <circle cx=\"9\" cy=\"-2\" r=\"0.5\" fill=\"#1a1a1a\"/>\n    <circle cx=\"0\" cy=\"7\" r=\"0.5\" fill=\"#1a1a1a\"/>\n    <circle cx=\"-9\" cy=\"-2\" r=\"0.5\" fill=\"#1a1a1a\"/>\n    <!-- 파도 -->\n    <path d=\"M -16 16 Q -10 13 -5 16 Q 0 13 5 16 Q 10 13 16 16\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1\" stroke-dasharray=\"2 2\"/>\n    <circle cx=\"0\" cy=\"130\" r=\"4\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <line x1=\"0\" y1=\"20\" x2=\"0\" y2=\"126\" stroke=\"#999\" stroke-width=\"0.8\" stroke-dasharray=\"3 2\"/>\n    <text x=\"0\" y=\"105\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">해상 시계</text>\n    <text x=\"0\" y=\"118\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">marine</text>\n    <text x=\"0\" y=\"143\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">sailors at sea</text>\n  </g>\n\n  <!-- ⑤ 원자 시계 -->\n  <g transform=\"translate(515, 70)\">\n    <!-- 원자 도형 -->\n    <circle cx=\"0\" cy=\"0\" r=\"3\" fill=\"#c8102e\"/>\n    <!-- 궤도 -->\n    <ellipse cx=\"0\" cy=\"0\" rx=\"14\" ry=\"6\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.1\"/>\n    <ellipse cx=\"0\" cy=\"0\" rx=\"14\" ry=\"6\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.1\" transform=\"rotate(60)\"/>\n    <ellipse cx=\"0\" cy=\"0\" rx=\"14\" ry=\"6\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.1\" transform=\"rotate(-60)\"/>\n    <!-- 전자 -->\n    <circle cx=\"14\" cy=\"0\" r=\"1.8\" fill=\"#1a1a1a\"/>\n    <circle cx=\"-7\" cy=\"12\" r=\"1.8\" fill=\"#1a1a1a\"/>\n    <circle cx=\"-7\" cy=\"-12\" r=\"1.8\" fill=\"#1a1a1a\"/>\n    <circle cx=\"0\" cy=\"130\" r=\"4\" fill=\"#1FA34A\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <line x1=\"0\" y1=\"22\" x2=\"0\" y2=\"126\" stroke=\"#1FA34A\" stroke-width=\"1\" stroke-dasharray=\"3 2\"/>\n    <text x=\"0\" y=\"105\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">원자 시계</text>\n    <text x=\"0\" y=\"118\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#1FA34A\">atomic</text>\n    <text x=\"0\" y=\"143\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">today</text>\n  </g>\n\n  <!-- 정확도 게이지 (아래) -->\n  <g transform=\"translate(0, 215)\">\n    <text x=\"30\" y=\"9\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" fill=\"#5e5e5e\" font-weight=\"700\">accuracy</text>\n    <!-- 게이지 베이스 -->\n    <rect x=\"78\" y=\"0\" width=\"475\" height=\"12\" fill=\"#f6f6f6\" stroke=\"#999\" stroke-width=\"0.8\"/>\n    <!-- 게이지 채움 (왼쪽 → 오른쪽 점점 채워짐) -->\n    <defs>\n      <linearGradient id=\"acc-grad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n        <stop offset=\"0%\" stop-color=\"#999\" stop-opacity=\"0.3\"/>\n        <stop offset=\"100%\" stop-color=\"#1FA34A\" stop-opacity=\"0.85\"/>\n      </linearGradient>\n    </defs>\n    <!-- gradient 금지 — 5단계 단순 segment -->\n    <rect x=\"78\" y=\"0\" width=\"95\" height=\"12\" fill=\"#999\" fill-opacity=\"0.25\"/>\n    <rect x=\"173\" y=\"0\" width=\"95\" height=\"12\" fill=\"#999\" fill-opacity=\"0.45\"/>\n    <rect x=\"268\" y=\"0\" width=\"95\" height=\"12\" fill=\"#1FA34A\" fill-opacity=\"0.35\"/>\n    <rect x=\"363\" y=\"0\" width=\"95\" height=\"12\" fill=\"#1FA34A\" fill-opacity=\"0.6\"/>\n    <rect x=\"458\" y=\"0\" width=\"95\" height=\"12\" fill=\"#1FA34A\" fill-opacity=\"0.9\"/>\n\n    <!-- 화살표 ↑ (정확도 상승) -->\n    <g transform=\"translate(560, 6)\">\n      <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-12\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n      <polygon points=\"0,-12 -3,-8 3,-8\" fill=\"#1FA34A\"/>\n    </g>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"255\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">→ <tspan fill=\"#1FA34A\">humanity's most enduring quest for knowledge</tspan> — 가장 오래 지속되는 지식 탐구</text>\n  <text x=\"300\" y=\"270\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">constant improvement illustrates humanity's fundamental scientific journey</text>\n</svg>","caption":"해·달·별 → 물시계 → 기계 시계·진자 → 해상 시계 → 원자 시계 — 정확도 ↑ + 인류 가장 오래 지속되는 지식 탐구"},{"no":"6","title":"Local vs Non-local Competition","ktitle":"협력은 ‘누구와 경쟁하느냐’에 달렸다","field":"진화·협력","page":"7회 06번 (장문)","oneline":"경쟁자를 도울지는 ‘국소 경쟁(같은 자리를 다투는가)’이 좌우한다.","tldr":["경쟁자를 도울지는 ‘국소 경쟁(같은 자리를 다투는가)’이 좌우한다.","같은 일자리(한 자리)를 다투면, 그를 돕는 건 곧 내 손해다.","경쟁이 ‘국소적이지 않을 때’ 협력이 더 쉽다."],"analogy":"같은 반에서 ‘한 명만 뽑는 상’을 두고 경쟁하면 친구 도와주기 망설여지죠. 하지만 상관없는 상이면 선뜻 돕고요 — 협력은 ‘같은 걸 다투느냐’에 달렸어요.","bg":"협력 의지가 ‘국소 경쟁(같은 자원·자리를 직접 다투는지)’에 좌우된다는 진화·게임이론 글. 같은 일자리 면접 상황이 예시예요.","flow":[{"kind":"상황","t":"같은 일자리 면접 — 경쟁자가 실수"},{"kind":"질문 Q","t":"그를 구해 줄 것인가?"},{"kind":"조건","t":"같은 ‘한 자리’를 다투면 도움 = 내 손해"},{"kind":"원리","t":"국소 경쟁이면 협력↓"},{"kind":"결론","t":"협력은 ‘국소 경쟁’ 여부에 달림"}],"quiz":[["경쟁자를 도울지 좌우하는 것은?","‘국소 경쟁’ — 둘이 ‘같은 자리(자원)’를 직접 다투는지예요."],["같은 일자리를 다툰다면 도움은?","그를 돕는 게 곧 내게 손해라, 도와주려는 마음이 줄어요."],["핵심 한 문장?","협력은 ‘같은 것을 직접 다투느냐(국소 경쟁)’에 따라 달라진다."]],"vocab":[["candidate","지원자·후보"],["interview","면접을 보다"],["correct for","~를 바로잡다·수정해 주다"],["willingness willing","자발성·기꺼이 하는 마음"],["affect","영향을 미치다"],["harm","해를 끼치다"]],"en":"Suppose that you and another candidate are interviewing for a job at a company. If this other candidate makes a mistake that you can easily correct for him, do you help him out? Your willingness to do so will probably be affected by whether you are both interviewing for the same job. If you are, and if there is only one position, then any help you give to him will directly harm you because it increases the likelihood that he will get the job instead of you. All of your competition is against this one person, and this \"local\" competition undermines your incentives to cooperate with each other. If you are interviewing for different jobs, then you are not in competition, and you could both benefit from helping each other to compete against your respective competitors. In this case, you have no local competition, because you are both competing against separate pools. How about an intermediate situation? If you are both competing for a position, but there are many positions, then you could still benefit from helping each other because this puts you both in a better position to compete with the larger pool of candidates.","ko":"여러분과 다른 지원자가 한 회사에서 일자리를 놓고 면접을 본다고 해 보자. 만일 여러분이 쉽게 수정해 줄 수 있는 실수를 이 다른 지원자가 저지르면, 여러분은 그를 구해 낼 것인가? 그렇게 하려는 여러분의 자발성은 여러분 둘 다 같은 일자리를 위해 면접을 하는지에 의해 영향을 받을 것이다. 만일 그렇다면, 그리고 일자리가 한 자리밖에 없다면, 여러분이 그에게 주는 어떤 도움이든 직접적으로 여러분에게 해를 끼칠 것인데 왜냐하면 그것은 그가 당신 대신 그 일자리를 얻게 될 가능성을 증가시키기 때문이다. 그리고 여러분의 모든 경쟁은 이 한 사람에 대항한 것인데, 이 '특정' 경쟁은 여러분이 서로 협력하려는 동기를 손상한다. 만일 여러분이 서로 다른 일자리를 위해 면접을 한다면, 여러분은 경쟁을 하는 것이 아니고, 각각의 경쟁자들에 대항하여 경쟁할 때 서로 도움으로써 득을 볼 수 있다. 이런 경우, 여러분은 특정 경쟁을 전혀 하지 않는데, 여러분 둘 다 각자 다른 무리에 대항해 경쟁을 하고 있는 것이기 때문이다. 중간의 상황은 어떨까? 만일 여러분 둘 다 같은 일자리를 위해 경쟁하고 있는데 많은 일자리가 있다면, 여러분은 서로 돕는 데에서 여전히 득을 볼 것인데, 왜냐하면 이것이 여러분 둘 다를 더 큰 무리의 지원자와 경쟁하는 데 있어서 더 좋은 위치에 놓을 것이기 때문이다.","read":[{"en":"Suppose that you and another candidate are interviewing for a job at a company.","ko":"여러분과 다른 지원자가 한 회사에서 일자리를 놓고 면접을 본다고 해 보자.","chunks":[["Suppose that","~라고 가정해 보자"],["you and another candidate are interviewing","여러분과 다른 지원자가 면접을 보고 있다"],["for a job at a company.","한 회사의 일자리를 위해."]]},{"en":"If this other candidate makes a mistake that you can easily correct for him, do you help him out?","ko":"만일 여러분이 쉽게 수정해 줄 수 있는 실수를 이 다른 지원자가 저지르면, 여러분은 그를 구해 낼 것인가?","chunks":[["If this other candidate makes a mistake","만약 이 다른 지원자가 실수를 한다면"],["that you can easily correct for him,","여러분이 그를 위해 쉽게 수정할 수 있는,"],["do you help him out?","여러분은 그를 도와줄 것인가?"]]},{"en":"Your willingness to do so will probably be affected by whether you are both interviewing for the same job.","ko":"그렇게 하려는 여러분의 자발성은 여러분 둘 다 같은 일자리를 위해 면접을 하는지에 의해 영향을 받을 것이다.","chunks":[["Your willingness to do so","그렇게 하려는 여러분의 자발성은"],["will probably be affected","아마 영향을 받을 것이다"],["by whether you are both interviewing for the same job.","여러분 둘 다 같은 일자리를 위해 면접을 보는지에."]]},{"en":"If you are, and if there is only one position, then any help you give to him will directly harm you because it increases the likelihood that he will get the job instead of you.","ko":"만일 그렇다면, 그리고 일자리가 한 자리밖에 없다면, 여러분이 그에게 주는 어떤 도움이든 직접적으로 여러분에게 해를 끼칠 것인데 왜냐하면 그것은 그가 당신 대신 그 일자리를 얻게 될 가능성을 증가시키기 때문이다.","chunks":[["If you are, and if there is only one position,","만약 그렇고, 일자리가 한 자리뿐이라면,"],["then any help you give to him","여러분이 그에게 주는 어떤 도움이든"],["will directly harm you","여러분에게 직접적으로 해를 끼칠 것이다"],["because it increases the likelihood","왜냐하면 그것은 가능성을 증가시키기 때문이다"],["that he will get the job instead of you.","그가 여러분 대신 일자리를 얻을."]]},{"en":"All of your competition is against this one person, and this \"local\" competition undermines your incentives to cooperate with each other.","ko":"그리고 여러분의 모든 경쟁은 이 한 사람에 대항한 것인데, 이 '특정' 경쟁은 여러분이 서로 협력하려는 동기를 손상한다.","chunks":[["All of your competition is against this one person,","여러분의 모든 경쟁은 이 한 사람을 향한 것이다,"],["and this \"local\" competition undermines your incentives","그리고 이 \"특정\" 경쟁은 여러분의 동기를 약화시킨다"],["to cooperate with each other.","서로 협력하려는."]]},{"en":"If you are interviewing for different jobs, then you are not in competition, and you could both benefit from helping each other to compete against your respective competitors.","ko":"만일 여러분이 서로 다른 일자리를 위해 면접을 한다면, 여러분은 경쟁을 하는 것이 아니고, 각각의 경쟁자들에 대항하여 경쟁할 때 서로 도움으로써 득을 볼 수 있다.","chunks":[["If you are interviewing for different jobs,","만약 여러분이 서로 다른 일자리를 위해 면접한다면,"],["then you are not in competition,","여러분은 경쟁 관계가 아니다,"],["and you could both benefit from helping each other","여러분 둘 다 서로 돕는 것에서 득을 볼 수 있다"],["to compete against your respective competitors.","각자의 경쟁자에 맞서 경쟁할 때."]]},{"en":"In this case, you have no local competition, because you are both competing against separate pools.","ko":"이런 경우, 여러분은 특정 경쟁을 전혀 하지 않는데, 여러분 둘 다 각자 다른 무리에 대항해 경쟁을 하고 있는 것이기 때문이다.","chunks":[["In this case,","이 경우,"],["you have no local competition,","여러분은 특정 경쟁이 전혀 없다,"],["because you are both competing against separate pools.","여러분 둘 다 별개의 무리에 대항해 경쟁하고 있기 때문에."]]},{"en":"How about an intermediate situation?","ko":"중간의 상황은 어떨까?","chunks":[["How about","~는 어떤가"],["an intermediate situation?","중간 상황은?"]]},{"en":"If you are both competing for a position, but there are many positions, then you could still benefit from helping each other because this puts you both in a better position to compete with the larger pool of candidates.","ko":"만일 여러분 둘 다 같은 일자리를 위해 경쟁하고 있는데 많은 일자리가 있다면, 여러분은 서로 돕는 데에서 여전히 득을 볼 것인데, 왜냐하면 이것이 여러분 둘 다를 더 큰 무리의 지원자와 경쟁하는 데 있어서 더 좋은 위치에 놓을 것이기 때문이다.","chunks":[["If you are both competing for a position,","여러분 둘 다 같은 일자리를 위해 경쟁하지만,"],["but there are many positions,","그러나 일자리가 많이 있다면,"],["then you could still benefit from helping each other","여러분은 여전히 서로 돕는 데에서 득을 볼 수 있다"],["because this puts you both","왜냐하면 이것이 여러분 둘 다를 둔다"],["in a better position to compete with the larger pool of candidates.","더 큰 후보 무리와 경쟁할 더 좋은 위치에."]]}],"metaphor":"<svg viewBox=\"0 0 600 305\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"좌측 local 한 자리에 두 지원자가 경쟁할 때 도움이 자해가 되어 협력이 억제되는 빨강 영역, 가운데 non-local 다른 자리에 지원할 때 도움이 상호 이득인 초록 영역, 우측 같은 자리지만 많은 자리가 있을 때 중간 사례로 여전히 상호 이득인 초록 영역의 3분기 비교. 하단에 요약문 A suppress B mutually beneficial.\">\n  <!-- 상단 라벨 -->\n  <text x=\"300\" y=\"18\" font-family=\"Noto Serif KR\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">3가지 경쟁 상황 — 도움이 자해인가, 이득인가</text>\n\n  <!-- 분기 1: LOCAL (한 자리, 한 사람) -->\n  <g transform=\"translate(15, 38)\">\n    <text x=\"92\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">① local — 한 자리, 한 사람</text>\n    <rect x=\"0\" y=\"0\" width=\"184\" height=\"195\" fill=\"#fdf2f4\" fill-opacity=\"0.4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n\n    <!-- 두 지원자 (마주봄) -->\n    <g transform=\"translate(92, 50)\">\n      <!-- 좌 지원자 -->\n      <g transform=\"translate(-30, 0)\">\n        <circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n        <circle cx=\"-2\" cy=\"-1\" r=\"0.8\" fill=\"#1a1a1a\"/>\n        <circle cx=\"2\" cy=\"-1\" r=\"0.8\" fill=\"#1a1a1a\"/>\n        <line x1=\"0\" y1=\"9\" x2=\"0\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n        <line x1=\"0\" y1=\"14\" x2=\"-8\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"14\" x2=\"8\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"28\" x2=\"-5\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"28\" x2=\"5\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n        <text x=\"0\" y=\"50\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1a1a1a\">you</text>\n      </g>\n      <!-- 우 지원자 -->\n      <g transform=\"translate(30, 0)\">\n        <circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n        <circle cx=\"-2\" cy=\"-1\" r=\"0.8\" fill=\"#1a1a1a\"/>\n        <circle cx=\"2\" cy=\"-1\" r=\"0.8\" fill=\"#1a1a1a\"/>\n        <line x1=\"0\" y1=\"9\" x2=\"0\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n        <line x1=\"0\" y1=\"14\" x2=\"-8\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"14\" x2=\"8\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"28\" x2=\"-5\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"28\" x2=\"5\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n        <text x=\"0\" y=\"50\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1a1a1a\">other</text>\n      </g>\n      <!-- 한 자리 (가운데) -->\n      <g transform=\"translate(0, 75)\">\n        <rect x=\"-12\" y=\"0\" width=\"24\" height=\"14\" fill=\"#c8102e\" fill-opacity=\"0.25\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n        <text x=\"0\" y=\"10\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\">1 JOB</text>\n      </g>\n      <!-- 화살표 양쪽 -->\n      <line x1=\"-22\" y1=\"60\" x2=\"-8\" y2=\"74\" stroke=\"#c8102e\" stroke-width=\"1.2\" stroke-dasharray=\"3 2\"/>\n      <line x1=\"22\" y1=\"60\" x2=\"8\" y2=\"74\" stroke=\"#c8102e\" stroke-width=\"1.2\" stroke-dasharray=\"3 2\"/>\n    </g>\n\n    <!-- 도움 = 자해 표시 -->\n    <g transform=\"translate(92, 155)\">\n      <text x=\"0\" y=\"0\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">help = harm yourself</text>\n      <text x=\"0\" y=\"13\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">도움 → 자해</text>\n    </g>\n\n    <text x=\"92\" y=\"186\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">→ cooperation SUPPRESSED</text>\n  </g>\n\n  <!-- 분기 2: NON-LOCAL (다른 자리) -->\n  <g transform=\"translate(208, 38)\">\n    <text x=\"92\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">② non-local — 다른 자리</text>\n    <rect x=\"0\" y=\"0\" width=\"184\" height=\"195\" fill=\"#f0faf3\" fill-opacity=\"0.4\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n\n    <!-- 두 지원자 (서로 다른 방향) -->\n    <g transform=\"translate(92, 50)\">\n      <!-- 좌 지원자 -->\n      <g transform=\"translate(-30, 0)\">\n        <circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n        <circle cx=\"-2\" cy=\"-1\" r=\"0.8\" fill=\"#1FA34A\"/>\n        <circle cx=\"2\" cy=\"-1\" r=\"0.8\" fill=\"#1FA34A\"/>\n        <line x1=\"0\" y1=\"9\" x2=\"0\" y2=\"28\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n        <line x1=\"0\" y1=\"14\" x2=\"-8\" y2=\"22\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"14\" x2=\"8\" y2=\"22\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"28\" x2=\"-5\" y2=\"38\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"28\" x2=\"5\" y2=\"38\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <text x=\"0\" y=\"50\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1a1a1a\">you</text>\n      </g>\n      <!-- 우 지원자 -->\n      <g transform=\"translate(30, 0)\">\n        <circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n        <circle cx=\"-2\" cy=\"-1\" r=\"0.8\" fill=\"#1FA34A\"/>\n        <circle cx=\"2\" cy=\"-1\" r=\"0.8\" fill=\"#1FA34A\"/>\n        <line x1=\"0\" y1=\"9\" x2=\"0\" y2=\"28\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n        <line x1=\"0\" y1=\"14\" x2=\"-8\" y2=\"22\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"14\" x2=\"8\" y2=\"22\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"28\" x2=\"-5\" y2=\"38\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"28\" x2=\"5\" y2=\"38\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <text x=\"0\" y=\"50\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1a1a1a\">other</text>\n      </g>\n      <!-- 다른 자리 두 개 -->\n      <g transform=\"translate(-30, 75)\">\n        <rect x=\"-12\" y=\"0\" width=\"24\" height=\"14\" fill=\"#1FA34A\" fill-opacity=\"0.25\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n        <text x=\"0\" y=\"10\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#1FA34A\">JOB A</text>\n      </g>\n      <g transform=\"translate(30, 75)\">\n        <rect x=\"-12\" y=\"0\" width=\"24\" height=\"14\" fill=\"#1FA34A\" fill-opacity=\"0.25\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n        <text x=\"0\" y=\"10\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#1FA34A\">JOB B</text>\n      </g>\n      <!-- 화살표 각자 자리로 -->\n      <line x1=\"-30\" y1=\"40\" x2=\"-30\" y2=\"73\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <line x1=\"30\" y1=\"40\" x2=\"30\" y2=\"73\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <!-- 도움 화살표 (서로) -->\n      <line x1=\"-22\" y1=\"0\" x2=\"22\" y2=\"0\" stroke=\"#1FA34A\" stroke-width=\"1.3\" stroke-dasharray=\"3 2\"/>\n      <polygon points=\"22,0 16,-3 16,3\" fill=\"#1FA34A\"/>\n      <polygon points=\"-22,0 -16,-3 -16,3\" fill=\"#1FA34A\"/>\n    </g>\n\n    <!-- 도움 = 이득 -->\n    <g transform=\"translate(92, 155)\">\n      <text x=\"0\" y=\"0\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">help = both benefit</text>\n      <text x=\"0\" y=\"13\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">도움 → 상호 이득</text>\n    </g>\n\n    <text x=\"92\" y=\"186\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">→ MUTUALLY BENEFICIAL</text>\n  </g>\n\n  <!-- 분기 3: 같은 자리 + 많은 자리 (중간) -->\n  <g transform=\"translate(401, 38)\">\n    <text x=\"92\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">③ 중간 — 같은 자리 but 많은 자리</text>\n    <rect x=\"0\" y=\"0\" width=\"184\" height=\"195\" fill=\"#f0faf3\" fill-opacity=\"0.4\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n\n    <!-- 두 지원자 + 많은 자리 + 큰 지원자 pool -->\n    <g transform=\"translate(92, 50)\">\n      <!-- 두 지원자 (가까이) -->\n      <g transform=\"translate(-30, 0)\">\n        <circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n        <circle cx=\"-2\" cy=\"-1\" r=\"0.7\" fill=\"#1FA34A\"/>\n        <circle cx=\"2\" cy=\"-1\" r=\"0.7\" fill=\"#1FA34A\"/>\n        <line x1=\"0\" y1=\"8\" x2=\"0\" y2=\"24\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"13\" x2=\"-7\" y2=\"20\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"13\" x2=\"7\" y2=\"20\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"24\" x2=\"-5\" y2=\"33\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"24\" x2=\"5\" y2=\"33\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n      </g>\n      <g transform=\"translate(30, 0)\">\n        <circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n        <circle cx=\"-2\" cy=\"-1\" r=\"0.7\" fill=\"#1FA34A\"/>\n        <circle cx=\"2\" cy=\"-1\" r=\"0.7\" fill=\"#1FA34A\"/>\n        <line x1=\"0\" y1=\"8\" x2=\"0\" y2=\"24\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <line x1=\"0\" y1=\"13\" x2=\"-7\" y2=\"20\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"13\" x2=\"7\" y2=\"20\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"24\" x2=\"-5\" y2=\"33\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n        <line x1=\"0\" y1=\"24\" x2=\"5\" y2=\"33\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n      </g>\n      <!-- 많은 자리 (3 슬롯) -->\n      <g transform=\"translate(-35, 60)\">\n        <rect x=\"-8\" y=\"0\" width=\"16\" height=\"11\" fill=\"#1FA34A\" fill-opacity=\"0.25\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <text x=\"0\" y=\"8\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"6\" text-anchor=\"middle\" fill=\"#1FA34A\">JOB</text>\n      </g>\n      <g transform=\"translate(0, 60)\">\n        <rect x=\"-8\" y=\"0\" width=\"16\" height=\"11\" fill=\"#1FA34A\" fill-opacity=\"0.25\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <text x=\"0\" y=\"8\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"6\" text-anchor=\"middle\" fill=\"#1FA34A\">JOB</text>\n      </g>\n      <g transform=\"translate(35, 60)\">\n        <rect x=\"-8\" y=\"0\" width=\"16\" height=\"11\" fill=\"#1FA34A\" fill-opacity=\"0.25\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n        <text x=\"0\" y=\"8\" font-family=\"Noto Serif\" font-weight=\"700\" font-size=\"6\" text-anchor=\"middle\" fill=\"#1FA34A\">JOB</text>\n      </g>\n      <!-- 큰 pool of competitors (오른쪽 작은 stick figures) -->\n      <g transform=\"translate(0, 90)\">\n        <text x=\"-50\" y=\"3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7\" fill=\"#5e5e5e\" font-weight=\"700\">vs larger pool ↓</text>\n        <g fill=\"#999\" opacity=\"0.7\">\n          <!-- 작은 stick people -->\n          <g transform=\"translate(15, 0)\">\n            <circle cx=\"0\" cy=\"-3\" r=\"2\" fill=\"#999\"/>\n            <line x1=\"0\" y1=\"-1\" x2=\"0\" y2=\"6\" stroke=\"#999\" stroke-width=\"0.9\"/>\n            <line x1=\"0\" y1=\"2\" x2=\"-2\" y2=\"5\" stroke=\"#999\" stroke-width=\"0.7\"/>\n            <line x1=\"0\" y1=\"2\" x2=\"2\" y2=\"5\" stroke=\"#999\" stroke-width=\"0.7\"/>\n          </g>\n          <g transform=\"translate(24, 0)\">\n            <circle cx=\"0\" cy=\"-3\" r=\"2\" fill=\"#999\"/>\n            <line x1=\"0\" y1=\"-1\" x2=\"0\" y2=\"6\" stroke=\"#999\" stroke-width=\"0.9\"/>\n            <line x1=\"0\" y1=\"2\" x2=\"-2\" y2=\"5\" stroke=\"#999\" stroke-width=\"0.7\"/>\n            <line x1=\"0\" y1=\"2\" x2=\"2\" y2=\"5\" stroke=\"#999\" stroke-width=\"0.7\"/>\n          </g>\n          <g transform=\"translate(33, 0)\">\n            <circle cx=\"0\" cy=\"-3\" r=\"2\" fill=\"#999\"/>\n            <line x1=\"0\" y1=\"-1\" x2=\"0\" y2=\"6\" stroke=\"#999\" stroke-width=\"0.9\"/>\n            <line x1=\"0\" y1=\"2\" x2=\"-2\" y2=\"5\" stroke=\"#999\" stroke-width=\"0.7\"/>\n            <line x1=\"0\" y1=\"2\" x2=\"2\" y2=\"5\" stroke=\"#999\" stroke-width=\"0.7\"/>\n          </g>\n          <g transform=\"translate(42, 0)\">\n            <circle cx=\"0\" cy=\"-3\" r=\"2\" fill=\"#999\"/>\n            <line x1=\"0\" y1=\"-1\" x2=\"0\" y2=\"6\" stroke=\"#999\" stroke-width=\"0.9\"/>\n            <line x1=\"0\" y1=\"2\" x2=\"-2\" y2=\"5\" stroke=\"#999\" stroke-width=\"0.7\"/>\n            <line x1=\"0\" y1=\"2\" x2=\"2\" y2=\"5\" stroke=\"#999\" stroke-width=\"0.7\"/>\n          </g>\n          <g transform=\"translate(51, 0)\">\n            <circle cx=\"0\" cy=\"-3\" r=\"2\" fill=\"#999\"/>\n            <line x1=\"0\" y1=\"-1\" x2=\"0\" y2=\"6\" stroke=\"#999\" stroke-width=\"0.9\"/>\n            <line x1=\"0\" y1=\"2\" x2=\"-2\" y2=\"5\" stroke=\"#999\" stroke-width=\"0.7\"/>\n            <line x1=\"0\" y1=\"2\" x2=\"2\" y2=\"5\" stroke=\"#999\" stroke-width=\"0.7\"/>\n          </g>\n        </g>\n      </g>\n    </g>\n\n    <g transform=\"translate(92, 175)\">\n      <text x=\"0\" y=\"-7\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">still benefit from helping</text>\n      <text x=\"0\" y=\"6\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">여전히 상호 이득</text>\n    </g>\n\n    <text x=\"92\" y=\"186\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\"></text>\n  </g>\n\n  <!-- 하단: 요약문 -->\n  <g transform=\"translate(0, 248)\">\n    <rect x=\"60\" y=\"0\" width=\"480\" height=\"50\" fill=\"#f6f6f6\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <text x=\"300\" y=\"18\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">요약문 — local competition tends to (A) <tspan fill=\"#c8102e\">suppress</tspan> cooperation</text>\n    <text x=\"300\" y=\"34\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">  if not local → (B) helping = <tspan fill=\"#1FA34A\">mutually beneficial</tspan></text>\n  </g>\n</svg>","caption":"local (한 자리·한 사람) = 도움 → 자해 (협력 억제) / non-local (다른 자리) = 상호 이득 / 중간 (많은 자리) = 여전히 상호 이득"}]};
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function renderTabs() {
+  const tabs = P.data.map((d, i) =>
+    `<button class="tab${i===0?' active':''}" data-t="${d.no}">
+       <span class="tab-no">${d.no}</span>
+       <span class="tab-field">${d.field}</span>
+     </button>`).join('');
+  document.getElementById('tabs').innerHTML = tabs;
+}
+
+function renderTLDR(d) {
+  if (!d.tldr || !d.tldr.length) return '';
+  const items = d.tldr.map(t => `<li>${t}</li>`).join('');
+  return `<details class="tool" data-tool="tldr" open>
+    <summary>
+      <span class="ticon">B</span>
+      <span class="tname">핵심 요약</span>
+      <span class="thint">— 읽고 나서 핵심 정리</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><ol class="tldr">${items}</ol></div>
+  </details>`;
+}
+
+function renderAnalogy(d) {
+  if (!d.analogy) return '';
+  return `<details class="tool" data-tool="analogy">
+    <summary>
+      <span class="ticon">B</span>
+      <span class="tname">이게 무슨 말이냐면</span>
+      <span class="thint">— 일상 비유</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><p class="callout analogy">${d.analogy}</p></div>
+  </details>`;
+}
+
+function renderBG(d) {
+  if (!d.bg && !d.analogy) return '';
+  const bg = d.bg ? `<p class="callout bg">${d.bg}</p>` : '';
+  const analogy = d.analogy ? `<p class="callout analogy"><b>비유로 보면</b><br>${d.analogy}</p>` : '';
+  return `<details class="tool" data-tool="bg">
+    <summary>
+      <span class="ticon">A</span>
+      <span class="tname">읽기 전 30초</span>
+      <span class="thint">— 배경 개념과 읽는 방향</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${bg}${analogy}</div>
+  </details>`;
+}
+
+function renderFlow(d) {function renderFlow(d) {
+  if (!d.flow || !d.flow.length) return '';
+  let body = '<div class="flow">';
+  d.flow.forEach((s, i) => {
+    const cls = s.cls ? ' ' + s.cls : '';
+    body += `<div class="flow-step${cls}">
+      <div class="kind">${s.kind}</div>
+      <div class="body">
+        <div class="t">${s.t}</div>
+        ${s.d ? `<div class="d">${s.d}</div>` : ''}
+      </div>
+    </div>`;
+    if (i < d.flow.length - 1) body += '<div class="flow-arrow">▼</div>';
+  });
+  body += '</div>';
+  return `<details class="tool" data-tool="flow">
+    <summary>
+      <span class="ticon">C</span>
+      <span class="tname">논리 흐름</span>
+      <span class="thint">— 글의 전개</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}</div>
+  </details>`;
+}
+
+function renderQuiz(d) {
+  if (!d.quiz || !d.quiz.length) return '';
+  const items = d.quiz.map((q, i) =>
+    `<details class="quiz-item">
+      <summary>
+        <span class="qn">Q${i+1}</span>
+        <span>${q[0]}</span>
+        <span class="qarr">정답 ▾</span>
+      </summary>
+      <div class="qa">${q[1]}</div>
+    </details>`).join('');
+  return `<details class="tool" data-tool="quiz">
+    <summary>
+      <span class="ticon">D</span>
+      <span class="tname">확인 퀴즈</span>
+      <span class="thint">— 스스로 점검</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${items}</div>
+  </details>`;
+}
+
+function renderRead(d) {
+  if (!d.read || !d.read.length) return '';
+  let body = '';
+  d.read.forEach(r => {
+    let chunks = '';
+    if (r.chunks && r.chunks.length) {
+      chunks = '<div class="chunks">' + r.chunks.map(ch =>
+        `<div class="chunk"><div class="ce">${ch[0]}</div><div class="ck">${ch[1]}</div></div>`
+      ).join('') + '</div>';
+    }
+    body += `<div class="read-sent">
+      <div class="en">${r.en}</div>
+      ${chunks}
+      <div class="ko"><b>전체 해석:</b> ${r.ko}</div>
+    </div>`;
+  });
+  let vocab = '';
+  if (d.vocab && d.vocab.length) {
+    vocab = '<div class="vocab"><div class="vlabel">핵심 어휘</div>' +
+      d.vocab.map(v => `<div class="chip"><b>${v[0]}</b><span>${v[1]}</span></div>`).join('') +
+      '</div>';
+  }
+  return `<details class="tool" data-tool="read">
+    <summary>
+      <span class="ticon">E</span>
+      <span class="tname">끊어읽기 + 어휘</span>
+      <span class="thint">— 문장 단위</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}${vocab}</div>
+  </details>`;
+}
+
+function renderSource(d) {
+  if (!d.en && !d.ko) return '';
+  return `<details class="tool" data-tool="source">
+    <summary>
+      <span class="ticon">F</span>
+      <span class="tname">영어 원문 + 해석</span>
+      <span class="thint">— 시험 직전 점검용</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">
+      <div class="src">
+        <div class="en">${d.en}</div>
+        <div class="ko">${d.ko}</div>
+      </div>
+    </div>
+  </details>`;
+}
+
+function renderPassage(d, idx) {
+  let html = `<section class="passage${idx===0?' active':''}" id="p${d.no}">`;
+  html += `<div class="p-head">
+    <span class="field">${d.field}</span>
+    <h2>${d.title}</h2>
+    <p class="p-kt">${d.ktitle}</p>
+    <p class="p-page">${d.page}</p>
+  </div>`;
+  html += `<div class="oneline">${d.oneline}</div>`;
+  if (d.metaphor) {
+    html += `<div class="metaphor">
+      <div class="m-head">
+        <span class="label">중심 비유</span>
+        <span class="sub">visual metaphor</span>
+      </div>
+      <figure>
+        ${d.metaphor}
+        ${d.caption ? `<figcaption>${d.caption}</figcaption>` : ''}
+      </figure>
+    </div>`;
+  }
+  html += `<div class="tools-intro">막힌 곳만 펴 보세요 · <b>도구 상자</b></div>`;
+  html += renderBG(d);
+  html += renderTLDR(d);
+  html += renderFlow(d);
+  html += renderQuiz(d);
+  html += renderRead(d);
+  html += renderSource(d);
+  html += `</section>`;
+  return html;
+}
+
+renderTabs();
+document.getElementById('main').innerHTML = P.data.map((d, i) => renderPassage(d, i)).join('');
+
+/* 탭 클릭 */
+document.querySelectorAll('.tab').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.passage').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('p' + b.dataset.t).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

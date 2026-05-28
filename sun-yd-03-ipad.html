@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>지문 이해 보조 자료 · 수능특강 영어독해연습 03강</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   김가영어학원 · KIM KA YOUNG ENGLISH
+   수능특강 영어독해연습 08강 지문 이해 — 도구 상자(Toolbox) 디지털 자료
+   Brand v2.1 · System B (학습자료 본문 전용)
+   ============================================================ */
+
+:root {
+  --paper:    #ffffff;
+  --ink:      #1a1a1a;
+  --ink-80:   #333333;
+  --ink-60:   #5e5e5e;
+  --ink-40:   #999999;
+  --ink-20:   #cccccc;
+  --ink-10:   #e8e8e8;
+  --ink-05:   #f6f6f6;
+  --red:      #c8102e;
+  --red-tint: #fdf2f4;
+  --green:    #1FA34A;
+  --green-tint: #f0faf3;
+  --serif-kr: 'Noto Serif KR', serif;
+  --serif-en: 'Noto Serif', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--serif-kr);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+em { font-family: var(--serif-en); font-style: italic; }
+.en { font-family: var(--serif-en); }
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 18px 18px 80px;
+}
+
+/* ============================================================
+   학원 브랜드 헤더
+   ============================================================ */
+.brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: 4px;
+}
+.brand .b-title h1 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.brand .b-title .b-sub {
+  font-size: 11px;
+  color: var(--ink-60);
+  margin-top: 2px;
+  font-family: var(--serif-en);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+.brand .b-meta {
+  font-size: 11.5px;
+  color: var(--ink-60);
+  text-align: right;
+  line-height: 1.5;
+}
+.brand .b-meta .en { font-style: italic; }
+
+/* ============================================================
+   사용 안내 (도구 상자 가이드)
+   ============================================================ */
+.guide {
+  background: var(--ink-05);
+  border-left: 3px solid var(--red);
+  padding: 13px 16px 12px;
+  margin: 14px 0;
+  border-radius: 0 4px 4px 0;
+}
+.guide .g-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 9px;
+  font-family: var(--serif-kr);
+}
+.guide .g-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.guide .g-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+.guide .g-when {
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: var(--ink);
+  min-width: 96px;
+}
+.guide .g-sep {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  flex: 0 0 auto;
+}
+.guide .g-tools {
+  color: var(--ink-80);
+  flex: 1;
+}
+.guide .g-tools .k {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 12px;
+  padding: 0 3px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 3px;
+  margin-right: 2px;
+}
+.guide .g-note {
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+  font-size: 12px;
+  color: var(--ink-60);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.guide .g-note b { color: var(--red); }
+
+/* ============================================================
+   탭 (지문 선택)
+   ============================================================ */
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink-10);
+  z-index: 10;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 10px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 0 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 5px;
+  padding: 7px 12px 5px;
+  font-family: var(--serif-kr);
+  color: var(--ink-60);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  min-width: 78px;
+}
+.tab .tab-no {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.tab .tab-field {
+  display: block;
+  font-size: 10.5px;
+  color: var(--ink-40);
+  margin-top: 1px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.tab:hover { border-color: var(--ink-60); color: var(--ink); }
+.tab.active {
+  background: var(--red-tint);
+  border-color: var(--red);
+  color: var(--red);
+}
+.tab.active .tab-field { color: var(--red); }
+
+/* ============================================================
+   PASSAGE PANEL
+   ============================================================ */
+.passage { display: none; padding-top: 18px; }
+.passage.active { display: block; animation: fadeIn 0.22s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.p-head .field {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--red);
+  border: 0.7px solid var(--red);
+  padding: 2px 8px;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+.p-head h2 {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.p-head .p-kt {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.p-head .p-page {
+  font-size: 10.5px;
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  letter-spacing: 0.12em;
+  margin-top: 5px;
+}
+
+/* ============================================================
+   한 줄 핵심 (anchor)
+   ============================================================ */
+.oneline {
+  margin: 18px 0 22px;
+  padding: 16px 18px 17px;
+  background: var(--ink-05);
+  border-left: 3px solid var(--ink);
+  border-radius: 0 6px 6px 0;
+  font-size: 17.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  word-break: keep-all;
+  letter-spacing: -0.005em;
+}
+.oneline::before {
+  content: "한 줄 핵심";
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 7px;
+}
+.oneline .r { color: var(--red); font-weight: 700; }
+.oneline .g { color: var(--green); font-weight: 700; }
+.oneline em { font-style: italic; }
+
+/* ============================================================
+   메타포 SVG (지문별 한 컷 — 항상 펼쳐짐)
+   ============================================================ */
+.metaphor {
+  margin: 20px 0 22px;
+  border: 1px solid var(--ink-20);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.metaphor .m-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--ink-10);
+  background: var(--ink-05);
+}
+.metaphor .m-head .label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--ink-60);
+}
+.metaphor .m-head .sub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-60);
+}
+.metaphor figure { padding: 18px 18px 14px; }
+.metaphor figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.metaphor figcaption {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-60);
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+  line-height: 1.55;
+}
+.metaphor figcaption .en { font-style: italic; color: var(--ink-80); }
+.metaphor figcaption .r { color: var(--red); font-weight: 700; }
+.metaphor figcaption .g { color: var(--green); font-weight: 700; }
+
+/* ============================================================
+   TOOLBOX 안내 라인
+   ============================================================ */
+.tools-intro {
+  font-size: 12px;
+  color: var(--ink-60);
+  letter-spacing: 0.04em;
+  margin: 18px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tools-intro::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--ink);
+  display: inline-block;
+}
+.tools-intro b { color: var(--ink); font-weight: 700; }
+
+/* ============================================================
+   도구 카드 (Tool) — 아코디언
+   ============================================================ */
+.tool {
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.tool[open] { border-color: var(--ink-80); }
+.tool > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+.tool > summary::-webkit-details-marker { display: none; }
+.tool > summary:hover { background: var(--ink-05); }
+.tool > summary .tname {
+  flex: 1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.tool > summary .thint {
+  font-size: 11.5px;
+  color: var(--ink-40);
+  font-weight: 400;
+}
+.tool > summary .arr {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  font-size: 11px;
+  transition: transform 0.2s;
+  flex: 0 0 auto;
+}
+.tool[open] > summary .arr { transform: rotate(90deg); color: var(--ink); }
+.tool > summary .ticon {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  background: var(--ink-05);
+  border: 0.7px solid var(--ink-20);
+}
+.tool[open] > summary .ticon {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.tool .body { padding: 4px 16px 18px; }
+
+/* ============================================================
+   도구별 컨텐츠 스타일
+   ============================================================ */
+
+/* 30초 요약 */
+.tldr {
+  list-style: none;
+  counter-reset: t;
+}
+.tldr li {
+  position: relative;
+  padding: 9px 0 9px 30px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  border-bottom: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+.tldr li:last-child { border-bottom: none; }
+.tldr li::before {
+  counter-increment: t;
+  content: counter(t);
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 20px;
+  height: 20px;
+  background: var(--paper);
+  border: 1px solid var(--green);
+  color: var(--green);
+  border-radius: 50%;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 비유 / 배경지식 */
+.callout {
+  font-size: 14.5px;
+  line-height: 1.7;
+  padding: 13px 15px;
+  border-radius: 6px;
+  word-break: keep-all;
+  background: var(--ink-05);
+}
+.callout.analogy { border-left: 3px solid var(--green); }
+.callout.bg      { border-left: 3px solid var(--ink); }
+.callout em { font-style: italic; }
+
+/* 논지 흐름 */
+.flow { display: flex; flex-direction: column; gap: 6px; }
+.flow-step {
+  display: flex;
+  gap: 12px;
+  padding: 12px 13px;
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  background: var(--paper);
+  align-items: flex-start;
+}
+.flow-step .kind {
+  flex: 0 0 60px;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 0;
+  text-align: center;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  background: var(--ink-05);
+  color: var(--ink-80);
+  border: 0.7px solid var(--ink-20);
+}
+.flow-step.pivot .kind {
+  background: var(--red-tint); color: var(--red); border-color: var(--red);
+}
+.flow-step.close .kind {
+  background: var(--green-tint); color: var(--green); border-color: var(--green);
+}
+.flow-step .body { flex: 1; }
+.flow-step .t {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.flow-step .t .r { color: var(--red); font-weight: 700; }
+.flow-step .t .g { color: var(--green); font-weight: 700; }
+.flow-step .d {
+  font-size: 12.5px;
+  color: var(--ink-60);
+  margin-top: 4px;
+  word-break: keep-all;
+}
+.flow-arrow {
+  text-align: center;
+  color: var(--ink-20);
+  font-size: 13px;
+  font-family: var(--serif-en);
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+/* 끊어읽기 */
+.read-sent {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 11px 13px 11px;
+  margin-bottom: 8px;
+  background: var(--paper);
+}
+.read-sent .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.read-sent .chunks {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+}
+.read-sent .chunk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px 16px;
+  padding: 3px 0;
+  font-size: 12.5px;
+  border-bottom: 1px dotted var(--ink-10);
+}
+.read-sent .chunk:last-child { border-bottom: none; }
+.read-sent .chunk .ce {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.read-sent .chunk .ck { color: var(--ink-60); word-break: keep-all; }
+.read-sent .ko {
+  margin-top: 9px;
+  padding: 7px 11px;
+  background: var(--ink-05);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--ink-80);
+  word-break: keep-all;
+  line-height: 1.6;
+}
+.read-sent .ko b { color: var(--ink); font-weight: 700; }
+
+/* 어휘 chip */
+.vocab {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--ink-10);
+}
+.vocab .vlabel {
+  width: 100%;
+  font-size: 11px;
+  color: var(--ink-60);
+  letter-spacing: 0.18em;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.vocab .chip {
+  font-size: 12.5px;
+  padding: 5px 9px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.vocab .chip b {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--red);
+  font-weight: 700;
+}
+.vocab .chip span { color: var(--ink-80); margin-left: 5px; }
+
+/* 퀴즈 */
+.quiz-item {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  margin-bottom: 6px;
+  background: var(--paper);
+}
+.quiz-item > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 11px 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.quiz-item > summary::-webkit-details-marker { display: none; }
+.quiz-item .qn {
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--green);
+  border-radius: 3px;
+  padding: 2px 6px;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+.quiz-item .qarr {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--green);
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 700;
+}
+.quiz-item[open] .qarr { visibility: hidden; }
+.quiz-item .qa {
+  padding: 0 13px 13px 44px;
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+.quiz-item .qa b { color: var(--green); font-weight: 700; }
+
+/* 영어 원문 + 한글 해석 */
+.src {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 14px 16px;
+}
+.src .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+.src .ko {
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.85;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot {
+  margin-top: 36px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink-10);
+  font-size: 10.5px;
+  color: var(--ink-40);
+  text-align: center;
+  font-family: var(--serif-kr);
+  letter-spacing: 0.03em;
+}
+.foot .pub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-60);
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 540px) {
+  .wrap { padding: 14px 13px 60px; }
+  .brand { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .brand .b-meta { text-align: left; }
+  .guide .g-row { flex-direction: column; gap: 1px; padding-bottom: 4px; }
+  .guide .g-row + .g-row { border-top: 1px dashed var(--ink-10); padding-top: 5px; }
+  .guide .g-when { font-size: 12px; min-width: 0; }
+  .guide .g-sep { display: none; }
+  .guide .g-tools { font-size: 12.5px; }
+  .p-head h2 { font-size: 20px; }
+  .oneline { font-size: 16px; padding: 14px 14px; }
+  .read-sent .chunk { grid-template-columns: 1fr; gap: 1px; }
+  .read-sent .chunk .ck { padding-left: 4px; color: var(--ink-60); font-size: 12px; }
+  .flow-step { padding: 10px 11px; gap: 9px; }
+  .flow-step .kind { flex-basis: 52px; font-size: 10.5px; }
+  .tool > summary { padding: 12px 13px; font-size: 14px; }
+  .tool > summary .thint { display: none; }
+  .metaphor figure { padding: 13px 13px 10px; }
+  .metaphor figcaption { font-size: 12px; }
+}
+</style>
+</head>
+<body class="dev-ipad">
+<div class="wrap">
+
+<!-- 학원 브랜드 헤더 -->
+<header class="brand">
+  <div class="b-title">
+    <h1>지문 이해 보조 자료</h1>
+    <div class="b-sub">수능특강 영어독해연습 03강</div>
+  </div>
+  <div class="b-meta">
+    김가영어학원<br>
+    <span class="en">KIM KA YOUNG ENGLISH</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs"></nav>
+
+<!-- 지문 패널 -->
+<main id="main"></main>
+
+<!-- 콜로폰 -->
+<footer class="foot">
+  김가영어학원 · KIM KA YOUNG ENGLISH &nbsp;·&nbsp; 지문 이해 보조 자료
+  <span class="pub">published by warm &amp; wise books</span>
+</footer>
+
+</div>
+
+<script>
+/* ============================================================
+   데이터 (P.data) — 수능특강 영어독해연습 03강
+   각 지문에 metaphor(SVG 문자열) + caption 필드 추가
+   ============================================================ */
+const P = {"data":[{"no":"1","title":"p30 (Exercise 1) 지문 ① · Why Low Self-Esteem People Are Less Consistent","ktitle":"낮은 자존감 = 덜 일관된 자기평가","field":"심리","page":"p.30 Ex.1","oneline":"낮은 자존감은 단지 자기평가가 ‘덜 긍정적’인 게 아니다.","tldr":["낮은 자존감은 단지 자기평가가 ‘덜 긍정적’인 게 아니다.","평가 자체가 ‘덜 일관적’(분산이 큼)이라는 게 핵심이다.","높은 자존감은 긍정은 강하게 인정·부정은 강하게 거부 — 일관적이다."],"analogy":"확신 있는 사람은 ‘난 이런 사람’이라고 딱 답하지만, 자존감 낮은 사람은 ‘좋기도 하고 아니기도 하고…’ 흔들리죠. 차이는 ‘좋다/나쁘다’만이 아니라 ‘얼마나 일관되냐’예요.","bg":"Campbell·Fehr의 자존감 연구. 핵심은 낮은 자존감의 특징이 ‘부정적 평가’만이 아니라 ‘평가의 비일관성(중간·가변적)’이라는 점이에요.","flow":[{"kind":"질문 Q","t":"낮은 자존감은 ‘부정적’이기만 한 걸까?"},{"kind":"연구","t":"Campbell·Fehr 실험","d":"긍정/부정 형용사 세트로 자기평가를 조사."},{"kind":"높은 자존감","t":"강하고 일관되게 평가","d":"긍정은 인정, 부정은 거부."},{"kind":"낮은 자존감","t":"중간적·가변적 평가","d":"긍정도 부정도 강하게 못 박지 못함 → 분산↑."},{"kind":"결론","t":"차이는 ‘긍정성’ + ‘일관성’","d":"평균뿐 아니라 일관성에서도 갈린다."}],"quiz":[["낮은 자존감의 진짜 특징은 무엇인가?","단지 평가가 덜 긍정적인 게 아니라, 평가가 ‘덜 일관적’(중간·가변적, 분산이 큼)이라는 점이에요."],["높은 자존감인 사람의 자기평가는 어떤 모습인가?","긍정 형용사는 강하게 인정하고 부정 형용사는 강하게 거부 — 즉 일관적이에요."],["핵심 한 문장?","자존감 차이는 ‘긍정성(평균)’뿐 아니라 ‘평가의 일관성’에서도 나타난다."]],"vocab":[["self-esteem","자존감"],["evidence","일관된"],["self-description","평가하다"],["uniformly","일관되게"],["endorse","(자신에게 해당하는 것으로) 인정"],["scatter","분산"]],"en":"There is evidence that low self-esteem people are less evaluatively consistent in their self-descriptions. When Campbell and Fehr examined how subjects rated themselves on sets of adjectives that were either uniformly positive or uniformly negative, subjects with low self-esteem not only gave ratings that were (on average) less positive or more negative, but their ratings within each set exhibited more individual scatter or greater variance. High self-esteem subjects strongly and consistently endorsed the positive adjectives and rejected the negative adjectives. Low self-esteem subjects did not, in contrast, strongly and consistently endorse the negative adjectives and reject the positive adjectives. Rather, they gave more intermediate ratings and more variable ratings to both types of adjectives. Therefore, it appears that low and high self-esteem individuals differ not only in the average positivity of their self-views, but also in the extent to which their self-views are evaluatively consistent with one another.","ko":"낮은 자존감을 가진 사람은 자기 기술에서 평가적으로 덜 일관적이라는 증거가 있다. Campbell과 Fehr가 실험 대상자들이 일관되게 긍정적이거나 일관되게 부정적인 형용사 세트로 자신을 어떻게 평가하는지를 조사했을 때, 낮은 자존감을 가진 실험 대상자들은 (평균적으로) 덜 긍정적이거나 더 부정적인 평가를 했을 뿐만 아니라, 각 세트 내에서 그들의 평가는 더 개별적인 산포도나 더 큰 분산을 보였다. 높은 자존감을 가진 실험 대상자들은 강하고 일관되게 긍정적인 형용사를 인정했고 부정적인 형용사를 거부했다. 이와 대조적으로, 낮은 자존감을 가진 실험 대상자들은 부정적인 형용사를 (자신에게 해당하는 것으로) 인정하고 긍정적인 형용사를 거부하는 것을 강하고 일관되게 하지 않았다. 오히려 그들은 두 유형의 형용사 모두에 대해 더 중간적인 평가와 더 가변적인 평가를 내렸다. 그러므로 낮은 자존감과 높은 자존감을 가진 사람은 자기관의 평균적 긍정성에서뿐만 아니라, 자기관이 평가적으로 서로 일관성을 갖는 정도에서도 차이가 있는 것으로 보인다.","read":[{"en":"There is evidence that low self-esteem people are less evaluatively consistent in their self-descriptions.","ko":"낮은 자존감을 가진 사람은 자기 기술에서 평가적으로 덜 일관적이라는 증거가 있다.","chunks":[["There is evidence","증거가 있다"],["that low self-esteem people","낮은 자존감을 가진 사람들이"],["are less evaluatively consistent","평가적으로 덜 일관적이라는"],["in their self-descriptions.","자기 기술에서."]]},{"en":"When Campbell and Fehr examined how subjects rated themselves on sets of adjectives that were either uniformly positive or uniformly negative, subjects with low self-esteem not only gave ratings that were (on average) less positive or more negative, but their ratings within each set exhibited more individual scatter or greater variance.","ko":"Campbell과 Fehr가 실험 대상자들이 일관되게 긍정적이거나 일관되게 부정적인 형용사 세트로 자신을 어떻게 평가하는지를 조사했을 때, 낮은 자존감을 가진 실험 대상자들은 (평균적으로) 덜 긍정적이거나 더 부정적인 평가를 했을 뿐만 아니라, 각 세트 내에서 그들의 평가는 더 개별적인 산포도나 더 큰 분산을 보였다.","chunks":[["When Campbell and Fehr examined","Campbell과 Fehr가 조사했을 때"],["how subjects rated themselves","실험 대상자들이 자신을 어떻게 평가하는지를"],["on sets of adjectives","형용사 세트로"],["that were either uniformly positive or uniformly negative,","일관되게 긍정적이거나 일관되게 부정적인,"],["subjects with low self-esteem not only gave ratings","낮은 자존감의 실험 대상자들은 평가를 했을 뿐만 아니라"],["that were (on average) less positive or more negative,","(평균적으로) 덜 긍정적이거나 더 부정적인,"],["but their ratings within each set","하지만 각 세트 내에서 그들의 평가는"],["exhibited more individual scatter or greater variance.","더 큰 개별 산포도 또는 더 큰 분산을 보였다."]]},{"en":"High self-esteem subjects strongly and consistently endorsed the positive adjectives and rejected the negative adjectives.","ko":"높은 자존감을 가진 실험 대상자들은 강하고 일관되게 긍정적인 형용사를 인정했고 부정적인 형용사를 거부했다.","chunks":[["High self-esteem subjects","높은 자존감의 실험 대상자들은"],["strongly and consistently","강하고 일관되게"],["endorsed the positive adjectives","긍정적인 형용사를 (자신에게 해당하는 것으로) 인정했다"],["and rejected the negative adjectives.","그리고 부정적인 형용사를 거부했다."]]},{"en":"Low self-esteem subjects did not, in contrast, strongly and consistently endorse the negative adjectives and reject the positive adjectives.","ko":"이와 대조적으로, 낮은 자존감을 가진 실험 대상자들은 부정적인 형용사를 (자신에게 해당하는 것으로) 인정하고 긍정적인 형용사를 거부하는 것을 강하고 일관되게 하지 않았다.","chunks":[["Low self-esteem subjects did not,","낮은 자존감의 실험 대상자들은 ~하지 않았다,"],["in contrast,","이와 대조적으로,"],["strongly and consistently endorse the negative adjectives","강하고 일관되게 부정적인 형용사를 인정하기를"],["and reject the positive adjectives.","그리고 긍정적인 형용사를 거부하기를."]]},{"en":"Rather, they gave more intermediate ratings and more variable ratings to both types of adjectives.","ko":"오히려 그들은 두 유형의 형용사 모두에 대해 더 중간적인 평가와 더 가변적인 평가를 내렸다.","chunks":[["Rather,","오히려,"],["they gave more intermediate ratings","그들은 더 중간적인 평가를 했다"],["and more variable ratings","그리고 더 가변적인 평가를"],["to both types of adjectives.","두 유형의 형용사 모두에 대해."]]},{"en":"Therefore, it appears that low and high self-esteem individuals differ not only in the average positivity of their self-views, but also in the extent to which their self-views are evaluatively consistent with one another.","ko":"그러므로 낮은 자존감과 높은 자존감을 가진 사람은 자기관의 평균적 긍정성에서뿐만 아니라, 자기관이 평가적으로 서로 일관성을 갖는 정도에서도 차이가 있는 것으로 보인다.","chunks":[["Therefore, it appears that","그러므로 ~인 것으로 보인다"],["low and high self-esteem individuals differ","낮은 자존감과 높은 자존감의 사람들이 차이가 있는"],["not only in the average positivity","평균적 긍정성에서뿐만 아니라"],["of their self-views,","그들의 자기관의,"],["but also in the extent","그 정도에서도"],["to which their self-views","자기관이"],["are evaluatively consistent with one another.","평가적으로 서로 일관성을 갖는."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"낮은 자존감 = 덜 일관된 자기평가 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">낮은 자존감 = 덜 일관된 자기평가</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">질문 Q</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">낮은 자존감은 ‘부정적’이기만 한 걸까?</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">연구</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">Campbell·Fehr 실험 긍정/부정 형용사 세트로 자기평가를 조사.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">높은 자존감</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">강하고 일관되게 평가 긍정은 인정, 부정은 거부.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">낮은 자존감</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">중간적·가변적 평가 긍정도 부정도 강하게 못 박지 못함 → 분산↑.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">차이는 ‘긍정성’ + ‘일관성’ 평균뿐 아니라 일관성에서도 갈린다.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '낮은 자존감은 ‘부정적’이기만 한 걸까?'이고, 마지막은 '차이는 ‘긍정성’ + ‘일관성’'로 정리된다."},{"no":"2","title":"p31 (Exercise 2) 지문 ② · Literacy and the Quality of Life","ktitle":"문해력과 삶의 질","field":"사회·교육","page":"p.31 Ex.2","oneline":"문해력은 개인 능력을 넘어 삶의 질·인권·자유를 떠받치는 사회적 토대다.","tldr":["문해력은 개인 능력을 넘어 삶의 질·인권·자유를 떠받치는 사회적 토대다.","문해력이 부재한 사회는 흔히 더 억압적·가혹하다.","문해력에는 ‘특권 집단에 속하는 힘’이 따라온다."],"analogy":"글을 못 읽으면 계약서·약 설명서·투표 안내문 앞에서 늘 남에게 기대야 하죠. 문해력은 단순 ‘읽기’가 아니라 ‘스스로 살아갈 힘’이에요.","bg":"문해력(literacy)이 개인 기술을 넘어 사회의 질을 좌우한다는 글이에요. 역사적 인용을 통해 인쇄술·문해력 부재가 삶의 질을 낮춘다는 관찰을 제시하고, 모어 문해력과 실용 지식 전파의 가치를 강조해요.","flow":[{"kind":"주장","t":"문해력 = 삶의 질·인권의 토대"},{"kind":"근거","t":"문해력 없는 사회 = 억압·가혹","d":"인권·존엄을 짓밟는 경향."},{"kind":"역사 인용","t":"Samuel Johnson","d":"인쇄술·문해력 부재는 다수의 삶의 질을 낮춘다는 역사적 관찰"},{"kind":"함의","t":"문해력 = 특권 집단의 힘"},{"kind":"결론","t":"문해력과 삶의 질은 함께 간다"}],"quiz":[["글이 말하는 문해력의 의미는 단순 ‘읽고 쓰기’인가?","아니에요 — 삶의 질·인권·자유를 떠받치는 ‘사회적 토대이자 힘’으로 봐요."],["Samuel Johnson 인용은 무엇을 강조하나?","문해력(인쇄술)의 부재가 ‘야만성’과 연결된다는 점이 옛날부터 사실이었음을 강조해요."],["핵심 한 문장?","문해력은 개인을 넘어 사회의 질·인권을 좌우하는 토대다."]],"vocab":[["literate","문해력이 있는"],["literacy","문해력"],["play out","~을 당연하게 여기다"],["squalid","영양 부족인"],["repressive","억압하는"],["dignity","야만적인"]],"en":"The power and value of being literate in a literate society are played out every day around the world. Many individuals, and in fact whole societies, make considerable sacrifices to become literate just as others take it for granted. Societies that do not practice literate behavior are often squalid, undernourished in mind and body, repressive of human rights and dignity, brutal, and harsh. Present-day examples are easy to list, but in fact this has always been the case. As Samuel Johnson observed more than two centuries ago, \"The mass of every people must be barbarous where there is no printing.\" We admit that various forms of \"barbarity\" can be found in all societies, but they are much more prevalent where literate behavior is absent. Literacy and quality of life go hand in hand. With literacy comes the power of belonging to a privileged group and the freedom that derives from that power. Frederick Douglass, who struggled as a slave to learn to read, said it best: \"Once you learn to read, you will be forever free.\"","ko":"문해력의 사회에서 문해력이 있는 것의 힘과 가치는 세계 곳곳에서 매일 드러난다. 많은 개인, 그리고 사실상 전체 사회가 다른 이들이 그것을 당연하게 여기는 것과 마찬가지로 문해력을 갖기 위해 상당한 희생을 치른다. 문해력 있는 행동을 실천하지 않는 사회는 흔히 지저분하고, 심신이 피폐하며, 인권과 존엄을 억압하고, 잔인하며, 가혹하다. 오늘날의 사례는 열거하기 쉽지만, 사실상 이것은 항상 사실이었다. Samuel Johnson이 2세기보다 더 오래 전에 말했듯이, \"인쇄술이 없는 곳에서는 모든 민족의 다수가 야만적일 수밖에 없다.\" 우리는 다양한 형태의 \"야만성\"이 모든 사회에서 발견될 수 있다는 것을 인정하지만, 그것은 문해력 있는 행동이 부재한 곳에 훨씬 더 널리 퍼져 있다. 문해력과 삶의 질은 함께 간다. 문해력에는 특권 집단에 속하는 힘과 그 힘에서 파생되는 자유가 따라온다. 노예로서 읽는 법을 배우기 위해 고군분투했던 Frederick Douglass가 그것을 가장 잘 표현했다. \"일단 읽는 법을 배우면, 영원히 자유로워질 것이다.\"","read":[{"en":"The power and value of being literate in a literate society are played out every day around the world.","ko":"문해력의 사회에서 문해력이 있는 것의 힘과 가치는 세계 곳곳에서 매일 드러난다.","chunks":[["The power and value","힘과 가치는"],["of being literate","문해력이 있는 것의"],["in a literate society","문해력의 사회에서"],["are played out every day","매일 드러난다"],["around the world.","세계 곳곳에서."]]},{"en":"Many individuals, and in fact whole societies, make considerable sacrifices to become literate just as others take it for granted.","ko":"많은 개인, 그리고 사실상 전체 사회가 다른 이들이 그것을 당연하게 여기는 것과 마찬가지로 문해력을 갖기 위해 상당한 희생을 치른다.","chunks":[["Many individuals,","많은 개인,"],["and in fact whole societies,","그리고 사실상 전체 사회가,"],["make considerable sacrifices","상당한 희생을 치른다"],["to become literate","문해력을 갖기 위해"],["just as others take it for granted.","다른 이들이 그것을 당연하게 여기는 것과 마찬가지로."]]},{"en":"Societies that do not practice literate behavior are often squalid, undernourished in mind and body, repressive of human rights and dignity, brutal, and harsh.","ko":"문해력 있는 행동을 실천하지 않는 사회는 흔히 지저분하고, 심신이 피폐하며, 인권과 존엄을 억압하고, 잔인하며, 가혹하다.","chunks":[["Societies that do not practice literate behavior","문해력 있는 행동을 실천하지 않는 사회는"],["are often squalid,","흔히 지저분하고,"],["undernourished in mind and body,","심신이 피폐하며,"],["repressive of human rights and dignity,","인권과 존엄을 억압하고,"],["brutal, and harsh.","잔인하며, 가혹하다."]]},{"en":"Present-day examples are easy to list, but in fact this has always been the case.","ko":"오늘날의 사례는 열거하기 쉽지만, 사실상 이것은 항상 사실이었다.","chunks":[["Present-day examples","오늘날의 사례는"],["are easy to list,","열거하기 쉽다,"],["but in fact","하지만 사실"],["this has always been the case.","이것은 항상 그래왔다."]]},{"en":"As Samuel Johnson observed more than two centuries ago, \"The mass of every people must be barbarous where there is no printing.\"","ko":"Samuel Johnson이 2세기보다 더 오래 전에 말했듯이, \"인쇄술이 없는 곳에서는 모든 민족의 다수가 야만적일 수밖에 없다.\"","chunks":[["As Samuel Johnson observed","Samuel Johnson이 말했듯이"],["more than two centuries ago,","2세기 보다 더 오래 전에,"],["\"The mass of every people","\"모든 민족의 다수는"],["must be barbarous","야만적일 수밖에 없다"],["where there is no printing.\"","인쇄술이 없는 곳에서는.\""]]},{"en":"We admit that various forms of \"barbarity\" can be found in all societies, but they are much more prevalent where literate behavior is absent.","ko":"우리는 다양한 형태의 \"야만성\"이 모든 사회에서 발견될 수 있다는 것을 인정하지만, 그것은 문해력 있는 행동이 부재한 곳에 훨씬 더 널리 퍼져 있다.","chunks":[["We admit that","우리는 ~을 인정한다"],["various forms of \"barbarity\"","다양한 형태의 \"야만성\"이"],["can be found in all societies,","모든 사회에서 발견될 수 있다는 것을,"],["but they are much more prevalent","그러나 그것은 훨씬 더 널리 퍼져 있다"],["where literate behavior is absent.","문해력 있는 행동이 부재한 곳에서."]]},{"en":"Literacy and quality of life go hand in hand.","ko":"문해력과 삶의 질은 함께 간다.","chunks":[["Literacy and quality of life","문해력과 삶의 질은"],["go hand in hand.","함께 간다."]]},{"en":"With literacy comes the power of belonging to a privileged group and the freedom that derives from that power.","ko":"문해력에는 특권 집단에 속하는 힘과 그 힘에서 파생되는 자유가 따라온다.","chunks":[["With literacy","문해력과 함께"],["comes the power","힘이 따라온다"],["of belonging to a privileged group","특권 집단에 속하는"],["and the freedom","그리고 자유가"],["that derives from that power.","그 힘에서 파생되는."]]},{"en":"Frederick Douglass, who struggled as a slave to learn to read, said it best: \"Once you learn to read, you will be forever free.\"","ko":"노예로서 읽는 법을 배우기 위해 고군분투했던 Frederick Douglass가 그것을 가장 잘 표현했다. \"일단 읽는 법을 배우면, 영원히 자유로워질 것이다.\"","chunks":[["Frederick Douglass,","Frederick Douglass가,"],["who struggled as a slave","노예로서 고군분투했던"],["to learn to read,","읽는 법을 배우기 위해,"],["said it best:","그것을 가장 잘 표현했다:"],["\"Once you learn to read,","\"일단 읽는 법을 배우면,"],["you will be forever free.\"","영원히 자유로워질 것이다.\""]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"문해력과 삶의 질 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">문해력과 삶의 질</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">주장</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">문해력 = 삶의 질·인권의 토대</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">근거</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">문해력 부족 사회 = 자유·인권·삶의 질 저하 경향.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">역사 인용</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"196\">역사 인용: 인쇄술·문해력 부재가</tspan><tspan x=\"152\" y=\"210\">삶의 질을 낮춘다는 관찰.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">함의</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">문해력 = 특권 집단의 힘</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">문해력과 삶의 질은 함께 간다</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '문해력 = 삶의 질·인권의 토대'이고, 마지막은 '문해력과 삶의 질은 함께 간다'로 정리된다."},{"no":"3","title":"p32 (Exercise 3) 지문 ③ · Analytic vs Holistic — How Culture Shapes Attention","ktitle":"문화가 빚는 ‘주의’ 방식","field":"문화·인지","page":"p.32 Ex.3","oneline":"문화가 자아관을 빚고, 그 자아관이 ‘무엇에 주의를 기울이는가’까지 가른다.","tldr":["문화가 자아관을 빚고, 그 자아관이 ‘무엇에 주의를 기울이는가’까지 가른다.","서구 = 내적 속성 중시 → 초점 대상에 집중 → ‘분석적(analytic)’.","동양 = 사회적 관계 중시 → 대상+상황까지 → ‘총체적(holistic)’."],"analogy":"서양에서 자란 사람은 가운데 인물에, 동아시아에서 자란 사람은 배경·관계까지 함께 보죠. 문화가 ‘나를 보는 방식’을 만들고, 그게 다시 ‘무엇에 주목하는지’까지 정해요.","bg":"서구=분석적(초점 대상 중심) vs 동양=총체적(대상+상황 관계)이라는 문화심리 글. 자아관(독립적/관계적)이 ‘주의 방식’을 결정한다는 주장이에요.","flow":[{"kind":"주장","t":"문화 → 자아관 → 주의 방식"},{"kind":"서구","t":"내적 속성 발견 → 초점 대상 집중","d":"상황보다 대상에 단단히 → ‘분석적’."},{"kind":"동양","t":"사회 관계 동조 → 대상+상황","d":"주변 맥락까지, 관계를 추론 → ‘총체적’."},{"kind":"결론","t":"이 예측은 실제로 입증됐다"}],"quiz":[["‘분석적’ 주의와 ‘총체적’ 주의는 어떻게 다른가?","분석적은 초점 대상에 집중(서구), 총체적은 대상+주변 상황·관계까지 본다(동양)는 차이예요."],["주의 방식의 차이는 무엇에서 비롯된다고 하나?","문화가 빚은 ‘자아관’(독립적 vs 관계적)에서 비롯돼요."],["핵심 한 문장?","문화가 자아관을 빚고, 그 자아관이 무엇에 주의를 두는지를 가른다."]],"vocab":[["culturally","(영향이) 매우 큰"],["attribute","속성"],["relevant to","~에 단단히 기반을 둔"],["in lieu of","~ 대신에"],["analytic","분석적인"],["attuned to","~에 (잘) 맞춰져 있는"]],"en":"Culturally shared views of the self have been suggested to have profound influences on basic attention processes. In Western cultures, individuals are encouraged to discover their internal attributes such as desires and personal goals, and therefore they may be expected to focus their attention on events that are relevant to such desires and goals. As a result, their attention may become focused. This cognitive style, which is anchored in a focal object in lieu of its context, has been called analytic. In contrast, in Eastern cultures individuals are more attuned to various aspects of ever-important social relations and, as a consequence, they may be expected to attend more broadly to a focal object as well as to its surrounding context, drawing inferences about the relationship between the object and its context. This mode of cognition has been called holistic. These predictions have been borne out. For example, when presented with an animated vignette of an underwater scene and subsequently asked to remember what they saw, European Americans were more likely to recall focal objects, whereas Japanese were more likely to refer to contextual information as well as relationships between the focal objects.","ko":"문화적으로 공유된 자아관은 기본적인 주의 과정에 매우 큰 영향을 미친다고 제안되어 왔다. 서구 문화에서는, 개인이 욕구와 개인적 목표와 같은 자신의 내적 속성을 발견하도록 장려되며, 따라서 그들은 그러한 욕구 및 목표와 관련된 일에 자신의 주의를 집중하도록 기대될 수도 있다. 결과적으로, 그들의 주의가 (거기에) 집중될 수도 있다. 상황 대신에 초점 대상에 단단히 기반을 두고 있는 이러한 인지 스타일은 '분석적'이라고 불려 왔다. 이와 대조적으로, 동양 문화에서는 개인이 언제나 중요한 사회적 관계의 다양한 측면에 더 맞춰져 있으며, 결과적으로 그들은 초점 대상에 더하여 그것의 주변 상황에까지도 더 폭넓게 주의를 기울이고, 대상과 그것의 상황 간의 관계를 추론하도록 기대될 수도 있다. 이러한 인지 방식은 '총체적'이라고 불려 왔다. 이러한 예측은 입증되어 왔다. 예를 들어, 수중 장면을 보여 주는 만화 영화로 제작된 짤막한 장면을 제시받고 그 뒤에 자신이 본 것을 기억해 보라는 요청을 받았을 때, 유럽계 미국인은 초점 대상을 기억해 낼 가능성이 더 많았던 반면에 일본인은 상황적 정보에 더하여 초점 대상 간의 관계도 언급할 가능성이 더 많았다.","read":[{"en":"Culturally shared views of the self have been suggested to have profound influences on basic attention processes.","ko":"문화적으로 공유된 자아관은 기본적인 주의 과정에 매우 큰 영향을 미친다고 제안되어 왔다.","chunks":[["Culturally shared views of the self","문화적으로 공유된 자아관은"],["have been suggested","제안되어 왔다"],["to have profound influences","매우 큰 영향을 미친다고"],["on basic attention processes.","기본적인 주의 과정에."]]},{"en":"In Western cultures, individuals are encouraged to discover their internal attributes such as desires and personal goals, and therefore they may be expected to focus their attention on events that are relevant to such desires and goals.","ko":"서구 문화에서는, 개인이 욕구와 개인적 목표와 같은 자신의 내적 속성을 발견하도록 장려되며, 따라서 그들은 그러한 욕구 및 목표와 관련된 일에 자신의 주의를 집중하도록 기대될 수도 있다.","chunks":[["In Western cultures,","서구 문화에서는,"],["individuals are encouraged","개인이 장려된다"],["to discover their internal attributes","자신의 내적 속성을 발견하도록"],["such as desires and personal goals,","욕구와 개인적 목표와 같은,"],["and therefore they may be expected","따라서 그들은 기대될 수도 있다"],["to focus their attention on events","사건에 자신의 주의를 집중하도록"],["that are relevant to such desires and goals.","그러한 욕구 및 목표와 관련된."]]},{"en":"As a result, their attention may become focused.","ko":"결과적으로, 그들의 주의가 (거기에) 집중될 수도 있다.","chunks":[["As a result,","결과적으로,"],["their attention","그들의 주의가"],["may become focused.","집중될 수도 있다."]]},{"en":"This cognitive style, which is anchored in a focal object in lieu of its context, has been called analytic.","ko":"상황 대신에 초점 대상에 단단히 기반을 두고 있는 이러한 인지 스타일은 '분석적'이라고 불려 왔다.","chunks":[["This cognitive style,","이러한 인지 스타일은,"],["which is anchored in a focal object","초점 대상에 단단히 기반을 두고 있는"],["in lieu of its context,","상황 대신에,"],["has been called analytic.","'분석적'이라고 불려 왔다."]]},{"en":"In contrast, in Eastern cultures individuals are more attuned to various aspects of ever-important social relations and, as a consequence, they may be expected to attend more broadly to a focal object as well as to its surrounding context, drawing inferences about the relationship between the object and its context.","ko":"이와 대조적으로, 동양 문화에서는 개인이 언제나 중요한 사회적 관계의 다양한 측면에 더 맞춰져 있으며, 결과적으로 그들은 초점 대상에 더하여 그것의 주변 상황에까지도 더 폭넓게 주의를 기울이고, 대상과 그것의 상황 간의 관계를 추론하도록 기대될 수도 있다.","chunks":[["In contrast,","이와 대조적으로,"],["in Eastern cultures individuals are more attuned","동양 문화에서는 개인이 더 맞춰져 있다"],["to various aspects of ever-important social relations","언제나 중요한 사회적 관계의 다양한 측면에"],["and, as a consequence,","그리고 결과적으로,"],["they may be expected to attend more broadly","그들은 더 폭넓게 주의를 기울이도록 기대될 수도 있다"],["to a focal object as well as to its surrounding context,","초점 대상에 더하여 그것의 주변 상황에까지도,"],["drawing inferences about the relationship","관계에 대한 추론을 이끌어 내며"],["between the object and its context.","대상과 그것의 상황 사이의."]]},{"en":"This mode of cognition has been called holistic.","ko":"이러한 인지 방식은 '총체적'이라고 불려 왔다.","chunks":[["This mode of cognition","이러한 인지 방식은"],["has been called holistic.","'총체적'이라고 불려 왔다."]]},{"en":"These predictions have been borne out.","ko":"이러한 예측은 입증되어 왔다.","chunks":[["These predictions","이러한 예측은"],["have been borne out.","입증되어 왔다."]]},{"en":"For example, when presented with an animated vignette of an underwater scene and subsequently asked to remember what they saw, European Americans were more likely to recall focal objects, whereas Japanese were more likely to refer to contextual information as well as relationships between the focal objects.","ko":"예를 들어, 수중 장면을 보여 주는 만화 영화로 제작된 짤막한 장면을 제시받고 그 뒤에 자신이 본 것을 기억해 보라는 요청을 받았을 때, 유럽계 미국인은 초점 대상을 기억해 낼 가능성이 더 많았던 반면에 일본인은 상황적 정보에 더하여 초점 대상 간의 관계도 언급할 가능성이 더 많았다.","chunks":[["For example,","예를 들어,"],["when presented with an animated vignette","만화 영화 짤막한 장면을 제시받았을 때"],["of an underwater scene","수중 장면의"],["and subsequently asked to remember","그 뒤에 기억해 보라는 요청을 받았을 때"],["what they saw,","자신이 본 것을,"],["European Americans were more likely to recall focal objects,","유럽계 미국인은 초점 대상을 기억해 낼 가능성이 더 많았다,"],["whereas Japanese were more likely to refer to contextual information","반면에 일본인은 상황적 정보를 언급할 가능성이 더 많았다"],["as well as relationships between the focal objects.","초점 대상 간의 관계도."]]}],"metaphor":"<svg viewBox=\"0 0 600 320\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"문화가 빚는 ‘주의’ 방식 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"296\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">문화가 빚는 ‘주의’ 방식</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">주장</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">문화 → 자아관 → 주의 방식</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">서구</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">내적 속성 발견 → 초점 대상 집중 상황보다 대상에 단단히 → ‘분석적’.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">동양</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">사회 관계 동조 → 대상+상황 주변 맥락까지, 관계를 추론 → ‘총체적’.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">이 예측은 실제로 입증됐다</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">4</text>\n  </g>\n  <text x=\"300\" y=\"304\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 4단계로 전개된다. 첫 출발점은 '문화 → 자아관 → 주의 방식'이고, 마지막은 '이 예측은 실제로 입증됐다'로 정리된다."},{"no":"4","title":"p33 (Exercise 4) 지문 ④ · Demand Revealed by Price — The Artificial Heart","ktitle":"가격이 드러내는 잠재 수요","field":"경제","page":"p.33 Ex.4","oneline":"사고 싶어도 비싸서 못 사던 ‘잠재 수요’가 있다.","tldr":["사고 싶어도 비싸서 못 사던 ‘잠재 수요’가 있다.","가격이 충분히 낮아지면 그 수요가 비로소 드러난다.","인공 심장: 100만→10만→100달러로 떨어질수록 살 사람이 늘어난다."],"analogy":"비싸서 못 사던 신제품이 가격이 뚝 떨어지면 ‘나도 살까?’ 하는 사람이 확 늘죠. 그 ‘숨어 있던 수요’가 가격이 내려야 보이는 거예요.","bg":"‘잠재 수요(latent demand)’ 개념. 인공 심장 가격이 단계적으로 떨어질수록(생사용 → 중증 → 대중) 숨어 있던 수요가 드러나는 예시예요.","flow":[{"kind":"정의","t":"잠재 수요 = 사고 싶지만 못 사는 수요","d":"시장에 안 드러난 상태."},{"kind":"100만 달러","t":"생사 걸린 경우만 사용"},{"kind":"10만 달러","t":"더 많은 사람이 구매","d":"심장 멈추기 전에도 이식."},{"kind":"100·10달러","t":"필요한 누구나 구매 — 대중화"},{"kind":"결론","t":"가격이 낮아질수록 수요가 드러난다"}],"quiz":[["‘잠재 수요(latent demand)’란?","사고 싶지만 가격이 비싸 못 사서 ‘시장에 드러나지 않은’ 수요예요."],["인공 심장 예시가 보여주는 것은?","가격이 100만→10만→100달러로 낮아질수록 살 수 있는 사람이 늘어 숨은 수요가 드러난다는 점이에요."],["핵심 한 문장?","잠재 수요는 가격이 충분히 낮아질 때 비로소 드러난다."]],"vocab":[["demand","수요"],["latent","잠재된"],["potential","인공의"],["plastic surgery","드러내다"],["matter of life and death","생사가 걸린 문제"],["implant","이식하다"]],"en":"When a patient chooses to buy he or she becomes a part of demand. Wanting to buy (drugs, plastic surgery, artificial hip, etc.) but not doing so leaves that potential patient invisible, part of latent demand that does not effectively participate in the market. That extra demand will be revealed if the price goes low enough. For example, consider the development of an artificial heart. If each heart costs $1 million, they would only be used in matters of life and death. If further development reduced the cost of artificial hearts to $100,000 each, more people would get them. The artificial hearts would still be used only for people with serious illnesses, but they might be implanted long before a person's natural heart gave out. If the cost of making an artificial heart dropped to $100, one would be readily available to anyone who needed it. Consider what would happen if the cost of an artificial heart dropped to $10 and could be easily implanted during a 15-minute visit to the doctor. Some people who had never been ill but were just worried might have new hearts implanted.","ko":"환자가 구매를 선택할 때 그 사람은 수요의 일부가 된다. (약물, 성형 수술, 인공 고관절 등을) 구매하기를 원하지만 그렇게 하지 않게 되면 그 잠재적인 환자는 눈에 띄지 않는, 시장에 실질적으로 참여하지 않는 '잠재 수요'의 일부로 남게 된다. 가격이 충분히 낮아지면 그러한 추가 수요가 드러날 것이다. 예를 들어, 인공 심장의 개발을 고려해 보라. 만약 각 심장의 비용이 100만 달러라면 그것은 오직 생사가 걸린 문제에만 사용될 것이다. 만약 추가적인 발전으로 인공 심장의 비용이 개당 10만 달러로 줄어들면, 더 많은 사람들이 인공 심장을 구매할 것이다. 인공 심장은 여전히 심각한 질병을 앓고 있는 사람들에게만 사용되겠지만, 사람의 타고난 심장이 멈추기 훨씬 전에 이식될지도 모른다. 만약 인공 심장 제작 비용이 100달러로 떨어지면, 그것을 필요로 하는 사람이면 누구나 하나를 쉽게 구입할 수 있을 것이다. 만약 인공 심장 비용이 10달러로 떨어지고 15분간의 병원 진료로 쉽게 이식받을 수 있다면 무슨 일이 일어날지 생각해 보라. 한 번도 병에 걸린 적은 없지만 그저 걱정하는 일부 사람들이 새로운 심장을 이식받을지도 모른다.","read":[{"en":"When a patient chooses to buy he or she becomes a part of demand.","ko":"환자가 구매를 선택할 때 그 사람은 수요의 일부가 된다.","chunks":[["When a patient chooses to buy","환자가 구매를 선택할 때"],["he or she becomes","그 사람은 ~이 된다"],["a part of demand.","수요의 일부."]]},{"en":"Wanting to buy (drugs, plastic surgery, artificial hip, etc.) but not doing so leaves that potential patient invisible, part of latent demand that does not effectively participate in the market.","ko":"(약물, 성형 수술, 인공 고관절 등을) 구매하기를 원하지만 그렇게 하지 않게 되면 그 잠재적인 환자는 눈에 띄지 않는, 시장에 실질적으로 참여하지 않는 '잠재 수요'의 일부로 남게 된다.","chunks":[["Wanting to buy","구매하기를 원하는 것"],["(drugs, plastic surgery, artificial hip, etc.)","(약물, 성형 수술, 인공 고관절 등을)"],["but not doing so","하지만 그렇게 하지 않는 것은"],["leaves that potential patient invisible,","그 잠재적인 환자를 눈에 띄지 않게 두며,"],["part of latent demand","'잠재 수요'의 일부로"],["that does not effectively participate in the market.","시장에 실질적으로 참여하지 않는."]]},{"en":"That extra demand will be revealed if the price goes low enough.","ko":"가격이 충분히 낮아지면 그러한 추가 수요가 드러날 것이다.","chunks":[["That extra demand","그러한 추가 수요는"],["will be revealed","드러날 것이다"],["if the price goes low enough.","가격이 충분히 낮아지면."]]},{"en":"For example, consider the development of an artificial heart.","ko":"예를 들어, 인공 심장의 개발을 고려해 보라.","chunks":[["For example,","예를 들어,"],["consider the development","~을 고려해 보라"],["of an artificial heart.","인공 심장의 개발을."]]},{"en":"If each heart costs $1 million, they would only be used in matters of life and death.","ko":"만약 각 심장의 비용이 100만 달러라면 그것은 오직 생사가 걸린 문제에만 사용될 것이다.","chunks":[["If each heart costs $1 million,","만약 각 심장이 100만 달러라면,"],["they would only be used","그것은 ~만 사용될 것이다"],["in matters of life and death.","생사가 걸린 문제에."]]},{"en":"If further development reduced the cost of artificial hearts to $100,000 each, more people would get them.","ko":"만약 추가적인 발전으로 인공 심장의 비용이 개당 10만 달러로 줄어들면, 더 많은 사람들이 인공 심장을 구매할 것이다.","chunks":[["If further development reduced the cost","만약 추가 발전이 비용을 줄인다면"],["of artificial hearts to $100,000 each,","인공 심장의 비용을 개당 10만 달러로,"],["more people would get them.","더 많은 사람들이 그것을 얻게 될 것이다."]]},{"en":"The artificial hearts would still be used only for people with serious illnesses, but they might be implanted long before a person's natural heart gave out.","ko":"인공 심장은 여전히 심각한 질병을 앓고 있는 사람들에게만 사용되겠지만, 사람의 타고난 심장이 멈추기 훨씬 전에 이식될지도 모른다.","chunks":[["The artificial hearts would still be used","인공 심장은 여전히 사용될 것이다"],["only for people with serious illnesses,","심각한 질병을 앓고 있는 사람들에게만,"],["but they might be implanted","하지만 그것은 이식될 수도 있다"],["long before a person's natural heart","사람의 타고난 심장이 ~하기 훨씬 전에"],["gave out.","멈추기."]]},{"en":"If the cost of making an artificial heart dropped to $100, one would be readily available to anyone who needed it.","ko":"만약 인공 심장 제작 비용이 100달러로 떨어지면, 그것을 필요로 하는 사람이면 누구나 하나를 쉽게 구입할 수 있을 것이다.","chunks":[["If the cost of making an artificial heart","만약 인공 심장 제작 비용이"],["dropped to $100,","100달러로 떨어지면,"],["one would be readily available","그것은 쉽게 이용 가능할 것이다"],["to anyone who needed it.","그것을 필요로 하는 누구에게나."]]},{"en":"Consider what would happen if the cost of an artificial heart dropped to $10 and could be easily implanted during a 15-minute visit to the doctor.","ko":"만약 인공 심장 비용이 10달러로 떨어지고 15분간의 병원 진료로 쉽게 이식받을 수 있다면 무슨 일이 일어날지 생각해 보라.","chunks":[["Consider what would happen","무슨 일이 일어날지 생각해 보라"],["if the cost of an artificial heart dropped to $10","인공 심장 비용이 10달러로 떨어지고"],["and could be easily implanted","그리고 쉽게 이식될 수 있다면"],["during a 15-minute visit to the doctor.","15분간의 병원 진료로."]]},{"en":"Some people who had never been ill but were just worried might have new hearts implanted.","ko":"한 번도 병에 걸린 적은 없지만 그저 걱정하는 일부 사람들이 새로운 심장을 이식받을지도 모른다.","chunks":[["Some people","일부 사람들이"],["who had never been ill","한 번도 병에 걸린 적 없던"],["but were just worried","하지만 그저 걱정하던"],["might have new hearts implanted.","새로운 심장을 이식받을지도 모른다."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"가격이 드러내는 잠재 수요 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">가격이 드러내는 잠재 수요</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">정의</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">잠재 수요 = 사고 싶지만 못 사는 수요 시장에 안 드러난 상태.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">100만 달러</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">생사 걸린 경우만 사용</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">10만 달러</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">더 많은 사람이 구매 심장 멈추기 전에도 이식.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">100·10달러</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">필요한 누구나 구매 — 대중화</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">가격이 낮아질수록 수요가 드러난다</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '잠재 수요 = 사고 싶지만 못 사는 수요'이고, 마지막은 '가격이 낮아질수록 수요가 드러난다'로 정리된다."},{"no":"5","title":"p34 (Exercise 5) 지문 ⑤ · Historians as Narrative Makers","ktitle":"역사가는 ‘서사’를 만든다","field":"역사·인문","page":"p.34 Ex.5","oneline":"역사가는 증거를 고르고 해석하는 데서 그치지 않는다.","tldr":["역사가는 증거를 고르고 해석하는 데서 그치지 않는다.","그 증거로 이해하기 쉬운 ‘이야기(서사)’를 짓는다.","연대기 순서·관점·어조·아이러니로 사건을 ‘이해 가능하게’ 만든다."],"analogy":"같은 사건도 기자마다 다른 ‘기사’를 쓰듯, 역사가도 증거를 골라 ‘이야기’로 엮어요. 사실의 나열이 아니라 관점·어조가 들어간 서사죠.","bg":"역사 서술이 ‘객관적 사실 나열’이 아니라 ‘서사 구성’이라는 글. 시간 순서·관점·어조·아이러니(부시의 ‘국가 재건’ 비판→이라크 전쟁 예)로 사건을 이해 가능하게 만들어요.","flow":[{"kind":"주장","t":"역사가는 증거 선택·해석 ‘이상’을 한다","d":"증거를 구조화해 서사를 창조."},{"kind":"방법 ①","t":"연대기 순서","d":"변화의 원인을 중심으로 그럴듯하게."},{"kind":"방법 ②","t":"관점·어조 부여","d":"특정 시각에서 사건을 조명."},{"kind":"예시","t":"아이러니 강조 (Bush)","d":"‘국가 재건’ 비판 → 후에 이라크 전쟁."},{"kind":"결론","t":"역사 = 증거로 지은 서사"}],"quiz":[["역사가가 ‘증거를 고르고 해석하는 이상’으로 하는 일은?","증거를 구조화해 이해하기 쉬운 ‘이야기(서사)’를 짓는 일이에요."],["역사가는 어떻게 사건을 ‘이해 가능하게’ 만드나?","연대기 순서로 배열하고, 관점·어조를 부여하며, 아이러니 같은 장치를 써요."],["핵심 한 문장?","역사가는 증거를 골라 관점·어조가 담긴 ‘서사’를 만든다."]],"vocab":[["interpret","해석하다"],["organize","구조화하다"],["narrative","서사"],["persuasive","연대기적인"],["plausible","특정한 관점에서 A를 조명하다"],["irony","아이러니"]],"en":"Historians do more than select and interpret evidence: they also organize the evidence in order to create an understandable (and, they hope, persuasive) narrative. Chronological order is generally part of making history plausible, especially when the causes of change are central, although in practice much historical writing must go back and forth in time in order to pick up various threads of a complex story. Historians also make events understandable by casting them in a particular light or giving their narrative a particular tone. For example, a historian might highlight historical ironies, such as the way President George W. Bush once criticized \"nation building,\" in which the U.S. rebuilds a country's economic and political structure when its government fails; but later, as a consequence of launching a war in Iraq, Bush had to attempt exactly that. Historians can also romanticize events, as did those who described John F. Kennedy's term as President as \"Camelot,\" alluding to a Broadway musical about the heroic King Arthur and the Knights of the Round Table. Similarly, one historian may view a certain chain of events as improvement, while another may perceive it as a decline. These are just a few of the ways historians may make narrative sense of history.","ko":"역사가는 증거를 선택하고 해석하는 이상의 일을 하는데, 즉 그들은 이해하기 쉬운 (그리고 설득력이 있기를 바라는) 서사를 창조하기 위해 증거를 구조화하기도 한다. 연대기적 순서는 일반적으로 역사를 그럴듯하게 만드는 과정의 일부로서 특히 변화의 원인이 중심이 될 때 그러하며, 다만 실제로는 복잡한 이야기의 다양한 맥락을 포착하기 위해 많은 역사 서술은 시간상 앞뒤를 오가야 한다. 역사가는 또한 특정한 관점에서 사건을 조명하거나 자신의 서사에 특정한 어조를 부여함으로써 사건을 이해하기 쉽게 만든다. 예를 들어, 어떤 역사가는 역사적 아이러니를 강조할 수도 있는데, 이를테면 George W. Bush 대통령이 한때 한 나라의 정부가 무너질 때 미국이 그 나라의 경제 및 정치 구조를 재건하는 '국가 재건'을 비판했으나, 후에 이라크에서 전쟁을 시작한 결과로 Bush는 바로 그것을 시도할 수밖에 없었던 경우처럼 말이다. 역사가는 또한 영웅적인 아서 왕과 원탁의 기사들에 관한 브로드웨이 뮤지컬을 넌지시 암시하며 John F. Kennedy 대통령의 임기를 '카멜롯'이라 묘사한 사람들이 그랬던 것과 같이 사건을 낭만적으로 묘사할 수도 있다. 마찬가지로, 한 역사가는 특정한 사건의 연속을 진보라고 볼 수도 있는 반면, 다른 역사가는 그것을 쇠퇴라고 인식할 수도 있다. 이것은 역사가가 역사의 서사적 의미를 만들어 낼 수도 있는 방식 중 몇 가지일 뿐이다.","read":[{"en":"Historians do more than select and interpret evidence: they also organize the evidence in order to create an understandable (and, they hope, persuasive) narrative.","ko":"역사가는 증거를 선택하고 해석하는 이상의 일을 하는데, 즉 그들은 이해하기 쉬운 (그리고 설득력이 있기를 바라는) 서사를 창조하기 위해 증거를 구조화하기도 한다.","chunks":[["Historians do more than select and interpret evidence:","역사가는 증거를 선택하고 해석하는 이상의 일을 한다:"],["they also organize the evidence","그들은 증거를 구조화하기도 한다"],["in order to create an understandable","이해하기 쉬운 ~을 창조하기 위해"],["(and, they hope, persuasive) narrative.","(그리고 설득력 있기를 바라는) 서사를."]]},{"en":"Chronological order is generally part of making history plausible, especially when the causes of change are central, although in practice much historical writing must go back and forth in time in order to pick up various threads of a complex story.","ko":"연대기적 순서는 일반적으로 역사를 그럴듯하게 만드는 과정의 일부로서 특히 변화의 원인이 중심이 될 때 그러하며, 다만 실제로는 복잡한 이야기의 다양한 맥락을 포착하기 위해 많은 역사 서술은 시간상 앞뒤를 오가야 한다.","chunks":[["Chronological order is generally part","연대기적 순서는 일반적으로 일부이다"],["of making history plausible,","역사를 그럴듯하게 만드는,"],["especially when the causes of change are central,","특히 변화의 원인이 중심이 될 때,"],["although in practice","비록 실제로는"],["much historical writing must go back and forth in time","많은 역사 서술은 시간상 앞뒤를 오가야 한다"],["in order to pick up various threads","다양한 맥락을 포착하기 위해"],["of a complex story.","복잡한 이야기의."]]},{"en":"Historians also make events understandable by casting them in a particular light or giving their narrative a particular tone.","ko":"역사가는 또한 특정한 관점에서 사건을 조명하거나 자신의 서사에 특정한 어조를 부여함으로써 사건을 이해하기 쉽게 만든다.","chunks":[["Historians also make events understandable","역사가는 또한 사건을 이해하기 쉽게 만든다"],["by casting them in a particular light","특정한 관점에서 그것을 조명함으로써"],["or giving their narrative a particular tone.","또는 자신의 서사에 특정한 어조를 부여함으로써."]]},{"en":"For example, a historian might highlight historical ironies, such as the way President George W. Bush once criticized \"nation building,\" in which the U.S. rebuilds a country's economic and political structure when its government fails; but later, as a consequence of launching a war in Iraq, Bush had to attempt exactly that.","ko":"예를 들어, 어떤 역사가는 역사적 아이러니를 강조할 수도 있는데, 이를테면 George W. Bush 대통령이 한때 한 나라의 정부가 무너질 때 미국이 그 나라의 경제 및 정치 구조를 재건하는 '국가 재건'을 비판했으나, 후에 이라크에서 전쟁을 시작한 결과로 Bush는 바로 그것을 시도할 수밖에 없었던 경우처럼 말이다.","chunks":[["For example,","예를 들어,"],["a historian might highlight historical ironies,","어떤 역사가는 역사적 아이러니를 강조할 수도 있다,"],["such as the way President George W. Bush once criticized \"nation building,\"","이를테면 George W. Bush 대통령이 한때 '국가 재건'을 비판했던 방식,"],["in which the U.S. rebuilds a country's economic and political structure","거기서 미국은 한 나라의 경제·정치 구조를 재건한다"],["when its government fails;","그 정부가 무너질 때;"],["but later, as a consequence of launching a war in Iraq,","그러나 후에, 이라크 전쟁을 시작한 결과로,"],["Bush had to attempt exactly that.","Bush는 바로 그것을 시도할 수밖에 없었다."]]},{"en":"Historians can also romanticize events, as did those who described John F. Kennedy's term as President as \"Camelot,\" alluding to a Broadway musical about the heroic King Arthur and the Knights of the Round Table.","ko":"역사가는 또한 영웅적인 아서 왕과 원탁의 기사들에 관한 브로드웨이 뮤지컬을 넌지시 암시하며 John F. Kennedy 대통령의 임기를 '카멜롯'이라 묘사한 사람들이 그랬던 것과 같이 사건을 낭만적으로 묘사할 수도 있다.","chunks":[["Historians can also romanticize events,","역사가는 또한 사건을 낭만적으로 묘사할 수도 있다,"],["as did those","~한 사람들이 그랬던 것과 같이"],["who described John F. Kennedy's term as President","John F. Kennedy의 대통령 임기를 묘사한"],["as \"Camelot,\"","'카멜롯'으로,"],["alluding to a Broadway musical","브로드웨이 뮤지컬을 넌지시 암시하며"],["about the heroic King Arthur","영웅적인 아서 왕에 관한"],["and the Knights of the Round Table.","그리고 원탁의 기사들에 관한."]]},{"en":"Similarly, one historian may view a certain chain of events as improvement, while another may perceive it as a decline.","ko":"마찬가지로, 한 역사가는 특정한 사건의 연속을 진보라고 볼 수도 있는 반면, 다른 역사가는 그것을 쇠퇴라고 인식할 수도 있다.","chunks":[["Similarly,","마찬가지로,"],["one historian may view","한 역사가는 ~로 볼 수도 있다"],["a certain chain of events","특정한 사건의 연속을"],["as improvement,","진보로,"],["while another may perceive it","반면에 다른 역사가는 그것을 인식할 수도 있다"],["as a decline.","쇠퇴로."]]},{"en":"These are just a few of the ways historians may make narrative sense of history.","ko":"이것은 역사가가 역사의 서사적 의미를 만들어 낼 수도 있는 방식 중 몇 가지일 뿐이다.","chunks":[["These are just a few","이것은 몇 가지일 뿐이다"],["of the ways","방식 중에서"],["historians may make narrative sense","역사가가 서사적 의미를 만들 수도 있는"],["of history.","역사의."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"역사가는 ‘서사’를 만든다 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">역사가는 ‘서사’를 만든다</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">주장</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">역사가는 증거 선택·해석 ‘이상’을 한다 증거를 구조화해 서사를 창조.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">방법 ①</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">연대기 순서 변화의 원인을 중심으로 그럴듯하게.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">방법 ②</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">관점·어조 부여 특정 시각에서 사건을 조명.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">예시</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">아이러니 강조 (Bush) ‘국가 재건’ 비판 → 후에 이라크 전쟁.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">역사 = 증거로 지은 서사</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '역사가는 증거 선택·해석 ‘이상’을 한다'이고, 마지막은 '역사 = 증거로 지은 서사'로 정리된다."},{"no":"6","title":"p35 (Exercise 6) 지문 ⑥ · Prestige — A Uniquely Human Form of Status","ktitle":"명망 — 인간만의 지위","field":"인류·사회","page":"p.35 Ex.6","oneline":"동물도 아는 ‘우세함(힘·공격성)’은 인간에게도 중요하다.","tldr":["동물도 아는 ‘우세함(힘·공격성)’은 인간에게도 중요하다.","그러나 ‘명망’은 거의 그 반대 — ‘배울 만한 사람’에게 주어진다.","한 분야의 성공이 모든 결정에 영향을 주는 인간 고유의 지위다."],"analogy":"싸움 잘하는 일진(우세함)과, 다들 따라 하고 싶어 하는 ‘롤모델 선배’(명망)는 다르죠. 명망은 힘이 아니라 ‘배우고 싶음’에서 나와요.","bg":"지위를 ‘우세함(dominance, 동물도 인식)’과 ‘명망(prestige, 인간 고유)’으로 나누는 글. 명망은 ‘따라 배우기(문화 전파)’를 키우려 진화했다는 설명이에요.","flow":[{"kind":"정의","t":"명망 = 인간만이 인식하는 지위"},{"kind":"우세함","t":"힘·공격성 (동물·인간 공통)","d":"무시무시한 전사는 어디서나 찬양."},{"kind":"명망 = 반대","t":"‘배울 만한 사람’ — 전문가·연장자"},{"kind":"확장","t":"한 분야 성공 → 전 영역 영향","d":"여론 선도자, 모든 결정 모방."},{"kind":"결론","t":"명망 = 문화 전파를 키우는 진화적 장치"}],"quiz":[["‘우세함(dominance)’과 ‘명망(prestige)’의 차이는?","우세함은 힘·공격성(동물도 인식), 명망은 ‘배울 만한 사람’에게 주어지는 인간 고유의 지위예요."],["명망은 왜 진화했을 거라고 보나?","성공한 사람을 따라 배우는 ‘문화 전파’의 이점을 키우기 위해서예요."],["핵심 한 문장?","명망은 힘이 아니라 ‘배울 만함’에서 나오는 인간 고유의 지위다."]],"vocab":[["prestige","명망"],["status","지위"],["recognize","인식하다"],["dominance","우세함"],["aggressive","무시무시한"],["warrior","찬양하다"]],"en":"Prestige is a particular form of status that only humans recognize. Most animals observe the advantages of dominance, such as being the most powerful or aggressive individual, and these are also important for humans: fearsome warriors are celebrated universally. Prestige is almost the opposite. Prestigious individuals are ones worthy of learning from ─ they are experts, older people. And if someone has prestige in one field, they become high-status individuals and their influence won't be limited to their field; we are likely to copy all their decisions. Indeed, prestige may have evolved as a way to enhance the benefits of cultural transmission. Success in one area of life affords someone the status of general opinion leader. We want to learn from successful individuals, or even simply be associated with them in some way, so that their reputation rubs off on us. That's why a golfing hero can sell you a watch.","ko":"명망은 오직 인간만이 인식하는 특정 형태의 지위이다. 대부분의 동물은 가장 강력하거나 공격적인 개체가 되는 것과 같은 우세함의 장점을 인식하며, 이것은 인간에게도 또한 중요한데, 곧 무시무시한 전사는 어디에서나 찬양을 받는다. 명망은 거의 그 반대이다. 명망 있는 사람은 배울 만한 가치가 있는 사람으로, 전문가이고 연장자이다. 그리고 만약 어떤 사람이 한 분야에서 명망이 있으면, 그는 높은 지위의 인물이 되고 그의 영향력은 자신의 분야로만 국한되지 않을 것이며, 우리는 그의 모든 결정을 모방할 가능성이 있다. 사실상, 명망은 문화 전파의 이점을 증대시키는 한 가지 방법으로 진화했을 수도 있다. 삶의 한 영역에서의 성공은 어떤 사람에게 여론 선도자의 지위를 제공한다. 우리는 성공한 사람으로부터 배우거나, 혹은 심지어 그들의 명성이 우리에게 옮겨오도록 그들과 그저 어떤 방식으로든 연관되기를 원한다. 그것이 골프 영웅이 여러분에게 시계를 팔 수 있는 이유이다.","read":[{"en":"Prestige is a particular form of status that only humans recognize.","ko":"명망은 오직 인간만이 인식하는 특정 형태의 지위이다.","chunks":[["Prestige is","명망은 ~이다"],["a particular form of status","특정 형태의 지위"],["that only humans recognize.","오직 인간만이 인식하는."]]},{"en":"Most animals observe the advantages of dominance, such as being the most powerful or aggressive individual, and these are also important for humans: fearsome warriors are celebrated universally.","ko":"대부분의 동물은 가장 강력하거나 공격적인 개체가 되는 것과 같은 우세함의 장점을 인식하며, 이것은 인간에게도 또한 중요한데, 곧 무시무시한 전사는 어디에서나 찬양을 받는다.","chunks":[["Most animals observe the advantages of dominance,","대부분의 동물은 우세함의 장점을 인식한다,"],["such as being the most powerful or aggressive individual,","가장 강력하거나 공격적인 개체가 되는 것과 같은,"],["and these are also important for humans:","그리고 이것은 인간에게도 중요하다:"],["fearsome warriors","무시무시한 전사는"],["are celebrated universally.","어디에서나 찬양을 받는다."]]},{"en":"Prestige is almost the opposite.","ko":"명망은 거의 그 반대이다.","chunks":[["Prestige is","명망은 ~이다"],["almost the opposite.","거의 그 반대."]]},{"en":"Prestigious individuals are ones worthy of learning from ─ they are experts, older people.","ko":"명망 있는 사람은 배울 만한 가치가 있는 사람으로, 전문가이고 연장자이다.","chunks":[["Prestigious individuals are ones","명망 있는 사람은 ~한 사람이다"],["worthy of learning from ─","배울 만한 가치가 있는 ─"],["they are experts,","그들은 전문가이다,"],["older people.","연장자."]]},{"en":"And if someone has prestige in one field, they become high-status individuals and their influence won't be limited to their field; we are likely to copy all their decisions.","ko":"그리고 만약 어떤 사람이 한 분야에서 명망이 있으면, 그는 높은 지위의 인물이 되고 그의 영향력은 자신의 분야로만 국한되지 않을 것이며, 우리는 그의 모든 결정을 모방할 가능성이 있다.","chunks":[["And if someone has prestige in one field,","그리고 만약 어떤 사람이 한 분야에서 명망이 있으면,"],["they become high-status individuals","그들은 높은 지위의 인물이 된다"],["and their influence won't be limited to their field;","그리고 그들의 영향력은 자신의 분야로만 국한되지 않을 것이다;"],["we are likely to copy all their decisions.","우리는 그들의 모든 결정을 모방할 가능성이 있다."]]},{"en":"Indeed, prestige may have evolved as a way to enhance the benefits of cultural transmission.","ko":"사실상, 명망은 문화 전파의 이점을 증대시키는 한 가지 방법으로 진화했을 수도 있다.","chunks":[["Indeed,","사실,"],["prestige may have evolved","명망은 진화했을 수도 있다"],["as a way to enhance the benefits","이점을 증대시키는 방법으로"],["of cultural transmission.","문화 전파의."]]},{"en":"Success in one area of life affords someone the status of general opinion leader.","ko":"삶의 한 영역에서의 성공은 어떤 사람에게 여론 선도자의 지위를 제공한다.","chunks":[["Success in one area of life","삶의 한 영역에서의 성공은"],["affords someone the status","어떤 사람에게 지위를 제공한다"],["of general opinion leader.","여론 선도자의."]]},{"en":"We want to learn from successful individuals, or even simply be associated with them in some way, so that their reputation rubs off on us.","ko":"우리는 성공한 사람으로부터 배우거나, 혹은 심지어 그들의 명성이 우리에게 옮겨오도록 그들과 그저 어떤 방식으로든 연관되기를 원한다.","chunks":[["We want to learn from successful individuals,","우리는 성공한 사람으로부터 배우기를 원한다,"],["or even simply be associated with them in some way,","혹은 심지어 그저 그들과 어떤 방식으로든 연관되기를,"],["so that their reputation rubs off on us.","그들의 명성이 우리에게 옮겨오도록."]]},{"en":"That's why a golfing hero can sell you a watch.","ko":"그것이 골프 영웅이 여러분에게 시계를 팔 수 있는 이유이다.","chunks":[["That's why","그것이 ~의 이유이다"],["a golfing hero","골프 영웅이"],["can sell you a watch.","여러분에게 시계를 팔 수 있는."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"명망 — 인간만의 지위 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">명망 — 인간만의 지위</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">정의</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">명망 = 인간만이 인식하는 지위</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">우세함</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">힘·공격성 (동물·인간 공통) 무시무시한 전사는 어디서나 찬양.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">명망 = 반대</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">‘배울 만한 사람’ — 전문가·연장자</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">확장</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">한 분야 성공 → 전 영역 영향 여론 선도자, 모든 결정 모방.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">명망 = 문화 전파를 키우는 진화적 장치</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '명망 = 인간만이 인식하는 지위'이고, 마지막은 '명망 = 문화 전파를 키우는 진화적 장치'로 정리된다."},{"no":"7","title":"p36 (Exercise 7) 지문 ① · Emotion vs Feeling: The Cognitive Assignment We Make","ktitle":"감정 vs 느낌","field":"심리·인지","page":"p.36 Ex.7","oneline":"‘감정’은 무의식적 신경 반응이다.","tldr":["‘감정’은 무의식적 신경 반응이다.","‘느낌’은 그 감정에 우리가 인지적으로 의미를 ‘배당’하는 것이다.","전쟁 북은 편을 ‘정하지’ 않고, 이미 정한 편의 에너지를 ‘증폭’할 뿐이다."],"analogy":"전쟁 북소리는 없던 편을 만들지 않고, 이미 정한 편을 향해 ‘힘을 북돋울’ 뿐이에요. 감정(북소리)은 에너지고, 느낌은 그 에너지를 ‘어디에 쓸지’ 정하는 해석이죠.","bg":"‘감정(emotion, 무의식 신경반응)’과 ‘느낌(feeling, 인지적 해석)’을 구분하는 글. 전쟁 북 비유로 감정이 ‘방향 결정’이 아니라 ‘증폭’임을 설명해요.","flow":[{"kind":"정의","t":"감정 = 무의식 신경 반응 / 느낌 = 인지적 배당"},{"kind":"핵심 능력","t":"인간은 감정의 의미를 ‘생각·결정’한다"},{"kind":"예시","t":"고대 전쟁 북","d":"이해를 돕는 전형적 예."},{"kind":"포인트","t":"북은 ‘편’을 정하지 않는다","d":"이미 정해진 편에서 작동."},{"kind":"결론","t":"감정은 ‘방향’이 아니라 ‘에너지 증폭’"}],"quiz":[["‘감정’과 ‘느낌’은 어떻게 구분되나?","감정은 무의식적 신경 반응, 느낌은 그 감정에 ‘의미를 배당하는’ 인지적 해석이에요."],["전쟁 북 비유의 핵심은?","북은 편을 ‘정해주지’ 않고, 이미 정한 편의 에너지를 ‘증폭’할 뿐이라는 점이에요."],["핵심 한 문장?","감정은 무의식 반응이고, 느낌은 그것에 의미를 부여하는 해석이다."]],"vocab":[["refer to","지칭하다·언급하다"],["unconscious","무의식적인"],["neurobiological","신경생물학적인"],["cognitive","인지의·인지적"],["assignment","배당·할당 (과제)"],["complicated","역학·동력"]],"en":"Emotions can be used to refer to the unconscious, neurobiological response, while feelings are the cognitive assignments we make to those emotions. This is undoubtedly a much more complicated dynamic and there is a great degree of highly detailed information explaining the interworking of these two. However, the most noteworthy application of the distinction between emotion and feeling is that human beings have some ability to cognitively assign, that is, to think about and make a decision about, just what a given emotion we experience might mean. This can be more easily grasped when thinking about a more concrete exemplar ─ ancient war drums. Most would agree that hearing a beating war drum does not lead one to pick a side in a given conflict. A beating war drum merely helps one march more energetically on whichever side was chosen to begin with. The neurobiological experience set off by the auditory sensation of the drums causes one to \"feel\" more energy toward a given end and step more quickly. Perhaps Shakespeare knew something of this when he wrote Timon's words, \"follow thy drum ...\".","ko":"감정은 무의식적인 신경생물학적 반응을 지칭하는 데 사용될 수 있는 반면, 느낌은 우리가 그 감정에 대해 시행하는 인지적인 배당 과제이다. 이것은 의심할 여지 없이 훨씬 더 복잡한 역학이며, 이 둘의 상호 작용을 설명하는 매우 세부적인 정보가 많이 존재한다. 그러나 감정과 느낌의 구분을 적용할 때 가장 주목할 만한 점은, 인간이 우리가 경험하는 특정한 감정이 무엇을 의미할 수도 있는지를 인지적인 면에 배당할 수 있는, 다시 말하면 그것에 대하여 생각하고 결정할 수 있는 능력을 가지고 있다는 것이다. 이것은 더 구체적인 전형적인 예, 즉 고대의 전쟁 북을 떠올려 보면 더 쉽게 이해될 수 있다. 대부분의 사람들은 누가 전쟁 북소리를 듣는다고 해서 특정한 분쟁에서 어느 편을 선택하게 되는 것은 아니라는 데 동의할 것이다. 울리는 전쟁 북은 처음에 선택된 것이 어느 편이든 그편에서 사람이 더 힘차게 행진하도록 도울 뿐이다. 북이 주는 청각적 자극에 의해 촉발되는 신경 생물학적 경험은 사람으로 하여금 특정한 목표를 향해 더 큰 에너지를 \"느끼게\" 하고 발걸음을 더 빠르게 한다. 아마 셰익스피어는 Timon의 대사, \"그대의 북소리를 따르라...\"를 쓸 때 이것에 대해 뭔가 알고 있었을 것이다.","read":[{"en":"Emotions can be used to refer to the unconscious, neurobiological response, while feelings are the cognitive assignments we make to those emotions.","ko":"감정은 무의식적인 신경생물학적 반응을 지칭하는 데 사용될 수 있는 반면, 느낌은 우리가 그 감정에 대해 시행하는 인지적인 배당 과제이다.","chunks":[["Emotions can be used","감정은 사용될 수 있다"],["to refer to the unconscious, neurobiological response,","무의식적인 신경생물학적 반응을 지칭하는 데,"],["while feelings are the cognitive assignments","반면에 느낌은 인지적인 배당 과제이다"],["we make to those emotions.","우리가 그 감정에 대해 시행하는."]]},{"en":"This is undoubtedly a much more complicated dynamic and there is a great degree of highly detailed information explaining the interworking of these two.","ko":"이것은 의심할 여지 없이 훨씬 더 복잡한 역학이며, 이 둘의 상호 작용을 설명하는 매우 세부적인 정보가 많이 존재한다.","chunks":[["This is undoubtedly","이것은 의심할 여지 없이"],["a much more complicated dynamic","훨씬 더 복잡한 역학이다"],["and there is a great degree of","그리고 상당히 많은 양의 ~이 있다"],["highly detailed information","매우 세부적인 정보가"],["explaining the interworking of these two.","이 둘의 상호 작용을 설명하는."]]},{"en":"However, the most noteworthy application of the distinction between emotion and feeling is that human beings have some ability to cognitively assign, that is, to think about and make a decision about, just what a given emotion we experience might mean.","ko":"그러나 감정과 느낌의 구분을 적용할 때 가장 주목할 만한 점은, 인간이 우리가 경험하는 특정한 감정이 무엇을 의미할 수도 있는지를 인지적인 면에 배당할 수 있는, 다시 말하면 그것에 대하여 생각하고 결정할 수 있는 능력을 가지고 있다는 것이다.","chunks":[["However, the most noteworthy application","그러나 가장 주목할 만한 적용은"],["of the distinction between emotion and feeling","감정과 느낌의 구별의"],["is that human beings have some ability","인간이 어떤 능력을 가지고 있다는 것이다"],["to cognitively assign, that is,","인지적으로 배당할 수 있는, 다시 말해,"],["to think about and make a decision about,","~에 대해 생각하고 결정할 수 있는 능력,"],["just what a given emotion we experience might mean.","우리가 경험하는 특정한 감정이 무엇을 의미할 수도 있는지에 대해."]]},{"en":"This can be more easily grasped when thinking about a more concrete exemplar ─ ancient war drums.","ko":"이것은 더 구체적인 전형적인 예, 즉 고대의 전쟁 북을 떠올려 보면 더 쉽게 이해될 수 있다.","chunks":[["This can be more easily grasped","이것은 더 쉽게 이해될 수 있다"],["when thinking about","~을 떠올려 보면"],["a more concrete exemplar","더 구체적인 전형적인 예"],["─ ancient war drums.","즉 고대의 전쟁 북을."]]},{"en":"Most would agree that hearing a beating war drum does not lead one to pick a side in a given conflict.","ko":"대부분의 사람들은 누가 전쟁 북소리를 듣는다고 해서 특정한 분쟁에서 어느 편을 선택하게 되는 것은 아니라는 데 동의할 것이다.","chunks":[["Most would agree","대부분의 사람들은 동의할 것이다"],["that hearing a beating war drum","울리는 전쟁 북을 듣는 것이"],["does not lead one","사람으로 하여금 ~하게 이끌지 않는다는 것에"],["to pick a side","편을 선택하도록"],["in a given conflict.","특정한 분쟁에서."]]},{"en":"A beating war drum merely helps one march more energetically on whichever side was chosen to begin with.","ko":"울리는 전쟁 북은 처음에 선택된 것이 어느 편이든 그편에서 사람이 더 힘차게 행진하도록 도울 뿐이다.","chunks":[["A beating war drum merely helps one march","울리는 전쟁 북은 사람이 행진하도록 그저 도울 뿐이다"],["more energetically","더 힘차게"],["on whichever side","어느 편에서든"],["was chosen to begin with.","처음에 선택된 것이."]]},{"en":"The neurobiological experience set off by the auditory sensation of the drums causes one to \"feel\" more energy toward a given end and step more quickly.","ko":"북이 주는 청각적 자극에 의해 촉발되는 신경 생물학적 경험은 사람으로 하여금 특정한 목표를 향해 더 큰 에너지를 \"느끼게\" 하고 발걸음을 더 빠르게 한다.","chunks":[["The neurobiological experience","신경생물학적 경험은"],["set off by the auditory sensation of the drums","북의 청각적 자극에 의해 촉발된"],["causes one","사람으로 하여금 ~하게 한다"],["to \"feel\" more energy","더 큰 에너지를 \"느끼고\""],["toward a given end","특정한 목표를 향해"],["and step more quickly.","그리고 발걸음을 더 빠르게 하도록."]]},{"en":"Perhaps Shakespeare knew something of this when he wrote Timon's words, \"follow thy drum ...\".","ko":"아마 셰익스피어는 Timon의 대사, \"그대의 북소리를 따르라...\"를 쓸 때 이것에 대해 뭔가 알고 있었을 것이다.","chunks":[["Perhaps Shakespeare knew","아마 셰익스피어는 알고 있었을 것이다"],["something of this","이것에 대해 뭔가"],["when he wrote Timon's words,","Timon의 대사를 썼을 때"],["\"follow thy drum ...\".","\"그대의 북소리를 따르라...\"를."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"감정 vs 느낌 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">감정 vs 느낌</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">정의</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">감정 = 무의식 신경 반응 / 느낌 = 인지적 배당</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">핵심 능력</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">인간은 감정의 의미를 ‘생각·결정’한다</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">예시</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">고대 전쟁 북 이해를 돕는 전형적 예.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">포인트</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">북은 ‘편’을 정하지 않는다 이미 정해진 편에서 작동.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">감정은 ‘방향’이 아니라 ‘에너지 증폭’</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '감정 = 무의식 신경 반응 / 느낌 = 인지적 배당'이고, 마지막은 '감정은 ‘방향’이 아니라 ‘에너지 증폭’'로 정리된다."},{"no":"8","title":"p37 (Exercise 8) 지문 ② · Mesopotamia: Irrigation as the Foundation of Power","ktitle":"관개가 만든 권력","field":"역사·문명","page":"p.37 Ex.8","oneline":"관개(물 대기)는 메소포타미아 농업의 ‘열쇠’였다.","tldr":["관개(물 대기)는 메소포타미아 농업의 ‘열쇠’였다.","대규모 관개는 전례 없는 협력·조직을 요구했다.","그 결과 복잡한 사회 구조·도시국가·권력 집중으로 이어졌다."],"analogy":"큰 댐·수로를 만들려면 수많은 사람을 모아 ‘조직’해야 하죠. 그 조직을 누가 쥐느냐가 곧 권력이 됩니다 — 물 관리가 곧 권력이 된 거예요.","bg":"메소포타미아에서 ‘관개(irrigation)’가 농업을 키우고, 그 대규모 협력이 사회 구조·도시국가·권력 집중을 낳았다는 역사 글이에요.","flow":[{"kind":"핵심","t":"관개 = 농업 잠재력의 열쇠"},{"kind":"기술","t":"운하·제방·저수지","d":"강 흐름을 통제, 홍수 방지."},{"kind":"필요","t":"전례 없는 협력·조직"},{"kind":"결과","t":"복잡한 사회·도시국가 등장"},{"kind":"권력","t":"사제·권력자가 노동을 조직·감독","d":"물 관리 → 권력 집중."}],"quiz":[["관개가 메소포타미아에서 한 역할은?","농업 잠재력을 끌어낸 ‘열쇠’였고, 대규모 협력을 요구해 사회·권력 구조를 키웠어요."],["관개가 ‘권력’과 연결된 이유는?","대규모 협력·조직이 필요했고, 그 노동을 조직·감독한 사제·권력자에게 힘이 집중됐기 때문이에요."],["핵심 한 문장?","관개가 요구한 대규모 협력이 복잡한 사회와 권력 집중을 낳았다."]],"vocab":[["unlock","드러내다·열다"],["agricultural","농업의"],["potential","잠재력"],["lay","있다·놓여 있다 (lie의 과거)"],["irrigation","관개"],["particularly","특히"]],"en":"The key to unlocking the agricultural potential of Mesopotamia lay in irrigation. Early Mesopotamians, particularly the Sumerians, were pioneers in developing sophisticated irrigation techniques. They constructed canals, dikes, and reservoirs to control the flow of the rivers, diverting water to their fields during dry periods and protecting their settlements from floods. This monumental effort required cooperation and organization on a scale previously unseen, leading to the development of complex social structures and the rise of powerful city-states. Early irrigation was relatively small-scale, involving the digging of simple channels to divert water to nearby fields. Over time, these systems became more elaborate, with complex networks of canals spanning vast distances. The construction and maintenance of these systems required a significant labor force, which was often organized and directed by temple priests or powerful leaders. This centralized control over water resources provided a basis for political power and social hierarchy.","ko":"메소포타미아의 농업 잠재력을 드러내는 열쇠는 관개에 있었다. 초기 메소포타미아인들, 특히 수메르인들은 정교한 관개 기술을 개발하는 데 선구자였다. 그들은 강의 흐름을 통제하기 위해 운하, 제방, 저수지를 건설하여, 건기에는 물을 경작지로 돌리고, 홍수로부터 그들의 정착지를 보호했다. 이러한 거대한 노력에는 전에 본 적이 없는 규모의 협력과 조직이 필요했으며, 이는 복잡한 사회 구조의 발달과 강력한 도시 국가의 등장으로 이어졌다. 초기의 관개는 비교적 소규모로, 가까운 경작지로 물을 돌리기 위해 단순한 수로를 파는 것을 포함했다. 시간이 지나면서 이러한 시스템은 더 정교해져 복잡한 운하망이 아주 먼 거리까지 뻗게 되었다. 이러한 시스템의 건설과 유지에는 상당한 노동력이 필요했으며, 이는 흔히 사원 사제나 권력자들에 의해 조직되고 감독되었다. 수자원에 대한 이러한 중앙 집권화된 통제는 정치적 권력과 사회적 위계의 기반을 제공하였다.","read":[{"en":"The key to unlocking the agricultural potential of Mesopotamia lay in irrigation.","ko":"메소포타미아의 농업 잠재력을 드러내는 열쇠는 관개에 있었다.","chunks":[["The key to unlocking","드러내는 열쇠는"],["the agricultural potential of Mesopotamia","메소포타미아의 농업 잠재력을"],["lay in irrigation.","관개에 있었다."]]},{"en":"Early Mesopotamians, particularly the Sumerians, were pioneers in developing sophisticated irrigation techniques.","ko":"초기 메소포타미아인들, 특히 수메르인들은 정교한 관개 기술을 개발하는 데 선구자였다.","chunks":[["Early Mesopotamians,","초기 메소포타미아인들은,"],["particularly the Sumerians,","특히 수메르인들은,"],["were pioneers in developing","개발하는 데 있어 선구자였다"],["sophisticated irrigation techniques.","정교한 관개 기술을."]]},{"en":"They constructed canals, dikes, and reservoirs to control the flow of the rivers, diverting water to their fields during dry periods and protecting their settlements from floods.","ko":"그들은 강의 흐름을 통제하기 위해 운하, 제방, 저수지를 건설하여, 건기에는 물을 경작지로 돌리고, 홍수로부터 그들의 정착지를 보호했다.","chunks":[["They constructed canals, dikes, and reservoirs","그들은 운하, 제방, 저수지를 건설했다"],["to control the flow of the rivers,","강의 흐름을 통제하기 위해,"],["diverting water to their fields","경작지로 물을 돌리고"],["during dry periods","건기에는"],["and protecting their settlements from floods.","그리고 홍수로부터 정착지를 보호하면서."]]},{"en":"This monumental effort required cooperation and organization on a scale previously unseen, leading to the development of complex social structures and the rise of powerful city-states.","ko":"이러한 거대한 노력에는 전에 본 적이 없는 규모의 협력과 조직이 필요했으며, 이는 복잡한 사회 구조의 발달과 강력한 도시 국가의 등장으로 이어졌다.","chunks":[["This monumental effort required","이 거대한 노력은 ~을 필요로 했다"],["cooperation and organization","협력과 조직을"],["on a scale previously unseen,","이전에 보지 못한 규모의,"],["leading to the development of","~의 발달로 이어졌다"],["complex social structures","복잡한 사회 구조"],["and the rise of powerful city-states.","그리고 강력한 도시 국가의 등장."]]},{"en":"Early irrigation was relatively small-scale, involving the digging of simple channels to divert water to nearby fields.","ko":"초기의 관개는 비교적 소규모로, 가까운 경작지로 물을 돌리기 위해 단순한 수로를 파는 것을 포함했다.","chunks":[["Early irrigation was relatively small-scale,","초기 관개는 비교적 소규모였다,"],["involving the digging of simple channels","단순한 수로를 파는 것을 포함하여"],["to divert water to nearby fields.","가까운 경작지로 물을 돌리기 위해."]]},{"en":"Over time, these systems became more elaborate, with complex networks of canals spanning vast distances.","ko":"시간이 지나면서 이러한 시스템은 더 정교해져 복잡한 운하망이 아주 먼 거리까지 뻗게 되었다.","chunks":[["Over time,","시간이 지나면서,"],["these systems became more elaborate,","이러한 시스템은 더 정교해졌다,"],["with complex networks of canals","복잡한 운하망이"],["spanning vast distances.","아주 먼 거리까지 뻗으면서."]]},{"en":"The construction and maintenance of these systems required a significant labor force, which was often organized and directed by temple priests or powerful leaders.","ko":"이러한 시스템의 건설과 유지에는 상당한 노동력이 필요했으며, 이는 흔히 사원 사제나 권력자들에 의해 조직되고 감독되었다.","chunks":[["The construction and maintenance of these systems","이러한 시스템의 건설과 유지는"],["required a significant labor force,","상당한 노동력을 필요로 했다,"],["which was often organized and directed","이는 흔히 조직되고 감독되었다"],["by temple priests or powerful leaders.","사원 사제나 권력자들에 의해."]]},{"en":"This centralized control over water resources provided a basis for political power and social hierarchy.","ko":"수자원에 대한 이러한 중앙 집권화된 통제는 정치적 권력과 사회적 위계의 기반을 제공하였다.","chunks":[["This centralized control over water resources","수자원에 대한 이러한 중앙 집권화된 통제는"],["provided a basis for","~의 기반을 제공하였다"],["political power and social hierarchy.","정치적 권력과 사회적 위계의."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"관개가 만든 권력 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">관개가 만든 권력</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">핵심</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">관개 = 농업 잠재력의 열쇠</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">기술</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">운하·제방·저수지 강 흐름을 통제, 홍수 방지.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">필요</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">전례 없는 협력·조직</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">결과</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">복잡한 사회·도시국가 등장</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">권력</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">사제·권력자가 노동을 조직·감독 물 관리 → 권력 집중.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '관개 = 농업 잠재력의 열쇠'이고, 마지막은 '사제·권력자가 노동을 조직·감독'로 정리된다."},{"no":"9","title":"p38 (Exercise 9) 지문 ③ · Civilization as Exchange: The Enemy of Culture","ktitle":"문명 = 교류","field":"인문·사회","page":"p.38 Ex.9","oneline":"‘문화’가 농업(뿌리내림)이라면, ‘문명’은 교류다.","tldr":["‘문화’가 농업(뿌리내림)이라면, ‘문명’은 교류다.","교류로 사물을 ‘비교·선택’할 수 있게 된다.","그 결과 옛 방식을 버리고, 더 이상 예전의 내가 아니게 된다(탈출·해방)."],"analogy":"여러 곳 사람들과 ‘주고받다(교환)’ 보면 더 낫고 싼 것을 비교·선택하게 되죠. 문명은 그 교환을 통해 ‘예전의 우리’에 갇히지 않게 해 줘요 — 해방이자 동시에 불안이기도 하고요.","bg":"‘문화=농업(정착·뿌리), 문명=교류(이동·비교)’라는 대비. 교류가 비교·선택을 낳아 ‘탈출(자유)’을 주지만 동시에 불안하게도 한다는 글이에요.","flow":[{"kind":"비유","t":"문화 = 농업 / 문명 = 교류"},{"kind":"연결","t":"다른 사회와 연결 → 비교 가능"},{"kind":"선택","t":"더 낫고 싼 것을 고른다","d":"새로운 것·안 해본 것."},{"kind":"효과","t":"시야 확장·삶 향상"},{"kind":"결론","t":"문명 = 탈출·해방 (동시에 불안)","d":"더 이상 ‘지금의 나’일 필요 없음."}],"quiz":[["글에서 ‘문화’와 ‘문명’은 각각 무엇에 비유되나?","문화는 ‘농업(정착·뿌리)’, 문명은 ‘교류(이동·비교)’에 비유돼요."],["교류(문명)가 우리에게 주는 효과는?","비교·선택을 가능하게 해 시야를 넓히고 삶을 향상시키며, ‘옛 방식’에서 벗어나게 해요(해방이자 불안)."],["핵심 한 문장?","문명은 교류로 비교·선택을 낳아 우리를 옛 방식에서 벗어나게 한다."]],"vocab":[["metaphorical","은유적인·비유적인"],["basis","기반·기초"],["exchange","교류·교환"],["compare","비교하다"],["in relation to","~과 관련하여"],["option","선택지"]],"en":"If culture finds its metaphorical basis in agriculture, civilization finds it in exchange. When our society is connected to other societies, we are connected to other people, and we can suddenly compare things and judge them in relation to each other. As a result, we have a choice between better and cheaper options; we can pick the new and the never-before-tried. Such choices broaden our horizons and improve our lives. This is why civilization depends on the unencumbered circulation of goods, people, ideas, faiths, and ways of life. The consequences of such interaction may be unsettling, but they can also be liberating. We no longer have to be confined to, and carry the burden of, our culture, and we no longer have to be who we are. Civilization provides us with a means of escape. Or, differently put, exchange is the enemy of culture. When presented with alternatives, we give up our old ways. We no longer do the things we used to do and we are no longer quite the same people as before. This is how civilization undermines and destroys culture.","ko":"문화가 농업에서 그 은유적 기반을 찾는다면, 문명은 교류에서 그것을 찾는다. 우리 사회가 다른 사회와 연결될 때, 우리는 다른 사람들과 연결되며, 우리는 갑자기 사물들을 비교하고 서로 관련하여 판단할 수 있게 된다. 그 결과, 우리는 더 낫고 더 저렴한 선택지들 사이에서 선택하는데, 즉 우리는 새로운 것들과 전에는 한 번도 시도해 보지 못한 것들을 고를 수 있는 것이다. 그런 선택은 우리의 시야를 넓혀 주고 우리의 삶을 향상시킨다. 이 때문에 문명은 재화, 사람, 사상, 신앙, 그리고 생활방식의 방해받지 않는 순환에 의존한다. 이러한 상호 작용의 결과는 불안하게 할 수도 있지만, 동시에 해방감을 줄 수도 있다. 우리는 더 이상 우리 문화에 갇히거나 그것의 짐을 짊어져야만 할 필요가 없고, 더 이상 지금의 우리가 될 필요도 없다. 문명은 우리에게 탈출의 수단을 제공한다. 또는 달리 말하면, 교류는 문화의 적이다. 대안이 제시되는 경우, 우리는 오래된 방식을 포기한다. 우리는 더 이상 전에 했던 일을 하지 않으며, 더 이상 전과 완전히 같은 사람은 아니다. 이것이 문명이 문화를 약화시키고 파괴하는 방식이다.","read":[{"en":"If culture finds its metaphorical basis in agriculture, civilization finds it in exchange.","ko":"문화가 농업에서 그 은유적 기반을 찾는다면, 문명은 교류에서 그것을 찾는다.","chunks":[["If culture finds its metaphorical basis","문화가 그 은유적 기반을 찾는다면"],["in agriculture,","농업에서,"],["civilization finds it","문명은 그것을 찾는다"],["in exchange.","교류에서."]]},{"en":"When our society is connected to other societies, we are connected to other people, and we can suddenly compare things and judge them in relation to each other.","ko":"우리 사회가 다른 사회와 연결될 때, 우리는 다른 사람들과 연결되며, 우리는 갑자기 사물들을 비교하고 서로 관련하여 판단할 수 있게 된다.","chunks":[["When our society is connected to other societies,","우리 사회가 다른 사회와 연결될 때,"],["we are connected to other people,","우리는 다른 사람들과 연결되고,"],["and we can suddenly compare things","그리고 우리는 갑자기 사물들을 비교할 수 있다"],["and judge them","그리고 그것들을 판단할 수 있다"],["in relation to each other.","서로와 관련하여."]]},{"en":"As a result, we have a choice between better and cheaper options; we can pick the new and the never-before-tried.","ko":"그 결과, 우리는 더 낫고 더 저렴한 선택지들 사이에서 선택하는데, 즉 우리는 새로운 것들과 전에는 한 번도 시도해 보지 못한 것들을 고를 수 있는 것이다.","chunks":[["As a result,","그 결과,"],["we have a choice","우리는 선택권을 갖는다"],["between better and cheaper options;","더 낫고 더 저렴한 선택지들 사이에서;"],["we can pick the new","우리는 새로운 것을 고를 수 있다"],["and the never-before-tried.","그리고 한 번도 시도해 보지 못한 것을."]]},{"en":"Such choices broaden our horizons and improve our lives.","ko":"그런 선택은 우리의 시야를 넓혀 주고 우리의 삶을 향상시킨다.","chunks":[["Such choices broaden our horizons","그러한 선택은 우리의 시야를 넓혀 준다"],["and improve our lives.","그리고 우리의 삶을 향상시킨다."]]},{"en":"This is why civilization depends on the unencumbered circulation of goods, people, ideas, faiths, and ways of life.","ko":"이 때문에 문명은 재화, 사람, 사상, 신앙, 그리고 생활방식의 방해받지 않는 순환에 의존한다.","chunks":[["This is why","이 때문에"],["civilization depends on","문명은 ~에 의존한다"],["the unencumbered circulation of","~의 방해받지 않는 순환에"],["goods, people, ideas, faiths, and ways of life.","재화, 사람, 사상, 신앙, 그리고 생활방식의."]]},{"en":"The consequences of such interaction may be unsettling, but they can also be liberating.","ko":"이러한 상호 작용의 결과는 불안하게 할 수도 있지만, 동시에 해방감을 줄 수도 있다.","chunks":[["The consequences of such interaction","그러한 상호 작용의 결과는"],["may be unsettling,","불안하게 할 수도 있다,"],["but they can also be liberating.","그러나 동시에 해방감을 줄 수도 있다."]]},{"en":"We no longer have to be confined to, and carry the burden of, our culture, and we no longer have to be who we are.","ko":"우리는 더 이상 우리 문화에 갇히거나 그것의 짐을 짊어져야만 할 필요가 없고, 더 이상 지금의 우리가 될 필요도 없다.","chunks":[["We no longer have to be","우리는 더 이상 ~할 필요가 없다"],["confined to, and carry the burden of,","~에 갇히거나, ~의 짐을 짊어지지"],["our culture,","우리 문화의,"],["and we no longer have to be","그리고 우리는 더 이상 ~일 필요가 없다"],["who we are.","지금의 우리가."]]},{"en":"Civilization provides us with a means of escape.","ko":"문명은 우리에게 탈출의 수단을 제공한다.","chunks":[["Civilization provides us","문명은 우리에게 ~을 제공한다"],["with a means of escape.","탈출의 수단을."]]},{"en":"Or, differently put, exchange is the enemy of culture.","ko":"또는 달리 말하면, 교류는 문화의 적이다.","chunks":[["Or, differently put,","또는, 달리 말하면,"],["exchange is the enemy of culture.","교류는 문화의 적이다."]]},{"en":"When presented with alternatives, we give up our old ways.","ko":"대안이 제시되는 경우, 우리는 오래된 방식을 포기한다.","chunks":[["When presented with alternatives,","대안이 제시되면,"],["we give up our old ways.","우리는 오래된 방식을 포기한다."]]},{"en":"We no longer do the things we used to do and we are no longer quite the same people as before.","ko":"우리는 더 이상 전에 했던 일을 하지 않으며, 더 이상 전과 완전히 같은 사람은 아니다.","chunks":[["We no longer do","우리는 더 이상 ~을 하지 않는다"],["the things we used to do","예전에 하곤 했던 것들을"],["and we are no longer","그리고 우리는 더 이상 ~ 아니다"],["quite the same people as before.","전과 완전히 같은 사람."]]},{"en":"This is how civilization undermines and destroys culture.","ko":"이것이 문명이 문화를 약화시키고 파괴하는 방식이다.","chunks":[["This is how","이것이 ~하는 방식이다"],["civilization undermines and destroys culture.","문명이 문화를 약화시키고 파괴하는."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"문명 = 교류 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">문명 = 교류</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">비유</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">문화 = 농업 / 문명 = 교류</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">연결</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">다른 사회와 연결 → 비교 가능</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">선택</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">더 낫고 싼 것을 고른다 새로운 것·안 해본 것.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">효과</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">시야 확장·삶 향상</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">문명 = 탈출·해방 (동시에 불안) 더 이상 ‘지금의 나’일 필요 없음.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '문화 = 농업 / 문명 = 교류'이고, 마지막은 '문명 = 탈출·해방 (동시에 불안)'로 정리된다."},{"no":"10","title":"p39 (Exercise 10) 지문 ④ · Science and Democracy: Legitimacy by Representation","ktitle":"과학과 민주주의 = 대표성","field":"과학·정치철학","page":"p.39 Ex.10","oneline":"과학과 민주주의는 모두 ‘대표성’으로 권위를 정당화한다.","tldr":["과학과 민주주의는 모두 ‘대표성’으로 권위를 정당화한다.","대표는 곧 ‘단순화’라서 늘 ‘더 나은 대안’의 여지를 남긴다.","그래서 둘 다 비판·개선 메커니즘이 내장돼 있다."],"analogy":"지도가 실제 땅을 ‘대표(단순화)’하듯, 과학 이론과 정치 대표도 현실을 줄여 보여줘요. 줄였으니 ‘더 잘 줄이는 법’이 늘 가능 — 그래서 비판·개선이 내장돼 있죠.","bg":"과학과 민주주의가 ‘대표성(representation)’이라는 공통 원리로 작동한다는 글. 대표=단순화이므로 대안이 늘 가능하고, 비판적 개선이 내재돼 있어요.","flow":[{"kind":"공통점","t":"둘 다 ‘대표성’으로 권위 정당화"},{"kind":"한계","t":"대표는 결코 완벽·완전하지 않다"},{"kind":"핵심","t":"대표 = 단순화 → 대안 암시","d":"다른 단순화 방식이 늘 가능."},{"kind":"귀결","t":"무엇을 대표할지 끝없는 갈등"},{"kind":"결론","t":"비판적 평가 → 내장된 개선 메커니즘"}],"quiz":[["과학과 민주주의의 공통 원리는?","둘 다 ‘대표성(representation)’으로 권위가 정당화된다는 점이에요."],["‘대표는 단순화’라는 말이 함의하는 것은?","단순화 방식엔 늘 대안이 있어, 비판하고 개선할 여지가 내장돼 있다는 거예요."],["핵심 한 문장?","과학·민주주의는 ‘대표성(단순화)’에 기대고, 그래서 비판·개선이 내장돼 있다."]],"vocab":[["principle","원칙·원리"],["ideal","이상"],["oppose","반대하다"],["illegitimate","부당한·정당하지 않은"],["claim","주장"],["authority","권위"]],"en":"Science and democracy share important principles and ideals that oppose illegitimate claims for knowledge and power. The authority of both scientific knowledge and democratic governance is legitimated by representation. It is only when this representation is accepted as legitimate that it can support the authority of the knowledge claims made, or the authority of particular forms of governance. Representation is, however, never perfect or complete. Since both scientific practices and democratic governance, in principle, admit potential alternative representations, continuous struggles over what is represented and what is not can be foreseen. To represent means to simplify, which implies the existence of alternatives ─ alternative ways of simplifying complicated issues. This further means that both science and democracy have inbuilt mechanisms for improvement, which are based on critical assessments of existing representations.","ko":"과학과 민주주의는 지식과 권력에 대한 부당한 주장에 반대하는 중요한 원칙과 이상을 공유한다. 과학적 지식과 민주적 통치 둘 다의 권위는 대표성에 의해 정당화된다. 이 대표성이 정당한 것으로 받아들여질 때에만, 제시된 지식 주장의 권위, 혹은 특정한 통치 방식의 권위를 뒷받침할 수 있다. 하지만 대표성은 결코 완벽하거나 완전하지 않다. 과학 활동과 민주적 통치는 둘 다 '원칙적으로' 대안적 대표성의 가능성을 인정하기 때문에, 무엇이 대표되고 무엇이 대표되지 않는지를 둘러싼 지속적인 갈등이 예상될 수 있다. 대표한다는 것은 단순화하는 것을 의미하며, 이는 대안, 즉 복잡한 문제들을 단순화하는 대안 방식이 존재함을 암시한다. 이는 나아가 과학과 민주주의 둘 다 기존의 대표성에 대한 비판적 평가를 바탕으로 한 내재된 개선 메커니즘을 가지고 있다는 것을 의미한다.","read":[{"en":"Science and democracy share important principles and ideals that oppose illegitimate claims for knowledge and power.","ko":"과학과 민주주의는 지식과 권력에 대한 부당한 주장에 반대하는 중요한 원칙과 이상을 공유한다.","chunks":[["Science and democracy share","과학과 민주주의는 공유한다"],["important principles and ideals","중요한 원칙과 이상을"],["that oppose illegitimate claims","부당한 주장에 반대하는"],["for knowledge and power.","지식과 권력에 대한."]]},{"en":"The authority of both scientific knowledge and democratic governance is legitimated by representation.","ko":"과학적 지식과 민주적 통치 둘 다의 권위는 대표성에 의해 정당화된다.","chunks":[["The authority of both","둘 다의 권위는"],["scientific knowledge and democratic governance","과학 지식과 민주적 통치"],["is legitimated by representation.","대표성에 의해 정당화된다."]]},{"en":"It is only when this representation is accepted as legitimate that it can support the authority of the knowledge claims made, or the authority of particular forms of governance.","ko":"이 대표성이 정당한 것으로 받아들여질 때에만, 제시된 지식 주장의 권위, 혹은 특정한 통치 방식의 권위를 뒷받침할 수 있다.","chunks":[["It is only when","오직 ~할 때에만"],["this representation is accepted as legitimate","이 대표성이 정당한 것으로 받아들여질"],["that it can support","~이 뒷받침할 수 있다"],["the authority of the knowledge claims made,","제시된 지식 주장의 권위,"],["or the authority of particular forms of governance.","또는 특정 통치 방식의 권위를."]]},{"en":"Representation is, however, never perfect or complete.","ko":"하지만 대표성은 결코 완벽하거나 완전하지 않다.","chunks":[["Representation is, however,","하지만 대표성은"],["never perfect or complete.","결코 완벽하거나 완전하지 않다."]]},{"en":"Since both scientific practices and democratic governance, in principle, admit potential alternative representations, continuous struggles over what is represented and what is not can be foreseen.","ko":"과학 활동과 민주적 통치는 둘 다 '원칙적으로' 대안적 대표성의 가능성을 인정하기 때문에, 무엇이 대표되고 무엇이 대표되지 않는지를 둘러싼 지속적인 갈등이 예상될 수 있다.","chunks":[["Since both scientific practices and democratic governance,","과학 활동과 민주적 통치 둘 다,"],["in principle,","원칙적으로,"],["admit potential alternative representations,","잠재적인 대안적 대표성을 인정하기 때문에,"],["continuous struggles","지속적인 갈등이"],["over what is represented and what is not","무엇이 대표되고 무엇이 대표되지 않는지를 둘러싼"],["can be foreseen.","예상될 수 있다."]]},{"en":"To represent means to simplify, which implies the existence of alternatives ─ alternative ways of simplifying complicated issues.","ko":"대표한다는 것은 단순화하는 것을 의미하며, 이는 대안, 즉 복잡한 문제들을 단순화하는 대안 방식이 존재함을 암시한다.","chunks":[["To represent means to simplify,","대표한다는 것은 단순화한다는 것을 의미한다,"],["which implies the existence of alternatives","이는 대안의 존재를 암시한다"],["─ alternative ways of simplifying complicated issues.","즉 복잡한 문제들을 단순화하는 대안 방식들의."]]},{"en":"This further means that both science and democracy have inbuilt mechanisms for improvement, which are based on critical assessments of existing representations.","ko":"이는 나아가 과학과 민주주의 둘 다 기존의 대표성에 대한 비판적 평가를 바탕으로 한 내재된 개선 메커니즘을 가지고 있다는 것을 의미한다.","chunks":[["This further means that","이는 나아가 ~을 의미한다"],["both science and democracy have","과학과 민주주의 둘 다 가지고 있다는 것을"],["inbuilt mechanisms for improvement,","내재된 개선 메커니즘을,"],["which are based on","이는 ~에 기반한다"],["critical assessments of existing representations.","기존 대표성에 대한 비판적 평가에."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"과학과 민주주의 = 대표성 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">과학과 민주주의 = 대표성</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">공통점</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">둘 다 ‘대표성’으로 권위 정당화</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">한계</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">대표는 결코 완벽·완전하지 않다</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">핵심</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">대표 = 단순화 → 대안 암시 다른 단순화 방식이 늘 가능.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">귀결</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">무엇을 대표할지 끝없는 갈등</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">비판적 평가 → 내장된 개선 메커니즘</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '둘 다 ‘대표성’으로 권위 정당화'이고, 마지막은 '비판적 평가 → 내장된 개선 메커니즘'로 정리된다."},{"no":"11","title":"p40 (Exercise 11) 지문 ⑤ · Tropical Soils: Life Depends on Recycling Past Life","ktitle":"열대 토양 — 영양분은 식물에 있다","field":"생태·과학","page":"p.40 Ex.11","oneline":"열대는 비·풍화가 심해 영양분이 흙에서 씻겨 나간다.","tldr":["열대는 비·풍화가 심해 영양분이 흙에서 씻겨 나간다.","그래서 영양분은 ‘토양’이 아니라 ‘식물’에 저장·재활용된다.","고유 식생이 사라지면 토양 생산력도 함께 사라진다."],"analogy":"통장에 돈이 없고 ‘몸(식물)’에만 돈이 든 셈이에요. 그 몸(숲)을 베어내면 영양분 통장도 텅 비어, 몇십 년 안에 농사조차 안 됩니다.","bg":"열대 토양은 강우·풍화로 영양분이 씻겨 나가, 영양분이 ‘토양’이 아니라 ‘식물’에 저장·재활용된다는 생태 글. 산림 파괴 시 생산력이 급감해요.","flow":[{"kind":"배경","t":"열대 = 강우·풍화 ↑"},{"kind":"과정","t":"빗물이 영양분을 씻어 내림","d":"토양·암석에서 침출."},{"kind":"핵심","t":"영양분은 ‘식물’에 보존·재활용","d":"흙이 아니라 식생이 보관."},{"kind":"위험","t":"고유 식생 사라지면 생산력도 사라짐"},{"kind":"결론","t":"산림 파괴 후 수십 년 내 농사 불가"}],"quiz":[["열대 토양에서 영양분은 주로 어디에 있나?","‘토양(흙)’이 아니라 ‘식물 자체’에 저장·재활용돼 있어요."],["그래서 산림이 파괴되면 무슨 일이 생기나?","영양분이 식물과 함께 사라져, 수십 년 안에 작물·가축을 기를 수 없을 만큼 토양 생산력이 떨어져요."],["핵심 한 문장?","열대 토양의 영양분은 흙이 아닌 식물에 있어, 식생이 사라지면 생산력도 사라진다."]],"vocab":[["geology","지질·지질학"],["climate","기후"],["region","지역·지방·권역"],["sustained","지속적인·지속된"],["abundant","풍부한"],["rainfall","강우량"]],"en":"Differences in geology and climate make soils in different regions more or less capable of sustained agriculture. In particular, the abundant rainfall and high weathering rates on the gentle slopes of many tropical landscapes mean that after enough time, rainfall seeping into the ground leaches out almost all of the nutrients from both the soil and the weathered rocks beneath the soil. Once this happens, the lush vegetation essentially feeds on itself, retaining and recycling nutrients inherited from rocks weathered long ago. As most of the nutrients in these areas reside not in the soil but in the plants themselves, once the native vegetation disappears, so does the productive capacity of the soil. Often too few nutrients remain to support either crops or livestock within decades of deforestation. Nutrient-poor tropical soils illustrate the general rule that life depends on recycling past life.","ko":"지질과 기후의 차이는 여러 지역의 토양이 지속 가능한 농업을 하는 능력을 더 크거나 더 작게 만든다. 특히, 많은 열대 지형에 있는 완만한 경사면의 풍부한 강우량과 높은 풍화 속도는, 시간이 충분히 지나면, 땅속으로 스며드는 빗물이 토양과 토양 아래 풍화된 암석 둘 다에서 거의 모든 영양분을 침출시킨다는 것을 의미한다. 일단 이런 일이 발생하면, 울창한 식생은 본질적으로 스스로에 의존하여 살아가며, 오래전 풍화된 암석으로부터 물려받은 영양분을 보존하고 재활용하게 된다. 이 지역의 영양분 대부분이 토양이 아니라 식물 자체에 존재하기 때문에, 일단 고유 식생이 사라지면 토양의 생산력도 또한 사라진다. 산림이 파괴된 후 수십 년 안에 작물이나 가축을 기를 수 있을 만큼의 영양분이 거의 남지 않게 되는 경우가 흔하다. 영양분이 부족한 열대 토양은 생명체는 과거 생명체의 재활용에 의존한다는 일반적인 법칙을 보여 준다.","read":[{"en":"Differences in geology and climate make soils in different regions more or less capable of sustained agriculture.","ko":"지질과 기후의 차이는 여러 지역의 토양이 지속 가능한 농업을 하는 능력을 더 크거나 더 작게 만든다.","chunks":[["Differences in geology and climate","지질과 기후의 차이는"],["make soils in different regions","여러 지역의 토양을 ~하게 만든다"],["more or less capable of sustained agriculture.","지속 가능한 농업을 더 크거나 더 작게 할 수 있게."]]},{"en":"In particular, the abundant rainfall and high weathering rates on the gentle slopes of many tropical landscapes mean that after enough time, rainfall seeping into the ground leaches out almost all of the nutrients from both the soil and the weathered rocks beneath the soil.","ko":"특히, 많은 열대 지형에 있는 완만한 경사면의 풍부한 강우량과 높은 풍화 속도는, 시간이 충분히 지나면, 땅속으로 스며드는 빗물이 토양과 토양 아래 풍화된 암석 둘 다에서 거의 모든 영양분을 침출시킨다는 것을 의미한다.","chunks":[["In particular,","특히,"],["the abundant rainfall and high weathering rates","풍부한 강우량과 높은 풍화 속도는"],["on the gentle slopes of many tropical landscapes","많은 열대 지형의 완만한 경사면에 있는"],["mean that after enough time,","시간이 충분히 지나면 ~을 의미한다"],["rainfall seeping into the ground","땅속으로 스며드는 빗물이"],["leaches out almost all of the nutrients","거의 모든 영양분을 침출시킨다"],["from both the soil and the weathered rocks","토양과 풍화된 암석 둘 다에서"],["beneath the soil.","토양 아래의."]]},{"en":"Once this happens, the lush vegetation essentially feeds on itself, retaining and recycling nutrients inherited from rocks weathered long ago.","ko":"일단 이런 일이 발생하면, 울창한 식생은 본질적으로 스스로에 의존하여 살아가며, 오래전 풍화된 암석으로부터 물려받은 영양분을 보존하고 재활용하게 된다.","chunks":[["Once this happens,","일단 이런 일이 발생하면,"],["the lush vegetation essentially feeds on itself,","울창한 식생은 본질적으로 스스로에 의존하여 살아가며,"],["retaining and recycling nutrients","영양분을 보존하고 재활용하면서"],["inherited from rocks weathered long ago.","오래전 풍화된 암석으로부터 물려받은."]]},{"en":"As most of the nutrients in these areas reside not in the soil but in the plants themselves, once the native vegetation disappears, so does the productive capacity of the soil.","ko":"이 지역의 영양분 대부분이 토양이 아니라 식물 자체에 존재하기 때문에, 일단 고유 식생이 사라지면 토양의 생산력도 또한 사라진다.","chunks":[["As most of the nutrients in these areas","이 지역의 영양분 대부분이"],["reside not in the soil but in the plants themselves,","토양이 아니라 식물 자체에 존재하기 때문에,"],["once the native vegetation disappears,","일단 고유 식생이 사라지면,"],["so does the productive capacity of the soil.","토양의 생산력도 또한 그러하다."]]},{"en":"Often too few nutrients remain to support either crops or livestock within decades of deforestation.","ko":"산림이 파괴된 후 수십 년 안에 작물이나 가축을 기를 수 있을 만큼의 영양분이 거의 남지 않게 되는 경우가 흔하다.","chunks":[["Often too few nutrients remain","흔히 너무 적은 영양분만이 남는다"],["to support either crops or livestock","작물이나 가축을 기를 만큼"],["within decades of deforestation.","산림이 파괴된 후 수십 년 안에."]]},{"en":"Nutrient-poor tropical soils illustrate the general rule that life depends on recycling past life.","ko":"영양분이 부족한 열대 토양은 생명체는 과거 생명체의 재활용에 의존한다는 일반적인 법칙을 보여 준다.","chunks":[["Nutrient-poor tropical soils","영양분이 부족한 열대 토양은"],["illustrate the general rule","일반적인 법칙을 보여 준다"],["that life depends on recycling past life.","생명체는 과거 생명체의 재활용에 의존한다는."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"열대 토양 — 영양분은 식물에 있다 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">열대 토양 — 영양분은 식물에 있다</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">배경</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">열대 = 강우·풍화 ↑</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">과정</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">빗물이 영양분을 씻어 내림 토양·암석에서 침출.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">핵심</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">영양분은 ‘식물’에 보존·재활용 흙이 아니라 식생이 보관.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">위험</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">고유 식생 사라지면 생산력도 사라짐</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">산림 파괴 후 수십 년 내 농사 불가</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '열대 = 강우·풍화 ↑'이고, 마지막은 '산림 파괴 후 수십 년 내 농사 불가'로 정리된다."},{"no":"12","title":"p41 (Exercise 12) 지문 ⑥ · Trust on a Team: Sharing Information Builds the Inner Circle","ktitle":"신뢰 = 정보 공유","field":"조직·경영","page":"p.41 Ex.12","oneline":"팀의 신뢰는 ‘정보를 얼마나 공유하느냐’로 드러난다.","tldr":["팀의 신뢰는 ‘정보를 얼마나 공유하느냐’로 드러난다.","리더가 기밀(재정·예산·경쟁사 데이터)까지 나누면 신뢰의 신호다.","그러면 팀은 ‘핵심 집단(안쪽)에 속한다’고 느낀다."],"analogy":"친구가 비밀까지 털어놓으면 ‘날 진짜 믿는구나’ 싶죠. 팀도 똑같아요 — 리더가 예산·기밀까지 공유하면 ‘우리가 안쪽 사람’이라는 신뢰가 생겨요.","bg":"‘지식은 힘’ — 정보 공유 정도가 팀 신뢰의 척도라는 경영 글. 리더가 재정·예산·경쟁사 데이터까지 공유하면 팀의 소속감·신뢰가 커져요.","flow":[{"kind":"전제","t":"지식은 힘이다"},{"kind":"척도","t":"신뢰 = 정보 공유 정도","d":"혼자만 앎(낮음) ↔ 공개 공유(높음)."},{"kind":"신호","t":"리더가 기밀까지 공유 = 신뢰의 신호","d":"재정·예산·경쟁사 데이터까지."},{"kind":"효과","t":"팀이 ‘핵심 집단’ 소속감을 느낌"},{"kind":"결론","t":"공유가 신뢰를 키운다"}],"quiz":[["팀의 신뢰를 측정하는 한 가지 방법은?","사람들이 정보를 ‘혼자만 아는지(낮은 신뢰) vs 공개적으로 공유하는지(높은 신뢰)’를 보는 거예요."],["리더가 기밀까지 공유하면 무슨 효과가 있나?","팀에게 ‘너희를 신뢰한다’는 신호가 되어, 팀이 ‘핵심 집단(안쪽)에 속한다’고 느껴요."],["핵심 한 문장?","정보를 얼마나 공유하느냐가 팀 신뢰의 척도다."]],"vocab":[["measure","측정하다·평가하다"],["amount","양·정도"],["trust","신뢰"],["keep to oneself","자신만 알고 있다·혼자만 간직하다"],["openly","공개적으로"],["signal","신호를 보내다·시사하다"]],"en":"Knowledge is power. And one way to measure the amount of trust on a team is by looking at how much information people keep to themselves (low trust) or share openly (high trust). Team leaders signal that they trust their team when they share privileged information with them. This could be sharing the team's finances, or the budget handed down from higher-ups, so that the whole team knows what they're working with and where the priorities are. It could also be competitive data or customer trends that are widely available but rarely shared. It could even be passing on information shared by another team. In a meeting, any time someone says, \"This stays here,\" the atmosphere changes. People know whatever follows is spoken in trust, and they respond to that feeling of being trusted with trustworthy behavior. People begin to feel like they're in the inner circle when they receive more information about their work or the environment than they usually do. They start to see how their work fits into the larger organizational whole.","ko":"지식은 힘이다. 그리고 팀 내에서 신뢰의 정도를 측정하는 한 가지 방법은 사람들이 얼마나 많은 정보를 자신만 알고 있는가(낮은 신뢰), 아니면 공개적으로 공유하는가(높은 신뢰)를 보는 것이다. 팀 리더들이 팀원들과 기밀 정보를 공유할 때, 그들은 자신들이 팀을 신뢰한다는 신호를 보내는 것이다. 이것은 팀의 재정 또는 상부에서 내려온 예산을 공유하는 것일 수도 있을 것이며, 그리하여 팀 전체가 자신들이 무슨 일을 하고 있는지 그리고 우선 순위가 어디에 있는지를 안다. 그것은 또한 널리 이용 가능하지만, 잘 공유되지 않는 경쟁사 데이터나 고객 동향일 수도 있다. 그것은 심지어 다른 팀에서 공유된 정보를 전달하는 것일 수도 있다. 회의할 때 어떤 사람이 \"이것은 여기서만 하는 말입니다.\"라고 말할 때는 언제나 분위기가 달라진다. 사람들은 이어지는 말이 무엇이든 그것이 신뢰 속에서 하는 말임을 알며, 그래서 그들은 신뢰받는다는 느낌에 대하여 신뢰할 만한 행동으로 반응한다. 사람들은 자신의 업무나 환경에 대해 평소보다 더 많은 정보를 받게 되면, 자신이 조직 내부의 핵심 집단에 들어와 있다는 느낌을 받기 시작한다. 그들은 자신의 업무가 더 큰 조직 전체에서 어떻게 맞물리는지를 살피기 시작한다.","read":[{"en":"Knowledge is power.","ko":"지식은 힘이다.","chunks":[["Knowledge is power.","지식은 힘이다."]]},{"en":"And one way to measure the amount of trust on a team is by looking at how much information people keep to themselves (low trust) or share openly (high trust).","ko":"그리고 팀 내에서 신뢰의 정도를 측정하는 한 가지 방법은 사람들이 얼마나 많은 정보를 자신만 알고 있는가(낮은 신뢰), 아니면 공개적으로 공유하는가(높은 신뢰)를 보는 것이다.","chunks":[["And one way","그리고 한 가지 방법은"],["to measure the amount of trust on a team","팀 내 신뢰의 정도를 측정하는"],["is by looking at","~을 봄으로써이다"],["how much information","얼마나 많은 정보를"],["people keep to themselves (low trust)","사람들이 자신만 알고 있는가 (낮은 신뢰)"],["or share openly (high trust).","또는 공개적으로 공유하는가 (높은 신뢰)를."]]},{"en":"Team leaders signal that they trust their team when they share privileged information with them.","ko":"팀 리더들이 팀원들과 기밀 정보를 공유할 때, 그들은 자신들이 팀을 신뢰한다는 신호를 보내는 것이다.","chunks":[["Team leaders signal that","팀 리더들은 ~을 신호로 보낸다"],["they trust their team","자신이 팀을 신뢰한다는 것을"],["when they share privileged information with them.","팀원들과 기밀 정보를 공유할 때."]]},{"en":"This could be sharing the team's finances, or the budget handed down from higher-ups, so that the whole team knows what they're working with and where the priorities are.","ko":"이것은 팀의 재정 또는 상부에서 내려온 예산을 공유하는 것일 수도 있을 것이며, 그리하여 팀 전체가 자신들이 무슨 일을 하고 있는지 그리고 우선 순위가 어디에 있는지를 안다.","chunks":[["This could be sharing","이것은 ~을 공유하는 것일 수도 있다"],["the team's finances,","팀의 재정,"],["or the budget handed down from higher-ups,","또는 상부에서 내려온 예산을,"],["so that the whole team knows","팀 전체가 알 수 있도록"],["what they're working with","자신들이 무엇으로 일하고 있는지"],["and where the priorities are.","그리고 우선 순위가 어디에 있는지."]]},{"en":"It could also be competitive data or customer trends that are widely available but rarely shared.","ko":"그것은 또한 널리 이용 가능하지만, 잘 공유되지 않는 경쟁사 데이터나 고객 동향일 수도 있다.","chunks":[["It could also be","그것은 또한 ~일 수도 있다"],["competitive data or customer trends","경쟁사 데이터 또는 고객 동향"],["that are widely available","널리 이용 가능하지만"],["but rarely shared.","잘 공유되지 않는."]]},{"en":"It could even be passing on information shared by another team.","ko":"그것은 심지어 다른 팀에서 공유된 정보를 전달하는 것일 수도 있다.","chunks":[["It could even be","그것은 심지어 ~일 수도 있다"],["passing on information","정보를 전달하는 것"],["shared by another team.","다른 팀에 의해 공유된."]]},{"en":"In a meeting, any time someone says, \"This stays here,\" the atmosphere changes.","ko":"회의할 때 어떤 사람이 \"이것은 여기서만 하는 말입니다.\"라고 말할 때는 언제나 분위기가 달라진다.","chunks":[["In a meeting,","회의 중에,"],["any time someone says,","누군가가 ~라고 말할 때마다,"],["\"This stays here,\"","\"이것은 여기서만 하는 말입니다,\""],["the atmosphere changes.","분위기가 달라진다."]]},{"en":"People know whatever follows is spoken in trust, and they respond to that feeling of being trusted with trustworthy behavior.","ko":"사람들은 이어지는 말이 무엇이든 그것이 신뢰 속에서 하는 말임을 알며, 그래서 그들은 신뢰받는다는 느낌에 대하여 신뢰할 만한 행동으로 반응한다.","chunks":[["People know","사람들은 안다"],["whatever follows is spoken in trust,","이어지는 것이 무엇이든 신뢰 속에서 하는 말이라는 것을,"],["and they respond to","그리고 그들은 ~에 반응한다"],["that feeling of being trusted","신뢰받는다는 그 느낌에"],["with trustworthy behavior.","신뢰할 만한 행동으로."]]},{"en":"People begin to feel like they're in the inner circle when they receive more information about their work or the environment than they usually do.","ko":"사람들은 자신의 업무나 환경에 대해 평소보다 더 많은 정보를 받게 되면, 자신이 조직 내부의 핵심 집단에 들어와 있다는 느낌을 받기 시작한다.","chunks":[["People begin to feel like","사람들은 ~인 것처럼 느끼기 시작한다"],["they're in the inner circle","자신이 핵심 집단에 있는"],["when they receive more information","그들이 더 많은 정보를 받을 때"],["about their work or the environment","자신의 업무나 환경에 대해"],["than they usually do.","평소보다."]]},{"en":"They start to see how their work fits into the larger organizational whole.","ko":"그들은 자신의 업무가 더 큰 조직 전체에서 어떻게 맞물리는지를 살피기 시작한다.","chunks":[["They start to see","그들은 살피기 시작한다"],["how their work fits into","자신의 업무가 어떻게 ~에 맞물리는지"],["the larger organizational whole.","더 큰 조직 전체에."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"신뢰 = 정보 공유 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">신뢰 = 정보 공유</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">전제</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">지식은 힘이다</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">척도</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">신뢰 = 정보 공유 정도 혼자만 앎(낮음) ↔ 공개 공유(높음).</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">신호</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">리더가 기밀까지 공유 = 신뢰의 신호 재정·예산·경쟁사 데이터까지.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">효과</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">팀이 ‘핵심 집단’ 소속감을 느낌</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">공유가 신뢰를 키운다</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '지식은 힘이다'이고, 마지막은 '공유가 신뢰를 키운다'로 정리된다."}]};
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function renderTabs() {
+  const tabs = P.data.map((d, i) =>
+    `<button class="tab${i===0?' active':''}" data-t="${d.no}">
+       <span class="tab-no">${d.no}</span>
+       <span class="tab-field">${d.field}</span>
+     </button>`).join('');
+  document.getElementById('tabs').innerHTML = tabs;
+}
+
+function renderTLDR(d) {
+  if (!d.tldr || !d.tldr.length) return '';
+  const items = d.tldr.map(t => `<li>${t}</li>`).join('');
+  return `<details class="tool" data-tool="tldr" open>
+    <summary>
+      <span class="ticon">B</span>
+      <span class="tname">핵심 요약</span>
+      <span class="thint">— 읽고 나서 핵심 정리</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><ol class="tldr">${items}</ol></div>
+  </details>`;
+}
+
+function renderAnalogy(d) {
+  if (!d.analogy) return '';
+  return `<details class="tool" data-tool="analogy">
+    <summary>
+      <span class="ticon">B</span>
+      <span class="tname">이게 무슨 말이냐면</span>
+      <span class="thint">— 일상 비유</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><p class="callout analogy">${d.analogy}</p></div>
+  </details>`;
+}
+
+function renderBG(d) {
+  if (!d.bg && !d.analogy) return '';
+  const bg = d.bg ? `<p class="callout bg">${d.bg}</p>` : '';
+  const analogy = d.analogy ? `<p class="callout analogy"><b>비유로 보면</b><br>${d.analogy}</p>` : '';
+  return `<details class="tool" data-tool="bg">
+    <summary>
+      <span class="ticon">A</span>
+      <span class="tname">읽기 전 30초</span>
+      <span class="thint">— 배경 개념과 읽는 방향</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${bg}${analogy}</div>
+  </details>`;
+}
+
+function renderFlow(d) {function renderFlow(d) {
+  if (!d.flow || !d.flow.length) return '';
+  let body = '<div class="flow">';
+  d.flow.forEach((s, i) => {
+    const cls = s.cls ? ' ' + s.cls : '';
+    body += `<div class="flow-step${cls}">
+      <div class="kind">${s.kind}</div>
+      <div class="body">
+        <div class="t">${s.t}</div>
+        ${s.d ? `<div class="d">${s.d}</div>` : ''}
+      </div>
+    </div>`;
+    if (i < d.flow.length - 1) body += '<div class="flow-arrow">▼</div>';
+  });
+  body += '</div>';
+  return `<details class="tool" data-tool="flow">
+    <summary>
+      <span class="ticon">C</span>
+      <span class="tname">논리 흐름</span>
+      <span class="thint">— 글의 전개</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}</div>
+  </details>`;
+}
+
+function renderQuiz(d) {
+  if (!d.quiz || !d.quiz.length) return '';
+  const items = d.quiz.map((q, i) =>
+    `<details class="quiz-item">
+      <summary>
+        <span class="qn">Q${i+1}</span>
+        <span>${q[0]}</span>
+        <span class="qarr">정답 ▾</span>
+      </summary>
+      <div class="qa">${q[1]}</div>
+    </details>`).join('');
+  return `<details class="tool" data-tool="quiz">
+    <summary>
+      <span class="ticon">D</span>
+      <span class="tname">확인 퀴즈</span>
+      <span class="thint">— 스스로 점검</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${items}</div>
+  </details>`;
+}
+
+function renderRead(d) {
+  if (!d.read || !d.read.length) return '';
+  let body = '';
+  d.read.forEach(r => {
+    let chunks = '';
+    if (r.chunks && r.chunks.length) {
+      chunks = '<div class="chunks">' + r.chunks.map(ch =>
+        `<div class="chunk"><div class="ce">${ch[0]}</div><div class="ck">${ch[1]}</div></div>`
+      ).join('') + '</div>';
+    }
+    body += `<div class="read-sent">
+      <div class="en">${r.en}</div>
+      ${chunks}
+      <div class="ko"><b>전체 해석:</b> ${r.ko}</div>
+    </div>`;
+  });
+  let vocab = '';
+  if (d.vocab && d.vocab.length) {
+    vocab = '<div class="vocab"><div class="vlabel">핵심 어휘</div>' +
+      d.vocab.map(v => `<div class="chip"><b>${v[0]}</b><span>${v[1]}</span></div>`).join('') +
+      '</div>';
+  }
+  return `<details class="tool" data-tool="read">
+    <summary>
+      <span class="ticon">E</span>
+      <span class="tname">끊어읽기 + 어휘</span>
+      <span class="thint">— 문장 단위</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}${vocab}</div>
+  </details>`;
+}
+
+function renderSource(d) {
+  if (!d.en && !d.ko) return '';
+  return `<details class="tool" data-tool="source">
+    <summary>
+      <span class="ticon">F</span>
+      <span class="tname">영어 원문 + 해석</span>
+      <span class="thint">— 시험 직전 점검용</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">
+      <div class="src">
+        <div class="en">${d.en}</div>
+        <div class="ko">${d.ko}</div>
+      </div>
+    </div>
+  </details>`;
+}
+
+function renderPassage(d, idx) {
+  let html = `<section class="passage${idx===0?' active':''}" id="p${d.no}">`;
+  html += `<div class="p-head">
+    <span class="field">${d.field}</span>
+    <h2>${d.title}</h2>
+    <p class="p-kt">${d.ktitle}</p>
+    <p class="p-page">${d.page}</p>
+  </div>`;
+  html += `<div class="oneline">${d.oneline}</div>`;
+  if (d.metaphor) {
+    html += `<div class="metaphor">
+      <div class="m-head">
+        <span class="label">중심 비유</span>
+        <span class="sub">visual metaphor</span>
+      </div>
+      <figure>
+        ${d.metaphor}
+        ${d.caption ? `<figcaption>${d.caption}</figcaption>` : ''}
+      </figure>
+    </div>`;
+  }
+  html += `<div class="tools-intro">막힌 곳만 펴 보세요 · <b>도구 상자</b></div>`;
+  html += renderBG(d);
+  html += renderTLDR(d);
+  html += renderFlow(d);
+  html += renderQuiz(d);
+  html += renderRead(d);
+  html += renderSource(d);
+  html += `</section>`;
+  return html;
+}
+
+renderTabs();
+document.getElementById('main').innerHTML = P.data.map((d, i) => renderPassage(d, i)).join('');
+
+/* 탭 클릭 */
+document.querySelectorAll('.tab').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.passage').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('p' + b.dataset.t).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

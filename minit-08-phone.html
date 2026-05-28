@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>지문 이해 보조 자료 · 미닛15 8회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   김가영어학원 · KIM KA YOUNG ENGLISH
+   수능특강 영어독해연습 08강 지문 이해 — 도구 상자(Toolbox) 디지털 자료
+   Brand v2.1 · System B (학습자료 본문 전용)
+   ============================================================ */
+
+:root {
+  --paper:    #ffffff;
+  --ink:      #1a1a1a;
+  --ink-80:   #333333;
+  --ink-60:   #5e5e5e;
+  --ink-40:   #999999;
+  --ink-20:   #cccccc;
+  --ink-10:   #e8e8e8;
+  --ink-05:   #f6f6f6;
+  --red:      #c8102e;
+  --red-tint: #fdf2f4;
+  --green:    #1FA34A;
+  --green-tint: #f0faf3;
+  --serif-kr: 'Noto Serif KR', serif;
+  --serif-en: 'Noto Serif', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--serif-kr);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+em { font-family: var(--serif-en); font-style: italic; }
+.en { font-family: var(--serif-en); }
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 18px 18px 80px;
+}
+
+/* ============================================================
+   학원 브랜드 헤더
+   ============================================================ */
+.brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: 4px;
+}
+.brand .b-title h1 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.brand .b-title .b-sub {
+  font-size: 11px;
+  color: var(--ink-60);
+  margin-top: 2px;
+  font-family: var(--serif-en);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+.brand .b-meta {
+  font-size: 11.5px;
+  color: var(--ink-60);
+  text-align: right;
+  line-height: 1.5;
+}
+.brand .b-meta .en { font-style: italic; }
+
+/* ============================================================
+   사용 안내 (도구 상자 가이드)
+   ============================================================ */
+.guide {
+  background: var(--ink-05);
+  border-left: 3px solid var(--red);
+  padding: 13px 16px 12px;
+  margin: 14px 0;
+  border-radius: 0 4px 4px 0;
+}
+.guide .g-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 9px;
+  font-family: var(--serif-kr);
+}
+.guide .g-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.guide .g-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+.guide .g-when {
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: var(--ink);
+  min-width: 96px;
+}
+.guide .g-sep {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  flex: 0 0 auto;
+}
+.guide .g-tools {
+  color: var(--ink-80);
+  flex: 1;
+}
+.guide .g-tools .k {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 12px;
+  padding: 0 3px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 3px;
+  margin-right: 2px;
+}
+.guide .g-note {
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+  font-size: 12px;
+  color: var(--ink-60);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.guide .g-note b { color: var(--red); }
+
+/* ============================================================
+   탭 (지문 선택)
+   ============================================================ */
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink-10);
+  z-index: 10;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 10px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 0 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 5px;
+  padding: 7px 12px 5px;
+  font-family: var(--serif-kr);
+  color: var(--ink-60);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  min-width: 78px;
+}
+.tab .tab-no {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.tab .tab-field {
+  display: block;
+  font-size: 10.5px;
+  color: var(--ink-40);
+  margin-top: 1px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.tab:hover { border-color: var(--ink-60); color: var(--ink); }
+.tab.active {
+  background: var(--red-tint);
+  border-color: var(--red);
+  color: var(--red);
+}
+.tab.active .tab-field { color: var(--red); }
+
+/* ============================================================
+   PASSAGE PANEL
+   ============================================================ */
+.passage { display: none; padding-top: 18px; }
+.passage.active { display: block; animation: fadeIn 0.22s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.p-head .field {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--red);
+  border: 0.7px solid var(--red);
+  padding: 2px 8px;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+.p-head h2 {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.p-head .p-kt {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.p-head .p-page {
+  font-size: 10.5px;
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  letter-spacing: 0.12em;
+  margin-top: 5px;
+}
+
+/* ============================================================
+   한 줄 핵심 (anchor)
+   ============================================================ */
+.oneline {
+  margin: 18px 0 22px;
+  padding: 16px 18px 17px;
+  background: var(--ink-05);
+  border-left: 3px solid var(--ink);
+  border-radius: 0 6px 6px 0;
+  font-size: 17.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  word-break: keep-all;
+  letter-spacing: -0.005em;
+}
+.oneline::before {
+  content: "한 줄 핵심";
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 7px;
+}
+.oneline .r { color: var(--red); font-weight: 700; }
+.oneline .g { color: var(--green); font-weight: 700; }
+.oneline em { font-style: italic; }
+
+/* ============================================================
+   메타포 SVG (지문별 한 컷 — 항상 펼쳐짐)
+   ============================================================ */
+.metaphor {
+  margin: 20px 0 22px;
+  border: 1px solid var(--ink-20);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.metaphor .m-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--ink-10);
+  background: var(--ink-05);
+}
+.metaphor .m-head .label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--ink-60);
+}
+.metaphor .m-head .sub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-60);
+}
+.metaphor figure { padding: 18px 18px 14px; }
+.metaphor figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.metaphor figcaption {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-60);
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+  line-height: 1.55;
+}
+.metaphor figcaption .en { font-style: italic; color: var(--ink-80); }
+.metaphor figcaption .r { color: var(--red); font-weight: 700; }
+.metaphor figcaption .g { color: var(--green); font-weight: 700; }
+
+/* ============================================================
+   TOOLBOX 안내 라인
+   ============================================================ */
+.tools-intro {
+  font-size: 12px;
+  color: var(--ink-60);
+  letter-spacing: 0.04em;
+  margin: 18px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tools-intro::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--ink);
+  display: inline-block;
+}
+.tools-intro b { color: var(--ink); font-weight: 700; }
+
+/* ============================================================
+   도구 카드 (Tool) — 아코디언
+   ============================================================ */
+.tool {
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.tool[open] { border-color: var(--ink-80); }
+.tool > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+.tool > summary::-webkit-details-marker { display: none; }
+.tool > summary:hover { background: var(--ink-05); }
+.tool > summary .tname {
+  flex: 1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.tool > summary .thint {
+  font-size: 11.5px;
+  color: var(--ink-40);
+  font-weight: 400;
+}
+.tool > summary .arr {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  font-size: 11px;
+  transition: transform 0.2s;
+  flex: 0 0 auto;
+}
+.tool[open] > summary .arr { transform: rotate(90deg); color: var(--ink); }
+.tool > summary .ticon {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  background: var(--ink-05);
+  border: 0.7px solid var(--ink-20);
+}
+.tool[open] > summary .ticon {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.tool .body { padding: 4px 16px 18px; }
+
+/* ============================================================
+   도구별 컨텐츠 스타일
+   ============================================================ */
+
+/* 30초 요약 */
+.tldr {
+  list-style: none;
+  counter-reset: t;
+}
+.tldr li {
+  position: relative;
+  padding: 9px 0 9px 30px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  border-bottom: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+.tldr li:last-child { border-bottom: none; }
+.tldr li::before {
+  counter-increment: t;
+  content: counter(t);
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 20px;
+  height: 20px;
+  background: var(--paper);
+  border: 1px solid var(--green);
+  color: var(--green);
+  border-radius: 50%;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 비유 / 배경지식 */
+.callout {
+  font-size: 14.5px;
+  line-height: 1.7;
+  padding: 13px 15px;
+  border-radius: 6px;
+  word-break: keep-all;
+  background: var(--ink-05);
+}
+.callout.analogy { border-left: 3px solid var(--green); }
+.callout.bg      { border-left: 3px solid var(--ink); }
+.callout em { font-style: italic; }
+
+/* 논지 흐름 */
+.flow { display: flex; flex-direction: column; gap: 6px; }
+.flow-step {
+  display: flex;
+  gap: 12px;
+  padding: 12px 13px;
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  background: var(--paper);
+  align-items: flex-start;
+}
+.flow-step .kind {
+  flex: 0 0 60px;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 0;
+  text-align: center;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  background: var(--ink-05);
+  color: var(--ink-80);
+  border: 0.7px solid var(--ink-20);
+}
+.flow-step.pivot .kind {
+  background: var(--red-tint); color: var(--red); border-color: var(--red);
+}
+.flow-step.close .kind {
+  background: var(--green-tint); color: var(--green); border-color: var(--green);
+}
+.flow-step .body { flex: 1; }
+.flow-step .t {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.flow-step .t .r { color: var(--red); font-weight: 700; }
+.flow-step .t .g { color: var(--green); font-weight: 700; }
+.flow-step .d {
+  font-size: 12.5px;
+  color: var(--ink-60);
+  margin-top: 4px;
+  word-break: keep-all;
+}
+.flow-arrow {
+  text-align: center;
+  color: var(--ink-20);
+  font-size: 13px;
+  font-family: var(--serif-en);
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+/* 끊어읽기 */
+.read-sent {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 11px 13px 11px;
+  margin-bottom: 8px;
+  background: var(--paper);
+}
+.read-sent .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.read-sent .chunks {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+}
+.read-sent .chunk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px 16px;
+  padding: 3px 0;
+  font-size: 12.5px;
+  border-bottom: 1px dotted var(--ink-10);
+}
+.read-sent .chunk:last-child { border-bottom: none; }
+.read-sent .chunk .ce {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.read-sent .chunk .ck { color: var(--ink-60); word-break: keep-all; }
+.read-sent .ko {
+  margin-top: 9px;
+  padding: 7px 11px;
+  background: var(--ink-05);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--ink-80);
+  word-break: keep-all;
+  line-height: 1.6;
+}
+.read-sent .ko b { color: var(--ink); font-weight: 700; }
+
+/* 어휘 chip */
+.vocab {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--ink-10);
+}
+.vocab .vlabel {
+  width: 100%;
+  font-size: 11px;
+  color: var(--ink-60);
+  letter-spacing: 0.18em;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.vocab .chip {
+  font-size: 12.5px;
+  padding: 5px 9px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.vocab .chip b {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--red);
+  font-weight: 700;
+}
+.vocab .chip span { color: var(--ink-80); margin-left: 5px; }
+
+/* 퀴즈 */
+.quiz-item {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  margin-bottom: 6px;
+  background: var(--paper);
+}
+.quiz-item > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 11px 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.quiz-item > summary::-webkit-details-marker { display: none; }
+.quiz-item .qn {
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--green);
+  border-radius: 3px;
+  padding: 2px 6px;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+.quiz-item .qarr {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--green);
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 700;
+}
+.quiz-item[open] .qarr { visibility: hidden; }
+.quiz-item .qa {
+  padding: 0 13px 13px 44px;
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+.quiz-item .qa b { color: var(--green); font-weight: 700; }
+
+/* 영어 원문 + 한글 해석 */
+.src {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 14px 16px;
+}
+.src .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+.src .ko {
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.85;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot {
+  margin-top: 36px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink-10);
+  font-size: 10.5px;
+  color: var(--ink-40);
+  text-align: center;
+  font-family: var(--serif-kr);
+  letter-spacing: 0.03em;
+}
+.foot .pub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-60);
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 540px) {
+  .wrap { padding: 14px 13px 60px; }
+  .brand { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .brand .b-meta { text-align: left; }
+  .guide .g-row { flex-direction: column; gap: 1px; padding-bottom: 4px; }
+  .guide .g-row + .g-row { border-top: 1px dashed var(--ink-10); padding-top: 5px; }
+  .guide .g-when { font-size: 12px; min-width: 0; }
+  .guide .g-sep { display: none; }
+  .guide .g-tools { font-size: 12.5px; }
+  .p-head h2 { font-size: 20px; }
+  .oneline { font-size: 16px; padding: 14px 14px; }
+  .read-sent .chunk { grid-template-columns: 1fr; gap: 1px; }
+  .read-sent .chunk .ck { padding-left: 4px; color: var(--ink-60); font-size: 12px; }
+  .flow-step { padding: 10px 11px; gap: 9px; }
+  .flow-step .kind { flex-basis: 52px; font-size: 10.5px; }
+  .tool > summary { padding: 12px 13px; font-size: 14px; }
+  .tool > summary .thint { display: none; }
+  .metaphor figure { padding: 13px 13px 10px; }
+  .metaphor figcaption { font-size: 12px; }
+}
+</style>
+</head>
+<body class="dev-phone">
+<div class="wrap">
+
+<!-- 학원 브랜드 헤더 -->
+<header class="brand">
+  <div class="b-title">
+    <h1>지문 이해 보조 자료</h1>
+    <div class="b-sub">미닛15 8회</div>
+  </div>
+  <div class="b-meta">
+    김가영어학원<br>
+    <span class="en">KIM KA YOUNG ENGLISH</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs"></nav>
+
+<!-- 지문 패널 -->
+<main id="main"></main>
+
+<!-- 콜로폰 -->
+<footer class="foot">
+  김가영어학원 · KIM KA YOUNG ENGLISH &nbsp;·&nbsp; 지문 이해 보조 자료
+  <span class="pub">published by warm &amp; wise books</span>
+</footer>
+
+</div>
+
+<script>
+/* ============================================================
+   데이터 (P.data) — 미닛15 8회
+   각 지문에 metaphor(SVG 문자열) + caption 필드 추가
+   ============================================================ */
+const P = {"data":[{"no":"1","title":"Balancing Remote and In-Person Work","ktitle":"원격+대면을 ‘섞는’ 균형 근무","field":"사회·노동","page":"8회 01번","oneline":"팬데믹이 일하는 방식을 원격 근무로 바꿨다.","tldr":["팬데믹이 일하는 방식을 원격 근무로 바꿨다.","원격은 집중↑이지만 단절감·창의적 협업 어려움이 있다.","원격 유연성 + 전략적 대면을 ‘결합한’ 균형 틀이 필요하다."],"analogy":"화상으로만 회의하면 편하지만, 옆에서 툭 던지는 말로 아이디어가 터지는 순간은 사라지죠. 그래서 ‘집에서도 일하고, 필요할 땐 모이는’ 두 방식을 섞는 게 답이에요.","bg":"팬데믹이 원격 근무를 일상화했지만 완전 가상 환경은 한계(단절감·자발적 상호작용 부족)가 있어, 원격 유연성과 대면 협업을 결합한 ‘균형 잡힌 업무 틀’이 필요하다는 글이에요.","flow":[{"kind":"변화","t":"팬데믹 → 하룻밤 새 원격 근무"},{"kind":"장점","t":"방해 줄어 생산성↑"},{"kind":"한계","t":"단절감·창의적 협업 어려움","d":"기술도 ‘자발적 상호작용’은 복제 못 함."},{"kind":"경고","t":"팬데믹 이전으로 ‘그냥 복귀’는 교훈 낭비"},{"kind":"결론","t":"원격+대면 결합한 균형 틀이 답"}],"quiz":[["완전 원격 근무의 한계는?","집중은 잘 되지만 단절감이 생기고, 혁신을 낳는 ‘자발적 상호작용’을 기술이 복제하지 못해 창의적 협업이 어려워요."],["글이 제안하는 해법은?","원격의 유연성과 전략적 대면 협업을 ‘결합한’ 균형 잡힌 업무 틀을 만드는 거예요."],["핵심 한 문장?","원격과 대면을 결합한 균형 잡힌 업무 틀이 직원 행복과 조직 성공을 모두 이룬다."]],"vocab":[["remote operations","원격 근무·원격 운영"],["adaptability adapt","적응력"],["distraction distract","(집중) 방해 요소"],["spontaneous","자발적인·즉흥적인"],["squander","낭비하다"],["framework frame","틀·체계"],["foster","조성하다·기르다"]],"en":"The pandemic fundamentally changed the way we work, pushing many organizations into remote operations virtually overnight. While this shift demonstrated remarkable adaptability, it also revealed the limitations of fully virtual environments. Employees report increased productivity from fewer distractions, but many struggle with feelings of disconnection and difficulties in creative collaboration. Technology provides impressive connectivity tools but cannot replicate the spontaneous interactions that drive innovation. As pandemic restrictions ease, a simple return to pre-pandemic norms would squander valuable lessons learned. It is essential that organizations develop balanced work frameworks that combine remote flexibility with strategic face-to-face collaboration. By creating structured opportunities for in-person teamwork while maintaining remote work options, companies can foster both employee well-being and organizational success in this new era.","ko":"전 세계적인 유행병은 우리가 일하는 방식을 근본적으로 바꾸어, 많은 조직이 사실상 하룻밤 사이에 원격 근무로 전환했다. 이러한 변화는 놀라운 적응력을 보여 주었지만, 그것은 또한 완전한 가상 환경의 한계도 드러냈다. 직원들은 (집중) 방해 요소가 줄어들어 생산성이 높아졌다고 보고하지만, 많은 이들은 단절감과 창의적인 협업의 어려움을 겪고 있다. 기술은 인상적인 연결 도구를 제공하지만 혁신을 추진하는 자발적인 상호 작용을 복제할 수는 없다. 전 세계적인 유행병으로 인한 제한이 완화됨에 따라, 단순히 전 세계적인 유행병 이전의 근무 방식으로 돌아가는 것은 그동안 얻었던 소중한 교훈을 낭비하는 것이다. 조직이 원격 (근무의) 유연성과 전략적 대면 협업을 결합한 균형 잡힌 업무 틀을 개발하는 것이 필수적이다. 원격 근무 선택 사항을 유지함과 동시에 대면 팀워크를 위한 구조화된 기회를 창출함으로써, 기업은 이러한 새로운 시대에 직원의 행복과 조직의 성공을 모두 조성할 수 있다.","read":[{"en":"The pandemic fundamentally changed the way we work, pushing many organizations into remote operations virtually overnight.","ko":"전 세계적인 유행병은 우리가 일하는 방식을 근본적으로 바꾸어, 많은 조직이 사실상 하룻밤 사이에 원격 근무로 전환했다.","chunks":[["The pandemic fundamentally changed","전 세계적인 유행병은 근본적으로 바꾸었다"],["the way we work,","우리가 일하는 방식을,"],["pushing many organizations","많은 조직을 밀어 넣으면서"],["into remote operations virtually overnight.","사실상 하룻밤 사이에 원격 근무로."]]},{"en":"While this shift demonstrated remarkable adaptability, it also revealed the limitations of fully virtual environments.","ko":"이러한 변화는 놀라운 적응력을 보여 주었지만, 그것은 또한 완전한 가상 환경의 한계도 드러냈다.","chunks":[["While this shift demonstrated","이러한 변화는 보여 주었지만"],["remarkable adaptability,","놀라운 적응력을,"],["it also revealed","그것은 또한 드러냈다"],["the limitations of fully virtual environments.","완전한 가상 환경의 한계를."]]},{"en":"Employees report increased productivity from fewer distractions, but many struggle with feelings of disconnection and difficulties in creative collaboration.","ko":"직원들은 (집중) 방해 요소가 줄어들어 생산성이 높아졌다고 보고하지만, 많은 이들은 단절감과 창의적인 협업의 어려움을 겪고 있다.","chunks":[["Employees report","직원들은 보고한다"],["increased productivity","높아진 생산성을"],["from fewer distractions,","더 적은 방해 요소로부터 (오는),"],["but many struggle with","하지만 많은 이들은 ~로 어려움을 겪는다"],["feelings of disconnection","단절감과"],["and difficulties in creative collaboration.","창의적인 협업의 어려움을."]]},{"en":"Technology provides impressive connectivity tools but cannot replicate the spontaneous interactions that drive innovation.","ko":"기술은 인상적인 연결 도구를 제공하지만 혁신을 추진하는 자발적인 상호 작용을 복제할 수는 없다.","chunks":[["Technology provides","기술은 제공한다"],["impressive connectivity tools","인상적인 연결 도구를"],["but cannot replicate","하지만 복제할 수 없다"],["the spontaneous interactions","그 자발적인 상호 작용을"],["that drive innovation.","혁신을 추진하는."]]},{"en":"As pandemic restrictions ease, a simple return to pre-pandemic norms would squander valuable lessons learned.","ko":"전 세계적인 유행병으로 인한 제한이 완화됨에 따라, 단순히 전 세계적인 유행병 이전의 근무 방식으로 돌아가는 것은 그동안 얻었던 소중한 교훈을 낭비하는 것이다.","chunks":[["As pandemic restrictions ease,","전 세계적인 유행병 제한이 완화됨에 따라,"],["a simple return to pre-pandemic norms","전 세계적인 유행병 이전 규범으로의 단순한 복귀는"],["would squander","낭비하는 것이다"],["valuable lessons learned.","그동안 얻은 소중한 교훈들을."]]},{"en":"It is essential that organizations develop balanced work frameworks that combine remote flexibility with strategic face-to-face collaboration.","ko":"조직이 원격 (근무의) 유연성과 전략적 대면 협업을 결합한 균형 잡힌 업무 틀을 개발하는 것이 필수적이다.","chunks":[["It is essential that","~하는 것이 필수적이다"],["organizations develop","조직이 개발하는 것이"],["balanced work frameworks","균형 잡힌 업무 틀을"],["that combine remote flexibility","원격 (근무의) 유연성을 결합하는"],["with strategic face-to-face collaboration.","전략적 대면 협업과."]]},{"en":"By creating structured opportunities for in-person teamwork while maintaining remote work options, companies can foster both employee well-being and organizational success in this new era.","ko":"원격 근무 선택 사항을 유지함과 동시에 대면 팀워크를 위한 구조화된 기회를 창출함으로써, 기업은 이러한 새로운 시대에 직원의 행복과 조직의 성공을 모두 조성할 수 있다.","chunks":[["By creating structured opportunities","구조화된 기회를 창출함으로써"],["for in-person teamwork","대면 팀워크를 위한"],["while maintaining remote work options,","원격 근무 선택 사항을 유지함과 동시에,"],["companies can foster","기업은 조성할 수 있다"],["both employee well-being and organizational success","직원의 행복과 조직의 성공 모두를"],["in this new era.","이 새로운 시대에."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"원격+대면을 ‘섞는’ 균형 근무 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">원격+대면을 ‘섞는’ 균형 근무</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">변화</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">팬데믹 → 하룻밤 새 원격 근무</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">장점</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">방해 줄어 생산성↑</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">한계</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">단절감·창의적 협업 어려움 기술도 ‘자발적 상호작용’은 복제 못 함.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">경고</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">팬데믹 이전으로 ‘그냥 복귀’는 교훈 낭비</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">원격+대면 결합한 균형 틀이 답</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '팬데믹 → 하룻밤 새 원격 근무'이고, 마지막은 '원격+대면 결합한 균형 틀이 답'로 정리된다."},{"no":"2","title":"Conviction Bias","ktitle":"확신 편향 — 세게 말하면 맞아 보인다","field":"심리·인지","page":"8회 02번","oneline":"속으로 의심스러운 생각일수록 더 ‘열정적으로’ 방어한다.","tldr":["속으로 의심스러운 생각일수록 더 ‘열정적으로’ 방어한다.","‘이렇게 지킬 에너지가 나오는데 어떻게 거짓이겠어?’라고 자기합리화.","그래서 확신에 차 말하는 사람은 옳고, 주저하는 사람은 약하다고 착각한다."],"analogy":"목소리 크고 단호하게 말하면 왠지 더 맞는 말 같죠? 사실은 ‘속으로 불안할수록 더 세게 우기는’ 건데, 우리는 그 확신을 ‘검증된 진실’로 착각해요.","bg":"‘확신 편향(conviction bias)’ — 우리는 의심스러운 생각일수록 더 격하게 방어하고, 확신에 차 말하는 사람(특히 지도자)을 옳다고, 주저하는 사람을 약하거나 거짓이라 여긴다는 글이에요.","flow":[{"kind":"심리","t":"속으로 의심 → 더 ‘열정적’ 방어"},{"kind":"자기합리화","t":"‘이만큼 지킬 에너지가 나오니 사실이겠지’"},{"kind":"대인 적용","t":"지도자가 확신에 차 말하면 = 신중히 검토했다 착각"},{"kind":"역효과","t":"주저·뉘앙스 = 약점·거짓으로 오해"},{"kind":"결론","t":"확신의 ‘세기’를 진실로 착각하는 편향"}],"quiz":[["우리가 의심스러운 생각을 대하는 방식은?","오히려 더 열정적으로 믿고, 도전하는 사람을 크게 반박하며 ‘이걸 지킬 에너지가 나오니 사실’이라 자기합리화해요."],["확신 편향이 지도자 평가에 어떻게 나타나나?","확신에 차 말하면 ‘신중히 검토했다’고 믿고, 주저하며 뉘앙스를 말하면 약하거나 거짓이라 여겨요."],["핵심 한 문장?","우리는 주장의 진실성보다 ‘확신의 세기’를 보고 옳고 그름을 판단하는 편향이 있다."]],"vocab":[["hold on to","~을 고수하다·붙들다"],["go the extra mile","한층 더 노력하다"],["contradict contra-","반박하다·모순되다"],["bias","편견·편향"],["conviction con-","확신·신념"],["hesitant hesitate","주저하는·망설이는"],["self-doubt","자기 회의"]],"en":"We hold on to an idea that is secretly pleasing to us, but deep inside we might have some doubts as to its truth, and so we go the extra mile to convince ourselves—to believe in it with great passion and to loudly contradict anyone who challenges us. We ask ourselves: How can our idea not be true if it brings out in us such energy to defend it? This bias is revealed even more clearly in our relationship to leaders—if they express an opinion with heated words and gestures, colorful metaphors and entertaining anecdotes, and a deep well of conviction, it must mean they have examined the idea carefully to express it with such certainty. Those, on the other hand, who express nuances, whose tone is more hesitant, reveal weakness and self-doubt. They are probably lying, or so we think.","ko":"우리는 은밀히 우리에게 만족스러운 생각을 고수하지만, 마음 깊은 곳에 그것의 진위에 대해 약간의 의심을 가질 수도 있다, 그래서 우리는 스스로를 확신시키기 위해, 즉 매우 열정적으로 그것을 믿고, 우리에게 도전하는 모든 사람의 말을 크게 반박하려고 한층 더 노력한다. 우리는 스스로에게 묻는다. 만약 우리의 생각이 그것을 방어하기 위해 우리 안에 있던 그러한 에너지를 발휘한다면, 어떻게 그것이 사실이 아닐 수 있는가? 이런 편견은 지도자와 우리의 관계에서 더욱 분명하게 드러나는데, 만약 그들이 열띤 말과 몸짓, 화려한 은유와 재미있는 일화, 그리고 깊은 확신으로 의견을 표현한다면, 그것은 그들이 그러한 확신을 가지고 그것을 표현하기 위해 그 생각을 신중히 검토했다는 것을 의미하는 것임이 틀림없다. 반면 어조가 더 주저하는 뉘앙스를 표현하는 사람들은 약점과 자기 회의를 드러낸다. 그들은 아마 거짓말을 하고 있을 것이며, 적어도 우리는 그렇게 생각한다.","read":[{"en":"We hold on to an idea that is secretly pleasing to us, but deep inside we might have some doubts as to its truth,","ko":"우리는 은밀히 우리에게 만족스러운 생각을 고수하지만, 마음 깊은 곳에 그것의 진위에 대해 약간의 의심을 가질 수도 있다,","chunks":[["We hold on to an idea","우리는 어떤 생각을 고수한다"],["that is secretly pleasing to us,","은밀히 우리에게 만족스러운,"],["but deep inside","하지만 마음 깊은 곳에서는"],["we might have some doubts","약간의 의심을 가질 수도 있다"],["as to its truth,","그것의 진위에 관해,"]]},{"en":"and so we go the extra mile to convince ourselves—to believe in it with great passion and to loudly contradict anyone who challenges us.","ko":"그래서 우리는 스스로를 확신시키기 위해, 즉 매우 열정적으로 그것을 믿고, 우리에게 도전하는 모든 사람의 말을 크게 반박하려고 한층 더 노력한다.","chunks":[["and so we go the extra mile","그래서 우리는 한층 더 노력한다"],["to convince ourselves—","스스로를 확신시키기 위해—"],["to believe in it with great passion","매우 열정적으로 그것을 믿고"],["and to loudly contradict","그리고 크게 반박하기 위해"],["anyone who challenges us.","우리에게 도전하는 모든 사람을."]]},{"en":"We ask ourselves: How can our idea not be true if it brings out in us such energy to defend it?","ko":"우리는 스스로에게 묻는다. 만약 우리의 생각이 그것을 방어하기 위해 우리 안에 있던 그러한 에너지를 발휘한다면, 어떻게 그것이 사실이 아닐 수 있는가?","chunks":[["We ask ourselves:","우리는 스스로에게 묻는다:"],["How can our idea not be true","어떻게 우리의 생각이 사실이 아닐 수 있는가"],["if it brings out in us","만약 그것이 우리 안에 ~을 발휘한다면"],["such energy to defend it?","그것을 방어할 그러한 에너지를?"]]},{"en":"This bias is revealed even more clearly in our relationship to leaders—if they express an opinion with heated words and gestures, colorful metaphors and entertaining anecdotes, and a deep well of conviction, it must mean they have examined the idea carefully to express it with such certainty.","ko":"이런 편견은 지도자와 우리의 관계에서 더욱 분명하게 드러나는데, 만약 그들이 열띤 말과 몸짓, 화려한 은유와 재미있는 일화, 그리고 깊은 확신으로 의견을 표현한다면, 그것은 그들이 그러한 확신을 가지고 그것을 표현하기 위해 그 생각을 신중히 검토했다는 것을 의미하는 것임이 틀림없다.","chunks":[["This bias is revealed","이런 편향은 드러난다"],["even more clearly","훨씬 더 분명하게"],["in our relationship to leaders—","지도자와 우리의 관계에서—"],["if they express an opinion with heated words and gestures,","만약 그들이 열띤 말과 몸짓으로 의견을 표현한다면,"],["colorful metaphors and entertaining anecdotes,","화려한 은유와 재미있는 일화,"],["and a deep well of conviction,","그리고 깊은 확신의 우물(샘)으로,"],["it must mean","그것은 ~을 의미하는 것임이 틀림없다"],["they have examined the idea carefully","그들이 그 생각을 신중히 검토했다는 것을"],["to express it with such certainty.","그것을 그러한 확신으로 표현하기 위해."]]},{"en":"Those, on the other hand, who express nuances, whose tone is more hesitant, reveal weakness and self-doubt.","ko":"반면 어조가 더 주저하는 뉘앙스를 표현하는 사람들은 약점과 자기 회의를 드러낸다.","chunks":[["Those, on the other hand,","반면, ~한 사람들은"],["who express nuances,","뉘앙스를 표현하는,"],["whose tone is more hesitant,","어조가 더 주저하는,"],["reveal weakness and self-doubt.","약점과 자기 회의를 드러낸다."]]},{"en":"They are probably lying, or so we think.","ko":"그들은 아마 거짓말을 하고 있을 것이며, 적어도 우리는 그렇게 생각한다.","chunks":[["They are probably lying,","그들은 아마 거짓말을 하고 있을 것이다,"],["or so we think.","아니, 적어도 우리는 그렇게 생각한다."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"확신 편향 — 세게 말하면 맞아 보인다 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">확신 편향 — 세게 말하면 맞아 보인다</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">심리</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">속으로 의심 → 더 ‘열정적’ 방어</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">자기합리화</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">‘이만큼 지킬 에너지가 나오니 사실이겠지’</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">대인 적용</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">지도자가 확신에 차 말하면 = 신중히 검토했다 착각</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">역효과</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">주저·뉘앙스 = 약점·거짓으로 오해</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">확신의 ‘세기’를 진실로 착각하는 편향</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '속으로 의심 → 더 ‘열정적’ 방어'이고, 마지막은 '확신의 ‘세기’를 진실로 착각하는 편향'로 정리된다."},{"no":"3","title":"Calhoun's Behavioral Sink","ktitle":"칼훈의 ‘행동 침몰’ — 과밀이 부른 붕괴","field":"생물·행동","page":"8회 03번","oneline":"칼훈은 쥐에게 먹이·물을 무제한 준 ‘쥐 유토피아’ 실험을 했다.","tldr":["칼훈은 쥐에게 먹이·물을 무제한 준 ‘쥐 유토피아’ 실험을 했다.","개체 수가 임계치를 넘자 집단이 ‘완전히 붕괴’했다.","과밀이 공격성·모성 상실·사회적 위축을 촉발했다(행동 침몰)."],"analogy":"먹을 것 걱정 없는 ‘천국’이라도 한 공간에 너무 많이 몰리면 다툼·방치·은둔이 터져요. 풍족함이 아니라 ‘과밀’이 무리를 무너뜨린다는 거예요.","bg":"1962년 칼훈(Calhoun)의 쥐 실험 — 먹이·물이 무제한인데도 개체 수가 임계치를 넘자 번식·양육·사회성이 모두 무너진 ‘행동 침몰(behavioral sink)’ 현상을 다룬 글이에요.","flow":[{"kind":"실험","t":"쥐에게 먹이·물 무제한 = ‘쥐 유토피아’","d":"통제 안 된 번식·개체 수 폭증."},{"kind":"전환","t":"임계치 넘자 집단 ‘완전 붕괴’"},{"kind":"암컷","t":"임신 유지 실패·분만 중 사망·모성 본능 상실"},{"kind":"수컷","t":"동족 포식·과잉 행동·위축"},{"kind":"결론","t":"과도한 ‘과밀’이 행동을 붕괴시킨다"}],"quiz":[["‘쥐 유토피아’인데도 집단이 붕괴한 이유는?","먹이·물은 충분했지만 개체 수가 임계치를 넘는 ‘과밀’이 일어났기 때문이에요."],["과밀이 촉발한 행동 변화는?","공격성 증가, 모성 보호 부족(새끼 방치), 사회적 상호작용에서의 위축이에요."],["핵심 한 문장?","자원이 충분해도 과도한 개체 밀집은 공격·양육 실패·위축 같은 행동 붕괴를 부른다."]],"vocab":[["behavioral sink","행동 침몰 (과밀에 의한 행동 붕괴)"],["groundbreaking ground","획기적인"],["breeding","번식"],["critical level","임계치·임계 수준"],["maternal instinct","모성 본능"],["withdrawal withdraw","위축·은둔"],["trigger","촉발하다·유발하다"]],"en":"In a 1962 piece published in Scientific American, Professor John B. Calhoun introduced the thought-provoking concept of behavioral sink, a phenomenon he observed during his groundbreaking population studies. Calhoun conducted a series of experiments in which he gave groups of rats all the food and water they needed. This \"rat utopia\" enabled uncontrolled breeding and population growth. However, Calhoun and his colleagues observed a complete breakdown of these groups once the population numbers got to a critical level. Many of the female rats were either unable to carry a pregnancy to full term or died during delivery of their litters. Those that were successful at childbirth failed to show normal maternal instincts to care for the pups. The male rats showed severe behavioral disturbances, including cannibalism, overactivity, and withdrawal. These findings indicated that excessive population concentration can trigger severe changes in typical behaviors, such as increased aggression, lack of maternal care, and withdrawal from social interaction.","ko":"1962년 'Scientific American'에 실린 논문에서 John B. Calhoun 교수는 획기적인 개체군 연구 중에 관찰한 행동인 '행동 침몰'이라는 생각을 자극하는 개념을 소개했다. Calhoun은 쥐 집단에게 필요한 모든 음식과 물을 제공하는 일련의 실험을 수행했다. 이 '쥐 유토피아'는 통제되지 않은 번식과 개체 수 증가를 가능하게 했다. 그러나 Calhoun과 그의 동료들은 일단 개체 수가 임계치에 도달하자 이 집단이 완전히 붕괴되는 것을 관찰했다. 많은 암컷 쥐들이 임신을 만삭까지 유지하지 못하거나 새끼를 분만하는 과정에서 죽었다. 출산에 성공한 쥐들은 새끼를 돌보는 정상적인 모성 본능을 보여 주지 못했다. 수컷 쥐들은 동족 포식, 과잉 행동, (사회적) 위축을 포함하여 심각한 행동 장애를 보였다. 이러한 연구 결과는 과도한 개체 수 집중이 공격성 증가, 모성 보호 부족, 사회적 상호 작용의 위축과 같은 일반적인 행동의 심각한 변화를 촉발할 수 있다는 것을 나타냈다.","read":[{"en":"In a 1962 piece published in Scientific American, Professor John B. Calhoun introduced the thought-provoking concept of behavioral sink, a phenomenon he observed during his groundbreaking population studies.","ko":"1962년 'Scientific American'에 실린 논문에서 John B. Calhoun 교수는 획기적인 개체군 연구 중에 관찰한 행동인 '행동 침몰'이라는 생각을 자극하는 개념을 소개했다.","chunks":[["In a 1962 piece","1962년의 한 논문에서"],["published in Scientific American,","'Scientific American'에 실린,"],["Professor John B. Calhoun introduced","John B. Calhoun 교수는 소개했다"],["the thought-provoking concept of behavioral sink,","'행동 침몰'이라는 생각을 자극하는 개념을,"],["a phenomenon he observed","그가 관찰한 현상"],["during his groundbreaking population studies.","그의 획기적인 개체군 연구 중에."]]},{"en":"Calhoun conducted a series of experiments in which he gave groups of rats all the food and water they needed.","ko":"Calhoun은 쥐 집단에게 필요한 모든 음식과 물을 제공하는 일련의 실험을 수행했다.","chunks":[["Calhoun conducted","Calhoun은 수행했다"],["a series of experiments","일련의 실험을"],["in which he gave groups of rats","그 안에서 그가 쥐 집단에게 ~을 주는"],["all the food and water they needed.","그들이 필요한 모든 음식과 물을."]]},{"en":"This \"rat utopia\" enabled uncontrolled breeding and population growth.","ko":"이 '쥐 유토피아'는 통제되지 않은 번식과 개체 수 증가를 가능하게 했다.","chunks":[["This \"rat utopia\"","이 '쥐 유토피아'는"],["enabled","가능하게 했다"],["uncontrolled breeding and population growth.","통제되지 않은 번식과 개체 수 증가를."]]},{"en":"However, Calhoun and his colleagues observed a complete breakdown of these groups once the population numbers got to a critical level.","ko":"그러나 Calhoun과 그의 동료들은 일단 개체 수가 임계치에 도달하자 이 집단이 완전히 붕괴되는 것을 관찰했다.","chunks":[["However, Calhoun and his colleagues observed","그러나 Calhoun과 그의 동료들은 관찰했다"],["a complete breakdown of these groups","이 집단의 완전한 붕괴를"],["once the population numbers","일단 개체 수가"],["got to a critical level.","임계치에 도달하자."]]},{"en":"Many of the female rats were either unable to carry a pregnancy to full term or died during delivery of their litters.","ko":"많은 암컷 쥐들이 임신을 만삭까지 유지하지 못하거나 새끼를 분만하는 과정에서 죽었다.","chunks":[["Many of the female rats","많은 암컷 쥐들이"],["were either unable to carry a pregnancy to full term","임신을 만삭까지 유지할 수 없거나"],["or died during delivery of their litters.","새끼를 분만하는 동안 죽었다."]]},{"en":"Those that were successful at childbirth failed to show normal maternal instincts to care for the pups.","ko":"출산에 성공한 쥐들은 새끼를 돌보는 정상적인 모성 본능을 보여 주지 못했다.","chunks":[["Those that were successful at childbirth","출산에 성공한 쥐들은"],["failed to show","보여주지 못했다"],["normal maternal instincts","정상적인 모성 본능을"],["to care for the pups.","새끼를 돌볼."]]},{"en":"The male rats showed severe behavioral disturbances, including cannibalism, overactivity, and withdrawal.","ko":"수컷 쥐들은 동족 포식, 과잉 행동, (사회적) 위축을 포함하여 심각한 행동 장애를 보였다.","chunks":[["The male rats showed","수컷 쥐들은 보였다"],["severe behavioral disturbances,","심각한 행동 장애를,"],["including cannibalism, overactivity, and withdrawal.","동족 포식, 과잉 행동, 위축을 포함하여."]]},{"en":"These findings indicated that excessive population concentration can trigger severe changes in typical behaviors, such as increased aggression, lack of maternal care, and withdrawal from social interaction.","ko":"이러한 연구 결과는 과도한 개체 수 집중이 공격성 증가, 모성 보호 부족, 사회적 상호 작용의 위축과 같은 일반적인 행동의 심각한 변화를 촉발할 수 있다는 것을 나타냈다.","chunks":[["These findings indicated that","이러한 연구 결과는 ~을 나타냈다"],["excessive population concentration","과도한 개체 수 집중이"],["can trigger severe changes","심각한 변화를 촉발할 수 있다"],["in typical behaviors,","일반적인 행동에서,"],["such as increased aggression,","공격성 증가,"],["lack of maternal care,","모성 보호 부족,"],["and withdrawal from social interaction.","사회적 상호 작용으로부터의 위축과 같은."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"칼훈의 ‘행동 침몰’ — 과밀이 부른 붕괴 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">칼훈의 ‘행동 침몰’ — 과밀이 부른 붕괴</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">실험</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">쥐에게 먹이·물 무제한 = ‘쥐 유토피아’ 통제 안 된 번식·개체 수 폭증.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">전환</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"137\">임계치 넘자 집단 ‘완전 붕괴’</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">암컷</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">임신 유지 실패·분만 중 사망·모성 본능 상실</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">수컷</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">동족 포식·과잉 행동·위축</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">과도한 ‘과밀’이 행동을 붕괴시킨다</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '쥐에게 먹이·물 무제한 = ‘쥐 유토피아’'이고, 마지막은 '과도한 ‘과밀’이 행동을 붕괴시킨다'로 정리된다."},{"no":"4","title":"Reading Fiction Builds Empathy","ktitle":"소설 읽기가 공감 능력을 키운다","field":"인지·문학","page":"8회 04번","oneline":"소설은 독자를 다른 세계·마음으로 데려가 ‘대리 경험’을 만든다.","tldr":["소설은 독자를 다른 세계·마음으로 데려가 ‘대리 경험’을 만든다.","뇌 스캔: 직접 느낄 때와 생생한 묘사를 읽을 때 같은 신경망이 켜진다.","문학 소설을 자주 읽으면 타인 이해·공감 능력이 더 커진다."],"analogy":"등장인물의 도전을 따라가다 보면 ‘만약 나라면?’을 계속 돌려보게 되죠. 사실을 외우는 것과 달리, 이 ‘허구 속 감정 체험’이 실제 사람 마음을 읽는 근육을 키워줘요 — 특히 인물이 복잡한 문학 소설일수록요.","bg":"소설(특히 문학 소설) 읽기가 등장인물의 생각·감정을 ‘정신적으로 모의실험’하게 해, 단순한 사실 학습으로는 안 되는 방식으로 공감·사회적 이해 능력을 키운다는 글이에요.","flow":[{"kind":"전제","t":"소설 = 다른 세계·마음의 대리 경험"},{"kind":"메커니즘","t":"인물의 생각·감정을 ‘정신적 모의실험’","d":"직접 경험 vs 묘사 읽기 = 같은 신경망."},{"kind":"근거","t":"소설 자주 읽는 사람 = 타인 이해 점수↑"},{"kind":"비교","t":"문학 소설 > 논픽션·오락물 (공감 향상)"},{"kind":"결론","t":"허구 체험이 실제 사회 이해를 훈련한다"}],"quiz":[["소설을 읽을 때 뇌에서 일어나는 일은?","감정을 직접 경험할 때와, 인물이 겪는 생생한 묘사를 읽을 때 ‘같은 신경망’이 활성화돼요."],["어떤 글이 공감을 가장 크게 키우나?","복잡한 인물·상황을 담은 ‘문학 소설’이 논픽션이나 오락물보다 공감 향상 효과가 커요."],["핵심 한 문장?","소설을 통한 정서적 대리 경험은 사실 학습으로는 못 하는 방식으로 공감·사회 이해를 훈련한다."]],"vocab":[["transport trans-","이동시키다·실어 나르다"],["simulate","모의실험하다·흉내 내다"],["neural network","신경망"],["perspective","관점·시각"],["empathy","공감·감정 이입"],["social cue","사회적 신호"],["sensitivity sensitive","민감성·감수성"]],"en":"Books transport readers into worlds and minds different from their own, creating experiences that are impossible in everyday life. As readers follow characters through their challenges, they mentally simulate what others think and feel in different situations. Brain scans show that the same neural networks are activated whether someone is experiencing an emotion directly or reading vivid descriptions of characters experiencing it. Regular readers of fiction perform better on tests that measure their ability to understand the perspectives and motivations of others. This mental exercise builds social skills that extend beyond the reading experience. Studies comparing different types of texts have found that literary fiction, with its complex characters and situations, produces stronger gains in empathy than nonfiction or entertainment reading. Even short stories can temporarily increase a person's sensitivity to social cues. The emotional journey through fictional lives seems to train the human mind for real-world social understanding in a way that simply learning facts cannot.","ko":"책은 독자를 그들 자신과 다른 세계와 정신으로 이동시켜, 일상에서는 불가능한 경험을 만들어 낸다. 독자가 등장인물의 도전을 따라가면서, 그들은 다른 사람들이 서로 다른 상황에서 생각하고 느끼는 것을 정신적으로 모의실험한다. 뇌 스캔 결과, 누군가가 감정을 직접 경험하고 있든 감정을 경험하는 등장인물의 생생한 묘사를 읽고 있든 동일한 신경망이 활성화되는 것으로 나타났다. 소설을 정기적으로 읽는 사람들은 다른 사람의 관점과 동기를 이해하는 능력을 측정하는 테스트에서 더 나은 성적을 거둔다. 이러한 정신적 훈련은 독서 경험 너머로 확대되는 사회적 기술을 구축한다. 서로 다른 유형의 텍스트를 비교한 연구에 따르면, 복잡한 등장인물과 상황을 담은 문학 소설이 논픽션이나 오락물보다 공감 능력을 더 크게 향상시키는 것으로 나타났다. 단편 소설조차도 일시적으로 사회적 신호에 대한 한 사람의 민감성을 높일 수 있다. 허구의 삶을 통한 정서적 여정은 단순히 사실을 배우는 것만으로는 할 수 없는 방식으로 실제 사회 이해에 대한 인간의 마음을 훈련시키는 것으로 보인다.","read":[{"en":"Books transport readers into worlds and minds different from their own, creating experiences that are impossible in everyday life.","ko":"책은 독자를 그들 자신과 다른 세계와 정신으로 이동시켜, 일상에서는 불가능한 경험을 만들어 낸다.","chunks":[["Books transport readers","책은 독자를 이동시킨다"],["into worlds and minds","세계와 정신으로"],["different from their own,","그들 자신과 다른,"],["creating experiences","경험을 만들어 내면서"],["that are impossible in everyday life.","일상에서는 불가능한."]]},{"en":"As readers follow characters through their challenges, they mentally simulate what others think and feel in different situations.","ko":"독자가 등장인물의 도전을 따라가면서, 그들은 다른 사람들이 서로 다른 상황에서 생각하고 느끼는 것을 정신적으로 모의실험한다.","chunks":[["As readers follow characters","독자가 등장인물을 따라가면서"],["through their challenges,","그들의 도전을 통해,"],["they mentally simulate","그들은 정신적으로 모의실험한다"],["what others think and feel","다른 사람들이 생각하고 느끼는 것을"],["in different situations.","서로 다른 상황에서."]]},{"en":"Brain scans show that the same neural networks are activated whether someone is experiencing an emotion directly or reading vivid descriptions of characters experiencing it.","ko":"뇌 스캔 결과, 누군가가 감정을 직접 경험하고 있든 감정을 경험하는 등장인물의 생생한 묘사를 읽고 있든 동일한 신경망이 활성화되는 것으로 나타났다.","chunks":[["Brain scans show that","뇌 스캔은 ~을 보여 준다"],["the same neural networks are activated","동일한 신경망이 활성화된다는 것을"],["whether someone is experiencing an emotion directly","누군가가 감정을 직접 경험하고 있든"],["or reading vivid descriptions","아니면 생생한 묘사를 읽고 있든"],["of characters experiencing it.","그것을 경험하는 등장인물의."]]},{"en":"Regular readers of fiction perform better on tests that measure their ability to understand the perspectives and motivations of others.","ko":"소설을 정기적으로 읽는 사람들은 다른 사람의 관점과 동기를 이해하는 능력을 측정하는 테스트에서 더 나은 성적을 거둔다.","chunks":[["Regular readers of fiction","소설을 정기적으로 읽는 사람들은"],["perform better on tests","시험에서 더 잘 수행한다"],["that measure their ability","그들의 능력을 측정하는"],["to understand the perspectives and motivations of others.","다른 사람의 관점과 동기를 이해하는."]]},{"en":"This mental exercise builds social skills that extend beyond the reading experience.","ko":"이러한 정신적 훈련은 독서 경험 너머로 확대되는 사회적 기술을 구축한다.","chunks":[["This mental exercise builds","이러한 정신적 훈련은 구축한다"],["social skills","사회적 기술을"],["that extend beyond the reading experience.","독서 경험 너머로 확대되는."]]},{"en":"Studies comparing different types of texts have found that literary fiction, with its complex characters and situations, produces stronger gains in empathy than nonfiction or entertainment reading.","ko":"서로 다른 유형의 텍스트를 비교한 연구에 따르면, 복잡한 등장인물과 상황을 담은 문학 소설이 논픽션이나 오락물보다 공감 능력을 더 크게 향상시키는 것으로 나타났다.","chunks":[["Studies comparing different types of texts","서로 다른 유형의 텍스트를 비교한 연구들은"],["have found that","~을 발견했다"],["literary fiction,","문학 소설이,"],["with its complex characters and situations,","복잡한 등장인물과 상황을 담은,"],["produces stronger gains in empathy","공감에서 더 큰 향상을 만들어 낸다는 것을"],["than nonfiction or entertainment reading.","논픽션이나 오락물 독서보다."]]},{"en":"Even short stories can temporarily increase a person's sensitivity to social cues.","ko":"단편 소설조차도 일시적으로 사회적 신호에 대한 한 사람의 민감성을 높일 수 있다.","chunks":[["Even short stories","심지어 단편 소설조차도"],["can temporarily increase","일시적으로 높일 수 있다"],["a person's sensitivity","한 사람의 민감성을"],["to social cues.","사회적 신호에 대한."]]},{"en":"The emotional journey through fictional lives seems to train the human mind for real-world social understanding in a way that simply learning facts cannot.","ko":"허구의 삶을 통한 정서적 여정은 단순히 사실을 배우는 것만으로는 할 수 없는 방식으로 실제 사회 이해에 대한 인간의 마음을 훈련시키는 것으로 보인다.","chunks":[["The emotional journey through fictional lives","허구의 삶을 통한 정서적 여정은"],["seems to train the human mind","인간의 마음을 훈련시키는 것으로 보인다"],["for real-world social understanding","실제 사회 이해를 위해"],["in a way that simply learning facts cannot.","단순히 사실을 배우는 것만으로는 할 수 없는 방식으로."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"소설 읽기가 공감 능력을 키운다 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">소설 읽기가 공감 능력을 키운다</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">전제</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">소설 = 다른 세계·마음의 대리 경험</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">메커니즘</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"130\">인물의 생각·감정을 ‘정신적 모의실험’ 직접 경험 vs 묘사 읽기 = 같은</tspan><tspan x=\"152\" y=\"144\">신경망.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">근거</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">소설 자주 읽는 사람 = 타인 이해 점수↑</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">비교</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"269\">문학 소설 &gt; 논픽션·오락물 (공감 향상)</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">허구 체험이 실제 사회 이해를 훈련한다</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '소설 = 다른 세계·마음의 대리 경험'이고, 마지막은 '허구 체험이 실제 사회 이해를 훈련한다'로 정리된다."},{"no":"5","title":"Exploring Music as Navigating","ktitle":"음악 탐구 = ‘길 찾기’와 같다","field":"예술·인지","page":"8회 05번","oneline":"새 음악을 탐구하는 것은 ‘새 항해법’을 조사하는 것과 같다.","tldr":["새 음악을 탐구하는 것은 ‘새 항해법’을 조사하는 것과 같다.","낯선 음악에서 길을 찾는 일 = 말 그대로 ‘시야를 넓히는’ 것.","때론 음악이 삶에서 갖는 의미에 대한 완전히 새 관점을 얻는다."],"analogy":"낯선 동네를 걸으며 새 길을 찾으면 지도가 넓어지죠. 낯선 음악을 더듬어 가는 것도 똑같이 ‘마음속 지도(시야)’를 넓히는 일이에요.","bg":"음악을 탐구하는 것을 ‘공간 속 길 찾기(navigation)’에 비유한 글. 낯선 음악에 익숙해지는 일이 시야를 넓히고, 때론 음악의 의미에 대한 관점 자체를 바꾼다는 내용이에요(Venda 족 사례).","flow":[{"kind":"비유","t":"새 음악 탐구 = 새 ‘항해·길 찾기’ 방법"},{"kind":"원리","t":"음악 속 길 찾기 = 공간 표현 능력 사용","d":"Nussbaum: 방향 감각 얻기 = 시야 확장."},{"kind":"효과","t":"때론 음악의 의미에 대한 ‘새 관점’"},{"kind":"사례","t":"Venda 족 — 음악을 모두의 ‘참여’로 봄","d":"전문가만의 기능 ✗ → 서구인 태도 재설정."},{"kind":"결론","t":"음악 탐구가 곧 시야·관점을 넓힌다"}],"quiz":[["글은 음악 탐구를 무엇에 비유하나?","‘길 찾기·항해(navigation)’ — 새 음악을 배우는 건 움직이는 새 방법·새 진로를 정하는 법을 배우는 거예요."],["Venda 족 사례가 보여주는 것은?","음악을 ‘전문가의 기능’이 아니라 모두의 자연스러운 ‘참여’로 보는 문화가 있어, 서구인의 음악관 자체를 바꿀 수 있다는 점이에요."],["핵심 한 문장?","낯선 음악을 탐구하는 일은 길을 찾듯 시야를 넓히고, 음악의 의미에 대한 관점까지 바꿀 수 있다."]],"vocab":[["amount to","~와 같다·~에 해당하다"],["navigate","길을 찾다·항해하다"],["chart a course","진로를 정하다·항로를 그리다"],["bearings","방향 감각·위치"],["horizon","시야·지평"],["participatory participate","참여적인"],["reorient re-","방향을 재설정하다"]],"en":"In most cases, exploring new patterns in music amounts to investigating alternative ways to navigate. Learning new music is learning new ways to move as well as hitherto unexplored ways of charting a course. As Charles Nussbaum tells us, we engage our capacity to represent space when we are finding our way in music. Gaining our bearings in alien music amounts quite literally to expanding our horizons. Some of our discoveries might be merely enjoyable excursions. But at times the impact of our adventures may be a whole new perspective on what music can mean in our lives. The recognition, for Westerners, that there are whole cultures who see music as primarily participatory, who see serious music-making as a \"natural\" part of life, and who do not think of music-making as a special skill or the province of experts, can reorient their attitudes toward music and its place in their lives. John Blacking's How Musical Is Man? is testimony to such a revolution in his musical outlook as a consequence of spending time among the Venda people of Africa.","ko":"대부분의 경우, 음악의 새로운 패턴을 탐구하는 것은 다른 항해 방법을 조사하는 것과 같다. 새로운 음악을 배우는 것은 지금까지 탐험되지 않은 진로를 정하는 방법뿐 아니라 움직이는 새로운 방법도 배우는 것이다. Charles Nussbaum이 우리에게 말해 주듯, 우리는 음악 안에서 길을 찾을 때 공간을 나타내는 우리의 능력을 끌어들인다. 낯선 음악에 대한 우리의 방향 감각을 얻는 것은 그야말로 우리의 시야를 확장하는 것 같다. 우리의 발견 중 일부는 단지 즐거운 여행일 수 있다. 그렇지만 간혹 우리 모험의 영향은 음악이 우리 생활에서 무엇을 의미할 수 있는지에 대한 완전히 새로운 관점이 될 수도 있다. 서구인들에게, 음악을 주로 참여적인 것으로 보고, 진지한 음악 연주를 생활의 '자연스러운' 부분으로 보며, 그리고 음악 연주를 특별한 기능이나 전문가들의 분야로 보지 않는 그러한 문화 전체가 있다는 인식은 음악과 음악이 그들의 생활에서 차지하는 자리에 대한 그들의 태도의 방향을 재설정해 준다. John Blacking의 '인간은 얼마나 음악적인가?'는 아프리카의 Venda 족 사이에서 시간을 보낸 결과로 그의 음악적인 전망에 일어난 그러한 혁명의 증언이다.","read":[{"en":"In most cases, exploring new patterns in music amounts to investigating alternative ways to navigate.","ko":"대부분의 경우, 음악의 새로운 패턴을 탐구하는 것은 다른 항해 방법을 조사하는 것과 같다.","chunks":[["In most cases,","대부분의 경우,"],["exploring new patterns in music","음악의 새로운 패턴을 탐구하는 것은"],["amounts to investigating","조사하는 것과 같다"],["alternative ways to navigate.","다른 항해 방법을."]]},{"en":"Learning new music is learning new ways to move as well as hitherto unexplored ways of charting a course.","ko":"새로운 음악을 배우는 것은 지금까지 탐험되지 않은 진로를 정하는 방법뿐 아니라 움직이는 새로운 방법도 배우는 것이다.","chunks":[["Learning new music is","새로운 음악을 배우는 것은"],["learning new ways to move","움직이는 새로운 방법을 배우는 것이다"],["as well as hitherto unexplored ways","지금까지 탐험되지 않은 방법뿐만 아니라"],["of charting a course.","진로를 정하는."]]},{"en":"As Charles Nussbaum tells us, we engage our capacity to represent space when we are finding our way in music.","ko":"Charles Nussbaum이 우리에게 말해 주듯, 우리는 음악 안에서 길을 찾을 때 공간을 나타내는 우리의 능력을 끌어들인다.","chunks":[["As Charles Nussbaum tells us,","Charles Nussbaum이 우리에게 말해 주듯,"],["we engage our capacity","우리는 우리의 능력을 끌어들인다"],["to represent space","공간을 나타내는"],["when we are finding our way","우리가 길을 찾을 때"],["in music.","음악 안에서."]]},{"en":"Gaining our bearings in alien music amounts quite literally to expanding our horizons.","ko":"낯선 음악에 대한 우리의 방향 감각을 얻는 것은 그야말로 우리의 시야를 확장하는 것 같다.","chunks":[["Gaining our bearings in alien music","낯선 음악에서 방향 감각을 얻는 것은"],["amounts quite literally to","그야말로 ~과 같다"],["expanding our horizons.","우리의 시야를 확장하는 것과."]]},{"en":"Some of our discoveries might be merely enjoyable excursions.","ko":"우리의 발견 중 일부는 단지 즐거운 여행일 수 있다.","chunks":[["Some of our discoveries","우리의 발견 중 일부는"],["might be merely","단지 ~일 수 있다"],["enjoyable excursions.","즐거운 여행."]]},{"en":"But at times the impact of our adventures may be a whole new perspective on what music can mean in our lives.","ko":"그렇지만 간혹 우리 모험의 영향은 음악이 우리 생활에서 무엇을 의미할 수 있는지에 대한 완전히 새로운 관점이 될 수도 있다.","chunks":[["But at times","하지만 간혹"],["the impact of our adventures","우리 모험의 영향은"],["may be a whole new perspective","완전히 새로운 관점일 수 있다"],["on what music can mean","음악이 무엇을 의미할 수 있는지에 대한"],["in our lives.","우리 생활에서."]]},{"en":"The recognition, for Westerners, that there are whole cultures who see music as primarily participatory, who see serious music-making as a \"natural\" part of life, and who do not think of music-making as a special skill or the province of experts, can reorient their attitudes toward music and its place in their lives.","ko":"서구인들에게, 음악을 주로 참여적인 것으로 보고, 진지한 음악 연주를 생활의 '자연스러운' 부분으로 보며, 그리고 음악 연주를 특별한 기능이나 전문가들의 분야로 보지 않는 그러한 문화 전체가 있다는 인식은 음악과 음악이 그들의 생활에서 차지하는 자리에 대한 그들의 태도의 방향을 재설정해 준다.","chunks":[["The recognition, for Westerners, that","서구인들에게, ~라는 인식은"],["there are whole cultures","그러한 문화 전체가 있다는"],["who see music as primarily participatory,","음악을 주로 참여적인 것으로 보는,"],["who see serious music-making","진지한 음악 연주를 ~으로 보는"],["as a \"natural\" part of life,","생활의 '자연스러운' 부분으로,"],["and who do not think of music-making","그리고 음악 연주를 ~으로 생각하지 않는"],["as a special skill or the province of experts,","특별한 기능이나 전문가의 분야로,"],["can reorient their attitudes","그들의 태도의 방향을 재설정해 줄 수 있다"],["toward music and its place in their lives.","음악과 그들의 생활에서 음악의 자리에 대한."]]},{"en":"John Blacking's How Musical Is Man? is testimony to such a revolution in his musical outlook as a consequence of spending time among the Venda people of Africa.","ko":"John Blacking의 '인간은 얼마나 음악적인가?'는 아프리카의 Venda 족 사이에서 시간을 보낸 결과로 그의 음악적인 전망에 일어난 그러한 혁명의 증언이다.","chunks":[["John Blacking's How Musical Is Man?","John Blacking의 '인간은 얼마나 음악적인가?'는"],["is testimony to such a revolution","그러한 혁명의 증언이다"],["in his musical outlook","그의 음악적 전망에 일어난"],["as a consequence of","~의 결과로"],["spending time among the Venda people of Africa.","아프리카 Venda 족 사이에서 시간을 보낸."]]}],"metaphor":"<svg viewBox=\"0 0 600 386\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"음악 탐구 = ‘길 찾기’와 같다 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"362\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">음악 탐구 = ‘길 찾기’와 같다</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"48\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"69.5\">비유</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"71\">새 음악 탐구 = 새 ‘항해·길 찾기’ 방법</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"66\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"69.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"93\" x2=\"300\" y2=\"101\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,108 295,100 305,100\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"108\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"108\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"108\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"135.5\">원리</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"130\">음악 속 길 찾기 = 공간 표현 능력 사용 Nussbaum: 방향 감각 얻기 = 시야</tspan><tspan x=\"152\" y=\"144\">확장.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"132\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"135.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"159\" x2=\"300\" y2=\"167\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,174 295,166 305,166\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"174\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"174\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"174\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"201.5\">효과</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"203\">때론 음악의 의미에 대한 ‘새 관점’</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"198\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"201.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"225\" x2=\"300\" y2=\"233\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,240 295,232 305,232\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"240\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"240\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"240\" width=\"4\" height=\"48\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"267.5\">사례</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"262\">Venda 족 — 음악을 모두의 ‘참여’로 봄 전문가만의 기능 ✗ → 서구인 태도</tspan><tspan x=\"152\" y=\"276\">재설정.</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"264\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"267.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"291\" x2=\"300\" y2=\"299\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,306 295,298 305,298\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"306\" width=\"520\" height=\"48\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"306\" width=\"96\" height=\"48\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"306\" width=\"4\" height=\"48\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"333.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"335\">음악 탐구가 곧 시야·관점을 넓힌다</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"330\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"333.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">5</text>\n  </g>\n  <text x=\"300\" y=\"370\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 5단계로 전개된다. 첫 출발점은 '새 음악 탐구 = 새 ‘항해·길 찾기’ 방법'이고, 마지막은 '음악 탐구가 곧 시야·관점을 넓힌다'로 정리된다."},{"no":"6","title":"Climate Change Threatens Museum Collections","ktitle":"기후 변화가 박물관 소장품을 위협한다","field":"환경·문화유산","page":"8회 06번","oneline":"기온 상승·습도 변동이 유물 훼손·곰팡이를 가속한다.","tldr":["기온 상승·습도 변동이 유물 훼손·곰팡이를 가속한다.","낡은 역사 건물엔 현대식 기후 제어가 없어 더 취약하다.","보존 전략은 있지만 ‘자금’이 부족 — 추가 지원이 필수다."],"analogy":"오래된 사진을 눅눅한 방에 두면 상하듯, 더워지고 습해진 환경에서 박물관 유물도 빠르게 망가져요. 그런데 낡은 건물엔 보호 장치가 없고, 무엇보다 고칠 ‘돈’이 없는 게 가장 큰 문제 — 그래서 추가 자금 지원이 보존의 핵심이에요.","bg":"기후 변화(기온·습도 변동, 홍수·허리케인)가 박물관 소장품 보존을 위협하는데, 낡은 건물·자금 부족이 겹쳐 ‘추가 재정 지원’이 보존 성공의 핵심이라는 글이에요.","flow":[{"kind":"위협","t":"기온↑·습도 변동 → 유물 훼손·곰팡이"},{"kind":"취약","t":"낡은 역사 건물 = 현대식 기후 제어 없음"},{"kind":"가중","t":"홍수·허리케인 등 극단 기상 빈번"},{"kind":"대응","t":"수장고·모니터링·디지털 저장소 등 혁신 전략"},{"kind":"걸림돌","t":"대부분 박물관은 ‘자금’ 부족"},{"kind":"결론","t":"보존 성공 = 추가 재정 지원이 필수"}],"quiz":[["기후 변화가 박물관 소장품을 위협하는 방식은?","기온 상승·예측 불가한 습도가 유물 훼손·곰팡이를 가속하고, 홍수·허리케인 같은 극단 기상이 대체 불가한 문화재를 위협해요."],["박물관이 직면한 가장 큰 현실적 걸림돌은?","보존 전략은 있지만 대부분 박물관이 그것을 실행할 ‘자금·자원’이 부족하다는 점이에요."],["핵심 한 문장?","기후 변화가 박물관 소장품을 위협하므로, 혁신적 보존 전략과 추가 재정 지원이 보존의 필수 조건이다."]],"vocab":[["deterioration deteriorate","훼손·악화"],["humidity humid","습도"],["vulnerable","취약한·상처받기 쉬운"],["irreplaceable replace","대체 불가능한"],["conservation conserve","보존·보호"],["archive","저장소·기록 보관소"],["heritage","유산·문화유산"]],"en":"As global weather patterns become less predictable and environmental conditions change, museums face new challenges in caring for their collections. Rising temperatures and unpredictable humidity can accelerate the deterioration of artifacts and encourage mold growth, especially on organic materials. The historic buildings that house these collections often lack modern climate control systems, making them more vulnerable to changing environmental conditions. More frequent extreme weather events, such as floods and hurricanes, also pose a serious threat to irreplaceable cultural treasures. To address these risks, some museums are adopting innovative conservation strategies, such as upgrading storage facilities, installing advanced environmental monitoring systems, and creating digital archives. However, most museums require significant funding to implement these improvements, and lack the resources to adequately respond to climate challenges. As a result, experts stress that additional funding is critical to successfully protecting and preserving humanity's shared cultural heritage in the face of climate change. → Climate change threatens the preservation of museum collections through environmental instability and extreme weather events, requiring institutions to adopt innovative conservation strategies, with increased financial assistance being essential for success.","ko":"전 세계의 기상 패턴이 덜 예측 가능해지고 환경 조건이 변화함에 따라, 박물관은 소장품을 관리하는 데 있어 새로운 문제에 직면해 있다. 기온 상승과 예측 불가능한 습도는 유물의 훼손을 가속화하고, 특히 유기물에서 곰팡이 성장을 촉진할 수 있다. 이러한 소장품을 소장하는 역사적인 건물에는 현대식 기후 제어 시스템이 부족한 경우가 많아, 소장품을 변화하는 환경 조건에 더욱 취약하게 한다. 홍수와 허리케인 같은 극단적인 기상 이변이 빈번하게 발생함에 따라 대체 불가능한 문화재에 심각한 위협을 제기하기도 한다. 이러한 위험에 대처하기 위해, 일부 박물관이 수장고 시설을 업그레이드하고, 첨단 환경 모니터링 시스템을 설치하며, 디지털 저장소를 구축하는 것과 같은, 혁신적인 보존 전략을 채택하고 있다. 그러나 대부분의 박물관은 이러한 개선 사항을 실행하기 위해 상당한 자금이 필요하며, 기후 문제에 적절히 대응하는 데 필요한 자원이 부족하다. 그 결과, 전문가들은 기후 변화에 맞서 인류가 공유하는 문화유산을 성공적으로 보호하고 보존하기 위해서는 추가적인 자금 지원이 필수적이라고 강조한다. → 기후 변화는 환경 불안정과 극단적인 기상 이변으로 박물관 소장품의 보존을 위협하여, 기관들로 하여금 혁신적인 보존 전략을 채택할 것을 요구하는데, 성공을 위해서는 확대된 재정적인 지원이 필수적이다.","read":[{"en":"As global weather patterns become less predictable and environmental conditions change, museums face new challenges in caring for their collections.","ko":"전 세계의 기상 패턴이 덜 예측 가능해지고 환경 조건이 변화함에 따라, 박물관은 소장품을 관리하는 데 있어 새로운 문제에 직면해 있다.","chunks":[["As global weather patterns become","전 세계 기상 패턴이 ~해짐에 따라"],["less predictable","덜 예측 가능하고"],["and environmental conditions change,","환경 조건이 변화함에 따라,"],["museums face new challenges","박물관은 새로운 문제에 직면한다"],["in caring for their collections.","소장품을 관리하는 데 있어."]]},{"en":"Rising temperatures and unpredictable humidity can accelerate the deterioration of artifacts and encourage mold growth, especially on organic materials.","ko":"기온 상승과 예측 불가능한 습도는 유물의 훼손을 가속화하고, 특히 유기물에서 곰팡이 성장을 촉진할 수 있다.","chunks":[["Rising temperatures and unpredictable humidity","기온 상승과 예측 불가능한 습도는"],["can accelerate the deterioration of artifacts","유물의 훼손을 가속화하고"],["and encourage mold growth,","곰팡이 성장을 촉진할 수 있다,"],["especially on organic materials.","특히 유기물에서."]]},{"en":"The historic buildings that house these collections often lack modern climate control systems, making them more vulnerable to changing environmental conditions.","ko":"이러한 소장품을 소장하는 역사적인 건물에는 현대식 기후 제어 시스템이 부족한 경우가 많아, 소장품을 변화하는 환경 조건에 더욱 취약하게 한다.","chunks":[["The historic buildings","역사적인 건물들은"],["that house these collections","이러한 소장품을 소장하는"],["often lack","종종 부족하다"],["modern climate control systems,","현대식 기후 제어 시스템이,"],["making them more vulnerable","그것들을 더욱 취약하게 만들면서"],["to changing environmental conditions.","변화하는 환경 조건에."]]},{"en":"More frequent extreme weather events, such as floods and hurricanes, also pose a serious threat to irreplaceable cultural treasures.","ko":"홍수와 허리케인 같은 극단적인 기상 이변이 빈번하게 발생함에 따라 대체 불가능한 문화재에 심각한 위협을 제기하기도 한다.","chunks":[["More frequent extreme weather events,","더 빈번한 극단적인 기상 이변은,"],["such as floods and hurricanes,","홍수와 허리케인 같은,"],["also pose a serious threat","또한 심각한 위협을 제기한다"],["to irreplaceable cultural treasures.","대체 불가능한 문화재에."]]},{"en":"To address these risks, some museums are adopting innovative conservation strategies, such as upgrading storage facilities, installing advanced environmental monitoring systems, and creating digital archives.","ko":"이러한 위험에 대처하기 위해, 일부 박물관이 수장고 시설을 업그레이드하고, 첨단 환경 모니터링 시스템을 설치하며, 디지털 저장소를 구축하는 것과 같은, 혁신적인 보존 전략을 채택하고 있다.","chunks":[["To address these risks,","이러한 위험에 대처하기 위해,"],["some museums are adopting","일부 박물관이 채택하고 있다"],["innovative conservation strategies,","혁신적인 보존 전략을,"],["such as upgrading storage facilities,","수장고 시설 업그레이드,"],["installing advanced environmental monitoring systems,","첨단 환경 모니터링 시스템 설치,"],["and creating digital archives.","디지털 저장소 구축과 같은."]]},{"en":"However, most museums require significant funding to implement these improvements, and lack the resources to adequately respond to climate challenges.","ko":"그러나 대부분의 박물관은 이러한 개선 사항을 실행하기 위해 상당한 자금이 필요하며, 기후 문제에 적절히 대응하는 데 필요한 자원이 부족하다.","chunks":[["However, most museums require","그러나 대부분의 박물관은 필요로 한다"],["significant funding","상당한 자금을"],["to implement these improvements,","이러한 개선 사항을 실행하기 위해,"],["and lack the resources","그리고 자원이 부족하다"],["to adequately respond to climate challenges.","기후 문제에 적절히 대응할."]]},{"en":"As a result, experts stress that additional funding is critical to successfully protecting and preserving humanity's shared cultural heritage in the face of climate change.","ko":"그 결과, 전문가들은 기후 변화에 맞서 인류가 공유하는 문화유산을 성공적으로 보호하고 보존하기 위해서는 추가적인 자금 지원이 필수적이라고 강조한다.","chunks":[["As a result,","그 결과,"],["experts stress that","전문가들은 ~을 강조한다"],["additional funding is critical","추가 자금이 필수적이라는 것을"],["to successfully protecting and preserving","성공적으로 보호하고 보존하는 데"],["humanity's shared cultural heritage","인류의 공유 문화유산을"],["in the face of climate change.","기후 변화에 맞서."]]},{"en":"→ Climate change threatens the preservation of museum collections through environmental instability and extreme weather events, requiring institutions to adopt innovative conservation strategies, with increased financial assistance being essential for success.","ko":"→ 기후 변화는 환경 불안정과 극단적인 기상 이변으로 박물관 소장품의 보존을 위협하여, 기관들로 하여금 혁신적인 보존 전략을 채택할 것을 요구하는데, 성공을 위해서는 확대된 재정적인 지원이 필수적이다.","chunks":[["→ Climate change threatens","→ 기후 변화는 위협한다"],["the preservation of museum collections","박물관 소장품의 보존을"],["through environmental instability and extreme weather events,","환경 불안정과 극단적 기상 이변을 통해,"],["requiring institutions to adopt","기관들로 하여금 ~을 채택할 것을 요구하며"],["innovative conservation strategies,","혁신적인 보존 전략을,"],["with increased financial assistance being essential for success.","확대된 재정적 지원이 성공에 필수적인 채로."]]}],"metaphor":"<svg viewBox=\"0 0 600 416\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"기후 변화가 박물관 소장품을 위협한다 핵심 흐름 도식\">\n  <rect x=\"12\" y=\"12\" width=\"576\" height=\"392\" fill=\"#ffffff\" stroke=\"#e8e8e8\" stroke-width=\"1\"/>\n  <text x=\"300\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">기후 변화가 박물관 소장품을 위협한다</text>\n  <g>\n    <rect x=\"40\" y=\"42\" width=\"520\" height=\"42\" rx=\"5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"42\" width=\"96\" height=\"42\" rx=\"5\" fill=\"#c8102e\"/>\n    <rect x=\"132\" y=\"42\" width=\"4\" height=\"42\" fill=\"#c8102e\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"66.5\">위협</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"68\">기온↑·습도 변동 → 유물 훼손·곰팡이</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"63\" r=\"8\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"66.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#c8102e\" text-anchor=\"middle\">1</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"87\" x2=\"300\" y2=\"95\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,102 295,94 305,94\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"102\" width=\"520\" height=\"42\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"102\" width=\"96\" height=\"42\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"102\" width=\"4\" height=\"42\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"126.5\">취약</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"128\">낡은 역사 건물 = 현대식 기후 제어 없음</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"123\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"126.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">2</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"147\" x2=\"300\" y2=\"155\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,162 295,154 305,154\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"162\" width=\"520\" height=\"42\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"162\" width=\"96\" height=\"42\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"162\" width=\"4\" height=\"42\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"186.5\">가중</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"188\">홍수·허리케인 등 극단 기상 빈번</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"183\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"186.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">3</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"207\" x2=\"300\" y2=\"215\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,222 295,214 305,214\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"222\" width=\"520\" height=\"42\" rx=\"5\" fill=\"#f6f6f6\" stroke=\"#999999\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"222\" width=\"96\" height=\"42\" rx=\"5\" fill=\"#999999\"/>\n    <rect x=\"132\" y=\"222\" width=\"4\" height=\"42\" fill=\"#999999\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"246.5\">대응</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"248\">수장고·모니터링·디지털 저장소 등 혁신 전략</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"243\" r=\"8\" fill=\"#ffffff\" stroke=\"#999999\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"246.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#999999\" text-anchor=\"middle\">4</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"267\" x2=\"300\" y2=\"275\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,282 295,274 305,274\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"282\" width=\"520\" height=\"42\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"282\" width=\"96\" height=\"42\" rx=\"5\" fill=\"#1a1a1a\"/>\n    <rect x=\"132\" y=\"282\" width=\"4\" height=\"42\" fill=\"#1a1a1a\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"306.5\">걸림돌</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"308\">대부분 박물관은 ‘자금’ 부족</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"303\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"306.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1a1a1a\" text-anchor=\"middle\">5</text>\n  </g>\n  <g>\n    <line x1=\"300\" y1=\"327\" x2=\"300\" y2=\"335\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"300,342 295,334 305,334\" fill=\"#1a1a1a\"/>\n  </g>\n  <g>\n    <rect x=\"40\" y=\"342\" width=\"520\" height=\"42\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <rect x=\"40\" y=\"342\" width=\"96\" height=\"42\" rx=\"5\" fill=\"#1FA34A\"/>\n    <rect x=\"132\" y=\"342\" width=\"4\" height=\"42\" fill=\"#1FA34A\"/>\n    <text font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" fill=\"#ffffff\" text-anchor=\"middle\">\n      <tspan x=\"88\" y=\"366.5\">결론</tspan>\n    </text>\n    <text font-family=\"Noto Serif KR\" font-size=\"11.2\" font-weight=\"700\" fill=\"#1a1a1a\">\n      <tspan x=\"152\" y=\"368\">보존 성공 = 추가 재정 지원이 필수</tspan>\n    </text>\n    <circle cx=\"542\" cy=\"363\" r=\"8\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"542\" y=\"366.5\" font-family=\"Noto Serif\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">6</text>\n  </g>\n  <text x=\"300\" y=\"400\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">structure map · 핵심 전개 순서</text>\n</svg>","caption":"이 지문은 6단계로 전개된다. 첫 출발점은 '기온↑·습도 변동 → 유물 훼손·곰팡이'이고, 마지막은 '보존 성공 = 추가 재정 지원이 필수'로 정리된다."}]};
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function renderTabs() {
+  const tabs = P.data.map((d, i) =>
+    `<button class="tab${i===0?' active':''}" data-t="${d.no}">
+       <span class="tab-no">${d.no}</span>
+       <span class="tab-field">${d.field}</span>
+     </button>`).join('');
+  document.getElementById('tabs').innerHTML = tabs;
+}
+
+function renderTLDR(d) {
+  if (!d.tldr || !d.tldr.length) return '';
+  const items = d.tldr.map(t => `<li>${t}</li>`).join('');
+  return `<details class="tool" data-tool="tldr" open>
+    <summary>
+      <span class="ticon">B</span>
+      <span class="tname">핵심 요약</span>
+      <span class="thint">— 읽고 나서 핵심 정리</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><ol class="tldr">${items}</ol></div>
+  </details>`;
+}
+
+function renderAnalogy(d) {
+  if (!d.analogy) return '';
+  return `<details class="tool" data-tool="analogy">
+    <summary>
+      <span class="ticon">B</span>
+      <span class="tname">이게 무슨 말이냐면</span>
+      <span class="thint">— 일상 비유</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><p class="callout analogy">${d.analogy}</p></div>
+  </details>`;
+}
+
+function renderBG(d) {
+  if (!d.bg && !d.analogy) return '';
+  const bg = d.bg ? `<p class="callout bg">${d.bg}</p>` : '';
+  const analogy = d.analogy ? `<p class="callout analogy"><b>비유로 보면</b><br>${d.analogy}</p>` : '';
+  return `<details class="tool" data-tool="bg">
+    <summary>
+      <span class="ticon">A</span>
+      <span class="tname">읽기 전 30초</span>
+      <span class="thint">— 배경 개념과 읽는 방향</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${bg}${analogy}</div>
+  </details>`;
+}
+
+function renderFlow(d) {function renderFlow(d) {
+  if (!d.flow || !d.flow.length) return '';
+  let body = '<div class="flow">';
+  d.flow.forEach((s, i) => {
+    const cls = s.cls ? ' ' + s.cls : '';
+    body += `<div class="flow-step${cls}">
+      <div class="kind">${s.kind}</div>
+      <div class="body">
+        <div class="t">${s.t}</div>
+        ${s.d ? `<div class="d">${s.d}</div>` : ''}
+      </div>
+    </div>`;
+    if (i < d.flow.length - 1) body += '<div class="flow-arrow">▼</div>';
+  });
+  body += '</div>';
+  return `<details class="tool" data-tool="flow">
+    <summary>
+      <span class="ticon">C</span>
+      <span class="tname">논리 흐름</span>
+      <span class="thint">— 글의 전개</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}</div>
+  </details>`;
+}
+
+function renderQuiz(d) {
+  if (!d.quiz || !d.quiz.length) return '';
+  const items = d.quiz.map((q, i) =>
+    `<details class="quiz-item">
+      <summary>
+        <span class="qn">Q${i+1}</span>
+        <span>${q[0]}</span>
+        <span class="qarr">정답 ▾</span>
+      </summary>
+      <div class="qa">${q[1]}</div>
+    </details>`).join('');
+  return `<details class="tool" data-tool="quiz">
+    <summary>
+      <span class="ticon">D</span>
+      <span class="tname">확인 퀴즈</span>
+      <span class="thint">— 스스로 점검</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${items}</div>
+  </details>`;
+}
+
+function renderRead(d) {
+  if (!d.read || !d.read.length) return '';
+  let body = '';
+  d.read.forEach(r => {
+    let chunks = '';
+    if (r.chunks && r.chunks.length) {
+      chunks = '<div class="chunks">' + r.chunks.map(ch =>
+        `<div class="chunk"><div class="ce">${ch[0]}</div><div class="ck">${ch[1]}</div></div>`
+      ).join('') + '</div>';
+    }
+    body += `<div class="read-sent">
+      <div class="en">${r.en}</div>
+      ${chunks}
+      <div class="ko"><b>전체 해석:</b> ${r.ko}</div>
+    </div>`;
+  });
+  let vocab = '';
+  if (d.vocab && d.vocab.length) {
+    vocab = '<div class="vocab"><div class="vlabel">핵심 어휘</div>' +
+      d.vocab.map(v => `<div class="chip"><b>${v[0]}</b><span>${v[1]}</span></div>`).join('') +
+      '</div>';
+  }
+  return `<details class="tool" data-tool="read">
+    <summary>
+      <span class="ticon">E</span>
+      <span class="tname">끊어읽기 + 어휘</span>
+      <span class="thint">— 문장 단위</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}${vocab}</div>
+  </details>`;
+}
+
+function renderSource(d) {
+  if (!d.en && !d.ko) return '';
+  return `<details class="tool" data-tool="source">
+    <summary>
+      <span class="ticon">F</span>
+      <span class="tname">영어 원문 + 해석</span>
+      <span class="thint">— 시험 직전 점검용</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">
+      <div class="src">
+        <div class="en">${d.en}</div>
+        <div class="ko">${d.ko}</div>
+      </div>
+    </div>
+  </details>`;
+}
+
+function renderPassage(d, idx) {
+  let html = `<section class="passage${idx===0?' active':''}" id="p${d.no}">`;
+  html += `<div class="p-head">
+    <span class="field">${d.field}</span>
+    <h2>${d.title}</h2>
+    <p class="p-kt">${d.ktitle}</p>
+    <p class="p-page">${d.page}</p>
+  </div>`;
+  html += `<div class="oneline">${d.oneline}</div>`;
+  if (d.metaphor) {
+    html += `<div class="metaphor">
+      <div class="m-head">
+        <span class="label">중심 비유</span>
+        <span class="sub">visual metaphor</span>
+      </div>
+      <figure>
+        ${d.metaphor}
+        ${d.caption ? `<figcaption>${d.caption}</figcaption>` : ''}
+      </figure>
+    </div>`;
+  }
+  html += `<div class="tools-intro">막힌 곳만 펴 보세요 · <b>도구 상자</b></div>`;
+  html += renderBG(d);
+  html += renderTLDR(d);
+  html += renderFlow(d);
+  html += renderQuiz(d);
+  html += renderRead(d);
+  html += renderSource(d);
+  html += `</section>`;
+  return html;
+}
+
+renderTabs();
+document.getElementById('main').innerHTML = P.data.map((d, i) => renderPassage(d, i)).join('');
+
+/* 탭 클릭 */
+document.querySelectorAll('.tab').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.passage').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('p' + b.dataset.t).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
