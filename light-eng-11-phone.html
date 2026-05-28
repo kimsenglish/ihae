@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>지문 이해 보조 자료 · 수능특강 Light 영어 11강</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   김가영어학원 · KIM KA YOUNG ENGLISH
+   수능특강 영어독해연습 08강 지문 이해 — 도구 상자(Toolbox) 디지털 자료
+   Brand v2.1 · System B (학습자료 본문 전용)
+   ============================================================ */
+
+:root {
+  --paper:    #ffffff;
+  --ink:      #1a1a1a;
+  --ink-80:   #333333;
+  --ink-60:   #5e5e5e;
+  --ink-40:   #999;
+  --ink-20:   #cccccc;
+  --ink-10:   #e8e8e8;
+  --ink-05:   #f6f6f6;
+  --red:      #c8102e;
+  --red-tint: #fdf2f4;
+  --green:    #1FA34A;
+  --green-tint: #f0faf3;
+  --serif-kr: 'Noto Serif KR', serif;
+  --serif-en: 'Noto Serif', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--serif-kr);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+em { font-family: var(--serif-en); font-style: italic; }
+.en { font-family: var(--serif-en); }
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 18px 18px 80px;
+}
+
+/* ============================================================
+   학원 브랜드 헤더
+   ============================================================ */
+.brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: 4px;
+}
+.brand .b-title h1 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.brand .b-title .b-sub {
+  font-size: 11px;
+  color: var(--ink-60);
+  margin-top: 2px;
+  font-family: var(--serif-en);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+.brand .b-meta {
+  font-size: 11.5px;
+  color: var(--ink-60);
+  text-align: right;
+  line-height: 1.5;
+}
+.brand .b-meta .en { font-style: italic; }
+
+/* ============================================================
+   사용 안내 (도구 상자 가이드)
+   ============================================================ */
+.guide {
+  background: var(--ink-05);
+  border-left: 3px solid var(--red);
+  padding: 13px 16px 12px;
+  margin: 14px 0;
+  border-radius: 0 4px 4px 0;
+}
+.guide .g-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 9px;
+  font-family: var(--serif-kr);
+}
+.guide .g-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.guide .g-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+.guide .g-when {
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: var(--ink);
+  min-width: 96px;
+}
+.guide .g-sep {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  flex: 0 0 auto;
+}
+.guide .g-tools {
+  color: var(--ink-80);
+  flex: 1;
+}
+.guide .g-tools .k {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 12px;
+  padding: 0 3px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 3px;
+  margin-right: 2px;
+}
+.guide .g-note {
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+  font-size: 12px;
+  color: var(--ink-60);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.guide .g-note b { color: var(--red); }
+
+/* ============================================================
+   탭 (지문 선택)
+   ============================================================ */
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink-10);
+  z-index: 10;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 10px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 0 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 5px;
+  padding: 7px 12px 5px;
+  font-family: var(--serif-kr);
+  color: var(--ink-60);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  min-width: 78px;
+}
+.tab .tab-no {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.tab .tab-field {
+  display: block;
+  font-size: 10.5px;
+  color: var(--ink-40);
+  margin-top: 1px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.tab:hover { border-color: var(--ink-60); color: var(--ink); }
+.tab.active {
+  background: var(--red-tint);
+  border-color: var(--red);
+  color: var(--red);
+}
+.tab.active .tab-field { color: var(--red); }
+
+/* ============================================================
+   PASSAGE PANEL
+   ============================================================ */
+.passage { display: none; padding-top: 18px; }
+.passage.active { display: block; animation: fadeIn 0.22s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.p-head .field {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--red);
+  border: 0.7px solid var(--red);
+  padding: 2px 8px;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+.p-head h2 {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.p-head .p-kt {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.p-head .p-page {
+  font-size: 10.5px;
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  letter-spacing: 0.12em;
+  margin-top: 5px;
+}
+
+/* ============================================================
+   한 줄 핵심 (anchor)
+   ============================================================ */
+.oneline {
+  margin: 18px 0 22px;
+  padding: 16px 18px 17px;
+  background: var(--ink-05);
+  border-left: 3px solid var(--ink);
+  border-radius: 0 6px 6px 0;
+  font-size: 17.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  word-break: keep-all;
+  letter-spacing: -0.005em;
+}
+.oneline::before {
+  content: "한 줄 핵심";
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 7px;
+}
+.oneline .r { color: var(--red); font-weight: 700; }
+.oneline .g { color: var(--green); font-weight: 700; }
+.oneline em { font-style: italic; }
+
+/* ============================================================
+   메타포 SVG (지문별 한 컷 — 항상 펼쳐짐)
+   ============================================================ */
+.metaphor {
+  margin: 20px 0 22px;
+  border: 1px solid var(--ink-20);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.metaphor .m-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--ink-10);
+  background: var(--ink-05);
+}
+.metaphor .m-head .label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--ink-60);
+}
+.metaphor .m-head .sub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-60);
+}
+.metaphor figure { padding: 18px 18px 14px; }
+.metaphor figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.metaphor figcaption {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-60);
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+  line-height: 1.55;
+}
+.metaphor figcaption .en { font-style: italic; color: var(--ink-80); }
+.metaphor figcaption .r { color: var(--red); font-weight: 700; }
+.metaphor figcaption .g { color: var(--green); font-weight: 700; }
+
+/* ============================================================
+   TOOLBOX 안내 라인
+   ============================================================ */
+.tools-intro {
+  font-size: 12px;
+  color: var(--ink-60);
+  letter-spacing: 0.04em;
+  margin: 18px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tools-intro::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--ink);
+  display: inline-block;
+}
+.tools-intro b { color: var(--ink); font-weight: 700; }
+
+/* ============================================================
+   도구 카드 (Tool) — 아코디언
+   ============================================================ */
+.tool {
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.tool[open] { border-color: var(--ink-80); }
+.tool > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+.tool > summary::-webkit-details-marker { display: none; }
+.tool > summary:hover { background: var(--ink-05); }
+.tool > summary .tname {
+  flex: 1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.tool > summary .thint {
+  font-size: 11.5px;
+  color: var(--ink-40);
+  font-weight: 400;
+}
+.tool > summary .arr {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  font-size: 11px;
+  transition: transform 0.2s;
+  flex: 0 0 auto;
+}
+.tool[open] > summary .arr { transform: rotate(90deg); color: var(--ink); }
+.tool > summary .ticon {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  background: var(--ink-05);
+  border: 0.7px solid var(--ink-20);
+}
+.tool[open] > summary .ticon {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.tool .body { padding: 4px 16px 18px; }
+
+/* ============================================================
+   도구별 컨텐츠 스타일
+   ============================================================ */
+
+/* 30초 요약 */
+.tldr {
+  list-style: none;
+  counter-reset: t;
+}
+.tldr li {
+  position: relative;
+  padding: 9px 0 9px 30px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  border-bottom: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+.tldr li:last-child { border-bottom: none; }
+.tldr li::before {
+  counter-increment: t;
+  content: counter(t);
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 20px;
+  height: 20px;
+  background: var(--paper);
+  border: 1px solid var(--green);
+  color: var(--green);
+  border-radius: 50%;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 비유 / 배경지식 */
+.callout {
+  font-size: 14.5px;
+  line-height: 1.7;
+  padding: 13px 15px;
+  border-radius: 6px;
+  word-break: keep-all;
+  background: var(--ink-05);
+}
+.callout.analogy { border-left: 3px solid var(--green); }
+.callout.bg      { border-left: 3px solid var(--ink); }
+.callout em { font-style: italic; }
+
+/* 논지 흐름 */
+.flow { display: flex; flex-direction: column; gap: 6px; }
+.flow-step {
+  display: flex;
+  gap: 12px;
+  padding: 12px 13px;
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  background: var(--paper);
+  align-items: flex-start;
+}
+.flow-step .kind {
+  flex: 0 0 60px;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 0;
+  text-align: center;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  background: var(--ink-05);
+  color: var(--ink-80);
+  border: 0.7px solid var(--ink-20);
+}
+.flow-step.pivot .kind {
+  background: var(--red-tint); color: var(--red); border-color: var(--red);
+}
+.flow-step.close .kind {
+  background: var(--green-tint); color: var(--green); border-color: var(--green);
+}
+.flow-step .body { flex: 1; }
+.flow-step .t {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.flow-step .t .r { color: var(--red); font-weight: 700; }
+.flow-step .t .g { color: var(--green); font-weight: 700; }
+.flow-step .d {
+  font-size: 12.5px;
+  color: var(--ink-60);
+  margin-top: 4px;
+  word-break: keep-all;
+}
+.flow-arrow {
+  text-align: center;
+  color: var(--ink-20);
+  font-size: 13px;
+  font-family: var(--serif-en);
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+/* 끊어읽기 */
+.read-sent {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 11px 13px 11px;
+  margin-bottom: 8px;
+  background: var(--paper);
+}
+.read-sent .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.read-sent .chunks {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+}
+.read-sent .chunk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px 16px;
+  padding: 3px 0;
+  font-size: 12.5px;
+  border-bottom: 1px dotted var(--ink-10);
+}
+.read-sent .chunk:last-child { border-bottom: none; }
+.read-sent .chunk .ce {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.read-sent .chunk .ck { color: var(--ink-60); word-break: keep-all; }
+.read-sent .ko {
+  margin-top: 9px;
+  padding: 7px 11px;
+  background: var(--ink-05);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--ink-80);
+  word-break: keep-all;
+  line-height: 1.6;
+}
+.read-sent .ko b { color: var(--ink); font-weight: 700; }
+
+/* 어휘 chip */
+.vocab {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--ink-10);
+}
+.vocab .vlabel {
+  width: 100%;
+  font-size: 11px;
+  color: var(--ink-60);
+  letter-spacing: 0.18em;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.vocab .chip {
+  font-size: 12.5px;
+  padding: 5px 9px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.vocab .chip b {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--red);
+  font-weight: 700;
+}
+.vocab .chip span { color: var(--ink-80); margin-left: 5px; }
+
+/* 퀴즈 */
+.quiz-item {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  margin-bottom: 6px;
+  background: var(--paper);
+}
+.quiz-item > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 11px 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.quiz-item > summary::-webkit-details-marker { display: none; }
+.quiz-item .qn {
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--green);
+  border-radius: 3px;
+  padding: 2px 6px;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+.quiz-item .qarr {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--green);
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 700;
+}
+.quiz-item[open] .qarr { visibility: hidden; }
+.quiz-item .qa {
+  padding: 0 13px 13px 44px;
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+.quiz-item .qa b { color: var(--green); font-weight: 700; }
+
+/* 영어 원문 + 한글 해석 */
+.src {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 14px 16px;
+}
+.src .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+.src .ko {
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.85;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot {
+  margin-top: 36px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink-10);
+  font-size: 10.5px;
+  color: var(--ink-40);
+  text-align: center;
+  font-family: var(--serif-kr);
+  letter-spacing: 0.03em;
+}
+.foot .pub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-60);
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 540px) {
+  .wrap { padding: 14px 13px 60px; }
+  .brand { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .brand .b-meta { text-align: left; }
+  .guide .g-row { flex-direction: column; gap: 1px; padding-bottom: 4px; }
+  .guide .g-row + .g-row { border-top: 1px dashed var(--ink-10); padding-top: 5px; }
+  .guide .g-when { font-size: 12px; min-width: 0; }
+  .guide .g-sep { display: none; }
+  .guide .g-tools { font-size: 12.5px; }
+  .p-head h2 { font-size: 20px; }
+  .oneline { font-size: 16px; padding: 14px 14px; }
+  .read-sent .chunk { grid-template-columns: 1fr; gap: 1px; }
+  .read-sent .chunk .ck { padding-left: 4px; color: var(--ink-60); font-size: 12px; }
+  .flow-step { padding: 10px 11px; gap: 9px; }
+  .flow-step .kind { flex-basis: 52px; font-size: 10.5px; }
+  .tool > summary { padding: 12px 13px; font-size: 14px; }
+  .tool > summary .thint { display: none; }
+  .metaphor figure { padding: 13px 13px 10px; }
+  .metaphor figcaption { font-size: 12px; }
+}
+</style>
+</head>
+<body class="dev-phone">
+<div class="wrap">
+
+<!-- 학원 브랜드 헤더 -->
+<header class="brand">
+  <div class="b-title">
+    <h1>지문 이해 보조 자료</h1>
+    <div class="b-sub">수능특강 Light 영어 11강</div>
+  </div>
+  <div class="b-meta">
+    김가영어학원<br>
+    <span class="en">KIM KA YOUNG ENGLISH</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs"></nav>
+
+<!-- 지문 패널 -->
+<main id="main"></main>
+
+<!-- 콜로폰 -->
+<footer class="foot">
+  김가영어학원 · KIM KA YOUNG ENGLISH &nbsp;·&nbsp; 지문 이해 보조 자료
+  <span class="pub">published by warm &amp; wise books</span>
+</footer>
+
+</div>
+
+<script>
+/* ============================================================
+   데이터 (P.data) — 수능특강 Light 영어 11강
+   각 지문에 metaphor(SVG 문자열) + caption 필드 추가
+   ============================================================ */
+const P = {"data": [{"no": "1", "title": "Feet Bypass Conscious Mind", "ktitle": "위협 → (의식 우회) → 변연계 → 발/다리 즉각 반응", "field": "심리·생리", "page": "11강 Gateway", "oneline": "발과 다리는 의식적 사고 이전에 작동하는 진화적 생존 반응 기제라, 우리 몸 어느 부위보다 감정을 정직하게 드러낸다. 위협을 만났을 때 의식 과정을 거치지 않고 변연계가 직접 발·다리를 통제 — 멈춤·도주·걷어차기 반응.", "metaphor": "<svg viewBox=\"0 0 600 260\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"좌측 위협(사자)이 의식적 사고 박스를 우회해 변연계로 직행하고, 변연계가 우측 발과 다리에 멈춤·도주·걷어차기 반응을 일으키는 그림\">\n  <!-- 상단 라벨 -->\n  <text x=\"300\" y=\"18\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">limbic shortcut — feet bypass conscious mind</text>\n\n  <!-- 좌측: 위협 (사자) -->\n  <g transform=\"translate(35, 110)\">\n    <!-- 갈기 -->\n    <circle cx=\"30\" cy=\"30\" r=\"32\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.5\"/>\n    <g fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1\" opacity=\"0.7\">\n      <path d=\"M 5 15 Q 0 5 10 -2\"/>\n      <path d=\"M 55 15 Q 60 5 50 -2\"/>\n      <path d=\"M 5 45 Q 0 55 10 62\"/>\n      <path d=\"M 55 45 Q 60 55 50 62\"/>\n      <line x1=\"-2\" y1=\"30\" x2=\"-8\" y2=\"30\"/>\n      <line x1=\"62\" y1=\"30\" x2=\"68\" y2=\"30\"/>\n      <line x1=\"30\" y1=\"-2\" x2=\"30\" y2=\"-8\"/>\n      <line x1=\"30\" y1=\"62\" x2=\"30\" y2=\"68\"/>\n    </g>\n    <!-- 머리 -->\n    <circle cx=\"30\" cy=\"30\" r=\"20\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <!-- 눈 -->\n    <ellipse cx=\"22\" cy=\"26\" rx=\"1.8\" ry=\"2.7\" fill=\"#1a1a1a\"/>\n    <ellipse cx=\"38\" cy=\"26\" rx=\"1.8\" ry=\"2.7\" fill=\"#1a1a1a\"/>\n    <!-- 코 -->\n    <path d=\"M 27 33 L 33 33 L 30 37 Z\" fill=\"#1a1a1a\"/>\n    <!-- 입 -->\n    <path d=\"M 30 37 L 30 41\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n    <path d=\"M 26 41 Q 28 43 30 41 Q 32 43 34 41\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n    <!-- 송곳니 -->\n    <path d=\"M 28 41 L 27 45\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n    <path d=\"M 32 41 L 33 45\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n    <text x=\"30\" y=\"82\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">threat</text>\n    <text x=\"30\" y=\"96\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">환경적 위협</text>\n  </g>\n\n  <!-- 위쪽 중앙: 의식적 사고 박스 (우회됨) -->\n  <g transform=\"translate(180, 38)\">\n    <rect x=\"0\" y=\"0\" width=\"200\" height=\"46\" rx=\"6\" fill=\"#f6f6f6\" stroke=\"#999\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/>\n    <text x=\"100\" y=\"22\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11.5\" text-anchor=\"middle\" fill=\"#999\" font-weight=\"700\">conscious thought</text>\n    <text x=\"100\" y=\"36\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#999\">의식적 사고 — 거치지 않음</text>\n    <!-- X 표시 -->\n    <g transform=\"translate(100, 58)\">\n      <circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1.3\"/>\n      <line x1=\"-4.5\" y1=\"-4.5\" x2=\"4.5\" y2=\"4.5\" stroke=\"#999\" stroke-width=\"1.6\"/>\n      <line x1=\"4.5\" y1=\"-4.5\" x2=\"-4.5\" y2=\"4.5\" stroke=\"#999\" stroke-width=\"1.6\"/>\n    </g>\n  </g>\n\n  <!-- 위협 → 변연계 (instantaneous 화살표) -->\n  <g>\n    <path d=\"M 105 150 Q 200 195 245 195\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"2\"/>\n    <polygon points=\"245,195 237,191 237,199\" fill=\"#1FA34A\"/>\n    <text x=\"170\" y=\"215\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10.5\" font-weight=\"700\" fill=\"#1FA34A\" text-anchor=\"middle\">instantaneously · no conscious step</text>\n  </g>\n\n  <!-- 변연계 (뇌 그림) -->\n  <g transform=\"translate(260, 165)\">\n    <!-- 뇌 모양 -->\n    <path d=\"M 5 28 Q -3 8 15 2 Q 30 -3 45 5 Q 56 14 52 30 Q 48 46 28 47 Q 8 46 5 28 Z\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.7\"/>\n    <!-- 뇌 주름 -->\n    <path d=\"M 12 18 Q 22 13 32 20\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"0.9\" opacity=\"0.6\"/>\n    <path d=\"M 12 28 Q 22 23 38 30\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"0.9\" opacity=\"0.6\"/>\n    <path d=\"M 14 38 Q 24 33 42 38\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"0.9\" opacity=\"0.6\"/>\n    <text x=\"28\" y=\"62\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">limbic brain</text>\n  </g>\n\n  <!-- 변연계 → 발/다리 (controls 화살표) -->\n  <g>\n    <line x1=\"325\" y1=\"190\" x2=\"425\" y2=\"190\" stroke=\"#1FA34A\" stroke-width=\"2\"/>\n    <polygon points=\"425,190 417,186 417,194\" fill=\"#1FA34A\"/>\n    <text x=\"375\" y=\"180\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">controls</text>\n  </g>\n\n  <!-- 우측: 발과 다리 + 3반응 -->\n  <g transform=\"translate(440, 60)\">\n    <text x=\"75\" y=\"-2\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">발·다리 — 3대 반응</text>\n\n    <!-- stick figure (다리 강조) -->\n    <g transform=\"translate(75, 60)\">\n      <!-- 머리 (옅게) -->\n      <circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1\" opacity=\"0.5\"/>\n      <!-- 몸 -->\n      <line x1=\"0\" y1=\"9\" x2=\"0\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.4\" opacity=\"0.5\"/>\n      <!-- 팔 -->\n      <line x1=\"0\" y1=\"20\" x2=\"-9\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\" opacity=\"0.5\"/>\n      <line x1=\"0\" y1=\"20\" x2=\"9\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\" opacity=\"0.5\"/>\n      <!-- 다리 강조 -->\n      <line x1=\"0\" y1=\"38\" x2=\"-14\" y2=\"68\" stroke=\"#1FA34A\" stroke-width=\"2.4\"/>\n      <line x1=\"0\" y1=\"38\" x2=\"14\" y2=\"68\" stroke=\"#1FA34A\" stroke-width=\"2.4\"/>\n      <!-- 발 -->\n      <ellipse cx=\"-16\" cy=\"71\" rx=\"6\" ry=\"3\" fill=\"#1FA34A\"/>\n      <ellipse cx=\"16\" cy=\"71\" rx=\"6\" ry=\"3\" fill=\"#1FA34A\"/>\n    </g>\n\n    <!-- 3반응 라벨 -->\n    <g transform=\"translate(0, 145)\">\n      <rect x=\"0\" y=\"0\" width=\"44\" height=\"22\" rx=\"3\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <text x=\"22\" y=\"15\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">freeze</text>\n    </g>\n    <g transform=\"translate(53, 145)\">\n      <rect x=\"0\" y=\"0\" width=\"44\" height=\"22\" rx=\"3\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <text x=\"22\" y=\"15\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">flee</text>\n    </g>\n    <g transform=\"translate(106, 145)\">\n      <rect x=\"0\" y=\"0\" width=\"44\" height=\"22\" rx=\"3\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <text x=\"22\" y=\"15\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">kick</text>\n    </g>\n\n    <text x=\"75\" y=\"185\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">honest reflectors of sentiments</text>\n  </g>\n</svg>", "caption": "위협이 닥치면 의식 박스는 건너뛰어진다 — 변연계가 발과 다리를 곧바로 통제하기에 발은 어느 부위보다 정직한 감정의 거울이 된다.", "tldr": ["발과 다리는 의식적 사고 이전에 작동하는 진화적 생존 반응 기제라, 우리 몸 어느 부위보다 감정을 정직하게 드러낸다. 위협을 만났을 때 의식 과정을 거치지 않고 변연계가 직접 발·다리를 통제 — 멈춤·도주·걷어차기 반응.", "위협이 닥치면 의식 박스는 건너뛰어진다 — 변연계가 발과 다리를 곧바로 통제하기에 발은 어느 부위보다 정직한 감정의 거울이 된다."], "bg": "수능특강 Light 영어 11강 지문 이해 자료입니다.", "flow": [], "vocab": [["⊕zoologist← zoo- + -logist", "동물학자"], ["observe", "관찰하다·(보고) 말하다"], ["⊕reflector← reflect + -or", "반사경·반영하는 것"], ["sentiment", "감정·정서"], ["environmental", "환경의·환경적인"], ["instantaneous", "즉각적인"], ["conscious", "의식적인·자각하는"], ["limbic", "(뇌의) 변연계의"], ["cease", "멈추다·중단하다"], ["potential", "잠재적인·가능성 있는"], ["★threat", "위협·위험"], ["★react", "반응하다"], ["survival", "생존"], ["regimen", "양생법·(규칙적인) 체계"], ["retain", "유지하다·보유하다"], ["⊕ancestral← ancestor + -al", "조상의·조상 전래의"], ["heritage", "유산"], ["hardwired", "깊이 내재된·타고난"], ["⊕disagreeable← dis- + agree + -able", "불쾌한·싫은"], ["⊕prehistoric← pre- + historic", "선사 시대의"], ["◇make sure (that)", "반드시 ~하도록 하다·확실히 하다"]], "quiz": [["이 지문의 핵심 구조는?", "위협이 닥치면 의식 박스는 건너뛰어진다 — 변연계가 발과 다리를 곧바로 통제하기에 발은 어느 부위보다 정직한 감정의 거울이 된다."], ["도식이 강조하는 결론은?", "발과 다리는 의식적 사고 이전에 작동하는 진화적 생존 반응 기제라, 우리 몸 어느 부위보다 감정을 정직하게 드러낸다. 위협을 만났을 때 의식 과정을 거치지 않고 변연계가 직접 발·다리를 통제 — 멈춤·도주·걷어차기 반응."]], "en": "The writer and zoologist Desmond Morris observed that our feet communicate exactly what we think and feel more honestly than any other part of our bodies. Why are the feet and legs such accurate reflectors of our sentiments? For millions of years, long before humans spoke, our legs and feet reacted to environmental threats (e.g., hot sand, ill-tempered lions) instantaneously, without the need for conscious thought. Our limbic brains made sure that our feet and legs reacted as needed by either ceasing motion, running away, or kicking at a potential threat. This survival regimen, retained from our ancestral heritage, has served us well and continues to do so today. In fact, these age-old reactions are still so hardwired in us that when we are presented with something dangerous or even disagreeable, our feet and legs still react as they did in prehistoric times.", "ko": "작가이자 동물학자인 Desmond Morris는 우리의 발이 우리 몸의 다른 어떤 부분보다도 우리가 생각하고 느끼는 것을 더 정직하게 그대로 전달한다고 말했다. 왜 발과 다리는 우리 감정의 그토록 정확한 반사경인 걸까? 수백만 년 동안, 인간이 말을 사용하기 오래전에, 우리의 다리와 발은 환경적인 위협(예를 들면, 뜨거운 모래, 성질이 나쁜 사자)에 대해, 의식적 사고에 대한 필요 없이, 즉시 반응했다. 우리의 변연계 뇌는 움직임을 멈추거나, 도망가거나, 혹은 잠재적인 위협을 걷어참으로써 필요에 따라 우리의 발과 다리가 반응하도록 확실히 했다. 이러한 생존 방식은, 우리 조상의 유산으로부터 유지되었으며, 우리에게 도움이 되어 왔고 오늘날에도 계속 그러하다. 사실, 이러한 오래된 반응은 여전히 우리에게 깊이 내재되어 있어서, 우리가 위험하거나 심지어 불쾌한 어떤 것에 직면할 때, 우리의 발과 다리는 여전히 선사 시대에 그랬던 것처럼 반응한다.", "read": [{"en": "The writer and zoologist Desmond Morris observed that our feet communicate exactly what we think and feel more honestly than any other part of our bodies.", "ko": "작가이자 동물학자인 Desmond Morris는 우리의 발이 우리 몸의 다른 어떤 부분보다도 우리가 생각하고 느끼는 것을 더 정직하게 그대로 전달한다고 말했다."}, {"en": "Why are the feet and legs such accurate reflectors of our sentiments?", "ko": "왜 발과 다리는 우리 감정의 그토록 정확한 반사경인 걸까?"}, {"en": "For millions of years, long before humans spoke, our legs and feet reacted to environmental threats (e.g., hot sand, ill-tempered lions) instantaneously, without the need for conscious thought.", "ko": "수백만 년 동안, 인간이 말을 사용하기 오래전에, 우리의 다리와 발은 환경적인 위협(예를 들면, 뜨거운 모래, 성질이 나쁜 사자)에 대해, 의식적 사고에 대한 필요 없이, 즉시 반응했다."}, {"en": "Our limbic brains made sure that our feet and legs reacted as needed by either ceasing motion, running away, or kicking at a potential threat.", "ko": "우리의 변연계 뇌는 움직임을 멈추거나, 도망가거나, 혹은 잠재적인 위협을 걷어참으로써 필요에 따라 우리의 발과 다리가 반응하도록 확실히 했다."}, {"en": "This survival regimen, retained from our ancestral heritage, has served us well and continues to do so today.", "ko": "이러한 생존 방식은, 우리 조상의 유산으로부터 유지되었으며, 우리에게 도움이 되어 왔고 오늘날에도 계속 그러하다."}, {"en": "In fact, these age-old reactions are still so hardwired in us that when we are presented with something dangerous or even disagreeable, our feet and legs still react as they did in prehistoric times.", "ko": "사실, 이러한 오래된 반응은 여전히 우리에게 깊이 내재되어 있어서, 우리가 위험하거나 심지어 불쾌한 어떤 것에 직면할 때, 우리의 발과 다리는 여전히 선사 시대에 그랬던 것처럼 반응한다."}]}, {"no": "2", "title": "Identity Development in Context", "ktitle": "촉진 조건 ↔ 5가지 외부 장벽 — However 이후가 무게중심", "field": "발달·사회", "page": "11강 no.01", "oneline": "정체성 발달은 사회·역사적 맥락에 좌우된다 — 산업화국 고지위 같은 조건은 탐색을 촉진하지만, 외부적 장벽(지리·SES·교육·부모·정치)은 탐색·전념을 제약한다. However 이후 '장벽'이 글의 무게중심이며 예시는 딸의 노동 금지·중매결혼.", "metaphor": "<svg viewBox=\"0 0 600 260\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"좌측 산업화국 고지위 조건이 청소년의 정체성 탐색을 촉진하는 다양한 길과, 우측 다섯 가지 외부 장벽(지리·SES·교육·부모·정치)이 청소년의 탐색을 가로막는 모습을 대비한 그림\">\n  <!-- 좌측: foster -->\n  <g transform=\"translate(15, 35)\">\n    <rect x=\"0\" y=\"0\" width=\"245\" height=\"195\" rx=\"6\" fill=\"#f0faf3\" fill-opacity=\"0.3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n    <text x=\"122\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"middle\">촉진 (foster)</text>\n\n    <!-- 조건 라벨 (위쪽) -->\n    <rect x=\"20\" y=\"15\" width=\"205\" height=\"32\" rx=\"4\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n    <text x=\"122\" y=\"29\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">industrialized · high-status</text>\n    <text x=\"122\" y=\"42\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">산업화국 고지위 조건</text>\n\n    <!-- 청소년 stick figure -->\n    <g transform=\"translate(60, 110)\">\n      <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <circle cx=\"-3\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <path d=\"M -4 4 Q 0 6 4 4\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      <line x1=\"0\" y1=\"11\" x2=\"0\" y2=\"32\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"18\" x2=\"-9\" y2=\"25\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"18\" x2=\"9\" y2=\"25\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"32\" x2=\"-6\" y2=\"48\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"32\" x2=\"6\" y2=\"48\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <text x=\"0\" y=\"62\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">청소년</text>\n    </g>\n\n    <!-- 4갈래 탐색의 길 -->\n    <g stroke=\"#1FA34A\" stroke-width=\"1.6\" fill=\"none\">\n      <path d=\"M 80 115 L 175 78\"/>\n      <path d=\"M 80 120 L 195 110\"/>\n      <path d=\"M 80 128 L 195 145\"/>\n      <path d=\"M 80 135 L 175 175\"/>\n    </g>\n    <g fill=\"#1FA34A\">\n      <polygon points=\"175,78 167,77 170,84\"/>\n      <polygon points=\"195,110 187,107 188,115\"/>\n      <polygon points=\"195,145 187,141 188,149\"/>\n      <polygon points=\"175,175 167,170 170,176\"/>\n    </g>\n\n    <!-- 길 끝 라벨 -->\n    <g font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" font-weight=\"700\" fill=\"#1FA34A\">\n      <text x=\"200\" y=\"78\">career</text>\n      <text x=\"200\" y=\"113\">values</text>\n      <text x=\"200\" y=\"148\">beliefs</text>\n      <text x=\"200\" y=\"178\">relations</text>\n    </g>\n\n    <text x=\"122\" y=\"186\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">identity exploration · free</text>\n  </g>\n\n  <!-- 가운데: However -->\n  <g transform=\"translate(275, 130)\">\n    <text x=\"25\" y=\"-2\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">However</text>\n    <line x1=\"0\" y1=\"10\" x2=\"50\" y2=\"10\" stroke=\"#c8102e\" stroke-width=\"2\"/>\n    <polygon points=\"50,10 42,5 42,15\" fill=\"#c8102e\"/>\n    <text x=\"25\" y=\"30\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\">무게중심</text>\n  </g>\n\n  <!-- 우측: constrain -->\n  <g transform=\"translate(340, 35)\">\n    <rect x=\"0\" y=\"0\" width=\"245\" height=\"195\" rx=\"6\" fill=\"#fdf2f4\" fill-opacity=\"0.3\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"5 3\"/>\n    <text x=\"122\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"middle\">제약 (constrain)</text>\n\n    <!-- 청소년 (딸) stick figure -->\n    <g transform=\"translate(45, 100)\">\n      <!-- 머리 + 머리카락 길게 -->\n      <path d=\"M -11 0 Q -13 -10 0 -11 Q 13 -10 11 0 Q 11 8 0 11 Q -11 8 -11 0 Z\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <!-- 머리카락 (어깨까지) -->\n      <path d=\"M -11 0 Q -13 10 -10 22\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <path d=\"M 11 0 Q 13 10 10 22\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <circle cx=\"-3\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <path d=\"M -3 5 Q 0 6 3 5\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      <line x1=\"0\" y1=\"11\" x2=\"0\" y2=\"32\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"18\" x2=\"-9\" y2=\"25\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"18\" x2=\"9\" y2=\"25\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"32\" x2=\"-6\" y2=\"48\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"32\" x2=\"6\" y2=\"48\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <text x=\"0\" y=\"62\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">청소년 (예: 딸)</text>\n    </g>\n\n    <!-- 5개 장벽 (벽돌처럼) -->\n    <g font-family=\"Noto Serif\" font-style=\"italic\" font-weight=\"700\" fill=\"#c8102e\">\n      <!-- 장벽 1: geographic -->\n      <rect x=\"95\" y=\"14\" width=\"135\" height=\"22\" rx=\"3\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.3\" stroke-dasharray=\"3 2\"/>\n      <text x=\"162\" y=\"28\" font-size=\"9\" text-anchor=\"middle\">geographic isolation</text>\n      <!-- 장벽 2: SES -->\n      <rect x=\"95\" y=\"42\" width=\"135\" height=\"22\" rx=\"3\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.3\" stroke-dasharray=\"3 2\"/>\n      <text x=\"162\" y=\"56\" font-size=\"9\" text-anchor=\"middle\">socioeconomic status</text>\n      <!-- 장벽 3: education -->\n      <rect x=\"95\" y=\"70\" width=\"135\" height=\"22\" rx=\"3\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.3\" stroke-dasharray=\"3 2\"/>\n      <text x=\"162\" y=\"84\" font-size=\"9\" text-anchor=\"middle\">lack of education</text>\n      <!-- 장벽 4: parents -->\n      <rect x=\"95\" y=\"98\" width=\"135\" height=\"22\" rx=\"3\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.3\" stroke-dasharray=\"3 2\"/>\n      <text x=\"162\" y=\"112\" font-size=\"9\" text-anchor=\"middle\">overbearing parents</text>\n      <!-- 장벽 5: political -->\n      <rect x=\"95\" y=\"126\" width=\"135\" height=\"22\" rx=\"3\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.3\" stroke-dasharray=\"3 2\"/>\n      <text x=\"162\" y=\"140\" font-size=\"9\" text-anchor=\"middle\">political zeitgeist</text>\n    </g>\n\n    <!-- 청소년 → 장벽 막힘 표시 -->\n    <g>\n      <line x1=\"60\" y1=\"100\" x2=\"88\" y2=\"80\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"3 2\"/>\n      <!-- X 차단 -->\n      <g transform=\"translate(88, 80)\">\n        <line x1=\"-3\" y1=\"-3\" x2=\"3\" y2=\"3\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n        <line x1=\"3\" y1=\"-3\" x2=\"-3\" y2=\"3\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n      </g>\n    </g>\n\n    <text x=\"122\" y=\"166\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">e.g., no work · arranged marriage</text>\n    <text x=\"122\" y=\"186\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">exploration · commitment blocked</text>\n  </g>\n</svg>", "caption": "좌측은 자유롭게 펼쳐지는 정체성 탐색의 길, 우측은 다섯 겹의 장벽에 가로막힌 청소년 — However 이후가 글의 무게중심.", "tldr": ["정체성 발달은 사회·역사적 맥락에 좌우된다 — 산업화국 고지위 같은 조건은 탐색을 촉진하지만, 외부적 장벽(지리·SES·교육·부모·정치)은 탐색·전념을 제약한다. However 이후 '장벽'이 글의 무게중심이며 예시는 딸의 노동 금지·중매결혼.", "좌측은 자유롭게 펼쳐지는 정체성 탐색의 길, 우측은 다섯 겹의 장벽에 가로막힌 청소년 — However 이후가 글의 무게중심."], "bg": "수능특강 Light 영어 11강 지문 이해 자료입니다.", "flow": [], "vocab": [["★identity", "정체성"], ["adolescent", "청소년(의)"], ["⊕sociohistorical← socio- + historical", "사회·역사적인"], ["◇replete with", "~로 가득 찬"], ["facilitate", "촉진하다·용이하게 하다"], ["impede", "방해하다·지연시키다"], ["foster", "촉진하다·조성하다·기르다"], ["⊕exploration← explore + -ation", "탐색·탐구"], ["★barrier", "장벽·장애물"], ["external", "외부의·외적인"], ["constrain", "제약하다·제한하다"], ["⊕commitment← commit + -ment", "전념·헌신·약속"], ["geographic", "지리적인"], ["isolation", "고립·격리"], ["⊕socioeconomic← socio- + economic", "사회경제적인"], ["overbearing", "고압적인·위압적인"], ["zeitgeist", "시대정신"], ["prohibit", "금지하다"], ["◇commit to", "~에 전념하다·헌신하다"]], "quiz": [["이 지문의 핵심 구조는?", "좌측은 자유롭게 펼쳐지는 정체성 탐색의 길, 우측은 다섯 겹의 장벽에 가로막힌 청소년 — However 이후가 글의 무게중심."], ["도식이 강조하는 결론은?", "정체성 발달은 사회·역사적 맥락에 좌우된다 — 산업화국 고지위 같은 조건은 탐색을 촉진하지만, 외부적 장벽(지리·SES·교육·부모·정치)은 탐색·전념을 제약한다. However 이후 '장벽'이 글의 무게중심이며 예시는 딸의 노동 금지·중매결혼."]], "en": "Identity development occurs within the context of the adolescent's larger sociohistorical context, which is replete with factors that can facilitate or impede identity development. Certain conditions usually associated with high-status individuals in industrialized nations foster identity exploration. However, there are also potential barriers, or external limitations, that constrain identity exploration and commitment. These barriers may result from factors such as geographic isolation, socioeconomic status, lack of educational opportunities, overbearing parents, and political zeitgeist. For instance, some parents may prohibit their adolescent daughters from working and expect them to commit to arranged marriages according to cultural beliefs.", "ko": "정체성 발달은 청소년의 더 광범위한 사회·역사적 맥락 속에서 이루어지며, 그 맥락은 정체성 발달을 촉진하거나 방해할 수 있는 요인들로 가득 차 있다. 대개 산업화한 국가에서 높은 지위를 가진 사람들과 연관된 특정 조건들은 정체성 탐색을 촉진한다. 그러나 정체성 탐색과 전념을 제한하는 잠재적 장벽, 즉 외부적 제약 역시 존재한다. 이러한 장벽은 지리적 고립, 사회 경제적 지위, 교육 기회의 부족, 고압적인 부모, 정치적 시대정신과 같은 요인들에서 비롯될 수도 있다. 예를 들어, 일부 부모는 자신의 청소년기 딸이 일하는 것을 금지하고 문화적 신념에 따라 중매결혼에 헌신하기를 기대할 수도 있다.", "read": [{"en": "Identity development occurs within the context of the adolescent's larger sociohistorical context, which is replete with factors that can facilitate or impede identity development.", "ko": "정체성 발달은 청소년의 더 광범위한 사회·역사적 맥락 속에서 이루어지며, 그 맥락은 정체성 발달을 촉진하거나 방해할 수 있는 요인들로 가득 차 있다."}, {"en": "Certain conditions usually associated with high-status individuals in industrialized nations foster identity exploration.", "ko": "대개 산업화한 국가에서 높은 지위를 가진 사람들과 연관된 특정 조건들은 정체성 탐색을 촉진한다."}, {"en": "However, there are also potential barriers, or external limitations, that constrain identity exploration and commitment.", "ko": "그러나 정체성 탐색과 전념을 제한하는 잠재적 장벽, 즉 외부적 제약 역시 존재한다."}, {"en": "These barriers may result from factors such as geographic isolation, socioeconomic status, lack of educational opportunities, overbearing parents, and political zeitgeist.", "ko": "이러한 장벽은 지리적 고립, 사회 경제적 지위, 교육 기회의 부족, 고압적인 부모, 정치적 시대정신과 같은 요인들에서 비롯될 수도 있다."}, {"en": "For instance, some parents may prohibit their adolescent daughters from working and expect them to commit to arranged marriages according to cultural beliefs.", "ko": "예를 들어, 일부 부모는 자신의 청소년기 딸이 일하는 것을 금지하고 문화적 신념에 따라 중매결혼에 헌신하기를 기대할 수도 있다."}]}, {"no": "3", "title": "Wet Bulb 95°F — The Limit", "ktitle": "건조: 땀 증발 ↑ / 습함: 땀 갇힘 ✗ — 95도 임계선", "field": "기후·생리", "page": "11강 no.02", "oneline": "습도가 높을수록 땀 증발이 막혀 체온 조절이 실패한다. 습구 95도가 인간 적응 상한 — 그 이상에서는 열 생성이 발산보다 빨라져 위험.", "metaphor": "<svg viewBox=\"0 0 600 260\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"좌측 건조한 환경에서 땀이 위로 증발해 시원해지는 사람과, 우측 습한 환경에서 땀이 피부에 머물러 증발하지 못하는 사람의 대비, 그리고 가운데 습구 95도 임계선을 표시한 온도계 그림\">\n  <!-- 상단 -->\n  <text x=\"300\" y=\"18\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">wet bulb 95°F — upper limit of human adaptability</text>\n\n  <!-- 좌측: 건조 -->\n  <g transform=\"translate(20, 40)\">\n    <rect x=\"0\" y=\"0\" width=\"200\" height=\"195\" rx=\"6\" fill=\"#f0faf3\" fill-opacity=\"0.3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n    <text x=\"100\" y=\"-6\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">건조 (dry heat)</text>\n\n    <!-- stick figure -->\n    <g transform=\"translate(100, 110)\">\n      <circle cx=\"0\" cy=\"-18\" r=\"11\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <circle cx=\"-3\" cy=\"-19\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"-19\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <path d=\"M -4 -13 Q 0 -11 4 -13\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      <line x1=\"0\" y1=\"-7\" x2=\"0\" y2=\"18\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"2\" x2=\"-12\" y2=\"11\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"2\" x2=\"12\" y2=\"11\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"18\" x2=\"-9\" y2=\"36\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"18\" x2=\"9\" y2=\"36\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    </g>\n\n    <!-- 땀방울 증발 (위로 올라감) -->\n    <g fill=\"#1FA34A\" stroke=\"#1FA34A\" stroke-width=\"0.8\">\n      <!-- 땀방울 4개 -->\n      <path d=\"M 55 70 Q 53 65 57 64 Q 61 65 59 70 Q 57 74 55 70\" fill=\"#1FA34A\" opacity=\"0.7\"/>\n      <path d=\"M 80 50 Q 78 45 82 44 Q 86 45 84 50 Q 82 54 80 50\" fill=\"#1FA34A\" opacity=\"0.5\"/>\n      <path d=\"M 130 55 Q 128 50 132 49 Q 136 50 134 55 Q 132 59 130 55\" fill=\"#1FA34A\" opacity=\"0.6\"/>\n      <path d=\"M 150 75 Q 148 70 152 69 Q 156 70 154 75 Q 152 79 150 75\" fill=\"#1FA34A\" opacity=\"0.7\"/>\n    </g>\n    <!-- 증발 화살표 (위로) -->\n    <g stroke=\"#1FA34A\" stroke-width=\"1.4\" fill=\"none\">\n      <line x1=\"58\" y1=\"62\" x2=\"60\" y2=\"40\"/>\n      <line x1=\"82\" y1=\"42\" x2=\"84\" y2=\"25\"/>\n      <line x1=\"132\" y1=\"47\" x2=\"130\" y2=\"28\"/>\n      <line x1=\"152\" y1=\"67\" x2=\"154\" y2=\"45\"/>\n    </g>\n    <g fill=\"#1FA34A\">\n      <polygon points=\"60,40 56,46 64,46\"/>\n      <polygon points=\"84,25 80,31 88,31\"/>\n      <polygon points=\"130,28 126,34 134,34\"/>\n      <polygon points=\"154,45 150,51 158,51\"/>\n    </g>\n\n    <text x=\"100\" y=\"175\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">sweat evaporates ↑</text>\n    <text x=\"100\" y=\"188\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">땀이 증발 — 체온 발산 ✓</text>\n  </g>\n\n  <!-- 가운데: 온도계 + 95도 임계선 -->\n  <g transform=\"translate(255, 55)\">\n    <!-- 온도계 본체 -->\n    <rect x=\"35\" y=\"0\" width=\"18\" height=\"130\" rx=\"9\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <circle cx=\"44\" cy=\"140\" r=\"14\" fill=\"#c8102e\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <!-- 온도계 내용물 -->\n    <rect x=\"40\" y=\"55\" width=\"8\" height=\"80\" fill=\"#c8102e\"/>\n    <circle cx=\"44\" cy=\"140\" r=\"10\" fill=\"#c8102e\"/>\n\n    <!-- 눈금 -->\n    <g stroke=\"#1a1a1a\" stroke-width=\"0.8\">\n      <line x1=\"30\" y1=\"20\" x2=\"35\" y2=\"20\"/>\n      <line x1=\"30\" y1=\"40\" x2=\"35\" y2=\"40\"/>\n      <line x1=\"30\" y1=\"60\" x2=\"35\" y2=\"60\"/>\n      <line x1=\"30\" y1=\"80\" x2=\"35\" y2=\"80\"/>\n      <line x1=\"30\" y1=\"100\" x2=\"35\" y2=\"100\"/>\n      <line x1=\"30\" y1=\"120\" x2=\"35\" y2=\"120\"/>\n    </g>\n\n    <!-- 95도 임계선 (수평 빨간 점선) -->\n    <line x1=\"-10\" y1=\"55\" x2=\"100\" y2=\"55\" stroke=\"#c8102e\" stroke-width=\"1.8\" stroke-dasharray=\"5 3\"/>\n    <!-- 라벨 배경 (가독성) -->\n    <rect x=\"58\" y=\"40\" width=\"48\" height=\"32\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.2\" rx=\"3\"/>\n    <text x=\"82\" y=\"52\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">95°F</text>\n    <text x=\"82\" y=\"65\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#c8102e\">습구 상한</text>\n\n    <!-- 라벨 -->\n    <text x=\"44\" y=\"178\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">wet bulb</text>\n    <text x=\"44\" y=\"190\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">습구온도</text>\n\n    <!-- 빨강 화살표 (over → danger) -->\n    <g transform=\"translate(-20, 35)\">\n      <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-15\" stroke=\"#c8102e\" stroke-width=\"1.5\"/>\n      <polygon points=\"0,-15 -4,-7 4,-7\" fill=\"#c8102e\"/>\n      <text x=\"-6\" y=\"-20\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" fill=\"#c8102e\" font-weight=\"700\">over</text>\n    </g>\n  </g>\n\n  <!-- 우측: 습열 -->\n  <g transform=\"translate(380, 40)\">\n    <rect x=\"0\" y=\"0\" width=\"200\" height=\"195\" rx=\"6\" fill=\"#fdf2f4\" fill-opacity=\"0.3\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"5 3\"/>\n    <text x=\"100\" y=\"-6\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">습함 (wet heat)</text>\n\n    <!-- stick figure -->\n    <g transform=\"translate(100, 110)\">\n      <circle cx=\"0\" cy=\"-18\" r=\"11\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <circle cx=\"-3\" cy=\"-19\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"-19\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <!-- 찡그린 입 -->\n      <path d=\"M -4 -12 Q 0 -14 4 -12\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.1\"/>\n      <line x1=\"0\" y1=\"-7\" x2=\"0\" y2=\"18\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"2\" x2=\"-12\" y2=\"11\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"2\" x2=\"12\" y2=\"11\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"18\" x2=\"-9\" y2=\"36\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"18\" x2=\"9\" y2=\"36\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    </g>\n\n    <!-- 땀방울이 피부에 머묾 (피부 주변) + X 표시 -->\n    <g>\n      <!-- 위 땀방울들 -->\n      <path d=\"M 90 80 Q 88 75 92 74 Q 96 75 94 80 Q 92 84 90 80\" fill=\"#c8102e\" opacity=\"0.7\"/>\n      <path d=\"M 105 75 Q 103 70 107 69 Q 111 70 109 75 Q 107 79 105 75\" fill=\"#c8102e\" opacity=\"0.7\"/>\n      <path d=\"M 115 90 Q 113 85 117 84 Q 121 85 119 90 Q 117 94 115 90\" fill=\"#c8102e\" opacity=\"0.7\"/>\n      <path d=\"M 80 95 Q 78 90 82 89 Q 86 90 84 95 Q 82 99 80 95\" fill=\"#c8102e\" opacity=\"0.7\"/>\n      <path d=\"M 125 100 Q 123 95 127 94 Q 131 95 129 100 Q 127 104 125 100\" fill=\"#c8102e\" opacity=\"0.7\"/>\n    </g>\n    <!-- 위로 가려다 X로 막힘 -->\n    <g transform=\"translate(100, 50)\">\n      <!-- 가로 차단 점선 -->\n      <line x1=\"-35\" y1=\"0\" x2=\"35\" y2=\"0\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"3 2\"/>\n      <!-- X -->\n      <line x1=\"-5\" y1=\"-5\" x2=\"5\" y2=\"5\" stroke=\"#c8102e\" stroke-width=\"2\"/>\n      <line x1=\"5\" y1=\"-5\" x2=\"-5\" y2=\"5\" stroke=\"#c8102e\" stroke-width=\"2\"/>\n    </g>\n    <text x=\"100\" y=\"35\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">cannot evaporate</text>\n\n    <text x=\"100\" y=\"175\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">sweat trapped ✗</text>\n    <text x=\"100\" y=\"188\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">땀 갇힘 — 발산 실패</text>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"252\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">beyond 95°F wet bulb → heat generated &gt; heat dissipated</text>\n</svg>", "caption": "건조한 환경에선 땀이 증발해 체온이 발산되지만, 습한 환경에선 땀이 피부에 갇혀 발산이 막힌다 — 습구 95도가 인간 적응의 천장.", "tldr": ["습도가 높을수록 땀 증발이 막혀 체온 조절이 실패한다. 습구 95도가 인간 적응 상한 — 그 이상에서는 열 생성이 발산보다 빨라져 위험.", "건조한 환경에선 땀이 증발해 체온이 발산되지만, 습한 환경에선 땀이 피부에 갇혀 발산이 막힌다 — 습구 95도가 인간 적응의 천장."], "bg": "수능특강 Light 영어 11강 지문 이해 자료입니다.", "flow": [], "vocab": [["★heat", "열·더위"], ["humid", "습한"], ["evaporate", "증발하다"], ["★dissipate", "(열을) 발산하다·흩어지게 하다"], ["thermal", "열의·열적인"], ["vary", "달라지다·다양하다"], ["◇depending on", "~에 따라 (달라지는)"], ["⊕humidity← humid + -ity", "습도"], ["⊕adaptability← adapt + -ability", "적응성·적응력"], ["generate", "생성하다·만들어내다"], ["◇a number of", "다수의·여러"], ["upper end", "최고 한계치·상한"], ["living things", "생물"], ["beyond", "~을 넘어서"], ["adapt", "적응하다"]], "quiz": [["이 지문의 핵심 구조는?", "건조한 환경에선 땀이 증발해 체온이 발산되지만, 습한 환경에선 땀이 피부에 갇혀 발산이 막힌다 — 습구 95도가 인간 적응의 천장."], ["도식이 강조하는 결론은?", "습도가 높을수록 땀 증발이 막혀 체온 조절이 실패한다. 습구 95도가 인간 적응 상한 — 그 이상에서는 열 생성이 발산보다 빨라져 위험."]], "en": "Dry heat is often less dangerous than wet heat ─ the more humid the air is, the more difficult it is for our sweat to evaporate and dissipate heat. And like all living things, our bodies have thermal limits. Those limits vary depending on age, general health, and a number of other factors. But most researchers agree that a wet bulb temperature of 95 degrees, basically meaning both outdoor air temperature and humidity levels are high, is the upper end of human adaptability to humid heat. Beyond that, our body generates heat faster than it can dissipate it.", "ko": "건조한 더위는 습한 더위보다 흔히 덜 위험한데, 공기가 습할수록 우리 땀이 증발하고 열을 발산하는 것이 더 어렵다. 그리고 모든 생물과 마찬가지로, 우리 몸은 열적 한계를 가진다. 그 한계는 나이, 전반적인 건강 상태, 그리고 여러 다른 요인들에 따라 달라진다. 그러나 대부분의 연구자는 습구 온도 95도(화씨)가, 기본적으로 실외 기온과 습도가 둘 다 높다는 것을 의미하는데, 인간이 습한 더위에 적응할 수 있는 최고 한계치라는 것에 동의한다. 그것을 넘어서면, 우리 몸은 열을 발산할 수 있는 속도보다 더 빠르게 열을 생성한다.", "read": [{"en": "Dry heat is often less dangerous than wet heat ─ the more humid the air is, the more difficult it is for our sweat to evaporate and dissipate heat.", "ko": "건조한 더위는 습한 더위보다 흔히 덜 위험한데, 공기가 습할수록 우리 땀이 증발하고 열을 발산하는 것이 더 어렵다."}, {"en": "And like all living things, our bodies have thermal limits.", "ko": "그리고 모든 생물과 마찬가지로, 우리 몸은 열적 한계를 가진다."}, {"en": "Those limits vary depending on age, general health, and a number of other factors.", "ko": "그 한계는 나이, 전반적인 건강 상태, 그리고 여러 다른 요인들에 따라 달라진다."}, {"en": "But most researchers agree that a wet bulb temperature of 95 degrees, basically meaning both outdoor air temperature and humidity levels are high, is the upper end of human adaptability to humid heat.", "ko": "그러나 대부분의 연구자는 습구 온도 95도(화씨)가, 기본적으로 실외 기온과 습도가 둘 다 높다는 것을 의미하는데, 인간이 습한 더위에 적응할 수 있는 최고 한계치라는 것에 동의한다."}, {"en": "Beyond that, our body generates heat faster than it can dissipate it.", "ko": "그것을 넘어서면, 우리 몸은 열을 발산할 수 있는 속도보다 더 빠르게 열을 생성한다."}]}, {"no": "4", "title": "Why 'Care' Doesn't Become 'Buy'", "ktitle": "환경 관심 → (두 차단막) → 약한 친환경 소비", "field": "환경·심리", "page": "11강 no.03", "oneline": "환경 관심과 친환경 소비의 연관은 낮음~중간 — 두 가지 차단 요인 때문이다. ① 실효성 부족('나 하나로 안 바뀐다, why bother?') ② 친환경성이 아닌 다른 동기(맛·건강)로 구매.", "metaphor": "<svg viewBox=\"0 0 600 260\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"좌측 환경 관심에서 우측 친환경 소비로 가는 점선 화살표가 가운데 두 개의 차단막(실효성 부족·다른 동기)에 막혀 약해지는 모습을 보여주는 그림\">\n  <!-- 상단 -->\n  <text x=\"300\" y=\"18\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">concern → consumption: low to moderate association</text>\n\n  <!-- 좌측: 환경 관심 (지구) -->\n  <g transform=\"translate(25, 90)\">\n    <text x=\"55\" y=\"-12\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">환경 관심</text>\n\n    <!-- 지구 -->\n    <circle cx=\"55\" cy=\"40\" r=\"34\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.8\"/>\n    <!-- 대륙 (단순 도형) -->\n    <g fill=\"#1FA34A\" opacity=\"0.65\">\n      <path d=\"M 30 28 Q 35 22 45 24 Q 48 30 42 35 Q 35 38 30 33 Z\"/>\n      <path d=\"M 50 40 Q 60 35 70 42 Q 72 48 65 52 Q 55 54 50 48 Z\"/>\n      <path d=\"M 38 52 Q 45 50 50 55 Q 48 60 42 60 Q 36 58 38 52 Z\"/>\n      <path d=\"M 72 22 Q 78 25 76 30 Q 72 32 70 28 Z\"/>\n    </g>\n    <!-- 경위선 (단순) -->\n    <ellipse cx=\"55\" cy=\"40\" rx=\"34\" ry=\"13\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"0.8\" opacity=\"0.5\"/>\n    <line x1=\"55\" y1=\"6\" x2=\"55\" y2=\"74\" stroke=\"#1FA34A\" stroke-width=\"0.8\" opacity=\"0.5\"/>\n\n    <text x=\"55\" y=\"90\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">care about</text>\n    <text x=\"55\" y=\"102\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">the environment</text>\n  </g>\n\n  <!-- 화살표 (점선·약함) → 차단막 1 -->\n  <g>\n    <line x1=\"140\" y1=\"130\" x2=\"195\" y2=\"130\" stroke=\"#1a1a1a\" stroke-width=\"1.3\" stroke-dasharray=\"4 3\" opacity=\"0.6\"/>\n    <polygon points=\"195,130 188,126 188,134\" fill=\"#1a1a1a\" opacity=\"0.6\"/>\n  </g>\n\n  <!-- 가운데 차단막 1: lack of efficacy -->\n  <g transform=\"translate(200, 50)\">\n    <rect x=\"0\" y=\"0\" width=\"100\" height=\"170\" rx=\"6\" fill=\"#fdf2f4\" fill-opacity=\"0.5\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/>\n    <text x=\"50\" y=\"-6\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">① 실효성 부족</text>\n\n    <!-- 한 사람 -->\n    <g transform=\"translate(50, 50)\">\n      <circle cx=\"0\" cy=\"0\" r=\"10\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n      <circle cx=\"-3\" cy=\"-1\" r=\"1\" fill=\"#c8102e\"/>\n      <circle cx=\"3\" cy=\"-1\" r=\"1\" fill=\"#c8102e\"/>\n      <path d=\"M -3 4 Q 0 5 3 4\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"0.9\"/>\n      <line x1=\"0\" y1=\"10\" x2=\"0\" y2=\"30\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"15\" x2=\"-8\" y2=\"23\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"15\" x2=\"8\" y2=\"23\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"30\" x2=\"-6\" y2=\"45\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"30\" x2=\"6\" y2=\"45\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n    </g>\n\n    <!-- 생각 풍선 -->\n    <g transform=\"translate(60, 110)\">\n      <ellipse cx=\"0\" cy=\"0\" rx=\"32\" ry=\"14\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <text x=\"0\" y=\"-1\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">\"why bother?\"</text>\n      <text x=\"0\" y=\"9\" font-family=\"Noto Serif KR\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\">나 하나로</text>\n      <circle cx=\"-18\" cy=\"-13\" r=\"3\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1\"/>\n      <circle cx=\"-23\" cy=\"-19\" r=\"2\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"0.9\"/>\n    </g>\n\n    <text x=\"50\" y=\"160\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">lack of efficacy</text>\n  </g>\n\n  <!-- 차단막 1 → 차단막 2 -->\n  <g>\n    <line x1=\"305\" y1=\"130\" x2=\"335\" y2=\"130\" stroke=\"#1a1a1a\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\" opacity=\"0.5\"/>\n    <polygon points=\"335,130 328,126 328,134\" fill=\"#1a1a1a\" opacity=\"0.5\"/>\n  </g>\n\n  <!-- 가운데 차단막 2: other motives -->\n  <g transform=\"translate(340, 50)\">\n    <rect x=\"0\" y=\"0\" width=\"115\" height=\"170\" rx=\"6\" fill=\"#fdf2f4\" fill-opacity=\"0.5\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/>\n    <text x=\"57\" y=\"-6\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">② 다른 동기</text>\n\n    <!-- 채식 접시 -->\n    <g transform=\"translate(57, 55)\">\n      <!-- 접시 -->\n      <ellipse cx=\"0\" cy=\"0\" rx=\"32\" ry=\"10\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n      <ellipse cx=\"0\" cy=\"-2\" rx=\"28\" ry=\"8\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1\"/>\n      <!-- 채소 -->\n      <ellipse cx=\"-12\" cy=\"-3\" rx=\"6\" ry=\"4\" fill=\"#1FA34A\" opacity=\"0.7\"/>\n      <ellipse cx=\"0\" cy=\"-4\" rx=\"5\" ry=\"3.5\" fill=\"#1FA34A\" opacity=\"0.5\"/>\n      <ellipse cx=\"10\" cy=\"-2\" rx=\"6\" ry=\"4\" fill=\"#1FA34A\" opacity=\"0.8\"/>\n      <circle cx=\"-5\" cy=\"-6\" r=\"2.5\" fill=\"#c8102e\" opacity=\"0.6\"/>\n      <circle cx=\"7\" cy=\"-7\" r=\"2\" fill=\"#c8102e\" opacity=\"0.7\"/>\n    </g>\n\n    <!-- 동기 라벨 (두 개) -->\n    <g transform=\"translate(15, 90)\">\n      <rect x=\"0\" y=\"0\" width=\"38\" height=\"20\" rx=\"3\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <text x=\"19\" y=\"13\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">taste</text>\n    </g>\n    <g transform=\"translate(62, 90)\">\n      <rect x=\"0\" y=\"0\" width=\"42\" height=\"20\" rx=\"3\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <text x=\"21\" y=\"13\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">health</text>\n    </g>\n\n    <!-- 친환경 X -->\n    <g transform=\"translate(57, 130)\">\n      <text x=\"0\" y=\"0\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#999\" text-decoration=\"line-through\">eco-friendly</text>\n      <line x1=\"-32\" y1=\"-3\" x2=\"32\" y2=\"-3\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n    </g>\n\n    <text x=\"57\" y=\"160\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">not eco-driven</text>\n  </g>\n\n  <!-- 차단막 2 → 친환경 소비 (약한 화살표) -->\n  <g>\n    <line x1=\"460\" y1=\"130\" x2=\"495\" y2=\"130\" stroke=\"#1a1a1a\" stroke-width=\"1\" stroke-dasharray=\"3 3\" opacity=\"0.4\"/>\n    <polygon points=\"495,130 489,127 489,133\" fill=\"#1a1a1a\" opacity=\"0.4\"/>\n  </g>\n\n  <!-- 우측: 친환경 소비 (약하게) -->\n  <g transform=\"translate(500, 100)\">\n    <text x=\"40\" y=\"-6\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#5e5e5e\">친환경 소비</text>\n    <!-- 작은 가방/장바구니 -->\n    <g transform=\"translate(40, 40)\">\n      <path d=\"M -18 -10 L 18 -10 L 16 18 L -16 18 Z\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\" opacity=\"0.5\"/>\n      <path d=\"M -10 -10 Q -10 -18 0 -18 Q 10 -18 10 -10\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.3\" opacity=\"0.5\"/>\n      <text x=\"0\" y=\"9\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" text-anchor=\"middle\" fill=\"#1a1a1a\" opacity=\"0.6\" font-weight=\"700\">eco</text>\n    </g>\n    <text x=\"40\" y=\"85\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\" font-weight=\"700\">weak link</text>\n    <text x=\"40\" y=\"100\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">약한 연결</text>\n  </g>\n</svg>", "caption": "환경을 향한 관심은 두 개의 차단막에 부딪힌다 — '나 하나로는 안 바뀐다'는 실효성 부족과 '맛·건강'이라는 다른 동기. 친환경 소비로 가는 화살표가 점선처럼 약해진다.", "tldr": ["환경 관심과 친환경 소비의 연관은 낮음~중간 — 두 가지 차단 요인 때문이다. ① 실효성 부족('나 하나로 안 바뀐다, why bother?') ② 친환경성이 아닌 다른 동기(맛·건강)로 구매.", "환경을 향한 관심은 두 개의 차단막에 부딪힌다 — '나 하나로는 안 바뀐다'는 실효성 부족과 '맛·건강'이라는 다른 동기. 친환경 소비로 가는 화살표가 점선처럼 약해진다."], "bg": "수능특강 Light 영어 11강 지문 이해 자료입니다.", "flow": [], "vocab": [["★eco-friendly", "친환경적인"], ["⊕association← associate + -ation", "연관성·관련"], ["★adoption", "채택·받아들임"], ["moderate", "중간의·적당한"], ["⊕consumption← consume + -ption", "소비"], ["efficacy", "실효성·효능"], ["purchase", "구매하다"], ["⊕motivational← motivation + -al", "동기를 부여하는"], ["driver", "추진 요인·원동력"], ["vegetarian", "채식의·채식주의자"], ["concern", "관심·우려"], ["⊕consumer← consume + -er", "소비자"], ["bother", "굳이 ~하다·신경 쓰다"], ["◇make a difference", "변화를 일으키다·차이를 만들다"], ["rather", "오히려·차라리"]], "quiz": [["이 지문의 핵심 구조는?", "환경을 향한 관심은 두 개의 차단막에 부딪힌다 — '나 하나로는 안 바뀐다'는 실효성 부족과 '맛·건강'이라는 다른 동기. 친환경 소비로 가는 화살표가 점선처럼 약해진다."], ["도식이 강조하는 결론은?", "환경 관심과 친환경 소비의 연관은 낮음~중간 — 두 가지 차단 요인 때문이다. ① 실효성 부족('나 하나로 안 바뀐다, why bother?') ② 친환경성이 아닌 다른 동기(맛·건강)로 구매."]], "en": "In general, studies report only a low to moderate association between consumers' concern about the environment and the adoption of eco-friendly consumption behaviour. One of the reasons consumers choose not to adopt environmentally-friendly products, even if they want to help the environment, is lack of efficacy. Essentially, this is the idea that one person is not going to make enough of a difference, so why bother? Moreover, a lot of 'green' products are purchased for other reasons than the fact they are eco-friendly. In a study about the adoption of ecofriendly vegetarian food, it was found that eco-friendliness was not at all a motivational driver for the adoption of such food, but rather taste and health concerns.", "ko": "일반적으로 연구는 소비자의 환경에 관한 관심과 친환경 소비 행동의 채택 사이에는 낮은 수준에서 중간 수준의 연관성만이 있다고 보고한다. 소비자들이 환경에 도움이 되고 싶어도 친환경 제품을 선택하지 않는 이유 중 하나는 실효성이 부족하기 때문이다. 근본적으로 이것은, 한 명이 충분한 변화를 만들 수가 없는데 왜 굳이 그렇게 하느냐는 식의 생각이다. 또한 많은 '친환경' 제품은 그것이 친환경적이라는 사실 외에 다른 이유로 구매된다. 친환경 채식 식품의 채택에 관한 연구에서 친환경성은 그런 식품의 채택을 위한 동기 부여 추진 요인이 전혀 아니며, 오히려 맛과 건강에 관한 관심이 그 요인인 것으로 밝혀졌다.", "read": [{"en": "In general, studies report only a low to moderate association between consumers' concern about the environment and the adoption of eco-friendly consumption behaviour.", "ko": "일반적으로 연구는 소비자의 환경에 관한 관심과 친환경 소비 행동의 채택 사이에는 낮은 수준에서 중간 수준의 연관성만이 있다고 보고한다."}, {"en": "One of the reasons consumers choose not to adopt environmentally-friendly products, even if they want to help the environment, is lack of efficacy.", "ko": "소비자들이 환경에 도움이 되고 싶어도 친환경 제품을 선택하지 않는 이유 중 하나는 실효성이 부족하기 때문이다."}, {"en": "Essentially, this is the idea that one person is not going to make enough of a difference, so why bother?", "ko": "근본적으로 이것은, 한 명이 충분한 변화를 만들 수가 없는데 왜 굳이 그렇게 하느냐는 식의 생각이다."}, {"en": "Moreover, a lot of 'green' products are purchased for other reasons than the fact they are eco-friendly.", "ko": "또한 많은 '친환경' 제품은 그것이 친환경적이라는 사실 외에 다른 이유로 구매된다."}, {"en": "In a study about the adoption of ecofriendly vegetarian food, it was found that eco-friendliness was not at all a motivational driver for the adoption of such food, but rather taste and health concerns.", "ko": "친환경 채식 식품의 채택에 관한 연구에서 친환경성은 그런 식품의 채택을 위한 동기 부여 추진 요인이 전혀 아니며, 오히려 맛과 건강에 관한 관심이 그 요인인 것으로 밝혀졌다."}]}, {"no": "5", "title": "Attention Fixed → Contagion", "ktitle": "관객 시선 → 인물 얼굴 클로즈업 → 4기법이 만들어내는 감정 전염", "field": "미디어·심리", "page": "11강 no.04", "oneline": "영화는 '주의'를 인물의 표정에 고정시키는 기법으로 감정 전염을 일으키기에 특히 적합하다. '공감의 장면'에서 서사를 늦추고 인물 표정에 시선을 묶어두는 — 극단적 클로즈업·얕은 초점·시점 샷·점점 가까운 샷.", "metaphor": "<svg viewBox=\"0 0 600 250\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"좌측 관객의 시선이 가운데 영화 스크린에 비친 인물의 얼굴 클로즈업으로 고정되고, 우측에 클로즈업·얕은 초점·시점·점점 가까운 샷 네 가지 기법이 그 효과를 만들어내는 모습을 보여주는 그림\">\n  <!-- 상단 -->\n  <text x=\"300\" y=\"18\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">attention fixed on the face → emotional contagion</text>\n\n  <!-- 좌측: 관객 -->\n  <g transform=\"translate(20, 95)\">\n    <text x=\"50\" y=\"-10\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">관객</text>\n    \n    <!-- 의자 + stick figure -->\n    <g transform=\"translate(50, 50)\">\n      <!-- 좌석 -->\n      <path d=\"M -15 30 L 15 30 L 18 45 L -18 45 Z\" fill=\"#f6f6f6\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <!-- 의자 등받이 -->\n      <rect x=\"-13\" y=\"-5\" width=\"26\" height=\"35\" rx=\"3\" fill=\"#f6f6f6\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <!-- 사람 (의자에 앉음) -->\n      <circle cx=\"0\" cy=\"-15\" r=\"10\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <circle cx=\"-3\" cy=\"-16\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"-16\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <!-- 입 (미소) -->\n      <path d=\"M -3 -11 Q 0 -9 3 -11\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      <!-- 몸 -->\n      <line x1=\"0\" y1=\"-5\" x2=\"0\" y2=\"15\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <!-- 팔 -->\n      <line x1=\"0\" y1=\"2\" x2=\"-10\" y2=\"12\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"2\" x2=\"10\" y2=\"12\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    </g>\n\n    <!-- 시선 화살표 (관객 → 스크린 인물 얼굴로 정확히) -->\n    <g>\n      <line x1=\"60\" y1=\"34\" x2=\"195\" y2=\"60\" stroke=\"#1FA34A\" stroke-width=\"2\"/>\n      <polygon points=\"195,60 187,57 188,65\" fill=\"#1FA34A\"/>\n      <text x=\"125\" y=\"40\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" fill=\"#1FA34A\" font-weight=\"700\">attention</text>\n    </g>\n  </g>\n\n  <!-- 중앙: 영화 스크린 -->\n  <g transform=\"translate(195, 50)\">\n    <!-- 스크린 외곽 (영화 프레임) -->\n    <rect x=\"0\" y=\"0\" width=\"200\" height=\"135\" fill=\"#1a1a1a\" stroke=\"#1a1a1a\" stroke-width=\"3\"/>\n    <!-- 안쪽 화면 (밝게) -->\n    <rect x=\"6\" y=\"6\" width=\"188\" height=\"123\" fill=\"#ffffff\"/>\n    \n    <!-- 인물 얼굴 클로즈업 -->\n    <g transform=\"translate(100, 65)\">\n      <!-- 얼굴 (큰 클로즈업) -->\n      <ellipse cx=\"0\" cy=\"0\" rx=\"48\" ry=\"55\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.8\"/>\n      <!-- 머리카락 (위쪽 라인) -->\n      <path d=\"M -42 -25 Q -30 -55 0 -52 Q 30 -55 42 -25\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.8\"/>\n      <!-- 눈썹 (살짝 찌푸림 — 감정) -->\n      <path d=\"M -25 -16 Q -18 -19 -10 -16\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <path d=\"M 10 -16 Q 18 -19 25 -16\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <!-- 눈 -->\n      <ellipse cx=\"-15\" cy=\"-6\" rx=\"4\" ry=\"3\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <ellipse cx=\"15\" cy=\"-6\" rx=\"4\" ry=\"3\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <circle cx=\"-15\" cy=\"-6\" r=\"2\" fill=\"#1a1a1a\"/>\n      <circle cx=\"15\" cy=\"-6\" r=\"2\" fill=\"#1a1a1a\"/>\n      <!-- 눈물 한 방울 -->\n      <path d=\"M -15 0 Q -16 6 -14 10 Q -10 8 -12 2 Z\" fill=\"#1FA34A\" opacity=\"0.6\" stroke=\"#1FA34A\" stroke-width=\"0.8\"/>\n      <!-- 코 -->\n      <path d=\"M 0 -2 L -3 12 L 3 12 Z\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      <!-- 입 (애잔한 표정) -->\n      <path d=\"M -10 22 Q 0 19 10 22\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    </g>\n\n    <!-- 스크린 하단 라벨 -->\n    <text x=\"100\" y=\"124\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">scene of empathy · close-up</text>\n  </g>\n\n  <!-- 4기법 라벨 (우측) -->\n  <g transform=\"translate(415, 45)\">\n    <text x=\"75\" y=\"-2\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\">4가지 기법</text>\n\n    <!-- 기법 1: extreme close-up -->\n    <g transform=\"translate(0, 10)\">\n      <rect x=\"0\" y=\"0\" width=\"155\" height=\"26\" rx=\"3\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <text x=\"77\" y=\"11\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">extreme close-up</text>\n      <text x=\"77\" y=\"22\" font-family=\"Noto Serif KR\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">극단적 클로즈업</text>\n    </g>\n    <!-- 기법 2: shallow focus -->\n    <g transform=\"translate(0, 42)\">\n      <rect x=\"0\" y=\"0\" width=\"155\" height=\"26\" rx=\"3\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <text x=\"77\" y=\"11\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">shallow focus</text>\n      <text x=\"77\" y=\"22\" font-family=\"Noto Serif KR\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">얕은 초점</text>\n    </g>\n    <!-- 기법 3: POV -->\n    <g transform=\"translate(0, 74)\">\n      <rect x=\"0\" y=\"0\" width=\"155\" height=\"26\" rx=\"3\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <text x=\"77\" y=\"11\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">point of view</text>\n      <text x=\"77\" y=\"22\" font-family=\"Noto Serif KR\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">시점 샷</text>\n    </g>\n    <!-- 기법 4: progressively closer -->\n    <g transform=\"translate(0, 106)\">\n      <rect x=\"0\" y=\"0\" width=\"155\" height=\"26\" rx=\"3\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/>\n      <text x=\"77\" y=\"11\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">progressively closer</text>\n      <text x=\"77\" y=\"22\" font-family=\"Noto Serif KR\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">점점 가까운 샷</text>\n    </g>\n\n    <!-- 기법들 → 스크린 화살표 (왼쪽으로) -->\n    <g stroke=\"#1FA34A\" stroke-width=\"1.2\" fill=\"none\" opacity=\"0.7\">\n      <line x1=\"-10\" y1=\"23\" x2=\"-2\" y2=\"23\"/>\n      <line x1=\"-10\" y1=\"55\" x2=\"-2\" y2=\"55\"/>\n      <line x1=\"-10\" y1=\"87\" x2=\"-2\" y2=\"87\"/>\n      <line x1=\"-10\" y1=\"119\" x2=\"-2\" y2=\"119\"/>\n    </g>\n    <g fill=\"#1FA34A\" opacity=\"0.7\">\n      <polygon points=\"-10,23 -4,20 -4,26\"/>\n      <polygon points=\"-10,55 -4,52 -4,58\"/>\n      <polygon points=\"-10,87 -4,84 -4,90\"/>\n      <polygon points=\"-10,119 -4,116 -4,122\"/>\n    </g>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"235\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">film is especially well suited to produce contagion</text>\n</svg>", "caption": "관객의 '주의'는 영화 스크린의 인물 얼굴 클로즈업에 정확히 고정된다 — 클로즈업·얕은 초점·시점·점점 가까운 샷, 이 네 기법이 그 고정을 만들어낸다.", "tldr": ["영화는 '주의'를 인물의 표정에 고정시키는 기법으로 감정 전염을 일으키기에 특히 적합하다. '공감의 장면'에서 서사를 늦추고 인물 표정에 시선을 묶어두는 — 극단적 클로즈업·얕은 초점·시점 샷·점점 가까운 샷.", "관객의 '주의'는 영화 스크린의 인물 얼굴 클로즈업에 정확히 고정된다 — 클로즈업·얕은 초점·시점·점점 가까운 샷, 이 네 기법이 그 고정을 만들어낸다."], "bg": "수능특강 Light 영어 11강 지문 이해 자료입니다.", "flow": [], "vocab": [["◇emotional contagion", "감정 전염"], ["★contagion", "전염"], ["◇be suited to", "~에 적합하다"], ["empathy", "공감·감정이입"], ["narrative", "이야기·서사"], ["◇refer to", "~을 가리키다·언급하다"], ["elicit", "끌어내다·유도하다"], ["spectator", "관객·구경꾼"], ["★attention", "주의·관심"], ["⊕facial← face + -ial", "얼굴의"], ["⊕expression← express + -ion", "표정·표현"], ["achieve", "달성하다·이루다"], ["fix", "고정하다·고정시키다"], ["progressively", "점차·점진적으로"], ["shallow", "얕은"]], "quiz": [["이 지문의 핵심 구조는?", "관객의 '주의'는 영화 스크린의 인물 얼굴 클로즈업에 정확히 고정된다 — 클로즈업·얕은 초점·시점·점점 가까운 샷, 이 네 기법이 그 고정을 만들어낸다."], ["도식이 강조하는 결론은?", "영화는 '주의'를 인물의 표정에 고정시키는 기법으로 감정 전염을 일으키기에 특히 적합하다. '공감의 장면'에서 서사를 늦추고 인물 표정에 시선을 묶어두는 — 극단적 클로즈업·얕은 초점·시점 샷·점점 가까운 샷."]], "en": "Given the nature of emotional contagion, film is especially well suited to produce it. Carl Plantinga explains this in his discussion of the \"scene of empathy,\" which refers to a scene in which the narrative slows down and a character's emotional experience becomes the focus of attention. Such scenes, which are typically shot in close-up and focus on a character's face, contain several eliciting conditions of emotional contagion. Most important is attention, since contagion responses require that a spectator's attention be fixed on a character's facial expressions. Filmmakers achieve this through the use of extreme close-ups, shallow focus, and various point of-view structures and by using progressively closer shots of a character's face and expressions.", "ko": "감정 전염의 특성을 고려하면, 영화는 그것을 일으키기에 특히 적합하다. Carl Plantinga는 '공감의 장면'에 대한 논의에서 이것을 설명하는데, 이야기의 흐름이 느려지고 등장인물의 감정적 경험이 관심의 초점이 되는 장면을 가리킨다. 그런 장면은 일반적으로 클로즈업으로 촬영되고 등장인물의 얼굴에 초점을 맞추는데, 감정 전염을 끌어내는 여러 가지 조건을 포함한다. 가장 중요한 것은 주의인데, 전염 반응은 관객의 주의가 등장인물의 표정에 고정될 것을 요구하기 때문이다. 영화 제작자는 극단적인 클로즈업, 섈로 포커스, 다양한 시점 구조의 사용을 통해, 그리고 등장인물의 얼굴과 표정을 점차 클로즈업하는 촬영을 사용하여 이를 달성한다.", "read": [{"en": "Given the nature of emotional contagion, film is especially well suited to produce it.", "ko": "감정 전염의 특성을 고려하면, 영화는 그것을 일으키기에 특히 적합하다."}, {"en": "Carl Plantinga explains this in his discussion of the \"scene of empathy,\" which refers to a scene in which the narrative slows down and a character's emotional experience becomes the focus of attention.", "ko": "Carl Plantinga는 '공감의 장면'에 대한 논의에서 이것을 설명하는데, 이야기의 흐름이 느려지고 등장인물의 감정적 경험이 관심의 초점이 되는 장면을 가리킨다."}, {"en": "Such scenes, which are typically shot in close-up and focus on a character's face, contain several eliciting conditions of emotional contagion.", "ko": "그런 장면은 일반적으로 클로즈업으로 촬영되고 등장인물의 얼굴에 초점을 맞추는데, 감정 전염을 끌어내는 여러 가지 조건을 포함한다."}, {"en": "Most important is attention, since contagion responses require that a spectator's attention be fixed on a character's facial expressions.", "ko": "가장 중요한 것은 주의인데, 전염 반응은 관객의 주의가 등장인물의 표정에 고정될 것을 요구하기 때문이다."}, {"en": "Filmmakers achieve this through the use of extreme close-ups, shallow focus, and various point of-view structures and by using progressively closer shots of a character's face and expressions.", "ko": "영화 제작자는 극단적인 클로즈업, 섈로 포커스, 다양한 시점 구조의 사용을 통해, 그리고 등장인물의 얼굴과 표정을 점차 클로즈업하는 촬영을 사용하여 이를 달성한다."}]}]};
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function renderTabs() {
+  const tabs = P.data.map((d, i) =>
+    `<button class="tab${i===0?' active':''}" data-t="${d.no}">
+       <span class="tab-no">${d.no}</span>
+       <span class="tab-field">${d.field}</span>
+     </button>`).join('');
+  document.getElementById('tabs').innerHTML = tabs;
+}
+
+function renderTLDR(d) {
+  if (!d.tldr || !d.tldr.length) return '';
+  const items = d.tldr.map(t => `<li>${t}</li>`).join('');
+  return `<details class="tool" data-tool="tldr" open>
+    <summary>
+      <span class="ticon">A</span>
+      <span class="tname">30초 요약</span>
+      <span class="thint">— 빠르게 한 컷</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><ol class="tldr">${items}</ol></div>
+  </details>`;
+}
+
+function renderAnalogy(d) {
+  if (!d.analogy) return '';
+  return `<details class="tool" data-tool="analogy">
+    <summary>
+      <span class="ticon">B</span>
+      <span class="tname">이게 무슨 말이냐면</span>
+      <span class="thint">— 일상 비유</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><p class="callout analogy">${d.analogy}</p></div>
+  </details>`;
+}
+
+function renderBG(d) {
+  if (!d.bg) return '';
+  return `<details class="tool" data-tool="bg">
+    <summary>
+      <span class="ticon">C</span>
+      <span class="tname">배경지식 30초</span>
+      <span class="thint">— 이 글이 어떤 글이냐</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><p class="callout bg">${d.bg}</p></div>
+  </details>`;
+}
+
+function renderFlow(d) {
+  if (!d.flow || !d.flow.length) return '';
+  let body = '<div class="flow">';
+  d.flow.forEach((s, i) => {
+    const cls = s.cls ? ' ' + s.cls : '';
+    body += `<div class="flow-step${cls}">
+      <div class="kind">${s.kind}</div>
+      <div class="body">
+        <div class="t">${s.t}</div>
+        ${s.d ? `<div class="d">${s.d}</div>` : ''}
+      </div>
+    </div>`;
+    if (i < d.flow.length - 1) body += '<div class="flow-arrow">▼</div>';
+  });
+  body += '</div>';
+  return `<details class="tool" data-tool="flow">
+    <summary>
+      <span class="ticon">D</span>
+      <span class="tname">글의 작동 원리</span>
+      <span class="thint">— 논지 흐름</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}</div>
+  </details>`;
+}
+
+function renderRead(d) {
+  if (!d.read || !d.read.length) return '';
+  let body = '';
+  d.read.forEach(r => {
+    let chunks = '';
+    if (r.chunks && r.chunks.length) {
+      chunks = '<div class="chunks">' + r.chunks.map(ch =>
+        `<div class="chunk"><div class="ce">${ch[0]}</div><div class="ck">${ch[1]}</div></div>`
+      ).join('') + '</div>';
+    }
+    body += `<div class="read-sent">
+      <div class="en">${r.en}</div>
+      ${chunks}
+      <div class="ko"><b>전체 해석:</b> ${r.ko}</div>
+    </div>`;
+  });
+  let vocab = '';
+  if (d.vocab && d.vocab.length) {
+    vocab = '<div class="vocab"><div class="vlabel">핵심 어휘</div>' +
+      d.vocab.map(v => `<div class="chip"><b>${v[0]}</b><span>${v[1]}</span></div>`).join('') +
+      '</div>';
+  }
+  return `<details class="tool" data-tool="read">
+    <summary>
+      <span class="ticon">E</span>
+      <span class="tname">끊어읽기 + 어휘</span>
+      <span class="thint">— 문장 단위</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}${vocab}</div>
+  </details>`;
+}
+
+function renderQuiz(d) {
+  if (!d.quiz || !d.quiz.length) return '';
+  const items = d.quiz.map((q, i) =>
+    `<details class="quiz-item">
+      <summary>
+        <span class="qn">Q${i+1}</span>
+        <span>${q[0]}</span>
+        <span class="qarr">정답 ▾</span>
+      </summary>
+      <div class="qa">${q[1]}</div>
+    </details>`).join('');
+  return `<details class="tool" data-tool="quiz">
+    <summary>
+      <span class="ticon">F</span>
+      <span class="tname">확인 퀴즈</span>
+      <span class="thint">— 스스로 점검</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${items}</div>
+  </details>`;
+}
+
+function renderSource(d) {
+  if (!d.en && !d.ko) return '';
+  return `<details class="tool" data-tool="source">
+    <summary>
+      <span class="ticon">G</span>
+      <span class="tname">영어 원문 + 해석</span>
+      <span class="thint">— 시험 직전 점검용</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">
+      <div class="src">
+        <div class="en">${d.en}</div>
+        <div class="ko">${d.ko}</div>
+      </div>
+    </div>
+  </details>`;
+}
+
+function renderPassage(d, idx) {
+  let html = `<section class="passage${idx===0?' active':''}" id="p${d.no}">`;
+  html += `<div class="p-head">
+    <span class="field">${d.field}</span>
+    <h2>${d.title}</h2>
+    <p class="p-kt">${d.ktitle}</p>
+    <p class="p-page">${d.page}</p>
+  </div>`;
+  html += `<div class="oneline">${d.oneline}</div>`;
+  if (d.metaphor) {
+    html += `<div class="metaphor">
+      <div class="m-head">
+        <span class="label">중심 비유</span>
+        <span class="sub">visual metaphor</span>
+      </div>
+      <figure>
+        ${d.metaphor}
+        ${d.caption ? `<figcaption>${d.caption}</figcaption>` : ''}
+      </figure>
+    </div>`;
+  }
+  html += `<div class="tools-intro">막힌 곳만 펴 보세요 · <b>도구 상자</b></div>`;
+  html += renderTLDR(d);
+  html += renderAnalogy(d);
+  html += renderBG(d);
+  html += renderFlow(d);
+  html += renderRead(d);
+  html += renderQuiz(d);
+  html += renderSource(d);
+  html += `</section>`;
+  return html;
+}
+
+renderTabs();
+document.getElementById('main').innerHTML = P.data.map((d, i) => renderPassage(d, i)).join('');
+
+/* 탭 클릭 */
+document.querySelectorAll('.tab').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.passage').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('p' + b.dataset.t).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

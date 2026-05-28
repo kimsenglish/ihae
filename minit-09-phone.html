@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>지문 이해 보조 자료 · 수능특강 미니특강(미닛15) 9회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   김가영어학원 · KIM KA YOUNG ENGLISH
+   수능특강 영어독해연습 08강 지문 이해 — 도구 상자(Toolbox) 디지털 자료
+   Brand v2.1 · System B (학습자료 본문 전용)
+   ============================================================ */
+
+:root {
+  --paper:    #ffffff;
+  --ink:      #1a1a1a;
+  --ink-80:   #333333;
+  --ink-60:   #5e5e5e;
+  --ink-40:   #999;
+  --ink-20:   #cccccc;
+  --ink-10:   #e8e8e8;
+  --ink-05:   #f6f6f6;
+  --red:      #c8102e;
+  --red-tint: #fdf2f4;
+  --green:    #1FA34A;
+  --green-tint: #f0faf3;
+  --serif-kr: 'Noto Serif KR', serif;
+  --serif-en: 'Noto Serif', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--serif-kr);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+em { font-family: var(--serif-en); font-style: italic; }
+.en { font-family: var(--serif-en); }
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 18px 18px 80px;
+}
+
+/* ============================================================
+   학원 브랜드 헤더
+   ============================================================ */
+.brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: 4px;
+}
+.brand .b-title h1 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.brand .b-title .b-sub {
+  font-size: 11px;
+  color: var(--ink-60);
+  margin-top: 2px;
+  font-family: var(--serif-en);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+.brand .b-meta {
+  font-size: 11.5px;
+  color: var(--ink-60);
+  text-align: right;
+  line-height: 1.5;
+}
+.brand .b-meta .en { font-style: italic; }
+
+/* ============================================================
+   사용 안내 (도구 상자 가이드)
+   ============================================================ */
+.guide {
+  background: var(--ink-05);
+  border-left: 3px solid var(--red);
+  padding: 13px 16px 12px;
+  margin: 14px 0;
+  border-radius: 0 4px 4px 0;
+}
+.guide .g-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 9px;
+  font-family: var(--serif-kr);
+}
+.guide .g-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.guide .g-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+.guide .g-when {
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: var(--ink);
+  min-width: 96px;
+}
+.guide .g-sep {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  flex: 0 0 auto;
+}
+.guide .g-tools {
+  color: var(--ink-80);
+  flex: 1;
+}
+.guide .g-tools .k {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 12px;
+  padding: 0 3px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 3px;
+  margin-right: 2px;
+}
+.guide .g-note {
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+  font-size: 12px;
+  color: var(--ink-60);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.guide .g-note b { color: var(--red); }
+
+/* ============================================================
+   탭 (지문 선택)
+   ============================================================ */
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink-10);
+  z-index: 10;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 10px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 0 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 5px;
+  padding: 7px 12px 5px;
+  font-family: var(--serif-kr);
+  color: var(--ink-60);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  min-width: 78px;
+}
+.tab .tab-no {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.tab .tab-field {
+  display: block;
+  font-size: 10.5px;
+  color: var(--ink-40);
+  margin-top: 1px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.tab:hover { border-color: var(--ink-60); color: var(--ink); }
+.tab.active {
+  background: var(--red-tint);
+  border-color: var(--red);
+  color: var(--red);
+}
+.tab.active .tab-field { color: var(--red); }
+
+/* ============================================================
+   PASSAGE PANEL
+   ============================================================ */
+.passage { display: none; padding-top: 18px; }
+.passage.active { display: block; animation: fadeIn 0.22s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.p-head .field {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--red);
+  border: 0.7px solid var(--red);
+  padding: 2px 8px;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+.p-head h2 {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.p-head .p-kt {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.p-head .p-page {
+  font-size: 10.5px;
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  letter-spacing: 0.12em;
+  margin-top: 5px;
+}
+
+/* ============================================================
+   한 줄 핵심 (anchor)
+   ============================================================ */
+.oneline {
+  margin: 18px 0 22px;
+  padding: 16px 18px 17px;
+  background: var(--ink-05);
+  border-left: 3px solid var(--ink);
+  border-radius: 0 6px 6px 0;
+  font-size: 17.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  word-break: keep-all;
+  letter-spacing: -0.005em;
+}
+.oneline::before {
+  content: "한 줄 핵심";
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 7px;
+}
+.oneline .r { color: var(--red); font-weight: 700; }
+.oneline .g { color: var(--green); font-weight: 700; }
+.oneline em { font-style: italic; }
+
+/* ============================================================
+   메타포 SVG (지문별 한 컷 — 항상 펼쳐짐)
+   ============================================================ */
+.metaphor {
+  margin: 20px 0 22px;
+  border: 1px solid var(--ink-20);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.metaphor .m-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--ink-10);
+  background: var(--ink-05);
+}
+.metaphor .m-head .label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--ink-60);
+}
+.metaphor .m-head .sub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-60);
+}
+.metaphor figure { padding: 18px 18px 14px; }
+.metaphor figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.metaphor figcaption {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-60);
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+  line-height: 1.55;
+}
+.metaphor figcaption .en { font-style: italic; color: var(--ink-80); }
+.metaphor figcaption .r { color: var(--red); font-weight: 700; }
+.metaphor figcaption .g { color: var(--green); font-weight: 700; }
+
+/* ============================================================
+   TOOLBOX 안내 라인
+   ============================================================ */
+.tools-intro {
+  font-size: 12px;
+  color: var(--ink-60);
+  letter-spacing: 0.04em;
+  margin: 18px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tools-intro::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--ink);
+  display: inline-block;
+}
+.tools-intro b { color: var(--ink); font-weight: 700; }
+
+/* ============================================================
+   도구 카드 (Tool) — 아코디언
+   ============================================================ */
+.tool {
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.tool[open] { border-color: var(--ink-80); }
+.tool > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+.tool > summary::-webkit-details-marker { display: none; }
+.tool > summary:hover { background: var(--ink-05); }
+.tool > summary .tname {
+  flex: 1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.tool > summary .thint {
+  font-size: 11.5px;
+  color: var(--ink-40);
+  font-weight: 400;
+}
+.tool > summary .arr {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  font-size: 11px;
+  transition: transform 0.2s;
+  flex: 0 0 auto;
+}
+.tool[open] > summary .arr { transform: rotate(90deg); color: var(--ink); }
+.tool > summary .ticon {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  background: var(--ink-05);
+  border: 0.7px solid var(--ink-20);
+}
+.tool[open] > summary .ticon {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.tool .body { padding: 4px 16px 18px; }
+
+/* ============================================================
+   도구별 컨텐츠 스타일
+   ============================================================ */
+
+/* 30초 요약 */
+.tldr {
+  list-style: none;
+  counter-reset: t;
+}
+.tldr li {
+  position: relative;
+  padding: 9px 0 9px 30px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  border-bottom: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+.tldr li:last-child { border-bottom: none; }
+.tldr li::before {
+  counter-increment: t;
+  content: counter(t);
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 20px;
+  height: 20px;
+  background: var(--paper);
+  border: 1px solid var(--green);
+  color: var(--green);
+  border-radius: 50%;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 비유 / 배경지식 */
+.callout {
+  font-size: 14.5px;
+  line-height: 1.7;
+  padding: 13px 15px;
+  border-radius: 6px;
+  word-break: keep-all;
+  background: var(--ink-05);
+}
+.callout.analogy { border-left: 3px solid var(--green); }
+.callout.bg      { border-left: 3px solid var(--ink); }
+.callout em { font-style: italic; }
+
+/* 논지 흐름 */
+.flow { display: flex; flex-direction: column; gap: 6px; }
+.flow-step {
+  display: flex;
+  gap: 12px;
+  padding: 12px 13px;
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  background: var(--paper);
+  align-items: flex-start;
+}
+.flow-step .kind {
+  flex: 0 0 60px;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 0;
+  text-align: center;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  background: var(--ink-05);
+  color: var(--ink-80);
+  border: 0.7px solid var(--ink-20);
+}
+.flow-step.pivot .kind {
+  background: var(--red-tint); color: var(--red); border-color: var(--red);
+}
+.flow-step.close .kind {
+  background: var(--green-tint); color: var(--green); border-color: var(--green);
+}
+.flow-step .body { flex: 1; }
+.flow-step .t {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.flow-step .t .r { color: var(--red); font-weight: 700; }
+.flow-step .t .g { color: var(--green); font-weight: 700; }
+.flow-step .d {
+  font-size: 12.5px;
+  color: var(--ink-60);
+  margin-top: 4px;
+  word-break: keep-all;
+}
+.flow-arrow {
+  text-align: center;
+  color: var(--ink-20);
+  font-size: 13px;
+  font-family: var(--serif-en);
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+/* 끊어읽기 */
+.read-sent {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 11px 13px 11px;
+  margin-bottom: 8px;
+  background: var(--paper);
+}
+.read-sent .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.read-sent .chunks {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+}
+.read-sent .chunk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px 16px;
+  padding: 3px 0;
+  font-size: 12.5px;
+  border-bottom: 1px dotted var(--ink-10);
+}
+.read-sent .chunk:last-child { border-bottom: none; }
+.read-sent .chunk .ce {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.read-sent .chunk .ck { color: var(--ink-60); word-break: keep-all; }
+.read-sent .ko {
+  margin-top: 9px;
+  padding: 7px 11px;
+  background: var(--ink-05);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--ink-80);
+  word-break: keep-all;
+  line-height: 1.6;
+}
+.read-sent .ko b { color: var(--ink); font-weight: 700; }
+
+/* 어휘 chip */
+.vocab {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--ink-10);
+}
+.vocab .vlabel {
+  width: 100%;
+  font-size: 11px;
+  color: var(--ink-60);
+  letter-spacing: 0.18em;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.vocab .chip {
+  font-size: 12.5px;
+  padding: 5px 9px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.vocab .chip b {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--red);
+  font-weight: 700;
+}
+.vocab .chip span { color: var(--ink-80); margin-left: 5px; }
+
+/* 퀴즈 */
+.quiz-item {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  margin-bottom: 6px;
+  background: var(--paper);
+}
+.quiz-item > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 11px 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.quiz-item > summary::-webkit-details-marker { display: none; }
+.quiz-item .qn {
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--green);
+  border-radius: 3px;
+  padding: 2px 6px;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+.quiz-item .qarr {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--green);
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 700;
+}
+.quiz-item[open] .qarr { visibility: hidden; }
+.quiz-item .qa {
+  padding: 0 13px 13px 44px;
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+.quiz-item .qa b { color: var(--green); font-weight: 700; }
+
+/* 영어 원문 + 한글 해석 */
+.src {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 14px 16px;
+}
+.src .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+.src .ko {
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.85;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot {
+  margin-top: 36px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink-10);
+  font-size: 10.5px;
+  color: var(--ink-40);
+  text-align: center;
+  font-family: var(--serif-kr);
+  letter-spacing: 0.03em;
+}
+.foot .pub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-60);
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 540px) {
+  .wrap { padding: 14px 13px 60px; }
+  .brand { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .brand .b-meta { text-align: left; }
+  .guide .g-row { flex-direction: column; gap: 1px; padding-bottom: 4px; }
+  .guide .g-row + .g-row { border-top: 1px dashed var(--ink-10); padding-top: 5px; }
+  .guide .g-when { font-size: 12px; min-width: 0; }
+  .guide .g-sep { display: none; }
+  .guide .g-tools { font-size: 12.5px; }
+  .p-head h2 { font-size: 20px; }
+  .oneline { font-size: 16px; padding: 14px 14px; }
+  .read-sent .chunk { grid-template-columns: 1fr; gap: 1px; }
+  .read-sent .chunk .ck { padding-left: 4px; color: var(--ink-60); font-size: 12px; }
+  .flow-step { padding: 10px 11px; gap: 9px; }
+  .flow-step .kind { flex-basis: 52px; font-size: 10.5px; }
+  .tool > summary { padding: 12px 13px; font-size: 14px; }
+  .tool > summary .thint { display: none; }
+  .metaphor figure { padding: 13px 13px 10px; }
+  .metaphor figcaption { font-size: 12px; }
+}
+</style>
+</head>
+<body class="dev-phone">
+<div class="wrap">
+
+<!-- 학원 브랜드 헤더 -->
+<header class="brand">
+  <div class="b-title">
+    <h1>지문 이해 보조 자료</h1>
+    <div class="b-sub">수능특강 미니특강(미닛15) 9회</div>
+  </div>
+  <div class="b-meta">
+    김가영어학원<br>
+    <span class="en">KIM KA YOUNG ENGLISH</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs"></nav>
+
+<!-- 지문 패널 -->
+<main id="main"></main>
+
+<!-- 콜로폰 -->
+<footer class="foot">
+  김가영어학원 · KIM KA YOUNG ENGLISH &nbsp;·&nbsp; 지문 이해 보조 자료
+  <span class="pub">published by warm &amp; wise books</span>
+</footer>
+
+</div>
+
+<script>
+/* ============================================================
+   데이터 (P.data) — 수능특강 미니특강(미닛15) 9회
+   각 지문에 metaphor(SVG 문자열) + caption 필드 추가
+   ============================================================ */
+const P = {"data": [{"no": "1", "title": "Keep the Deal Quiet Until It's Final", "ktitle": "협상 발설 ↔ 침묵 — 결과는 정반대", "field": "사회·심리", "page": "9회 01번", "oneline": "협상 진전 중 외부인에게 발설하면 같은 요청·압박이 생겨 거래가 무산되고, 마무리될 때까지 조용히 하면 거래가 성사된다 — 가정법 과거완료가 이를 재확인.", "metaphor": "<svg viewBox=\"0 0 600 270\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"좌측은 협상 중 외부인에게 발설해 같은 요청이 발생하고 거절당하는 빨강 경로, 우측은 입에 손가락을 대고 침묵해 거래가 성사되는 초록 경로의 대조 그림\">\n\n  <!-- 좌측: 발설 경로 -->\n  <g transform=\"translate(20, 30)\">\n    <text x=\"135\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">발설 — 압박·경쟁</text>\n    <rect x=\"0\" y=\"0\" width=\"270\" height=\"210\" fill=\"#fdf2f4\" fill-opacity=\"0.3\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/>\n\n    <!-- you (좌상단) -->\n    <g transform=\"translate(40, 50)\">\n      <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <circle cx=\"-3\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <path d=\"M -3 4 Q 0 6 3 4\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      <line x1=\"0\" y1=\"11\" x2=\"0\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"20\" x2=\"-9\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"20\" x2=\"9\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"38\" x2=\"-7\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"38\" x2=\"7\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <text x=\"0\" y=\"68\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\" font-weight=\"700\">you</text>\n    </g>\n\n    <!-- 말풍선 (you → Evan) -->\n    <g transform=\"translate(105, 30)\">\n      <ellipse cx=\"0\" cy=\"0\" rx=\"42\" ry=\"13\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.3\" stroke-dasharray=\"3 2\"/>\n      <text x=\"0\" y=\"3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">\"I asked Victor...\"</text>\n      <!-- 풍선 꼬리 (you 쪽) -->\n      <circle cx=\"-38\" cy=\"14\" r=\"2.5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1\"/>\n      <circle cx=\"-44\" cy=\"20\" r=\"1.5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"0.8\"/>\n    </g>\n\n    <!-- Evan -->\n    <g transform=\"translate(180, 50)\">\n      <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <circle cx=\"-3\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <path d=\"M -3 4 Q 0 6 3 4\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      <line x1=\"0\" y1=\"11\" x2=\"0\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"20\" x2=\"-9\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"20\" x2=\"9\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"38\" x2=\"-7\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"38\" x2=\"7\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <text x=\"0\" y=\"68\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\" font-weight=\"700\">Evan</text>\n    </g>\n\n    <!-- 같은 요청 화살표 (Evan → Victor, 곡선) -->\n    <path d=\"M 180 122 Q 220 135 232 155\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/>\n    <polygon points=\"232,155 224,151 225,159\" fill=\"#c8102e\"/>\n    <text x=\"252\" y=\"130\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">same request</text>\n\n    <!-- Victor (우하단) + 책상 -->\n    <g transform=\"translate(220, 162)\">\n      <!-- 책상 -->\n      <rect x=\"-26\" y=\"22\" width=\"52\" height=\"3\" fill=\"#1a1a1a\"/>\n      <line x1=\"-22\" y1=\"25\" x2=\"-22\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"22\" y1=\"25\" x2=\"22\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <!-- Victor -->\n      <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <circle cx=\"-3\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n      <!-- 입 (찡그림) -->\n      <path d=\"M -3 5 Q 0 3 3 5\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      <line x1=\"0\" y1=\"11\" x2=\"0\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <text x=\"0\" y=\"-14\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\" font-weight=\"700\">Victor</text>\n      <!-- 거절 X -->\n      <g transform=\"translate(32, 0)\">\n        <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.7\"/>\n        <line x1=\"-4.5\" y1=\"-4.5\" x2=\"4.5\" y2=\"4.5\" stroke=\"#c8102e\" stroke-width=\"2.2\"/>\n        <line x1=\"4.5\" y1=\"-4.5\" x2=\"-4.5\" y2=\"4.5\" stroke=\"#c8102e\" stroke-width=\"2.2\"/>\n      </g>\n    </g>\n\n    <text x=\"135\" y=\"208\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">turn you down · no deal</text>\n  </g>\n\n  <!-- 가운데 vs -->\n  <text x=\"300\" y=\"135\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">vs</text>\n\n  <!-- 우측: 침묵 경로 -->\n  <g transform=\"translate(310, 30)\">\n    <text x=\"135\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">침묵 — 거래 성공</text>\n    <rect x=\"0\" y=\"0\" width=\"270\" height=\"210\" fill=\"#f0faf3\" fill-opacity=\"0.3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n\n    <!-- you (입에 손가락 쉿) -->\n    <g transform=\"translate(75, 80)\">\n      <!-- 머리 -->\n      <circle cx=\"0\" cy=\"0\" r=\"14\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <circle cx=\"-4\" cy=\"-2\" r=\"1.5\" fill=\"#1a1a1a\"/>\n      <circle cx=\"4\" cy=\"-2\" r=\"1.5\" fill=\"#1a1a1a\"/>\n      <!-- 입 (다물고) -->\n      <line x1=\"-3\" y1=\"5\" x2=\"3\" y2=\"5\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <!-- 손가락 (쉿 — 입 앞) -->\n      <line x1=\"0\" y1=\"2\" x2=\"10\" y2=\"-12\" stroke=\"#1a1a1a\" stroke-width=\"1.6\"/>\n      <!-- 몸 -->\n      <line x1=\"0\" y1=\"14\" x2=\"0\" y2=\"48\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <!-- 팔 (오른팔이 입 쪽) -->\n      <line x1=\"0\" y1=\"22\" x2=\"-13\" y2=\"30\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"22\" x2=\"10\" y2=\"-10\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <!-- 다리 -->\n      <line x1=\"0\" y1=\"48\" x2=\"-9\" y2=\"66\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"48\" x2=\"9\" y2=\"66\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <text x=\"0\" y=\"82\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">\"kept quiet\"</text>\n    </g>\n\n    <!-- 화살표 → Victor -->\n    <g transform=\"translate(140, 100)\">\n      <line x1=\"0\" y1=\"0\" x2=\"42\" y2=\"0\" stroke=\"#1FA34A\" stroke-width=\"2\"/>\n      <polygon points=\"42,0 33,-5 33,5\" fill=\"#1FA34A\"/>\n      <text x=\"21\" y=\"-7\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">until final</text>\n    </g>\n\n    <!-- Victor + ✓ -->\n    <g transform=\"translate(220, 100)\">\n      <!-- Victor -->\n      <circle cx=\"0\" cy=\"0\" r=\"12\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <circle cx=\"-3.5\" cy=\"-1\" r=\"1.3\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3.5\" cy=\"-1\" r=\"1.3\" fill=\"#1a1a1a\"/>\n      <path d=\"M -3.5 4 Q 0 7 3.5 4\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      <line x1=\"0\" y1=\"12\" x2=\"0\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"22\" x2=\"-10\" y2=\"30\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"22\" x2=\"10\" y2=\"30\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <text x=\"0\" y=\"-15\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\" font-weight=\"700\">Victor</text>\n      <!-- ✓ -->\n      <g transform=\"translate(28, -2)\">\n        <circle cx=\"0\" cy=\"0\" r=\"12\" fill=\"#1FA34A\"/>\n        <path d=\"M -5 0 L -1 5 L 6 -4\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2.4\"/>\n      </g>\n    </g>\n\n    <text x=\"135\" y=\"190\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">\"a sweet deal\"</text>\n    <text x=\"135\" y=\"205\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">가정법 과거완료 [S10]</text>\n  </g>\n</svg>", "caption": "협상 발설 ↔ 침묵 — 결과는 정반대", "tldr": ["협상 진전 중 외부인에게 발설하면 같은 요청·압박이 생겨 거래가 무산되고, 마무리될 때까지 조용히 하면 거래가 성사된다 — 가정법 과거완료가 이를 재확인.", "협상 발설 ↔ 침묵 — 결과는 정반대"], "bg": "미닛15 9회 지문 이해 자료입니다.", "flow": [], "vocab": [["★make progress", "진전을 보이다·진척되다"], ["★come to an agreement", "합의에 이르다"], ["◇be tempted to", "~하고 싶은 유혹을 받다"], ["⊕outsiderout + side + -er", "외부인"], ["⊕unnecessaryun- + necessary", "불필요한"], ["⊕pressurepress + -ure", "압박·압력"], ["◇the other person involved", "관련된 상대방"], ["★desirabledesire + -able", "바람직한"], ["◇keep quiet", "조용히 있다·비밀로 하다"], ["★final", "최종의·마무리된"], ["⊕negotiatenegoti- + -ate", "협상하다"], ["◇think it over", "심사숙고하다"], ["★mutual friend", "서로 아는 친구"], ["◇be on to", "~을 알아채다·좋은 것을 발견하다"], ["★treatmenttreat + -ment", "대우·취급"], ["★turn down", "거절하다"], ["◇special treatment", "특별 대우"], ["★sweet deal", "좋은 거래·유리한 합의"]], "quiz": [["이 지문의 핵심 구조는?", "협상 발설 ↔ 침묵 — 결과는 정반대"], ["도식이 강조하는 결론은?", "협상 진전 중 외부인에게 발설하면 같은 요청·압박이 생겨 거래가 무산되고, 마무리될 때까지 조용히 하면 거래가 성사된다 — 가정법 과거완료가 이를 재확인."]], "en": "As you make progress in coming to an agreement, you'll be tempted to talk about it to others. But letting outsiders know about what's going on can add unnecessary pressure—either positive or negative—on the other person involved. So it's desirable to keep quiet until things are final. For example, let's say you're negotiating with manager Victor about allowing your staff to use his department's equipment one day a week. He promises to think it over. In the meantime, you mention to a mutual friend, Evan, what you've asked of Victor. Evan may decide that you're on to a good idea and that he'd like that same treatment. So Evan goes to Victor with the same request about using the equipment for his staff. Victor may decide to turn you down because he doesn't want to give special treatment to Evan's group as well. Had you kept the situation quiet, you'd have had a sweet deal instead of no deal.", "ko": "합의에 이르는 데 진전이 있을 때, 당신은 다른 사람들에게 그것에 관해 말하고 싶은 유혹을 받을 것이다. 그러나 외부인들에게 어떤 일이 일어나고 있는지 알게 하는 것은 관련된 상대방에게, 긍정적이든 부정적이든, 불필요한 압박을 가중시킬 수 있다. 따라서 일이 마무리될 때까지 조용히 있는 것이 바람직하다. 예를 들어, 당신이 관리자 Victor와 직원들이 일주일에 하루 그의 부서 장비를 사용할 수 있도록 허용하는 것에 대해 협상하고 있다고 하자. 그는 그것을 심사숙고해 보겠다고 약속한다. 그러는 동안 당신은 서로 아는 친구인 Evan에게 당신이 Victor에게 부탁한 것을 언급한다. Evan은 당신이 좋은 생각을 해 냈고 그도 똑같은 대우를 받고 싶다고 결정할지도 모른다. 그래서 Evan은 자신의 직원들이 장비를 사용하는 것에 관해 똑같은 요청을 가지고 Victor에게 간다. Victor는 Evan의 집단에게도 특별 대우를 해 주고 싶지 않기 때문에 당신을 거절하기로 결정할지도 모른다. 상황을 조용히 유지했다면, 당신은 거래에 실패하는 대신에 좋은 거래를 할 수 있었을 것이다.", "read": [{"en": "As you make progress in coming to an agreement, you'll be tempted to talk about it to others.", "ko": "합의에 이르는 데 진전이 있을 때, 당신은 다른 사람들에게 그것에 관해 말하고 싶은 유혹을 받을 것이다."}, {"en": "But letting outsiders know about what's going on can add unnecessary pressure—either positive or negative—on the other person involved.", "ko": "그러나 외부인들에게 어떤 일이 일어나고 있는지 알게 하는 것은 관련된 상대방에게, 긍정적이든 부정적이든, 불필요한 압박을 가중시킬 수 있다."}, {"en": "So it's desirable to keep quiet until things are final.", "ko": "따라서 일이 마무리될 때까지 조용히 있는 것이 바람직하다."}, {"en": "For example, let's say you're negotiating with manager Victor about allowing your staff to use his department's equipment one day a week.", "ko": "예를 들어, 당신이 관리자 Victor와 직원들이 일주일에 하루 그의 부서 장비를 사용할 수 있도록 허용하는 것에 대해 협상하고 있다고 하자."}, {"en": "He promises to think it over.", "ko": "그는 그것을 심사숙고해 보겠다고 약속한다."}, {"en": "In the meantime, you mention to a mutual friend, Evan, what you've asked of Victor.", "ko": "그러는 동안 당신은 서로 아는 친구인 Evan에게 당신이 Victor에게 부탁한 것을 언급한다."}, {"en": "Evan may decide that you're on to a good idea and that he'd like that same treatment.", "ko": "Evan은 당신이 좋은 생각을 해 냈고 그도 똑같은 대우를 받고 싶다고 결정할지도 모른다."}, {"en": "So Evan goes to Victor with the same request about using the equipment for his staff.", "ko": "그래서 Evan은 자신의 직원들이 장비를 사용하는 것에 관해 똑같은 요청을 가지고 Victor에게 간다."}, {"en": "Victor may decide to turn you down because he doesn't want to give special treatment to Evan's group as well.", "ko": "Victor는 Evan의 집단에게도 특별 대우를 해 주고 싶지 않기 때문에 당신을 거절하기로 결정할지도 모른다."}, {"en": "Had you kept the situation quiet, you'd have had a sweet deal instead of no deal.", "ko": "상황을 조용히 유지했다면, 당신은 거래에 실패하는 대신에 좋은 거래를 할 수 있었을 것이다."}]}, {"no": "2", "title": "No Problem, No Observation", "ktitle": "통념 부정 — 문제가 관찰에 선행한다", "field": "과학·인식", "page": "9회 02번", "oneline": "과학의 출발점이 관찰이라는 통념은 틀렸다 — '문제가 없으면 관찰도 없다'. 방향을 주는 문제가 관찰에 선행한다.", "metaphor": "<svg viewBox=\"0 0 600 270\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"좌측은 '관찰하라'라는 공허한 명령에 어리둥절한 사람과 물음표 그림, 우측은 문제(시계가 정확한가)가 주어지자 시계를 명확히 관찰해 발견하는 사람의 대조 그림\">\n\n  <!-- 좌측: 통념 — observe! → ? -->\n  <g transform=\"translate(20, 35)\">\n    <text x=\"135\" y=\"-12\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">통념 — \"관찰하라\" → 공허</text>\n    <rect x=\"0\" y=\"0\" width=\"270\" height=\"205\" fill=\"#fdf2f4\" fill-opacity=\"0.3\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/>\n\n    <!-- 명령 말풍선 -->\n    <g transform=\"translate(70, 35)\">\n      <ellipse cx=\"0\" cy=\"0\" rx=\"48\" ry=\"14\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n      <text x=\"0\" y=\"4\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">\"observe!\"</text>\n      <!-- 풍선 꼬리 -->\n      <polygon points=\"-10,11 -4,18 0,11\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n    </g>\n\n    <!-- 어리둥절한 사람 -->\n    <g transform=\"translate(150, 95)\">\n      <!-- 머리 -->\n      <circle cx=\"0\" cy=\"0\" r=\"15\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <!-- 갸우뚱 눈 -->\n      <circle cx=\"-4.5\" cy=\"-2\" r=\"1.5\" fill=\"#1a1a1a\"/>\n      <circle cx=\"4.5\" cy=\"-2\" r=\"1.5\" fill=\"#1a1a1a\"/>\n      <!-- 입 (찡그림) -->\n      <path d=\"M -4 6 Q 0 3 4 6\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <!-- 몸 -->\n      <line x1=\"0\" y1=\"15\" x2=\"0\" y2=\"48\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <!-- 팔 (들썩) -->\n      <line x1=\"0\" y1=\"22\" x2=\"-15\" y2=\"13\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"22\" x2=\"15\" y2=\"13\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <!-- 다리 -->\n      <line x1=\"0\" y1=\"48\" x2=\"-9\" y2=\"68\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"48\" x2=\"9\" y2=\"68\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    </g>\n\n    <!-- ? 풍선 -->\n    <g transform=\"translate(202, 65)\">\n      <circle cx=\"0\" cy=\"0\" r=\"15\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.5\"/>\n      <text x=\"0\" y=\"6\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"18\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">?</text>\n      <!-- 풍선 꼬리 -->\n      <circle cx=\"-12\" cy=\"13\" r=\"3\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.2\"/>\n      <circle cx=\"-18\" cy=\"19\" r=\"2\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1\"/>\n    </g>\n\n    <text x=\"135\" y=\"180\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">\"What am I supposed to observe?\"</text>\n    <text x=\"135\" y=\"195\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">방향 없는 관찰은 불가능</text>\n  </g>\n\n  <!-- 가운데 vs -->\n  <text x=\"300\" y=\"135\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">vs</text>\n\n  <!-- 우측: 진짜 — 문제 → 관찰 → 발견 -->\n  <g transform=\"translate(310, 35)\">\n    <text x=\"135\" y=\"-12\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">진짜 — 문제 → 관찰</text>\n    <rect x=\"0\" y=\"0\" width=\"270\" height=\"205\" fill=\"#f0faf3\" fill-opacity=\"0.3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n\n    <!-- 문제 박스 -->\n    <g transform=\"translate(40, 25)\">\n      <rect x=\"0\" y=\"0\" width=\"190\" height=\"32\" rx=\"4\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n      <text x=\"95\" y=\"14\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">PROBLEM</text>\n      <text x=\"95\" y=\"26\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1a1a1a\">\"Is the watch keeping accurate time?\"</text>\n    </g>\n\n    <!-- 화살표 (problem → observe) -->\n    <g transform=\"translate(135, 75)\">\n      <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"18\" stroke=\"#1FA34A\" stroke-width=\"1.8\"/>\n      <polygon points=\"0,18 -4,11 4,11\" fill=\"#1FA34A\"/>\n    </g>\n\n    <!-- 사람 + 시계 관찰 -->\n    <g transform=\"translate(80, 130)\">\n      <!-- 머리 -->\n      <circle cx=\"0\" cy=\"0\" r=\"13\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <circle cx=\"-4\" cy=\"-2\" r=\"1.4\" fill=\"#1a1a1a\"/>\n      <circle cx=\"4\" cy=\"-2\" r=\"1.4\" fill=\"#1a1a1a\"/>\n      <path d=\"M -4 5 Q 0 8 4 5\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      <line x1=\"0\" y1=\"13\" x2=\"0\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <!-- 팔 (시계 보는 자세) -->\n      <line x1=\"0\" y1=\"20\" x2=\"20\" y2=\"15\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"20\" x2=\"-10\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <!-- 다리 -->\n      <line x1=\"0\" y1=\"42\" x2=\"-8\" y2=\"60\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"42\" x2=\"8\" y2=\"60\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    </g>\n\n    <!-- 시계 (관찰 대상) -->\n    <g transform=\"translate(140, 145)\">\n      <circle cx=\"0\" cy=\"0\" r=\"16\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n      <circle cx=\"0\" cy=\"0\" r=\"13\" fill=\"none\" stroke=\"#999\" stroke-width=\"0.7\"/>\n      <!-- 시침·분침 -->\n      <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-9\" stroke=\"#1a1a1a\" stroke-width=\"1.6\"/>\n      <line x1=\"0\" y1=\"0\" x2=\"6\" y2=\"2\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <circle cx=\"0\" cy=\"0\" r=\"1.3\" fill=\"#1a1a1a\"/>\n      <!-- 12·3·6·9 점 -->\n      <circle cx=\"0\" cy=\"-11\" r=\"0.9\" fill=\"#1a1a1a\"/>\n      <circle cx=\"11\" cy=\"0\" r=\"0.9\" fill=\"#1a1a1a\"/>\n      <circle cx=\"0\" cy=\"11\" r=\"0.9\" fill=\"#1a1a1a\"/>\n      <circle cx=\"-11\" cy=\"0\" r=\"0.9\" fill=\"#1a1a1a\"/>\n    </g>\n\n    <!-- 발견 ✓ -->\n    <g transform=\"translate(200, 145)\">\n      <circle cx=\"0\" cy=\"0\" r=\"13\" fill=\"#1FA34A\"/>\n      <path d=\"M -6 0 L -1 5 L 7 -5\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2.5\"/>\n    </g>\n\n    <text x=\"135\" y=\"190\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">know what to find out</text>\n  </g>\n\n  <!-- 하단 핵심 명제 -->\n  <text x=\"300\" y=\"262\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">\"No problem, no observation\" — 문제가 관찰에 선행한다</text>\n</svg>", "caption": "통념 부정 — 문제가 관찰에 선행한다", "tldr": ["과학의 출발점이 관찰이라는 통념은 틀렸다 — '문제가 없으면 관찰도 없다'. 방향을 주는 문제가 관찰에 선행한다.", "통념 부정 — 문제가 관찰에 선행한다"], "bg": "미닛15 9회 지문 이해 자료입니다.", "flow": [], "vocab": [["⊕theorytheor- + -y", "이론"], ["★starting point", "출발점"], ["★sense perception", "지각·감각 인식"], ["◇sensory observation", "감각을 통한 관찰"], ["⊕thoroughlythorough + -ly", "전적으로·철저히"], ["⊕reasonablereason + -able", "타당한·합리적인"], ["★fundamentallyfundament + -al + -ly", "근본적으로"], ["★thesis", "명제·논제"], ["⊕observationobserve + -ation", "관찰"], ["◇linguistic usage", "언어적 용법"], ["★requirere- + quire-", "필요로 하다·요구하다"], ["★be supposed to", "~하기로 되어 있다·~해야 한다"], ["◇in other words", "다시 말해"], ["★set a problem", "문제를 설정·제시하다"], ["⊕objectob- + ject-", "물체·대상"], ["★by no means", "결코 ~ 아닌"], ["⊕trivialtrivi- + -al", "사소한·하찮은"], ["◇find out", "알아내다·발견하다"]], "quiz": [["이 지문의 핵심 구조는?", "통념 부정 — 문제가 관찰에 선행한다"], ["도식이 강조하는 결론은?", "과학의 출발점이 관찰이라는 통념은 틀렸다 — '문제가 없으면 관찰도 없다'. 방향을 주는 문제가 관찰에 선행한다."]], "en": "The old theory of science taught, and still teaches, that the starting point for science is our sense perception or sensory observation. This sounds at first thoroughly reasonable, but it is fundamentally wrong. One can easily show this by stating the thesis: without a problem, no observation. If I told you: \"Please, observe!,\" then linguistic usage would require you to answer by asking me: \"Yes, but what? What am I supposed to observe?\" In other words, you ask me to set you a problem that can be solved through your observation; and if I do not give you a problem but only an object, that is already something but it is by no means enough. For instance, if I say to you: \"Please look at your watch,\" you will still not know what I actually want to have observed. But things are different once I set you the most trivial problem. Perhaps you will not be interested in the problem, but at least you will know what you are supposed to find out through your perception or observation.", "ko": "옛 과학 이론은 과학의 출발점이 우리의 지각 혹은 감각을 통한 관찰이라고 가르쳤고, 여전히 가르친다. 이것은 처음에는 전적으로 타당한 것처럼 들리겠지만, 근본적으로 잘못되었다. 문제가 없으면, 관찰도 없다는 명제를 제시하는 것으로 이것을 쉽게 보여 줄 수 있다. 만일, 내가 여러분에게, \"관찰하십시오!\"라고 말한다면, 언어적인 용법은 여러분이 나에게 \"네, 하지만 뭘요? 뭘 관찰하라는 겁니까?\"라고 질문하는 것이 필요하게 만든다. 다르게 표현하면, 여러분은 여러분의 관찰을 통해 해결될 문제를 내가 여러분에게 설정해줄 것을 요청하는 것이다. 그리고 만일 내가 여러분에게 문제를 주지 않고 물체만 주면, 그것은 이미 어떤 물체겠지만 전혀 충분하지 않다. 예를 들어, 만일 내가 여러분에게 \"시계를 보십시오.\"라고 말한다면, 여러분은 내가 실제로 관찰되기를 바라는 것이 무엇인지 여전히 알지 못할 것이다. 그렇지만 내가 여러분에게 가장 사소한 문제를 설정해 주면 상황이 달라진다. 아마도 여러분은 문제에 관심이 없을 수 있겠지만 최소한 여러분은 지각 혹은 관찰을 통해 무엇을 발견해야 하는지를 알 것이다.", "read": [{"en": "The old theory of science taught, and still teaches, that the starting point for science is our sense perception or sensory observation.", "ko": "옛 과학 이론은 과학의 출발점이 우리의 지각 혹은 감각을 통한 관찰이라고 가르쳤고, 여전히 가르친다."}, {"en": "This sounds at first thoroughly reasonable, but it is fundamentally wrong.", "ko": "이것은 처음에는 전적으로 타당한 것처럼 들리겠지만, 근본적으로 잘못되었다."}, {"en": "One can easily show this by stating the thesis: without a problem, no observation.", "ko": "문제가 없으면, 관찰도 없다는 명제를 제시하는 것으로 이것을 쉽게 보여 줄 수 있다."}, {"en": "If I told you: \"Please, observe!,\" then linguistic usage would require you to answer by asking me: \"Yes, but what? What am I supposed to observe?\"", "ko": "만일, 내가 여러분에게, \"관찰하십시오!\"라고 말한다면, 언어적인 용법은 여러분이 나에게 \"네, 하지만 뭘요? 뭘 관찰하라는 겁니까?\"라고 질문하는 것이 필요하게 만든다."}, {"en": "In other words, you ask me to set you a problem that can be solved through your observation; and if I do not give you a problem but only an object, that is already something but it is by no means enough.", "ko": "다르게 표현하면, 여러분은 여러분의 관찰을 통해 해결될 문제를 내가 여러분에게 설정해줄 것을 요청하는 것이다. 그리고 만일 내가 여러분에게 문제를 주지 않고 물체만 주면, 그것은 이미 어떤 물체겠지만 전혀 충분하지 않다."}, {"en": "For instance, if I say to you: \"Please look at your watch,\" you will still not know what I actually want to have observed.", "ko": "예를 들어, 만일 내가 여러분에게 \"시계를 보십시오.\"라고 말한다면, 여러분은 내가 실제로 관찰되기를 바라는 것이 무엇인지 여전히 알지 못할 것이다."}, {"en": "But things are different once I set you the most trivial problem.", "ko": "그렇지만 내가 여러분에게 가장 사소한 문제를 설정해 주면 상황이 달라진다."}, {"en": "Perhaps you will not be interested in the problem, but at least you will know what you are supposed to find out through your perception or observation.", "ko": "아마도 여러분은 문제에 관심이 없을 수 있겠지만 최소한 여러분은 지각 혹은 관찰을 통해 무엇을 발견해야 하는지를 알 것이다."}]}, {"no": "3", "title": "Ritual, Space, and Beliefs", "ktitle": "의식·공간·신념 — 삼각의 상호 강화", "field": "인류·사회", "page": "9회 03번", "oneline": "의식은 실천 + 신념이 서로를 강화하며 공간(건축)을 필요로 한다 — 건물은 의식의 효능·기억·반복을 되먹임 강화해 셋이 상호 작용한다.", "metaphor": "<svg viewBox=\"0 0 600 290\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"삼각형의 세 꼭짓점에 의식·공간(건축)·신념이 놓이고 세 변에 양방향 화살표로 상호 강화 관계를 표시하며 중앙에 식전 기도 예시를 배치한 그림\">\n\n  <!-- 외곽 라벨 (상단 충분히 위로) -->\n  <text x=\"300\" y=\"14\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">three reinforce each other</text>\n\n  <!-- 삼각형 라인 (양방향 강화) -->\n  <g stroke=\"#1FA34A\" stroke-width=\"2\" fill=\"none\">\n    <!-- 위(의식) ↔ 좌하(건축) -->\n    <line x1=\"295\" y1=\"62\" x2=\"115\" y2=\"225\"/>\n    <!-- 위(의식) ↔ 우하(신념) -->\n    <line x1=\"305\" y1=\"62\" x2=\"485\" y2=\"225\"/>\n    <!-- 좌하(건축) ↔ 우하(신념) -->\n    <line x1=\"155\" y1=\"235\" x2=\"445\" y2=\"235\"/>\n  </g>\n\n  <!-- 화살표 (양방향) — 위↔좌하 -->\n  <g fill=\"#1FA34A\">\n    <polygon points=\"295,62 290,72 300,72\"/>\n    <polygon points=\"115,225 122,215 128,222\"/>\n  </g>\n  <!-- 위↔우하 -->\n  <g fill=\"#1FA34A\">\n    <polygon points=\"305,62 310,72 300,72\"/>\n    <polygon points=\"485,225 478,215 472,222\"/>\n  </g>\n  <!-- 좌하↔우하 -->\n  <g fill=\"#1FA34A\">\n    <polygon points=\"155,235 165,231 165,239\"/>\n    <polygon points=\"445,235 435,231 435,239\"/>\n  </g>\n\n  <!-- 꼭짓점 1: 의식 (위) — 식전 기도 손 모은 사람 -->\n  <g transform=\"translate(300, 62)\">\n    <circle cx=\"0\" cy=\"0\" r=\"38\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"2\"/>\n    <!-- RITUAL 라벨 (원 안쪽 위) -->\n    <text x=\"0\" y=\"-22\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">RITUAL</text>\n    <!-- 손 모은 사람 (가운데, 살짝 아래) -->\n    <g transform=\"translate(0, 6)\">\n      <circle cx=\"0\" cy=\"-9\" r=\"7\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <circle cx=\"-2\" cy=\"-10\" r=\"0.9\" fill=\"#1a1a1a\"/>\n      <circle cx=\"2\" cy=\"-10\" r=\"0.9\" fill=\"#1a1a1a\"/>\n      <path d=\"M -2 -6 Q 0 -5 2 -6\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.8\"/>\n      <line x1=\"0\" y1=\"-2\" x2=\"0\" y2=\"12\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"3\" x2=\"-5\" y2=\"6\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"3\" x2=\"5\" y2=\"6\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <ellipse cx=\"0\" cy=\"8\" rx=\"4\" ry=\"3\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    </g>\n    <text x=\"0\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">의식 (실천+신념)</text>\n  </g>\n\n  <!-- 꼭짓점 2: 공간/건축 (좌하) -->\n  <g transform=\"translate(105, 235)\">\n    <circle cx=\"0\" cy=\"0\" r=\"38\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"2\"/>\n    <text x=\"0\" y=\"-22\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">SPACE</text>\n    <g transform=\"translate(0, 6)\">\n      <!-- 지붕 -->\n      <polygon points=\"-15,-5 0,-18 15,-5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <!-- 본체 -->\n      <rect x=\"-13\" y=\"-5\" width=\"26\" height=\"14\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <!-- 기둥 -->\n      <line x1=\"-8\" y1=\"-5\" x2=\"-8\" y2=\"9\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <line x1=\"8\" y1=\"-5\" x2=\"8\" y2=\"9\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <!-- 문 -->\n      <rect x=\"-3\" y=\"2\" width=\"6\" height=\"7\" fill=\"#1a1a1a\"/>\n    </g>\n    <text x=\"0\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">공간·건축</text>\n  </g>\n\n  <!-- 꼭짓점 3: 신념 (우하) -->\n  <g transform=\"translate(495, 235)\">\n    <circle cx=\"0\" cy=\"0\" r=\"38\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"2\"/>\n    <text x=\"0\" y=\"-22\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">BELIEFS</text>\n    <g transform=\"translate(0, 8)\">\n      <!-- 머리 (아래쪽으로) -->\n      <circle cx=\"0\" cy=\"4\" r=\"10\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <circle cx=\"-3\" cy=\"3\" r=\"1.1\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"3\" r=\"1.1\" fill=\"#1a1a1a\"/>\n      <!-- 별 (머리 위 살짝 떨어진 위치) -->\n      <g transform=\"translate(0, -9)\">\n        <polygon points=\"0,-5 1.5,-1.5 5,-1.5 2,1 3.5,5 0,2.5 -3.5,5 -2,1 -5,-1.5 -1.5,-1.5\" \n                 fill=\"#1FA34A\" stroke=\"#1FA34A\" stroke-width=\"0.8\"/>\n      </g>\n      <!-- 방사선 -->\n      <line x1=\"-6\" y1=\"-7\" x2=\"-9\" y2=\"-12\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n      <line x1=\"6\" y1=\"-7\" x2=\"9\" y2=\"-12\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n    </g>\n    <text x=\"0\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">신념·생각</text>\n  </g>\n\n  <!-- 가운데 예시 박스 (삼각형 안쪽 중앙) -->\n  <g transform=\"translate(300, 160)\">\n    <rect x=\"-72\" y=\"-18\" width=\"144\" height=\"36\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <text x=\"0\" y=\"-3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">\"Grace before a meal\"</text>\n    <text x=\"0\" y=\"11\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">실천·합의·시공간 구분</text>\n  </g>\n\n  <!-- 변 라벨 -->\n  <text x=\"200\" y=\"120\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">needs · defines</text>\n  <text x=\"400\" y=\"120\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">reinforces · carries</text>\n  <text x=\"300\" y=\"255\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">guides · encourages repetition</text>\n</svg>", "caption": "의식·공간·신념 — 삼각의 상호 강화", "tldr": ["의식은 실천 + 신념이 서로를 강화하며 공간(건축)을 필요로 한다 — 건물은 의식의 효능·기억·반복을 되먹임 강화해 셋이 상호 작용한다.", "의식·공간·신념 — 삼각의 상호 강화"], "bg": "미닛15 9회 지문 이해 자료입니다.", "flow": [], "vocab": [["★ritual", "의식·의례"], ["⊕practice", "실천·관행"], ["⊕beliefbelieve + -f", "신념·믿음"], ["★reinforcere- + in- + force", "강화하다"], ["★grace", "(식전) 감사기도"], ["◇divine providence", "신의 섭리"], ["◇a social agreement", "사회적 합의"], ["★punctuationpunctuate + -ion", "구두점·구분"], ["⊕reflectre- + flect-", "반영하다"], ["★explicitlyexplicit + -ly", "명시적으로"], ["⊕occuroc- + cur-", "일어나다·발생하다"], ["◇specific location", "특정 장소"], ["★arguablyargue + -able + -ly", "거의 틀림없이·아마도"], ["◇primary task", "주요 과제"], ["★adapt to", "~에 맞게 조정하다·적응시키다"], ["★efficacyeffic- + -acy", "효능·효력"], ["⊕repetitionrepeat + -ition", "반복"], ["★interactioninter- + action", "상호 작용"], ["◇lay out", "배치하다·펼치다"], ["★sustainsus- + tain-", "지탱하다·유지하다"]], "quiz": [["이 지문의 핵심 구조는?", "의식·공간·신념 — 삼각의 상호 강화"], ["도식이 강조하는 결론은?", "의식은 실천 + 신념이 서로를 강화하며 공간(건축)을 필요로 한다 — 건물은 의식의 효능·기억·반복을 되먹임 강화해 셋이 상호 작용한다."]], "en": "Rituals involve both practices and beliefs, which reinforce each other. Grace before a meal is a shared acceptance of divine providence, a social agreement about the order of things, as well as setting a necessary punctuation in time and place. Ritual practices always reflect shared ideas and are shaped and controlled by various rules, many of which are not explicitly stated. Because they occur in space, they usually require a specific location, and the definition and decoration of that location is arguably among architecture's primary tasks. When created for or adapted to ritual processes, buildings reinforce their efficacy, carry memories of them in their organization, and both guide and encourage their repetition. This depends on interaction between the structures laid out in physical space and the accompanying structures of ritual, along with the beliefs and states of mind that sustain them.", "ko": "의식은 실천과 신념을 모두 포함하며, 이는 서로를 강화한다. 식사 전 감사기도는 신의 섭리에 대한 공동의 수용이자, 사물의 질서에 대한 사회적 합의이며, 시간과 장소를 구분하는 중요한 구두점 역할을 한다. 의식의 실천은 항상 공유된 생각을 반영하며 다양한 규칙에 의해 형성되고 통제받는데, 규칙 중 많은 것이 명시적으로 진술되지 않는다. 그것들(의식 실천)은 공간에서 이루어지기 때문에 일반적으로 특정 장소가 필요하며, 그 장소를 정의하고 꾸미는 것은 건축의 주요 과제 중 하나라고 할 수 있다. 의식 과정을 위해 만들어지거나 그에 맞게 조정된 건물은 그 효능을 강화하고, 그 구성에 그 기억을 담으며, 의식의 반복을 유도하고 장려한다. 이는 물리적 공간에 배치된 구조물과 그에 수반하는 의식 구조, 그리고 이를 지탱하는 신념과 마음 상태 간의 상호 작용에 달려 있다.", "read": [{"en": "Rituals involve both practices and beliefs, which reinforce each other.", "ko": "의식은 실천과 신념을 모두 포함하며, 이는 서로를 강화한다."}, {"en": "Grace before a meal is a shared acceptance of divine providence, a social agreement about the order of things, as well as setting a necessary punctuation in time and place.", "ko": "식사 전 감사기도는 신의 섭리에 대한 공동의 수용이자, 사물의 질서에 대한 사회적 합의이며, 시간과 장소를 구분하는 중요한 구두점 역할을 한다."}, {"en": "Ritual practices always reflect shared ideas and are shaped and controlled by various rules, many of which are not explicitly stated.", "ko": "의식의 실천은 항상 공유된 생각을 반영하며 다양한 규칙에 의해 형성되고 통제받는데, 규칙 중 많은 것이 명시적으로 진술되지 않는다."}, {"en": "Because they occur in space, they usually require a specific location, and the definition and decoration of that location is arguably among architecture's primary tasks.", "ko": "그것들(의식 실천)은 공간에서 이루어지기 때문에 일반적으로 특정 장소가 필요하며, 그 장소를 정의하고 꾸미는 것은 건축의 주요 과제 중 하나라고 할 수 있다."}, {"en": "When created for or adapted to ritual processes, buildings reinforce their efficacy, carry memories of them in their organization, and both guide and encourage their repetition.", "ko": "의식 과정을 위해 만들어지거나 그에 맞게 조정된 건물은 그 효능을 강화하고, 그 구성에 그 기억을 담으며, 의식의 반복을 유도하고 장려한다."}, {"en": "This depends on interaction between the structures laid out in physical space and the accompanying structures of ritual, along with the beliefs and states of mind that sustain them.", "ko": "이는 물리적 공간에 배치된 구조물과 그에 수반하는 의식 구조, 그리고 이를 지탱하는 신념과 마음 상태 간의 상호 작용에 달려 있다."}]}, {"no": "4", "title": "Exercise Your Mind Like a Muscle", "ktitle": "근육↔두뇌 평행 + 안전지대/도전 대조", "field": "심리·인지", "page": "9회 04번", "oneline": "두뇌도 근육처럼 꾸준한 도전으로 강화된다 — 안전지대는 사고력을 쇠퇴시키므로, 평생 도전해 적응·혁신·성공의 능력을 길러야 한다.", "metaphor": "<svg viewBox=\"0 0 600 305\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"상단은 근육 운동과 두뇌 신경 강화의 평행 비유, 하단은 안전지대에 머물러 사고력이 쇠퇴하는 빨강 경로와 도전을 통해 적응·혁신·성공으로 가는 초록 경로의 대조 그림\">\n\n  <!-- ============ 상단: 평행 비유 ============ -->\n  <text x=\"300\" y=\"16\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">parallel — body ↔ mind</text>\n\n  <!-- 좌측: 근육 운동 -->\n  <g transform=\"translate(40, 30)\">\n    <text x=\"100\" y=\"-3\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\">신체 — 운동으로 강화</text>\n    <!-- 사람 (아령 든 자세) -->\n    <g transform=\"translate(75, 60)\">\n      <!-- 머리 -->\n      <circle cx=\"0\" cy=\"-30\" r=\"10\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <circle cx=\"-3\" cy=\"-31\" r=\"1.1\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"-31\" r=\"1.1\" fill=\"#1a1a1a\"/>\n      <path d=\"M -3 -26 Q 0 -24 3 -26\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.8\"/>\n      <!-- 몸 -->\n      <line x1=\"0\" y1=\"-20\" x2=\"0\" y2=\"12\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <!-- 팔 (아령 든 자세 — 양옆 위로) -->\n      <line x1=\"0\" y1=\"-14\" x2=\"-20\" y2=\"-20\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"-14\" x2=\"20\" y2=\"-20\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <!-- 아령 좌 -->\n      <rect x=\"-30\" y=\"-25\" width=\"6\" height=\"10\" fill=\"#1a1a1a\"/>\n      <rect x=\"-27\" y=\"-22\" width=\"6\" height=\"4\" fill=\"#1a1a1a\"/>\n      <!-- 아령 우 -->\n      <rect x=\"24\" y=\"-25\" width=\"6\" height=\"10\" fill=\"#1a1a1a\"/>\n      <rect x=\"21\" y=\"-22\" width=\"6\" height=\"4\" fill=\"#1a1a1a\"/>\n      <!-- 다리 -->\n      <line x1=\"0\" y1=\"12\" x2=\"-8\" y2=\"30\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"12\" x2=\"8\" y2=\"30\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    </g>\n    <!-- 강화 표시 (상박 근육) -->\n    <ellipse cx=\"55\" cy=\"46\" rx=\"5\" ry=\"3.5\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n    <ellipse cx=\"95\" cy=\"46\" rx=\"5\" ry=\"3.5\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n    <text x=\"75\" y=\"105\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">muscles get stronger</text>\n  </g>\n\n  <!-- 가운데: 평행 기호 -->\n  <g transform=\"translate(300, 75)\">\n    <line x1=\"-4\" y1=\"-12\" x2=\"-4\" y2=\"12\" stroke=\"#1a1a1a\" stroke-width=\"1.8\"/>\n    <line x1=\"4\" y1=\"-12\" x2=\"4\" y2=\"12\" stroke=\"#1a1a1a\" stroke-width=\"1.8\"/>\n  </g>\n  <text x=\"300\" y=\"110\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#5e5e5e\">just as</text>\n\n  <!-- 우측: 두뇌 신경망 -->\n  <g transform=\"translate(360, 30)\">\n    <text x=\"120\" y=\"-3\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\">정신 — 도전으로 발달</text>\n    <!-- 두뇌 윤곽 -->\n    <g transform=\"translate(120, 60)\">\n      <path d=\"M -36 -10 Q -42 -28 -22 -32 Q -10 -38 0 -32 Q 10 -38 22 -32 Q 42 -28 36 -10 Q 42 5 28 12 Q 14 18 0 14 Q -14 18 -28 12 Q -42 5 -36 -10 Z\" \n            fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <!-- 신경 연결망 — 점 + 선 -->\n      <g stroke=\"#1FA34A\" stroke-width=\"1.5\" fill=\"#1FA34A\">\n        <!-- 점들 -->\n        <circle cx=\"-20\" cy=\"-15\" r=\"2.2\"/>\n        <circle cx=\"-5\" cy=\"-25\" r=\"2.2\"/>\n        <circle cx=\"15\" cy=\"-18\" r=\"2.2\"/>\n        <circle cx=\"-15\" cy=\"0\" r=\"2.2\"/>\n        <circle cx=\"5\" cy=\"-5\" r=\"2.2\"/>\n        <circle cx=\"22\" cy=\"0\" r=\"2.2\"/>\n        <circle cx=\"-10\" cy=\"10\" r=\"2.2\"/>\n        <circle cx=\"10\" cy=\"8\" r=\"2.2\"/>\n        <!-- 연결 (굵게 = 강한 연결) -->\n        <line x1=\"-20\" y1=\"-15\" x2=\"-5\" y2=\"-25\" stroke-width=\"1.5\"/>\n        <line x1=\"-5\" y1=\"-25\" x2=\"15\" y2=\"-18\" stroke-width=\"1.5\"/>\n        <line x1=\"-20\" y1=\"-15\" x2=\"-15\" y2=\"0\" stroke-width=\"1.5\"/>\n        <line x1=\"-15\" y1=\"0\" x2=\"5\" y2=\"-5\" stroke-width=\"1.5\"/>\n        <line x1=\"5\" y1=\"-5\" x2=\"22\" y2=\"0\" stroke-width=\"1.5\"/>\n        <line x1=\"-15\" y1=\"0\" x2=\"-10\" y2=\"10\" stroke-width=\"1.5\"/>\n        <line x1=\"5\" y1=\"-5\" x2=\"10\" y2=\"8\" stroke-width=\"1.5\"/>\n        <line x1=\"-10\" y1=\"10\" x2=\"10\" y2=\"8\" stroke-width=\"1.5\"/>\n        <line x1=\"22\" y1=\"0\" x2=\"15\" y2=\"-18\" stroke-width=\"1.5\"/>\n      </g>\n    </g>\n    <text x=\"120\" y=\"105\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">build stronger neural connections</text>\n  </g>\n\n  <!-- 가로 구분선 -->\n  <line x1=\"20\" y1=\"155\" x2=\"580\" y2=\"155\" stroke=\"#ccc\" stroke-width=\"1\"/>\n\n  <!-- ============ 하단: 안전지대 vs 도전 ============ -->\n  <text x=\"300\" y=\"172\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">comfort zone vs challenge</text>\n\n  <!-- 하단 좌: 안전지대 (빨강 점선) -->\n  <g transform=\"translate(20, 185)\">\n    <text x=\"135\" y=\"-3\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\">안전지대 — 사고력 쇠퇴</text>\n    <rect x=\"0\" y=\"3\" width=\"270\" height=\"100\" fill=\"#fdf2f4\" fill-opacity=\"0.3\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/>\n    \n    <!-- 의자에 앉은 사람 (편안한 자세) -->\n    <g transform=\"translate(70, 55)\">\n      <!-- 머리 -->\n      <circle cx=\"0\" cy=\"-15\" r=\"9\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <circle cx=\"-3\" cy=\"-16\" r=\"1\" fill=\"#1a1a1a\"/>\n      <circle cx=\"3\" cy=\"-16\" r=\"1\" fill=\"#1a1a1a\"/>\n      <path d=\"M -2 -11 Q 0 -10 2 -11\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.7\"/>\n      <!-- 몸 (살짝 기울어진) -->\n      <line x1=\"0\" y1=\"-6\" x2=\"2\" y2=\"12\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <!-- 팔 (편하게 늘어진) -->\n      <line x1=\"1\" y1=\"0\" x2=\"-8\" y2=\"6\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <line x1=\"1\" y1=\"0\" x2=\"10\" y2=\"6\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <!-- 다리 (앞으로 뻗음) -->\n      <line x1=\"2\" y1=\"12\" x2=\"15\" y2=\"10\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"2\" y1=\"12\" x2=\"15\" y2=\"14\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <!-- 의자 -->\n      <line x1=\"-7\" y1=\"14\" x2=\"20\" y2=\"14\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"-7\" y1=\"14\" x2=\"-7\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"20\" y1=\"14\" x2=\"20\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    </g>\n\n    <!-- 두뇌 약화 (작은 두뇌 + 끊긴 연결) -->\n    <g transform=\"translate(175, 50)\">\n      <path d=\"M -22 -6 Q -25 -16 -13 -19 Q -6 -22 0 -19 Q 6 -22 13 -19 Q 25 -16 22 -6 Q 25 4 17 8 Q 8 11 0 9 Q -8 11 -17 8 Q -25 4 -22 -6 Z\" \n            fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.3\" stroke-dasharray=\"3 2\"/>\n      <!-- 끊긴 점들 (희미) -->\n      <circle cx=\"-10\" cy=\"-10\" r=\"1.5\" fill=\"#c8102e\" opacity=\"0.4\"/>\n      <circle cx=\"6\" cy=\"-12\" r=\"1.5\" fill=\"#c8102e\" opacity=\"0.4\"/>\n      <circle cx=\"-5\" cy=\"2\" r=\"1.5\" fill=\"#c8102e\" opacity=\"0.4\"/>\n      <circle cx=\"10\" cy=\"0\" r=\"1.5\" fill=\"#c8102e\" opacity=\"0.4\"/>\n      <!-- 끊긴 선 (점선) -->\n      <line x1=\"-10\" y1=\"-10\" x2=\"6\" y2=\"-12\" stroke=\"#c8102e\" stroke-width=\"1\" stroke-dasharray=\"2 3\" opacity=\"0.5\"/>\n      <line x1=\"-5\" y1=\"2\" x2=\"10\" y2=\"0\" stroke=\"#c8102e\" stroke-width=\"1\" stroke-dasharray=\"2 3\" opacity=\"0.5\"/>\n      <text x=\"0\" y=\"28\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">decline</text>\n    </g>\n\n    <text x=\"135\" y=\"93\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">\"comfort zones can be dangerous\"</text>\n  </g>\n\n  <!-- 가운데 vs (하단) -->\n  <text x=\"300\" y=\"240\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">vs</text>\n\n  <!-- 하단 우: 도전 (초록) -->\n  <g transform=\"translate(310, 185)\">\n    <text x=\"135\" y=\"-3\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\">도전 — 적응·혁신·성공</text>\n    <rect x=\"0\" y=\"3\" width=\"270\" height=\"100\" fill=\"#f0faf3\" fill-opacity=\"0.3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n\n    <!-- 도전 활동 아이콘 3개 -->\n    <g transform=\"translate(45, 50)\">\n      <!-- 퍼즐 조각 -->\n      <path d=\"M -10 -10 L 0 -10 Q 0 -14 4 -14 Q 8 -14 8 -10 L 14 -10 L 14 -4 Q 18 -4 18 0 Q 18 4 14 4 L 14 10 L 8 10 Q 8 14 4 14 Q 0 14 0 10 L -10 10 Z\" \n            fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n      <text x=\"4\" y=\"28\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1FA34A\">puzzles</text>\n    </g>\n    <g transform=\"translate(105, 50)\">\n      <!-- 책 (언어 학습) -->\n      <rect x=\"-12\" y=\"-10\" width=\"24\" height=\"18\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"-10\" x2=\"0\" y2=\"8\" stroke=\"#1FA34A\" stroke-width=\"1\"/>\n      <line x1=\"-9\" y1=\"-5\" x2=\"-3\" y2=\"-5\" stroke=\"#1FA34A\" stroke-width=\"0.7\"/>\n      <line x1=\"-9\" y1=\"-1\" x2=\"-3\" y2=\"-1\" stroke=\"#1FA34A\" stroke-width=\"0.7\"/>\n      <line x1=\"-9\" y1=\"3\" x2=\"-3\" y2=\"3\" stroke=\"#1FA34A\" stroke-width=\"0.7\"/>\n      <line x1=\"3\" y1=\"-5\" x2=\"9\" y2=\"-5\" stroke=\"#1FA34A\" stroke-width=\"0.7\"/>\n      <line x1=\"3\" y1=\"-1\" x2=\"9\" y2=\"-1\" stroke=\"#1FA34A\" stroke-width=\"0.7\"/>\n      <line x1=\"3\" y1=\"3\" x2=\"9\" y2=\"3\" stroke=\"#1FA34A\" stroke-width=\"0.7\"/>\n      <text x=\"0\" y=\"28\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1FA34A\">languages</text>\n    </g>\n    <g transform=\"translate(165, 50)\">\n      <!-- 악기 (기타) -->\n      <ellipse cx=\"0\" cy=\"5\" rx=\"9\" ry=\"11\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n      <rect x=\"-1.5\" y=\"-12\" width=\"3\" height=\"14\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.1\"/>\n      <circle cx=\"0\" cy=\"5\" r=\"3\" fill=\"#1FA34A\"/>\n      <text x=\"0\" y=\"28\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1FA34A\">instruments</text>\n    </g>\n\n    <!-- 화살표 (→ thrive) -->\n    <g transform=\"translate(205, 50)\">\n      <line x1=\"0\" y1=\"0\" x2=\"20\" y2=\"0\" stroke=\"#1FA34A\" stroke-width=\"1.8\"/>\n      <polygon points=\"20,0 14,-4 14,4\" fill=\"#1FA34A\"/>\n    </g>\n    \n    <!-- 결과 (사람 위로 뻗는 자세) -->\n    <g transform=\"translate(245, 55)\">\n      <circle cx=\"0\" cy=\"-18\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <circle cx=\"-2.5\" cy=\"-19\" r=\"1\" fill=\"#1a1a1a\"/>\n      <circle cx=\"2.5\" cy=\"-19\" r=\"1\" fill=\"#1a1a1a\"/>\n      <path d=\"M -3 -14 Q 0 -12 3 -14\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n      <line x1=\"0\" y1=\"-10\" x2=\"0\" y2=\"10\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <!-- 팔 위로 -->\n      <line x1=\"0\" y1=\"-4\" x2=\"-10\" y2=\"-15\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"-4\" x2=\"10\" y2=\"-15\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"10\" x2=\"-7\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"0\" y1=\"10\" x2=\"7\" y2=\"22\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    </g>\n    \n    <text x=\"135\" y=\"93\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">adapt · innovate · thrive</text>\n  </g>\n</svg>", "caption": "근육↔두뇌 평행 + 안전지대/도전 대조", "tldr": ["두뇌도 근육처럼 꾸준한 도전으로 강화된다 — 안전지대는 사고력을 쇠퇴시키므로, 평생 도전해 적응·혁신·성공의 능력을 길러야 한다.", "근육↔두뇌 평행 + 안전지대/도전 대조"], "bg": "미닛15 9회 지문 이해 자료입니다.", "flow": [], "vocab": [["★regular exercise", "규칙적인 운동"], ["◇mental ability", "정신 능력"], ["★consistentcon- + sist- + -ent", "꾸준한·일관된"], ["★neural connection", "신경 연결"], ["◇engage in", "~에 참여하다·종사하다"], ["★mental sharpness", "정신적 예리함"], ["⊕age", "나이가 들다·노화하다"], ["★cognitive skill", "인지 능력·인지 기술"], ["⊕dedicateddedicate + -ed", "헌신적인·전념하는"], ["◇pick up", "(기술 등을) 배우다·익히다"], ["★comfort zone", "안전지대·익숙한 영역"], ["⊕territory", "영역·지대"], ["★mental boundary", "정신적 한계"], ["⊕declinede- + cline-", "저하되다·쇠퇴하다"], ["◇familiar routine", "익숙한 일상"], ["★prevent A from V-ing", "A가 ~하는 것을 막다"], ["★adaptad- + apt-", "적응하다"], ["⊕innovateinnov- + -ate", "혁신하다"], ["★thrive", "번성하다·잘 해내다"]], "quiz": [["이 지문의 핵심 구조는?", "근육↔두뇌 평행 + 안전지대/도전 대조"], ["도식이 강조하는 결론은?", "두뇌도 근육처럼 꾸준한 도전으로 강화된다 — 안전지대는 사고력을 쇠퇴시키므로, 평생 도전해 적응·혁신·성공의 능력을 길러야 한다."]], "en": "Just as our bodies become stronger with regular exercise, our mental abilities develop through consistent practice and challenge. Every time we solve problems, learn new information, or engage in creative thinking, we build stronger neural connections. Research shows that people who regularly challenge their brains tend to maintain their mental sharpness longer as they age. Developing cognitive skills requires dedicated practice through activities like doing puzzles, learning new languages, or picking up musical instruments. In fact, comfort zones can be dangerous territory for our minds. When we stop pushing our mental boundaries, our thinking skills can begin to decline. Staying in familiar routines prevents our brains from facing new challenges that are necessary for keeping our minds sharp. This explains why we must work consistently to strengthen our mental skills throughout our lives. By making a habit of regularly challenging our thinking patterns and acquiring new knowledge, we can improve our ability to adapt, innovate, and thrive in complex situations.", "ko": "우리 신체가 규칙적인 운동으로 더 강해지는 것과 마찬가지로, 우리의 정신 능력도 꾸준한 연습과 도전을 통해 발달한다. 문제를 해결하거나 새로운 정보를 습득하거나, 또는 창의적인 사고를 할 때마다, 우리는 더 강력한 신경연결을 구축한다. 연구는 정기적으로 두뇌에 도전하는 사람이 나이가 들면서 정신적 예리함을 더 오래 유지하는 경향이 있다는 것을 보여 준다. 인지 능력을 개발하는 것은 퍼즐 맞추기, 새로운 언어 배우기, 또는 악기 배우기와 같은 활동을 통한 헌신적인 연습을 필요로 한다. 사실, 안전지대는 우리 정신에 위험한 영역이 될 수 있다. 정신적 한계를 뛰어넘는 도전을 멈출 때, 우리의 사고력은 저하되기 시작할 수 있다. 익숙한 일상에 머무르는 것은 우리의 두뇌가 우리의 정신을 예리하게 유지하는 데 필요한 새로운 도전에 직면하는 것을 막는다. 이것이 우리가 평생 동안 정신을 강화하기 위해 꾸준히 노력해야 하는 이유이다. 정기적으로 사고 패턴에 도전하고 새로운 지식을 습득하는 습관을 들임으로써, 우리는 복잡한 상황에서 적응하고 혁신하며 성공하는 능력을 향상시킬 수 있다.", "read": [{"en": "Just as our bodies become stronger with regular exercise, our mental abilities develop through consistent practice and challenge.", "ko": "우리 신체가 규칙적인 운동으로 더 강해지는 것과 마찬가지로, 우리의 정신 능력도 꾸준한 연습과 도전을 통해 발달한다."}, {"en": "Every time we solve problems, learn new information, or engage in creative thinking, we build stronger neural connections.", "ko": "문제를 해결하거나 새로운 정보를 습득하거나, 또는 창의적인 사고를 할 때마다, 우리는 더 강력한 신경연결을 구축한다."}, {"en": "Research shows that people who regularly challenge their brains tend to maintain their mental sharpness longer as they age.", "ko": "연구는 정기적으로 두뇌에 도전하는 사람이 나이가 들면서 정신적 예리함을 더 오래 유지하는 경향이 있다는 것을 보여 준다."}, {"en": "Developing cognitive skills requires dedicated practice through activities like doing puzzles, learning new languages, or picking up musical instruments.", "ko": "인지 능력을 개발하는 것은 퍼즐 맞추기, 새로운 언어 배우기, 또는 악기 배우기와 같은 활동을 통한 헌신적인 연습을 필요로 한다."}, {"en": "In fact, comfort zones can be dangerous territory for our minds.", "ko": "사실, 안전지대는 우리 정신에 위험한 영역이 될 수 있다."}, {"en": "When we stop pushing our mental boundaries, our thinking skills can begin to decline.", "ko": "정신적 한계를 뛰어넘는 도전을 멈출 때, 우리의 사고력은 저하되기 시작할 수 있다."}, {"en": "Staying in familiar routines prevents our brains from facing new challenges that are necessary for keeping our minds sharp.", "ko": "익숙한 일상에 머무르는 것은 우리의 두뇌가 우리의 정신을 예리하게 유지하는 데 필요한 새로운 도전에 직면하는 것을 막는다."}, {"en": "This explains why we must work consistently to strengthen our mental skills throughout our lives.", "ko": "이것이 우리가 평생 동안 정신을 강화하기 위해 꾸준히 노력해야 하는 이유이다."}, {"en": "By making a habit of regularly challenging our thinking patterns and acquiring new knowledge, we can improve our ability to adapt, innovate, and thrive in complex situations.", "ko": "정기적으로 사고 패턴에 도전하고 새로운 지식을 습득하는 습관을 들임으로써, 우리는 복잡한 상황에서 적응하고 혁신하며 성공하는 능력을 향상시킬 수 있다."}]}, {"no": "5", "title": "The Forest's Waiting Crown Princes", "ktitle": "숲 단면도 — 또다시 기다림 → 황태자 운명", "field": "생태·자연", "page": "9회 05번", "oneline": "숲의 어린 나무들은 어미가 죽어도 이웃이 빈틈을 채워 또다시 기다려야 한다 — 하지만 중간층까지 온 나무들은 경쟁이 끝나, 자리를 물려받을 황태자로 운명이 정해진다.", "metaphor": "<svg viewBox=\"0 0 600 285\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"숲의 수직 단면도 — 좌측에 죽은 어미 나무 그루터기와 이웃 큰 나무들이 빈틈으로 가지를 뻗어 광합성을 차지하고, 그 아래 어린 나무들이 어둠 속에서 또다시 기다리는 모습, 우측 라벨은 중간층 도달 = 황태자라는 결론을 표시한 그림\">\n\n  <!-- 하늘 (배경 상단) -->\n  <rect x=\"20\" y=\"20\" width=\"380\" height=\"155\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1\"/>\n  \n  <!-- 햇빛 (상단 좌측, 초록 사선) -->\n  <g stroke=\"#1FA34A\" stroke-width=\"1.1\" stroke-dasharray=\"3 3\" opacity=\"0.55\">\n    <line x1=\"40\" y1=\"22\" x2=\"55\" y2=\"50\"/>\n    <line x1=\"75\" y1=\"22\" x2=\"90\" y2=\"50\"/>\n    <line x1=\"135\" y1=\"22\" x2=\"150\" y2=\"50\"/>\n    <line x1=\"170\" y1=\"22\" x2=\"185\" y2=\"50\"/>\n  </g>\n  <text x=\"270\" y=\"36\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" fill=\"#1FA34A\" font-weight=\"700\">sunlight</text>\n\n  <!-- 상단 라벨 -->\n  <text x=\"210\" y=\"14\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">숲 단면도 — 어미 죽음 → 빈틈 → 이웃이 채움</text>\n\n  <!-- 이웃 큰 나무 (좌) -->\n  <g transform=\"translate(45, 165)\">\n    <rect x=\"-3\" y=\"-90\" width=\"6\" height=\"90\" fill=\"#1a1a1a\"/>\n    <ellipse cx=\"20\" cy=\"-85\" rx=\"35\" ry=\"20\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n    <line x1=\"0\" y1=\"-70\" x2=\"35\" y2=\"-85\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <line x1=\"0\" y1=\"-60\" x2=\"30\" y2=\"-78\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <g transform=\"translate(55, -85)\">\n      <line x1=\"0\" y1=\"0\" x2=\"14\" y2=\"0\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n      <polygon points=\"14,0 8,-3 8,3\" fill=\"#1FA34A\"/>\n    </g>\n  </g>\n\n  <!-- 이웃 큰 나무 (우) -->\n  <g transform=\"translate(165, 165)\">\n    <rect x=\"-3\" y=\"-90\" width=\"6\" height=\"90\" fill=\"#1a1a1a\"/>\n    <ellipse cx=\"-22\" cy=\"-85\" rx=\"35\" ry=\"20\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n    <line x1=\"0\" y1=\"-70\" x2=\"-35\" y2=\"-85\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <line x1=\"0\" y1=\"-60\" x2=\"-30\" y2=\"-78\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <g transform=\"translate(-57, -85)\">\n      <line x1=\"0\" y1=\"0\" x2=\"-14\" y2=\"0\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n      <polygon points=\"-14,0 -8,-3 -8,3\" fill=\"#1FA34A\"/>\n    </g>\n  </g>\n\n  <!-- '이웃이 빈틈을 채움' 라벨 — 수관 위쪽 빈 공간 -->\n  <text x=\"105\" y=\"48\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">neighbors widen crowns</text>\n  <text x=\"105\" y=\"60\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">이웃이 빈틈으로 가지를 뻗음</text>\n\n  <!-- 어미 나무 그루터기 (좌측, 죽음) -->\n  <g transform=\"translate(105, 165)\">\n    <!-- 그루터기 -->\n    <rect x=\"-12\" y=\"-5\" width=\"24\" height=\"15\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <ellipse cx=\"0\" cy=\"-5\" rx=\"11\" ry=\"3\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <ellipse cx=\"0\" cy=\"-5\" rx=\"7\" ry=\"2\" fill=\"none\" stroke=\"#999\" stroke-width=\"0.9\"/>\n    <ellipse cx=\"0\" cy=\"-5\" rx=\"3.5\" ry=\"1\" fill=\"none\" stroke=\"#999\" stroke-width=\"0.9\"/>\n    <!-- 쓰러진 줄기 잔해 (위쪽 옆으로) -->\n    <g opacity=\"0.55\">\n      <line x1=\"12\" y1=\"-5\" x2=\"50\" y2=\"-12\" stroke=\"#999\" stroke-width=\"2.5\" stroke-dasharray=\"4 3\"/>\n    </g>\n    <!-- 라벨 그루터기 위쪽 (어둠 박스 바깥) -->\n    <text x=\"0\" y=\"-16\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\" font-weight=\"700\">dead mother · 어미 나무</text>\n  </g>\n\n  <!-- 지면 (땅) -->\n  <line x1=\"20\" y1=\"166\" x2=\"400\" y2=\"166\" stroke=\"#1a1a1a\" stroke-width=\"2\"/>\n  <g opacity=\"0.5\">\n    <line x1=\"40\" y1=\"172\" x2=\"42\" y2=\"172\" stroke=\"#999\" stroke-width=\"1\"/>\n    <line x1=\"60\" y1=\"170\" x2=\"62\" y2=\"170\" stroke=\"#999\" stroke-width=\"1\"/>\n    <line x1=\"180\" y1=\"172\" x2=\"182\" y2=\"172\" stroke=\"#999\" stroke-width=\"1\"/>\n    <line x1=\"220\" y1=\"170\" x2=\"222\" y2=\"170\" stroke=\"#999\" stroke-width=\"1\"/>\n    <line x1=\"280\" y1=\"172\" x2=\"282\" y2=\"172\" stroke=\"#999\" stroke-width=\"1\"/>\n    <line x1=\"340\" y1=\"170\" x2=\"342\" y2=\"170\" stroke=\"#999\" stroke-width=\"1\"/>\n  </g>\n\n  <!-- 하층 어둠 표시 (회색 음영 박스, 투명도 낮춤) -->\n  <rect x=\"20\" y=\"170\" width=\"380\" height=\"55\" fill=\"#999\" fill-opacity=\"0.10\"/>\n  \n  <!-- 어린 나무들 (하층, 어둠 속) -->\n  <g transform=\"translate(45, 168)\">\n    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-22\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <polygon points=\"0,-22 -6,-12 6,-12\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n  </g>\n  <g transform=\"translate(65, 168)\">\n    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-18\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"0,-18 -5,-10 5,-10\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n  </g>\n  <g transform=\"translate(80, 168)\">\n    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-15\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"0,-15 -4,-9 4,-9\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n  </g>\n  <g transform=\"translate(150, 168)\">\n    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-22\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <polygon points=\"0,-22 -6,-12 6,-12\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n  </g>\n  <g transform=\"translate(225, 168)\">\n    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-26\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <polygon points=\"0,-26 -7,-13 7,-13\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n  </g>\n  <g transform=\"translate(250, 168)\">\n    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-22\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <polygon points=\"0,-22 -6,-12 6,-12\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n  </g>\n  <g transform=\"translate(275, 168)\">\n    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-20\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <polygon points=\"0,-20 -5,-11 5,-11\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n  </g>\n\n  <!-- 어린 나무 라벨 — 어둠 박스 아래쪽 (밖) -->\n  <text x=\"180\" y=\"208\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\" font-weight=\"700\">young beeches, firs, pines</text>\n  <text x=\"180\" y=\"219\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">어둠 속 또다시 기다림 — dark again down below</text>\n\n  <!-- 모래시계 (또다시 기다림 시간) -->\n  <g transform=\"translate(355, 195)\">\n    <path d=\"M -8 -16 L 8 -16 L 0 -2 L 0 2 L 8 16 L -8 16 L 0 2 L 0 -2 Z\" \n          fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <path d=\"M -6 -14 L 6 -14 L 0 -4 Z\" fill=\"#1a1a1a\" opacity=\"0.5\"/>\n    <text x=\"0\" y=\"-22\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">decades</text>\n  </g>\n\n  <!-- ============ 우측: 결론 — 황태자 ============ -->\n  <g transform=\"translate(415, 30)\">\n    <text x=\"80\" y=\"-3\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">★ 결론 — 운명은 정해짐</text>\n    <rect x=\"0\" y=\"3\" width=\"160\" height=\"195\" fill=\"#f0faf3\" fill-opacity=\"0.3\" stroke=\"#1FA34A\" stroke-width=\"1.8\"/>\n    \n    <!-- 가운데 라벨: 중간층 = 황태자 -->\n    <g transform=\"translate(80, 35)\">\n      <text x=\"0\" y=\"0\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">middle level</text>\n      <text x=\"0\" y=\"13\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">중간층 도달 시</text>\n    </g>\n\n    <!-- 중간층 자란 나무 (왕관 표시) -->\n    <g transform=\"translate(80, 105)\">\n      <g transform=\"translate(0, -52)\">\n        <polygon points=\"-13,0 -10,-8 -7,-3 -3,-10 0,-3 3,-10 7,-3 10,-8 13,0\" \n                 fill=\"#1FA34A\" stroke=\"#1FA34A\" stroke-width=\"1\"/>\n        <circle cx=\"-7\" cy=\"-5\" r=\"1.3\" fill=\"#ffffff\"/>\n        <circle cx=\"0\" cy=\"-6\" r=\"1.3\" fill=\"#ffffff\"/>\n        <circle cx=\"7\" cy=\"-5\" r=\"1.3\" fill=\"#ffffff\"/>\n      </g>\n      <rect x=\"-3.5\" y=\"-40\" width=\"7\" height=\"40\" fill=\"#1a1a1a\"/>\n      <ellipse cx=\"0\" cy=\"-45\" rx=\"22\" ry=\"13\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"1.8\"/>\n      <text x=\"0\" y=\"14\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">crown prince</text>\n    </g>\n\n    <g transform=\"translate(80, 165)\">\n      <text x=\"0\" y=\"0\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">no more competition</text>\n      <text x=\"0\" y=\"13\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">fate is sealed</text>\n      <text x=\"0\" y=\"27\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">경쟁 종료 · 다음 기회에 성장</text>\n    </g>\n  </g>\n</svg>", "caption": "숲 단면도 — 또다시 기다림 → 황태자 운명", "tldr": ["숲의 어린 나무들은 어미가 죽어도 이웃이 빈틈을 채워 또다시 기다려야 한다 — 하지만 중간층까지 온 나무들은 경쟁이 끝나, 자리를 물려받을 황태자로 운명이 정해진다.", "숲 단면도 — 또다시 기다림 → 황태자 운명"], "bg": "미닛15 9회 지문 이해 자료입니다.", "flow": [], "vocab": [["★over long periods", "오랜 기간에 걸쳐"], ["⊕surroundingssurround + -ings", "주변 환경"], ["★overcomeover- + come", "이겨 내다·극복하다"], ["◇slim", "가느다란·날씬한"], ["★endureen- + dure-", "견디다·인내하다"], ["⊕patiencepatient + -ce", "인내·끈기"], ["◇decade", "10년"], ["★extendex- + tend-", "뻗다·확장하다"], ["⊕gap", "틈·간격"], ["⊕elderold → eld + -er", "나이 든 것·연장자"], ["★crown", "수관(나무 윗부분)·왕관"], ["★photosynthesisphoto- + synthesis", "광합성"], ["◇upper story", "위층(상층 수관)"], ["◇beech", "너도밤나무"], ["◇fir", "전나무"], ["★throw in the towel", "포기하다·항복하다"], ["◇despite", "~에도 불구하고"], ["★fate", "운명"], ["★seal", "확정하다·봉인하다"], ["⊕competitioncompete + -ition", "경쟁"], ["★crown prince", "황태자·왕세자"]], "quiz": [["이 지문의 핵심 구조는?", "숲 단면도 — 또다시 기다림 → 황태자 운명"], ["도식이 강조하는 결론은?", "숲의 어린 나무들은 어미가 죽어도 이웃이 빈틈을 채워 또다시 기다려야 한다 — 하지만 중간층까지 온 나무들은 경쟁이 끝나, 자리를 물려받을 황태자로 운명이 정해진다."]], "en": "In the forest, trees grow over long periods, constantly influencing and being influenced by their surroundings. The young trees that have overcome every challenge and grown tall and slim must now endure another test of patience. Over the next two decades, their dead mother tree's neighbors will extend their branches into the gap she left when she fell. These elders use the chance to widen their crowns and boost photosynthesis late in life. Once the upper story grows over, it is dark once again down below. The young beeches, firs, and pines that have put the first half of their journey behind them must now wait once again until one of these large neighbors throws in the towel. That may require many decades, but despite the long wait, in this unique setting, fate is already sealed. All the trees that have advanced to the forest's middle level face no more competition. The trees are now the crown princes and princesses who, at the next opportunity, will finally be allowed to grow up.", "ko": "숲에서 나무는 오랜 기간 끊임없이 주변 환경에 영향을 주고받으며 자란다. 모든 도전을 이겨 내고 키가 크고 가늘게 자란 어린 나무들은 이제 또 다른 인내의 시험을 견뎌야 한다. 앞으로 20년 동안 죽은 어미 나무의 이웃 나무들은 어미가 쓰러질 때 남긴 틈새로 그것의 가지를 뻗어 나갈 것이다. 이 나이 든 나무들은 생의 말기에 수관을 넓히고 광합성을 강화하기 위해 이 기회를 이용한다. 일단 위층이 자라면, 아래는 다시 어두워진다. 성장 여정의 전반부를 이미 지나온 어린 너도밤나무, 전나무, 소나무들은 이제 이웃의 커다란 나무들 중 하나가 포기하고 자리를 내줄 때까지 또다시 기다려야 한다. 그것은 수십 년이 걸릴 수도 있지만, 오랜 기다림에도 불구하고 이 독특한 환경에서 운명은 이미 정해져 있다. 숲의 중간층까지 성장한 모든 나무들은 더 이상 경쟁에 직면하지 않는다. 그 나무들은 이제 다음 기회에 마침내 성장할 수 있게 될 황태자이고 태자비인 것이다.", "read": [{"en": "In the forest, trees grow over long periods, constantly influencing and being influenced by their surroundings.", "ko": "숲에서 나무는 오랜 기간 끊임없이 주변 환경에 영향을 주고받으며 자란다."}, {"en": "The young trees that have overcome every challenge and grown tall and slim must now endure another test of patience.", "ko": "모든 도전을 이겨 내고 키가 크고 가늘게 자란 어린 나무들은 이제 또 다른 인내의 시험을 견뎌야 한다."}, {"en": "Over the next two decades, their dead mother tree's neighbors will extend their branches into the gap she left when she fell.", "ko": "앞으로 20년 동안 죽은 어미 나무의 이웃 나무들은 어미가 쓰러질 때 남긴 틈새로 그것의 가지를 뻗어 나갈 것이다."}, {"en": "These elders use the chance to widen their crowns and boost photosynthesis late in life.", "ko": "이 나이 든 나무들은 생의 말기에 수관을 넓히고 광합성을 강화하기 위해 이 기회를 이용한다."}, {"en": "Once the upper story grows over, it is dark once again down below.", "ko": "일단 위층이 자라면, 아래는 다시 어두워진다."}, {"en": "The young beeches, firs, and pines that have put the first half of their journey behind them must now wait once again until one of these large neighbors throws in the towel.", "ko": "성장 여정의 전반부를 이미 지나온 어린 너도밤나무, 전나무, 소나무들은 이제 이웃의 커다란 나무들 중 하나가 포기하고 자리를 내줄 때까지 또다시 기다려야 한다."}, {"en": "That may require many decades, but despite the long wait, in this unique setting, fate is already sealed.", "ko": "그것은 수십 년이 걸릴 수도 있지만, 오랜 기다림에도 불구하고 이 독특한 환경에서 운명은 이미 정해져 있다."}, {"en": "All the trees that have advanced to the forest's middle level face no more competition.", "ko": "숲의 중간층까지 성장한 모든 나무들은 더 이상 경쟁에 직면하지 않는다."}, {"en": "The trees are now the crown princes and princesses who, at the next opportunity, will finally be allowed to grow up.", "ko": "그 나무들은 이제 다음 기회에 마침내 성장할 수 있게 될 황태자이고 태자비인 것이다."}]}, {"no": "6", "title": "Why Bystanders Do Nothing", "ktitle": "타인의 존재 → 무행동의 본보기 → 무개입이 적절한 대응", "field": "사회·심리", "page": "9회 06번", "oneline": "위급 상황에서 타인의 존재 (A)는 서로 눈치를 보게 만들어 무행동의 본보기가 되고, 결국 무개입이 적절한 대응 (B)처럼 잘못 규정된다 — 방관자 효과.", "metaphor": "<svg viewBox=\"0 0 600 295\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"가운데 위급 상황에 쓰러진 사람을 둘러싸고 네 명의 방관자가 서로 눈치를 보며 멈춰선 그림과 하단에 요약문 A·B 빈칸 매핑을 빨강 점선으로 표시한 그림\">\n\n  <!-- 상단 라벨 -->\n  <text x=\"300\" y=\"14\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">위급 상황 + 타인 = 서로 눈치 → 무행동의 본보기</text>\n\n  <!-- 위급 상황 박스 (가운데) -->\n  <g transform=\"translate(300, 115)\">\n    <!-- 점선 외곽 (위급) -->\n    <circle cx=\"0\" cy=\"0\" r=\"38\" fill=\"#fdf2f4\" fill-opacity=\"0.5\" stroke=\"#c8102e\" stroke-width=\"1.6\" stroke-dasharray=\"4 3\"/>\n    <!-- emergency 라벨 (원 위쪽) -->\n    <text x=\"0\" y=\"-50\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">emergency</text>\n    <!-- 쓰러진 사람 -->\n    <g transform=\"translate(0, 0)\">\n      <circle cx=\"-18\" cy=\"0\" r=\"8\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"-21\" y1=\"-2\" x2=\"-19\" y2=\"0\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <line x1=\"-19\" y1=\"-2\" x2=\"-21\" y2=\"0\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <line x1=\"-17\" y1=\"-2\" x2=\"-15\" y2=\"0\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <line x1=\"-15\" y1=\"-2\" x2=\"-17\" y2=\"0\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n      <line x1=\"-10\" y1=\"0\" x2=\"18\" y2=\"0\" stroke=\"#1a1a1a\" stroke-width=\"1.6\"/>\n      <line x1=\"-2\" y1=\"0\" x2=\"-5\" y2=\"-8\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"2\" y1=\"0\" x2=\"5\" y2=\"8\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"18\" y1=\"0\" x2=\"25\" y2=\"-6\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n      <line x1=\"18\" y1=\"0\" x2=\"25\" y2=\"6\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    </g>\n    <!-- 박스 내 라벨 (사람 아래쪽) -->\n    <text x=\"0\" y=\"55\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\">예측 불가·갑작스러움</text>\n  </g>\n\n  <!-- 시선 점선들 (사람 어깨 → 어깨, 박스 비켜서 우회) -->\n  <g stroke=\"#c8102e\" stroke-width=\"1.2\" stroke-dasharray=\"3 3\" fill=\"none\">\n    <!-- 1 ↔ 2 (위): 어깨 라인 가로 -->\n    <line x1=\"170\" y1=\"85\" x2=\"430\" y2=\"85\"/>\n    <!-- 3 ↔ 4 (아래): 어깨 라인 가로 -->\n    <line x1=\"170\" y1=\"180\" x2=\"430\" y2=\"180\"/>\n    <!-- 1 ↔ 3 (좌): 짧게 — bystander 1 다리 끝 위쪽 부터 -->\n    <line x1=\"142\" y1=\"108\" x2=\"142\" y2=\"158\"/>\n    <!-- 2 ↔ 4 (우): 짧게 -->\n    <line x1=\"458\" y1=\"108\" x2=\"458\" y2=\"158\"/>\n    <!-- 1 ↔ 4 (대각선) -->\n    <line x1=\"180\" y1=\"90\" x2=\"420\" y2=\"175\"/>\n    <!-- 2 ↔ 3 (대각선) -->\n    <line x1=\"420\" y1=\"90\" x2=\"180\" y2=\"175\"/>\n  </g>\n  <!-- 화살촉 (양방향) -->\n  <g fill=\"#c8102e\">\n    <polygon points=\"430,85 422,81 422,89\"/>\n    <polygon points=\"170,85 178,81 178,89\"/>\n    <polygon points=\"430,180 422,176 422,184\"/>\n    <polygon points=\"170,180 178,176 178,184\"/>\n  </g>\n\n  <!-- 방관자 1 (좌상) — 라벨 왼쪽으로 -->\n  <g transform=\"translate(155, 70)\">\n    <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <circle cx=\"2\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n    <circle cx=\"6\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n    <path d=\"M -2 4 Q 2 6 6 4\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n    <line x1=\"0\" y1=\"11\" x2=\"0\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <line x1=\"0\" y1=\"20\" x2=\"-10\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <line x1=\"0\" y1=\"20\" x2=\"10\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <line x1=\"0\" y1=\"38\" x2=\"-7\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <line x1=\"0\" y1=\"38\" x2=\"7\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <!-- 라벨: 왼쪽으로 옮김 (시선 점선 비켜) -->\n    <text x=\"-25\" y=\"64\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">bystander 1</text>\n  </g>\n\n  <!-- 방관자 2 (우상) — 라벨 오른쪽으로 -->\n  <g transform=\"translate(445, 70)\">\n    <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <circle cx=\"-6\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n    <circle cx=\"-2\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n    <path d=\"M -6 4 Q -2 6 2 4\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n    <line x1=\"0\" y1=\"11\" x2=\"0\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <line x1=\"0\" y1=\"20\" x2=\"-10\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <line x1=\"0\" y1=\"20\" x2=\"10\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <line x1=\"0\" y1=\"38\" x2=\"-7\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <line x1=\"0\" y1=\"38\" x2=\"7\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"25\" y=\"64\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">bystander 2</text>\n  </g>\n\n  <!-- 방관자 3 (좌하) -->\n  <g transform=\"translate(155, 165)\">\n    <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <circle cx=\"2\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n    <circle cx=\"6\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n    <path d=\"M -2 4 Q 2 6 6 4\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n    <line x1=\"0\" y1=\"11\" x2=\"0\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <line x1=\"0\" y1=\"20\" x2=\"-10\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <line x1=\"0\" y1=\"20\" x2=\"10\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <line x1=\"0\" y1=\"38\" x2=\"-7\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <line x1=\"0\" y1=\"38\" x2=\"7\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"-25\" y=\"64\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">bystander 3</text>\n  </g>\n\n  <!-- 방관자 4 (우하) -->\n  <g transform=\"translate(445, 165)\">\n    <circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <circle cx=\"-6\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n    <circle cx=\"-2\" cy=\"-1\" r=\"1.2\" fill=\"#1a1a1a\"/>\n    <path d=\"M -6 4 Q -2 6 2 4\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"0.9\"/>\n    <line x1=\"0\" y1=\"11\" x2=\"0\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <line x1=\"0\" y1=\"20\" x2=\"-10\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <line x1=\"0\" y1=\"20\" x2=\"10\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <line x1=\"0\" y1=\"38\" x2=\"-7\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <line x1=\"0\" y1=\"38\" x2=\"7\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"25\" y=\"64\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">bystander 4</text>\n  </g>\n\n  <text x=\"300\" y=\"222\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">\"look at them, they look at us\" — models of inaction</text>\n\n  <!-- 하단: 요약문 빈칸 매핑 (여유 있게) -->\n  <g transform=\"translate(20, 235)\">\n    <rect x=\"0\" y=\"0\" width=\"560\" height=\"56\" rx=\"5\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <text x=\"14\" y=\"14\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" font-weight=\"700\" fill=\"#1a1a1a\">SUMMARY (A) · (B)</text>\n    \n    <!-- (A) 박스 -->\n    <g transform=\"translate(83, 38)\">\n      <rect x=\"-58\" y=\"-11\" width=\"116\" height=\"20\" rx=\"3\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n      <text x=\"-48\" y=\"3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" font-weight=\"700\" fill=\"#c8102e\">(A)</text>\n      <text x=\"9\" y=\"3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\">presence</text>\n    </g>\n\n    <!-- 화살표 (A → 무개입) — 라벨은 위쪽 -->\n    <g transform=\"translate(165, 38)\">\n      <text x=\"22\" y=\"-8\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#c8102e\">leads to</text>\n      <line x1=\"0\" y1=\"0\" x2=\"44\" y2=\"0\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"3 2\"/>\n      <polygon points=\"44,0 36,-4 36,4\" fill=\"#c8102e\"/>\n    </g>\n\n    <!-- 무행동 박스 -->\n    <g transform=\"translate(260, 38)\">\n      <rect x=\"-42\" y=\"-11\" width=\"84\" height=\"20\" rx=\"3\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1.2\"/>\n      <text x=\"0\" y=\"3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\" font-weight=\"700\">not intervene</text>\n    </g>\n\n    <!-- 화살표 (→ B) — 라벨 위쪽 -->\n    <g transform=\"translate(305, 38)\">\n      <text x=\"25\" y=\"-8\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#c8102e\">defined as</text>\n      <line x1=\"0\" y1=\"0\" x2=\"50\" y2=\"0\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"3 2\"/>\n      <polygon points=\"50,0 42,-4 42,4\" fill=\"#c8102e\"/>\n    </g>\n\n    <!-- (B) 박스 -->\n    <g transform=\"translate(435, 38)\">\n      <rect x=\"-72\" y=\"-11\" width=\"144\" height=\"20\" rx=\"3\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n      <text x=\"-62\" y=\"3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" font-weight=\"700\" fill=\"#c8102e\">(B)</text>\n      <text x=\"11\" y=\"3\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\">appropriate response</text>\n    </g>\n  </g>\n</svg>", "caption": "타인의 존재 → 무행동의 본보기 → 무개입이 적절한 대응", "tldr": ["위급 상황에서 타인의 존재 (A)는 서로 눈치를 보게 만들어 무행동의 본보기가 되고, 결국 무개입이 적절한 대응 (B)처럼 잘못 규정된다 — 방관자 효과.", "타인의 존재 → 무행동의 본보기 → 무개입이 적절한 대응"], "bg": "미닛15 9회 지문 이해 자료입니다.", "flow": [], "vocab": [["★witness", "목격하다"], ["★emergencyemerge + -ency", "위급 상황·비상사태"], ["◇on a regular basis", "정기적으로·자주"], ["★by their very nature", "바로 그 본질상"], ["⊕unpredictableun- + predict + -able", "예측 불가능한"], ["★be confronted with", "~에 직면하다"], ["⊕hesitatehesit- + -ate", "머뭇거리다·주저하다"], ["◇work out", "알아내다·파악하다"], ["◇be present", "존재하다·그 자리에 있다"], ["★inadvertentlyin- + advert + -ently", "무심코·의도치 않게"], ["★model of inaction", "무행동의 본보기"], ["★appropriateap- + propri- + -ate", "적절한"], ["◇socially defined", "사회적으로 규정된"], ["⊕lessenless + -en", "줄이다·약화시키다"], ["★likelihoodlikely + -hood", "가능성·개연성"], ["★normativenorm + -ative", "표준적인·규범적인"], ["★bystanderby + stand + -er", "구경꾼·방관자"], ["★interveneinter- + vene-", "개입하다"]], "quiz": [["이 지문의 핵심 구조는?", "타인의 존재 → 무행동의 본보기 → 무개입이 적절한 대응"], ["도식이 강조하는 결론은?", "위급 상황에서 타인의 존재 (A)는 서로 눈치를 보게 만들어 무행동의 본보기가 되고, 결국 무개입이 적절한 대응 (B)처럼 잘못 규정된다 — 방관자 효과."]], "en": "Most of us do not witness emergencies on a regular basis. Due to their very nature, emergencies tend to be unpredictable, potentially risky, sudden events that we generally are neither prepared for nor expect in our everyday lives. Because of this, when confronted with an emergency we may well hesitate and try to work out what is going on and what should be done. If other people are present while we are doing this, we often look at them, and they look at us, as each of us tries to work out what to do. In doing so, we inadvertently become models of inaction for each other. This process suggests that the appropriate response to the emergency is therefore to do nothing. The situation has become socially defined as a non-emergency, which lessens the likelihood of helping, thereby inaction becomes normative for the situation. This process may occur where the bystander decides whether the event is an emergency or not. He or she may look to others to define the situation. → As we are neither prepared for nor expect emergencies, the (A) ______ of others at a scene where an emergency happens may lead us not to intervene, which is considered as an (B) ______ response to the emergency.", "ko": "우리 대부분은 정기적으로 위급 상황을 목격하지는 않는다. 바로 그런 성향때문에, 위급 상황은 우리가 일반적으로 일상에서 준비도 되어 있지 않고 예상도 하지 못하는, 예측 불가능하고 잠재적으로 위험하며 갑작스러운 사건인 경향이 있다. 이러한 이유로 위급 상황에 직면할 때 우리는 머뭇거리며 무슨 일이 일어나고 있는지 그리고 무엇이 행해져야 하는지를 알아 내려 할 것이다. 우리가 이렇게 하는 동안 만약 다른 사람들이 있다면, 우리는 종종 그들을 바라보고, 그들도 우리를 바라보며, 우리 각자는 무엇을 하려고 애써야할지 고민한다. 그렇게 할 때, 우리는 무심코 서로에게 아무런 조치를 취하지 않은 본보기가 된다. 이런 과정은 위급 상황에 대한 적절한 대응은 아무것도 하지 않는 것임을 시사한다. 그 상황은 사회적으로 위급하지 않은 상황으로 규정되어 왔으며, 그것은 도움을 줄 가능성을 줄이므로, 행동하지 않는 것이 그 상황에 대한 표준이 된다. 이 과정은 구경꾼이 그 사건이 위급 상황인지 아닌지를 결정하는 상황에서 발생한다. 그 사람은 다른 사람들이 그 상황을 규정해 줄 것으로 기대를 걸 수도 있다. → 우리는 위급 상황에 대비하거나 그것을 예측하지 못하므로, 위급 상황이 발생하는 현장에서 다른 사람의 (A)______이 우리를 개입하지 않도록 할 수도 있는데, 이것이 위급 상황에 대한 (B)______ 대응으로 간주된다.", "read": [{"en": "Most of us do not witness emergencies on a regular basis.", "ko": "우리 대부분은 정기적으로 위급 상황을 목격하지는 않는다."}, {"en": "Due to their very nature, emergencies tend to be unpredictable, potentially risky, sudden events that we generally are neither prepared for nor expect in our everyday lives.", "ko": "바로 그런 성향때문에, 위급 상황은 우리가 일반적으로 일상에서 준비도 되어 있지 않고 예상도 하지 못하는, 예측 불가능하고 잠재적으로 위험하며 갑작스러운 사건인 경향이 있다."}, {"en": "Because of this, when confronted with an emergency we may well hesitate and try to work out what is going on and what should be done.", "ko": "이러한 이유로 위급 상황에 직면할 때 우리는 머뭇거리며 무슨 일이 일어나고 있는지 그리고 무엇이 행해져야 하는지를 알아 내려 할 것이다."}, {"en": "If other people are present while we are doing this, we often look at them, and they look at us, as each of us tries to work out what to do.", "ko": "우리가 이렇게 하는 동안 만약 다른 사람들이 있다면, 우리는 종종 그들을 바라보고, 그들도 우리를 바라보며, 우리 각자는 무엇을 하려고 애써야할지 고민한다."}, {"en": "In doing so, we inadvertently become models of inaction for each other.", "ko": "그렇게 할 때, 우리는 무심코 서로에게 아무런 조치를 취하지 않은 본보기가 된다."}, {"en": "This process suggests that the appropriate response to the emergency is therefore to do nothing.", "ko": "이런 과정은 위급 상황에 대한 적절한 대응은 아무것도 하지 않는 것임을 시사한다."}, {"en": "The situation has become socially defined as a non-emergency, which lessens the likelihood of helping, thereby inaction becomes normative for the situation.", "ko": "그 상황은 사회적으로 위급하지 않은 상황으로 규정되어 왔으며, 그것은 도움을 줄 가능성을 줄이므로, 행동하지 않는 것이 그 상황에 대한 표준이 된다."}, {"en": "This process may occur where the bystander decides whether the event is an emergency or not.", "ko": "이 과정은 구경꾼이 그 사건이 위급 상황인지 아닌지를 결정하는 상황에서 발생한다."}, {"en": "He or she may look to others to define the situation.", "ko": "그 사람은 다른 사람들이 그 상황을 규정해 줄 것으로 기대를 걸 수도 있다."}, {"en": "→ As we are neither prepared for nor expect emergencies, the (A) ______ of others at a scene where an emergency happens may lead us not to intervene, which is considered as an (B) ______ response to the emergency.", "ko": "→ 우리는 위급 상황에 대비하거나 그것을 예측하지 못하므로, 위급 상황이 발생하는 현장에서 다른 사람의 (A)______이 우리를 개입하지 않도록 할 수도 있는데, 이것이 위급 상황에 대한 (B)______ 대응으로 간주된다."}]}]};
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function renderTabs() {
+  const tabs = P.data.map((d, i) =>
+    `<button class="tab${i===0?' active':''}" data-t="${d.no}">
+       <span class="tab-no">${d.no}</span>
+       <span class="tab-field">${d.field}</span>
+     </button>`).join('');
+  document.getElementById('tabs').innerHTML = tabs;
+}
+
+function renderTLDR(d) {
+  if (!d.tldr || !d.tldr.length) return '';
+  const items = d.tldr.map(t => `<li>${t}</li>`).join('');
+  return `<details class="tool" data-tool="tldr" open>
+    <summary>
+      <span class="ticon">A</span>
+      <span class="tname">30초 요약</span>
+      <span class="thint">— 빠르게 한 컷</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><ol class="tldr">${items}</ol></div>
+  </details>`;
+}
+
+function renderAnalogy(d) {
+  if (!d.analogy) return '';
+  return `<details class="tool" data-tool="analogy">
+    <summary>
+      <span class="ticon">B</span>
+      <span class="tname">이게 무슨 말이냐면</span>
+      <span class="thint">— 일상 비유</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><p class="callout analogy">${d.analogy}</p></div>
+  </details>`;
+}
+
+function renderBG(d) {
+  if (!d.bg) return '';
+  return `<details class="tool" data-tool="bg">
+    <summary>
+      <span class="ticon">C</span>
+      <span class="tname">배경지식 30초</span>
+      <span class="thint">— 이 글이 어떤 글이냐</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><p class="callout bg">${d.bg}</p></div>
+  </details>`;
+}
+
+function renderFlow(d) {
+  if (!d.flow || !d.flow.length) return '';
+  let body = '<div class="flow">';
+  d.flow.forEach((s, i) => {
+    const cls = s.cls ? ' ' + s.cls : '';
+    body += `<div class="flow-step${cls}">
+      <div class="kind">${s.kind}</div>
+      <div class="body">
+        <div class="t">${s.t}</div>
+        ${s.d ? `<div class="d">${s.d}</div>` : ''}
+      </div>
+    </div>`;
+    if (i < d.flow.length - 1) body += '<div class="flow-arrow">▼</div>';
+  });
+  body += '</div>';
+  return `<details class="tool" data-tool="flow">
+    <summary>
+      <span class="ticon">D</span>
+      <span class="tname">글의 작동 원리</span>
+      <span class="thint">— 논지 흐름</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}</div>
+  </details>`;
+}
+
+function renderRead(d) {
+  if (!d.read || !d.read.length) return '';
+  let body = '';
+  d.read.forEach(r => {
+    let chunks = '';
+    if (r.chunks && r.chunks.length) {
+      chunks = '<div class="chunks">' + r.chunks.map(ch =>
+        `<div class="chunk"><div class="ce">${ch[0]}</div><div class="ck">${ch[1]}</div></div>`
+      ).join('') + '</div>';
+    }
+    body += `<div class="read-sent">
+      <div class="en">${r.en}</div>
+      ${chunks}
+      <div class="ko"><b>전체 해석:</b> ${r.ko}</div>
+    </div>`;
+  });
+  let vocab = '';
+  if (d.vocab && d.vocab.length) {
+    vocab = '<div class="vocab"><div class="vlabel">핵심 어휘</div>' +
+      d.vocab.map(v => `<div class="chip"><b>${v[0]}</b><span>${v[1]}</span></div>`).join('') +
+      '</div>';
+  }
+  return `<details class="tool" data-tool="read">
+    <summary>
+      <span class="ticon">E</span>
+      <span class="tname">끊어읽기 + 어휘</span>
+      <span class="thint">— 문장 단위</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}${vocab}</div>
+  </details>`;
+}
+
+function renderQuiz(d) {
+  if (!d.quiz || !d.quiz.length) return '';
+  const items = d.quiz.map((q, i) =>
+    `<details class="quiz-item">
+      <summary>
+        <span class="qn">Q${i+1}</span>
+        <span>${q[0]}</span>
+        <span class="qarr">정답 ▾</span>
+      </summary>
+      <div class="qa">${q[1]}</div>
+    </details>`).join('');
+  return `<details class="tool" data-tool="quiz">
+    <summary>
+      <span class="ticon">F</span>
+      <span class="tname">확인 퀴즈</span>
+      <span class="thint">— 스스로 점검</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${items}</div>
+  </details>`;
+}
+
+function renderSource(d) {
+  if (!d.en && !d.ko) return '';
+  return `<details class="tool" data-tool="source">
+    <summary>
+      <span class="ticon">G</span>
+      <span class="tname">영어 원문 + 해석</span>
+      <span class="thint">— 시험 직전 점검용</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">
+      <div class="src">
+        <div class="en">${d.en}</div>
+        <div class="ko">${d.ko}</div>
+      </div>
+    </div>
+  </details>`;
+}
+
+function renderPassage(d, idx) {
+  let html = `<section class="passage${idx===0?' active':''}" id="p${d.no}">`;
+  html += `<div class="p-head">
+    <span class="field">${d.field}</span>
+    <h2>${d.title}</h2>
+    <p class="p-kt">${d.ktitle}</p>
+    <p class="p-page">${d.page}</p>
+  </div>`;
+  html += `<div class="oneline">${d.oneline}</div>`;
+  if (d.metaphor) {
+    html += `<div class="metaphor">
+      <div class="m-head">
+        <span class="label">중심 비유</span>
+        <span class="sub">visual metaphor</span>
+      </div>
+      <figure>
+        ${d.metaphor}
+        ${d.caption ? `<figcaption>${d.caption}</figcaption>` : ''}
+      </figure>
+    </div>`;
+  }
+  html += `<div class="tools-intro">막힌 곳만 펴 보세요 · <b>도구 상자</b></div>`;
+  html += renderTLDR(d);
+  html += renderAnalogy(d);
+  html += renderBG(d);
+  html += renderFlow(d);
+  html += renderRead(d);
+  html += renderQuiz(d);
+  html += renderSource(d);
+  html += `</section>`;
+  return html;
+}
+
+renderTabs();
+document.getElementById('main').innerHTML = P.data.map((d, i) => renderPassage(d, i)).join('');
+
+/* 탭 클릭 */
+document.querySelectorAll('.tab').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.passage').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('p' + b.dataset.t).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

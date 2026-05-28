@@ -19,7 +19,7 @@
   --ink:      #1a1a1a;
   --ink-80:   #333333;
   --ink-60:   #5e5e5e;
-  --ink-40:   #999999;
+  --ink-40:   #999;
   --ink-20:   #cccccc;
   --ink-10:   #e8e8e8;
   --ink-05:   #f6f6f6;
@@ -770,9 +770,9 @@ function renderTLDR(d) {
   const items = d.tldr.map(t => `<li>${t}</li>`).join('');
   return `<details class="tool" data-tool="tldr" open>
     <summary>
-      <span class="ticon">B</span>
-      <span class="tname">핵심 요약</span>
-      <span class="thint">— 읽고 나서 핵심 정리</span>
+      <span class="ticon">A</span>
+      <span class="tname">30초 요약</span>
+      <span class="thint">— 빠르게 한 컷</span>
       <span class="arr">▶</span>
     </summary>
     <div class="body"><ol class="tldr">${items}</ol></div>
@@ -793,21 +793,19 @@ function renderAnalogy(d) {
 }
 
 function renderBG(d) {
-  if (!d.bg && !d.analogy) return '';
-  const bg = d.bg ? `<p class="callout bg">${d.bg}</p>` : '';
-  const analogy = d.analogy ? `<p class="callout analogy"><b>비유로 보면</b><br>${d.analogy}</p>` : '';
+  if (!d.bg) return '';
   return `<details class="tool" data-tool="bg">
     <summary>
-      <span class="ticon">A</span>
-      <span class="tname">읽기 전 30초</span>
-      <span class="thint">— 배경 개념과 읽는 방향</span>
+      <span class="ticon">C</span>
+      <span class="tname">배경지식 30초</span>
+      <span class="thint">— 이 글이 어떤 글이냐</span>
       <span class="arr">▶</span>
     </summary>
-    <div class="body">${bg}${analogy}</div>
+    <div class="body"><p class="callout bg">${d.bg}</p></div>
   </details>`;
 }
 
-function renderFlow(d) {function renderFlow(d) {
+function renderFlow(d) {
   if (!d.flow || !d.flow.length) return '';
   let body = '<div class="flow">';
   d.flow.forEach((s, i) => {
@@ -824,34 +822,12 @@ function renderFlow(d) {function renderFlow(d) {
   body += '</div>';
   return `<details class="tool" data-tool="flow">
     <summary>
-      <span class="ticon">C</span>
-      <span class="tname">논리 흐름</span>
-      <span class="thint">— 글의 전개</span>
+      <span class="ticon">D</span>
+      <span class="tname">글의 작동 원리</span>
+      <span class="thint">— 논지 흐름</span>
       <span class="arr">▶</span>
     </summary>
     <div class="body">${body}</div>
-  </details>`;
-}
-
-function renderQuiz(d) {
-  if (!d.quiz || !d.quiz.length) return '';
-  const items = d.quiz.map((q, i) =>
-    `<details class="quiz-item">
-      <summary>
-        <span class="qn">Q${i+1}</span>
-        <span>${q[0]}</span>
-        <span class="qarr">정답 ▾</span>
-      </summary>
-      <div class="qa">${q[1]}</div>
-    </details>`).join('');
-  return `<details class="tool" data-tool="quiz">
-    <summary>
-      <span class="ticon">D</span>
-      <span class="tname">확인 퀴즈</span>
-      <span class="thint">— 스스로 점검</span>
-      <span class="arr">▶</span>
-    </summary>
-    <div class="body">${items}</div>
   </details>`;
 }
 
@@ -888,11 +864,33 @@ function renderRead(d) {
   </details>`;
 }
 
+function renderQuiz(d) {
+  if (!d.quiz || !d.quiz.length) return '';
+  const items = d.quiz.map((q, i) =>
+    `<details class="quiz-item">
+      <summary>
+        <span class="qn">Q${i+1}</span>
+        <span>${q[0]}</span>
+        <span class="qarr">정답 ▾</span>
+      </summary>
+      <div class="qa">${q[1]}</div>
+    </details>`).join('');
+  return `<details class="tool" data-tool="quiz">
+    <summary>
+      <span class="ticon">F</span>
+      <span class="tname">확인 퀴즈</span>
+      <span class="thint">— 스스로 점검</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${items}</div>
+  </details>`;
+}
+
 function renderSource(d) {
   if (!d.en && !d.ko) return '';
   return `<details class="tool" data-tool="source">
     <summary>
-      <span class="ticon">F</span>
+      <span class="ticon">G</span>
       <span class="tname">영어 원문 + 해석</span>
       <span class="thint">— 시험 직전 점검용</span>
       <span class="arr">▶</span>
@@ -928,11 +926,12 @@ function renderPassage(d, idx) {
     </div>`;
   }
   html += `<div class="tools-intro">막힌 곳만 펴 보세요 · <b>도구 상자</b></div>`;
-  html += renderBG(d);
   html += renderTLDR(d);
+  html += renderAnalogy(d);
+  html += renderBG(d);
   html += renderFlow(d);
-  html += renderQuiz(d);
   html += renderRead(d);
+  html += renderQuiz(d);
   html += renderSource(d);
   html += `</section>`;
   return html;
