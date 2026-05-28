@@ -414,7 +414,7 @@ em { font-family: var(--serif-en); font-style: italic; }
    도구별 컨텐츠 스타일
    ============================================================ */
 
-/* 30초 요약 */
+/* 핵심 요약 */
 .tldr {
   list-style: none;
   counter-reset: t;
@@ -765,33 +765,6 @@ function renderTabs() {
   document.getElementById('tabs').innerHTML = tabs;
 }
 
-function renderTLDR(d) {
-  if (!d.tldr || !d.tldr.length) return '';
-  const items = d.tldr.map(t => `<li>${t}</li>`).join('');
-  return `<details class="tool" data-tool="tldr" open>
-    <summary>
-      <span class="ticon">B</span>
-      <span class="tname">핵심 요약</span>
-      <span class="thint">— 읽고 나서 핵심 정리</span>
-      <span class="arr">▶</span>
-    </summary>
-    <div class="body"><ol class="tldr">${items}</ol></div>
-  </details>`;
-}
-
-function renderAnalogy(d) {
-  if (!d.analogy) return '';
-  return `<details class="tool" data-tool="analogy">
-    <summary>
-      <span class="ticon">B</span>
-      <span class="tname">이게 무슨 말이냐면</span>
-      <span class="thint">— 일상 비유</span>
-      <span class="arr">▶</span>
-    </summary>
-    <div class="body"><p class="callout analogy">${d.analogy}</p></div>
-  </details>`;
-}
-
 function renderBG(d) {
   if (!d.bg && !d.analogy) return '';
   const bg = d.bg ? `<p class="callout bg">${d.bg}</p>` : '';
@@ -807,7 +780,21 @@ function renderBG(d) {
   </details>`;
 }
 
-function renderFlow(d) {function renderFlow(d) {
+function renderTLDR(d) {
+  if (!d.tldr || !d.tldr.length) return '';
+  const items = d.tldr.map(t => `<li>${t}</li>`).join('');
+  return `<details class="tool" data-tool="tldr" open>
+    <summary>
+      <span class="ticon">B</span>
+      <span class="tname">핵심 요약</span>
+      <span class="thint">— 읽고 나서 핵심 정리</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><ol class="tldr">${items}</ol></div>
+  </details>`;
+}
+
+function renderFlow(d) {
   if (!d.flow || !d.flow.length) return '';
   let body = '<div class="flow">';
   d.flow.forEach((s, i) => {
