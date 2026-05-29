@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>지문 이해 보조 자료 · 수능특강 Light 영어독해연습 06강 (5지문)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   김가영어학원 · KIM KA YOUNG ENGLISH
+   수능특강 Light 영어독해연습 06강 지문 이해 — 도구 상자(Toolbox) 디지털 자료
+   Brand v2.1 · System B (학습자료 본문 전용)
+   ============================================================ */
+
+:root {
+  --paper:    #ffffff;
+  --ink:      #1a1a1a;
+  --ink-80:   #333333;
+  --ink-60:   #5e5e5e;
+  --ink-40:   #999;
+  --ink-20:   #cccccc;
+  --ink-10:   #e8e8e8;
+  --ink-05:   #f6f6f6;
+  --red:      #c8102e;
+  --red-tint: #fdf2f4;
+  --green:    #1FA34A;
+  --green-tint: #f0faf3;
+  --serif-kr: 'Noto Serif KR', serif;
+  --serif-en: 'Noto Serif', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--serif-kr);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+em { font-family: var(--serif-en); font-style: italic; }
+.en { font-family: var(--serif-en); }
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 18px 18px 80px;
+}
+
+/* ============================================================
+   학원 브랜드 헤더
+   ============================================================ */
+.brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: 4px;
+}
+.brand .b-title h1 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.brand .b-title .b-sub {
+  font-size: 11px;
+  color: var(--ink-60);
+  margin-top: 2px;
+  font-family: var(--serif-en);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+.brand .b-meta {
+  font-size: 11.5px;
+  color: var(--ink-60);
+  text-align: right;
+  line-height: 1.5;
+}
+.brand .b-meta .en { font-style: italic; }
+
+/* ============================================================
+   사용 안내 (도구 상자 가이드)
+   ============================================================ */
+.guide {
+  background: var(--ink-05);
+  border-left: 3px solid var(--red);
+  padding: 13px 16px 12px;
+  margin: 14px 0;
+  border-radius: 0 4px 4px 0;
+}
+.guide .g-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 9px;
+  font-family: var(--serif-kr);
+}
+.guide .g-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.guide .g-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+.guide .g-when {
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: var(--ink);
+  min-width: 96px;
+}
+.guide .g-sep {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  flex: 0 0 auto;
+}
+.guide .g-tools {
+  color: var(--ink-80);
+  flex: 1;
+}
+.guide .g-tools .k {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 12px;
+  padding: 0 3px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 3px;
+  margin-right: 2px;
+}
+.guide .g-note {
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+  font-size: 12px;
+  color: var(--ink-60);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.guide .g-note b { color: var(--red); }
+
+/* ============================================================
+   탭 (지문 선택)
+   ============================================================ */
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink-10);
+  z-index: 10;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 10px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 0 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 5px;
+  padding: 7px 12px 5px;
+  font-family: var(--serif-kr);
+  color: var(--ink-60);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  min-width: 78px;
+}
+.tab .tab-no {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.tab .tab-field {
+  display: block;
+  font-size: 10.5px;
+  color: var(--ink-40);
+  margin-top: 1px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.tab:hover { border-color: var(--ink-60); color: var(--ink); }
+.tab.active {
+  background: var(--red-tint);
+  border-color: var(--red);
+  color: var(--red);
+}
+.tab.active .tab-field { color: var(--red); }
+
+/* ============================================================
+   PASSAGE PANEL
+   ============================================================ */
+.passage { display: none; padding-top: 18px; }
+.passage.active { display: block; animation: fadeIn 0.22s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.p-head .field {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--red);
+  border: 0.7px solid var(--red);
+  padding: 2px 8px;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+.p-head h2 {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.p-head .p-kt {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.p-head .p-page {
+  font-size: 10.5px;
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  letter-spacing: 0.12em;
+  margin-top: 5px;
+}
+
+/* ============================================================
+   한 줄 핵심 (anchor)
+   ============================================================ */
+.oneline {
+  margin: 18px 0 22px;
+  padding: 16px 18px 17px;
+  background: var(--ink-05);
+  border-left: 3px solid var(--ink);
+  border-radius: 0 6px 6px 0;
+  font-size: 17.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  word-break: keep-all;
+  letter-spacing: -0.005em;
+}
+.oneline::before {
+  content: "한 줄 핵심";
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 7px;
+}
+.oneline .r { color: var(--red); font-weight: 700; }
+.oneline .g { color: var(--green); font-weight: 700; }
+.oneline em { font-style: italic; }
+
+/* ============================================================
+   메타포 SVG (지문별 한 컷 — 항상 펼쳐짐)
+   ============================================================ */
+.metaphor {
+  margin: 20px 0 22px;
+  border: 1px solid var(--ink-20);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.metaphor .m-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--ink-10);
+  background: var(--ink-05);
+}
+.metaphor .m-head .label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--ink-60);
+}
+.metaphor .m-head .sub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-60);
+}
+.metaphor figure { padding: 18px 18px 14px; }
+.metaphor figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.metaphor figcaption {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-60);
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+  line-height: 1.55;
+}
+.metaphor figcaption .en { font-style: italic; color: var(--ink-80); }
+.metaphor figcaption .r { color: var(--red); font-weight: 700; }
+.metaphor figcaption .g { color: var(--green); font-weight: 700; }
+
+/* ============================================================
+   TOOLBOX 안내 라인
+   ============================================================ */
+.tools-intro {
+  font-size: 12px;
+  color: var(--ink-60);
+  letter-spacing: 0.04em;
+  margin: 18px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tools-intro::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--ink);
+  display: inline-block;
+}
+.tools-intro b { color: var(--ink); font-weight: 700; }
+
+/* ============================================================
+   도구 카드 (Tool) — 아코디언
+   ============================================================ */
+.tool {
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.tool[open] { border-color: var(--ink-80); }
+.tool > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+.tool > summary::-webkit-details-marker { display: none; }
+.tool > summary:hover { background: var(--ink-05); }
+.tool > summary .tname {
+  flex: 1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.tool > summary .thint {
+  font-size: 11.5px;
+  color: var(--ink-40);
+  font-weight: 400;
+}
+.tool > summary .arr {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  font-size: 11px;
+  transition: transform 0.2s;
+  flex: 0 0 auto;
+}
+.tool[open] > summary .arr { transform: rotate(90deg); color: var(--ink); }
+.tool > summary .ticon {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  background: var(--ink-05);
+  border: 0.7px solid var(--ink-20);
+}
+.tool[open] > summary .ticon {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.tool .body { padding: 4px 16px 18px; }
+
+/* ============================================================
+   도구별 컨텐츠 스타일
+   ============================================================ */
+
+/* 30초 요약 */
+.tldr {
+  list-style: none;
+  counter-reset: t;
+}
+.tldr li {
+  position: relative;
+  padding: 9px 0 9px 30px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  border-bottom: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+.tldr li:last-child { border-bottom: none; }
+.tldr li::before {
+  counter-increment: t;
+  content: counter(t);
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 20px;
+  height: 20px;
+  background: var(--paper);
+  border: 1px solid var(--green);
+  color: var(--green);
+  border-radius: 50%;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 비유 / 배경지식 */
+.callout {
+  font-size: 14.5px;
+  line-height: 1.7;
+  padding: 13px 15px;
+  border-radius: 6px;
+  word-break: keep-all;
+  background: var(--ink-05);
+}
+.callout.analogy { border-left: 3px solid var(--green); }
+.callout.bg      { border-left: 3px solid var(--ink); }
+.callout em { font-style: italic; }
+
+/* 논지 흐름 */
+.flow { display: flex; flex-direction: column; gap: 6px; }
+.flow-step {
+  display: flex;
+  gap: 12px;
+  padding: 12px 13px;
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  background: var(--paper);
+  align-items: flex-start;
+}
+.flow-step .kind {
+  flex: 0 0 60px;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 0;
+  text-align: center;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  background: var(--ink-05);
+  color: var(--ink-80);
+  border: 0.7px solid var(--ink-20);
+}
+.flow-step.pivot .kind {
+  background: var(--red-tint); color: var(--red); border-color: var(--red);
+}
+.flow-step.close .kind {
+  background: var(--green-tint); color: var(--green); border-color: var(--green);
+}
+.flow-step .body { flex: 1; }
+.flow-step .t {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.flow-step .t .r { color: var(--red); font-weight: 700; }
+.flow-step .t .g { color: var(--green); font-weight: 700; }
+.flow-step .d {
+  font-size: 12.5px;
+  color: var(--ink-60);
+  margin-top: 4px;
+  word-break: keep-all;
+}
+.flow-arrow {
+  text-align: center;
+  color: var(--ink-20);
+  font-size: 13px;
+  font-family: var(--serif-en);
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+/* 끊어읽기 */
+.read-sent {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 11px 13px 11px;
+  margin-bottom: 8px;
+  background: var(--paper);
+}
+.read-sent .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.read-sent .chunks {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+}
+.read-sent .chunk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px 16px;
+  padding: 3px 0;
+  font-size: 12.5px;
+  border-bottom: 1px dotted var(--ink-10);
+}
+.read-sent .chunk:last-child { border-bottom: none; }
+.read-sent .chunk .ce {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.read-sent .chunk .ck { color: var(--ink-60); word-break: keep-all; }
+.read-sent .ko {
+  margin-top: 9px;
+  padding: 7px 11px;
+  background: var(--ink-05);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--ink-80);
+  word-break: keep-all;
+  line-height: 1.6;
+}
+.read-sent .ko b { color: var(--ink); font-weight: 700; }
+
+/* 어휘 chip */
+.vocab {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--ink-10);
+}
+.vocab .vlabel {
+  width: 100%;
+  font-size: 11px;
+  color: var(--ink-60);
+  letter-spacing: 0.18em;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.vocab .chip {
+  font-size: 12.5px;
+  padding: 5px 9px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.vocab .chip b {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--red);
+  font-weight: 700;
+}
+.vocab .chip span { color: var(--ink-80); margin-left: 5px; }
+
+/* 퀴즈 */
+.quiz-item {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  margin-bottom: 6px;
+  background: var(--paper);
+}
+.quiz-item > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 11px 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.quiz-item > summary::-webkit-details-marker { display: none; }
+.quiz-item .qn {
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--green);
+  border-radius: 3px;
+  padding: 2px 6px;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+.quiz-item .qarr {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--green);
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 700;
+}
+.quiz-item[open] .qarr { visibility: hidden; }
+.quiz-item .qa {
+  padding: 0 13px 13px 44px;
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+.quiz-item .qa b { color: var(--green); font-weight: 700; }
+
+/* 영어 원문 + 한글 해석 */
+.src {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 14px 16px;
+}
+.src .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+.src .ko {
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.85;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot {
+  margin-top: 36px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink-10);
+  font-size: 10.5px;
+  color: var(--ink-40);
+  text-align: center;
+  font-family: var(--serif-kr);
+  letter-spacing: 0.03em;
+}
+.foot .pub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-60);
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 540px) {
+  .wrap { padding: 14px 13px 60px; }
+  .brand { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .brand .b-meta { text-align: left; }
+  .guide .g-row { flex-direction: column; gap: 1px; padding-bottom: 4px; }
+  .guide .g-row + .g-row { border-top: 1px dashed var(--ink-10); padding-top: 5px; }
+  .guide .g-when { font-size: 12px; min-width: 0; }
+  .guide .g-sep { display: none; }
+  .guide .g-tools { font-size: 12.5px; }
+  .p-head h2 { font-size: 20px; }
+  .oneline { font-size: 16px; padding: 14px 14px; }
+  .read-sent .chunk { grid-template-columns: 1fr; gap: 1px; }
+  .read-sent .chunk .ck { padding-left: 4px; color: var(--ink-60); font-size: 12px; }
+  .flow-step { padding: 10px 11px; gap: 9px; }
+  .flow-step .kind { flex-basis: 52px; font-size: 10.5px; }
+  .tool > summary { padding: 12px 13px; font-size: 14px; }
+  .tool > summary .thint { display: none; }
+  .metaphor figure { padding: 13px 13px 10px; }
+  .metaphor figcaption { font-size: 12px; }
+}
+</style>
+</head>
+<body class="dev-ipad">
+<div class="wrap">
+
+<!-- 학원 브랜드 헤더 -->
+<header class="brand">
+  <div class="b-title">
+    <h1>지문 이해 보조 자료</h1>
+    <div class="b-sub">수능특강 Light 영어독해연습 06강</div>
+  </div>
+  <div class="b-meta">
+    김가영어학원<br>
+    <span class="en">KIM KA YOUNG ENGLISH</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs"></nav>
+
+<!-- 지문 패널 -->
+<main id="main"></main>
+
+<!-- 콜로폰 -->
+<footer class="foot">
+  김가영어학원 · KIM KA YOUNG ENGLISH &nbsp;·&nbsp; 지문 이해 보조 자료
+  <span class="pub">published by warm &amp; wise books</span>
+</footer>
+
+</div>
+
+<script>
+/* ============================================================
+   데이터 (P.data) — 수능특강 Light 영어독해연습 06강 5개 지문
+   각 지문에 metaphor(SVG 문자열) + caption 필드 추가
+   ============================================================ */
+const P = {"data": [{"no": "31", "title": "Reading Apprenticeship in the Classroom", "ktitle": "읽기를 ‘가르치는’ 교실 vs ‘기대만 하는’ 교실", "field": "교육", "page": "p38 no.31", "oneline": "교실 생활의 모든 차원을 둘러싸는 핵심은 ‘읽기 그 자체’다.", "tldr": ["교실 생활의 모든 차원을 둘러싸는 핵심은 ‘읽기 그 자체’다.", "교사는 텍스트로 함께 ‘의미 만들기’를 이야기하며 독자로 키운다.", "읽기·읽기에 대한 토론이 ‘읽기 견습 교실’을 ‘기대만 하는 교실’과 구분한다."], "analogy": "수영을 ‘알아서 해라’ 던져두는 수업과, 코치가 옆에서 ‘이렇게 호흡해’ 시범 보이는 수업은 다르죠. 읽기도 ‘읽을 줄 알겠지’ 기대만 하는 교실과, 함께 읽고 이야기하며 ‘가르치는’ 교실은 달라요.", "bg": "‘읽기 견습(reading apprenticeship)’ 교실 — 교사가 텍스트로 의미 만들기를 함께 이야기하며 학생을 독자로 키우는 교실이, 복잡한 읽기를 ‘기대만 하고 안 가르치는’ 내용 교실과 어떻게 다른지 설명한 글이에요.", "flow": [{"k": "전제", "c": "sky", "t": "교실 생활의 모든 차원을 둘러싸는 핵심 = ‘읽기’"}, {"k": "교사 역할", "c": "green", "t": "텍스트로 ‘의미 만들기’를 함께 이야기 → 독자로 성장 지원"}, {"k": "맥락", "c": "green", "t": "텍스트·텍스트 토론이 ‘읽기 견습’의 맥락 제공"}, {"k": "효과", "c": "rose", "t": "추론·문제 해결 기술을 ‘조언(멘토링)’할 기회"}, {"k": "대조", "c": "violet", "t": "읽기 견습 교실 ↔ 복잡한 읽기를 ‘기대만 하고 안 가르치는’ 교실"}], "quiz": [["‘읽기 견습 교실’에서 교사가 하는 일은?", "텍스트로 의미를 만들어 가는 것을 함께 이야기하며, 추론·문제 해결 기술을 멘토처럼 조언해 줘요."], ["이 교실이 일반 ‘내용 영역’ 교실과 다른 점은?", "읽기·텍스트 토론을 ‘가르치는’ 반면, 내용 교실은 복잡한 읽기를 ‘기대만 하고 가르치지는 않아요’."], ["핵심 한 문장?", "읽기·읽기에 대한 토론을 가르치는 ‘읽기 견습 교실’은 읽기를 기대만 하는 교실과 구분된다."]], "vocab": [["dimension", "차원·측면"], ["enterprise", "과업·사업"], ["collaborative", "협력적인"], ["infuse", "불어넣다·영향을 미치다"], ["apprenticeship", "견습·도제 과정"], ["mentor", "조언하다·멘토링하다"], ["distinguish A from B", "A를 B와 구분하다"]], "en": "Surrounding the social, personal, cognitive, and knowledge-building dimensions of classroom life is reading itself. Teachers extend students' reading experiences and opportunities, making it a key enterprise of their instruction to talk together about making meaning with academic materials. When reading and collaborative work with texts becomes a key part of academic learning in the classroom, teachers provide support for students to grow as readers. Texts and talk about texts infuse the learning that students engage in and provide the context for their ongoing reading apprenticeship. Providing more focus on reading and talk about reading during classroom lessons gives teachers the opportunity to mentor students in the reasoning and problem-solving skills they need to master. More reading, more text-focused discussion, and more talk about reading and problem-solving processes ─ these distinguish reading apprenticeship classrooms from content area classes in which students are expected, but not taught, to handle complex reading tasks.", "ko": "교실 생활의 사회적, 개인적, 인지적, 그리고 지식 형성 차원과 밀접한 관련이 있는 것은 읽기 그 자체이다. 교사는 학습 자료로 의미를 만들어 나가는 것에 대해 함께 이야기하는 것을 자신의 수업의 중요한 과업으로 삼으면서 학생의 독서 경험과 기회를 확대한다. 텍스트를 가지고 읽고 협력하는 작업이 교실에서 학습의 핵심적인 부분이 될 때, 교사는 학생이 독자로서 성장할 수 있는 지지를 제공한다. 텍스트와 텍스트에 대한 이야기는 학생이 참여하는 학습에 영향을 미치고 그들의 지속적인 읽기 견습에 맥락을 제공한다. 교실 수업 중 읽기와 읽기에 대한 이야기에 더 집중하는 것은 교사가 학생들에게 그들이 숙달해야 하는 추론과 문제 해결 기술을 조언해 줄 수 있는 기회를 제공한다. 더 많은 읽기, 더 많은 텍스트 중심의 토론, 읽기 및 문제 해결 과정에 대한 더 많은 이야기, 이것들은 읽기 견습 교실을 학생들이 복잡한 읽기 과업을 처리하도록 가르침을 받는 것이 아니라 그렇게 하도록 기대되는 내용 영역의 교실과 구분해 준다.", "read": [{"en": "Surrounding the social, personal, cognitive, and knowledge-building dimensions of classroom life is reading itself.", "ko": "교실 생활의 사회적, 개인적, 인지적, 그리고 지식 형성 차원과 밀접한 관련이 있는 것은 읽기 그 자체이다.", "chunks": []}, {"en": "Teachers extend students' reading experiences and opportunities, making it a key enterprise of their instruction to talk together about making meaning with academic materials.", "ko": "교사는 학습 자료로 의미를 만들어 나가는 것에 대해 함께 이야기하는 것을 자신의 수업의 중요한 과업으로 삼으면서 학생의 독서 경험과 기회를 확대한다.", "chunks": []}, {"en": "When reading and collaborative work with texts becomes a key part of academic learning in the classroom, teachers provide support for students to grow as readers.", "ko": "텍스트를 가지고 읽고 협력하는 작업이 교실에서 학습의 핵심적인 부분이 될 때, 교사는 학생이 독자로서 성장할 수 있는 지지를 제공한다.", "chunks": []}, {"en": "Texts and talk about texts infuse the learning that students engage in and provide the context for their ongoing reading apprenticeship.", "ko": "텍스트와 텍스트에 대한 이야기는 학생이 참여하는 학습에 영향을 미치고 그들의 지속적인 읽기 견습에 맥락을 제공한다.", "chunks": []}, {"en": "Providing more focus on reading and talk about reading during classroom lessons gives teachers the opportunity to mentor students in the reasoning and problem-solving skills they need to master.", "ko": "교실 수업 중 읽기와 읽기에 대한 이야기에 더 집중하는 것은 교사가 학생들에게 그들이 숙달해야 하는 추론과 문제 해결 기술을 조언해 줄 수 있는 기회를 제공한다.", "chunks": []}, {"en": "More reading, more text-focused discussion, and more talk about reading and problem-solving processes ─ these distinguish reading apprenticeship classrooms from content area classes in which students are expected, but not taught, to handle complex reading tasks.", "ko": "더 많은 읽기, 더 많은 텍스트 중심의 토론, 읽기 및 문제 해결 과정에 대한 더 많은 이야기, 이것들은 읽기 견습 교실을 학생들이 복잡한 읽기 과업을 처리하도록 가르침을 받는 것이 아니라 그렇게 하도록 기대되는 내용 영역의 교실과 구분해 준다.", "chunks": []}], "metaphor": "<svg viewBox=\"0 0 600 262\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽 읽기 견습 교실에서는 읽기 그 자체가 사회적·개인적·인지적·지식형성 네 차원을 감싸는 중심으로 적극적으로 가르쳐지고, 오른쪽 내용 영역 교실에서는 복잡한 읽기를 기대만 하고 가르치지 않는 대조 그림\">\n  <!-- 좌: 읽기 견습 교실 -->\n  <g transform=\"translate(20,30)\">\n    <text x=\"135\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">읽기 견습 교실 — 읽기가 중심</text>\n    <rect x=\"0\" y=\"0\" width=\"268\" height=\"198\" fill=\"#f0faf3\" fill-opacity=\"0.4\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n\n    <!-- 읽기가 네 차원을 감싸는 큰 원 -->\n    <circle cx=\"134\" cy=\"92\" r=\"74\" fill=\"#ffffff\" stroke=\"#1FA34A\" stroke-width=\"2\"/>\n    <text x=\"134\" y=\"34\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">reading itself — surrounds all</text>\n\n    <!-- 내부 네 차원 칩 -->\n    <g font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1a1a1a\">\n      <rect x=\"78\" y=\"62\" width=\"54\" height=\"22\" rx=\"4\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1\"/>\n      <text x=\"105\" y=\"76\">사회적</text>\n      <rect x=\"136\" y=\"62\" width=\"54\" height=\"22\" rx=\"4\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1\"/>\n      <text x=\"163\" y=\"76\">개인적</text>\n      <rect x=\"78\" y=\"90\" width=\"54\" height=\"22\" rx=\"4\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1\"/>\n      <text x=\"105\" y=\"104\">인지적</text>\n      <rect x=\"136\" y=\"90\" width=\"54\" height=\"22\" rx=\"4\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1\"/>\n      <text x=\"163\" y=\"104\">지식 형성</text>\n    </g>\n    <text x=\"134\" y=\"132\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">교실 생활의 네 차원</text>\n\n    <!-- taught 배지 -->\n    <g transform=\"translate(134,172)\">\n      <rect x=\"-72\" y=\"-12\" width=\"144\" height=\"22\" rx=\"11\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n      <circle cx=\"-56\" cy=\"-1\" r=\"8\" fill=\"#1FA34A\"/>\n      <path d=\"M -59 -1 L -57 2 L -52 -4\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"1.6\"/>\n      <text x=\"6\" y=\"3\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">교사가 독자로 멘토링</text>\n    </g>\n  </g>\n\n  <!-- 가운데 vs -->\n  <text x=\"300\" y=\"135\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">vs</text>\n\n  <!-- 우: 내용 영역 교실 -->\n  <g transform=\"translate(312,30)\">\n    <text x=\"135\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">내용 영역 교실 — 기대만</text>\n    <rect x=\"0\" y=\"0\" width=\"268\" height=\"198\" fill=\"#fdf2f4\" fill-opacity=\"0.3\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/>\n\n    <!-- 복잡한 읽기 = 책 -->\n    <g transform=\"translate(134,78)\">\n      <rect x=\"-44\" y=\"-32\" width=\"88\" height=\"62\" rx=\"3\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"-32\" x2=\"0\" y2=\"30\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <g stroke=\"#999\" stroke-width=\"0.9\">\n        <line x1=\"-36\" y1=\"-20\" x2=\"-8\" y2=\"-20\"/><line x1=\"-36\" y1=\"-10\" x2=\"-8\" y2=\"-10\"/><line x1=\"-36\" y1=\"0\" x2=\"-8\" y2=\"0\"/><line x1=\"-36\" y1=\"10\" x2=\"-8\" y2=\"10\"/><line x1=\"-36\" y1=\"20\" x2=\"-8\" y2=\"20\"/>\n        <line x1=\"8\" y1=\"-20\" x2=\"36\" y2=\"-20\"/><line x1=\"8\" y1=\"-10\" x2=\"36\" y2=\"-10\"/><line x1=\"8\" y1=\"0\" x2=\"36\" y2=\"0\"/><line x1=\"8\" y1=\"10\" x2=\"36\" y2=\"10\"/><line x1=\"8\" y1=\"20\" x2=\"36\" y2=\"20\"/>\n      </g>\n      <text x=\"0\" y=\"48\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">complex reading</text>\n      <!-- expected 점선 태그 -->\n      <g transform=\"translate(0,-52)\">\n        <rect x=\"-38\" y=\"-12\" width=\"76\" height=\"20\" rx=\"10\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.2\" stroke-dasharray=\"3 2\"/>\n        <text x=\"0\" y=\"2\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">\"expected\"</text>\n      </g>\n    </g>\n\n    <!-- not taught 배지 -->\n    <g transform=\"translate(134,172)\">\n      <rect x=\"-72\" y=\"-12\" width=\"144\" height=\"22\" rx=\"11\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.3\" stroke-dasharray=\"4 3\"/>\n      <circle cx=\"-56\" cy=\"-1\" r=\"8\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n      <line x1=\"-59\" y1=\"-4\" x2=\"-53\" y2=\"2\" stroke=\"#c8102e\" stroke-width=\"1.6\"/>\n      <line x1=\"-53\" y1=\"-4\" x2=\"-59\" y2=\"2\" stroke=\"#c8102e\" stroke-width=\"1.6\"/>\n      <text x=\"6\" y=\"3\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">가르치지 않음</text>\n    </g>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"254\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">reading at the center, actively taught  —  not merely expected</text>\n</svg>", "caption": "읽기 견습 교실 vs 내용 영역 교실 — 읽기를 중심에 두고 가르치느냐"}, {"no": "32", "title": "From Noble Writers to a Heterogeneous Profession", "ktitle": "작가의 변화 — 귀족에서 ‘생계형’으로", "field": "문학·사회사", "page": "p39 no.32", "oneline": "18세기 작가 = 거의 귀족(자금·교양 보유 → 지원·콘텐츠 즉시 이용).", "tldr": ["18세기 작가 = 거의 귀족(자금·교양 보유 → 지원·콘텐츠 즉시 이용).", "19세기 중반 작가 = 더 이질적, 점점 ‘글로 생계’를 꾸림.", "→ 독립적 부·인맥은 적어지고, 좁은 실용 전문 영역에 갇히기 쉬워졌다."], "analogy": "옛날엔 ‘돈 걱정 없는 귀족’이 취미로 글을 썼다면, 점차 ‘글 써서 먹고사는’ 직업 작가들이 늘었어요. 그러면서 든든한 배경 없이 좁은 전문 분야에 매이기 쉬워진 거죠.", "bg": "작가층이 18세기 ‘여유 있는 귀족’에서 19세기 중반 ‘글로 생계를 잇는 다양한 직업인’으로 바뀌며, 독립적 부·인맥이 줄고 전문 영역이 좁아진 변화를 다룬 글이에요.", "flow": [{"k": "18세기", "c": "sky", "t": "작가 = 거의 귀족(신사-학자)", "d": "자금+교양 → 지원·콘텐츠 즉시 이용."}, {"k": "19세기 중반", "c": "green", "t": "더 이질적 — 점점 ‘글로 생계’", "d": "저널리스트·기술문서·보헤미안."}, {"k": "자원", "c": "rose", "t": "경제·사회·문화 자원이 상당히 다양·불균등"}, {"k": "결과", "c": "violet", "t": "독립적 부·인맥↓ + 좁은 실용 전문에 갇힘↑"}], "quiz": [["18세기 작가의 특징은?", "거의 귀족(신사-학자)으로, 여가 자금과 교양을 갖춰 재정 지원·콘텐츠를 즉시 이용할 수 있었어요."], ["19세기 중반 작가층은 어떻게 달라졌나?", "더 이질적이 되어 점점 더 많은 이가 ‘글로 생계’를 꾸렸고, 자원이 다양해진 만큼 독립적 부·인맥은 줄었어요."], ["핵심 한 문장?", "작가는 여유 있는 귀족에서 글로 생계를 잇는 직업인으로 바뀌며, 든든한 배경 없이 좁은 전문에 갇히기 쉬워졌다."]], "vocab": [["noble", "귀족"], ["edification", "교화·계몽"], ["cultivation", "교양·소양"], ["heterogeneous", "이질적인·다양한"], ["belletrist", "순문학 연구가·문필가"], ["hack", "돈을 위해 일하는"], ["independent wealth", "독립적인 부"]], "en": "Eighteenth-century writers were almost all nobles: gentlemen-scholars who wrote for their own amusement and for the edification of others. They possessed the funds to support lives of leisure and the cultivation to write with style, and thus had immediate access to both financial support and content. By contrast, mid-nineteenth-century writers were more heterogeneous: although some were members of the social and economic elite, an increasing number earned their living by writing. Mid-nineteenth-century writers included not only belletrists but also hack journalists, technical writers, and bohemians; thus, their economic, social, and cultural resources varied considerably. This means that writers became generally less likely to possess independent wealth or useful social connections and more likely to be restricted in their cultural resources to narrower areas of practical expertise.", "ko": "18세기 '작가들'은 거의 모두 귀족, 즉 자신의 즐거움과 타인의 교화를 위해 글을 쓰는 신사-학자였다. 그들은 여가 생활을 지원할 자금과 품위 있게 글을 쓸 수 있는 교양을 소유했고, 그래서 재정적 지원과 콘텐츠 둘 다를 즉시 이용할 수 있었다. 그에 반해서 19세기 중반의 작가들은 더 이질적이었다. 일부는 사회적, 경제적 엘리트의 일원이었지만, 점점 더 많은 수가 글쓰기로 생계를 꾸렸다. 19세기 중반 작가들에는 순(純)문학 연구가뿐만 아니라 돈을 위해 일하는 저널리스트, 기술 문서 작성자, 그리고 보헤미안도 포함되었으며, 그래서 그들의 경제적, 사회적, 문화적 자원은 상당히 다양했다. 이는 작가들이 일반적으로 독립적인 부나 유용한 사회적 인맥을 보유할 가능성이 더 적어지고, 문화적 자원이 실용적인 전문 지식의 더 좁은 영역으로 제한될 가능성이 더 높아졌다는 것을 의미한다.", "read": [{"en": "Eighteenth-century writers were almost all nobles: gentlemen-scholars who wrote for their own amusement and for the edification of others. They possessed the funds to support lives of leisure and the cultivation to write with style, and thus had immediate access to both financial support and content. By contrast, mid-nineteenth-century writers were more heterogeneous: although some were members of the social and economic elite, an increasing number earned their living by writing. Mid-nineteenth-century writers included not only belletrists but also hack journalists, technical writers, and bohemians; thus, their economic, social, and cultural resources varied considerably. This means that writers became generally less likely to possess independent wealth or useful social connections and more likely to be restricted in their cultural resources to narrower areas of practical expertise.", "ko": "18세기 '작가들'은 거의 모두 귀족, 즉 자신의 즐거움과 타인의 교화를 위해 글을 쓰는 신사-학자였다. 그들은 여가 생활을 지원할 자금과 품위 있게 글을 쓸 수 있는 교양을 소유했고, 그래서 재정적 지원과 콘텐츠 둘 다를 즉시 이용할 수 있었다. 그에 반해서 19세기 중반의 작가들은 더 이질적이었다. 일부는 사회적, 경제적 엘리트의 일원이었지만, 점점 더 많은 수가 글쓰기로 생계를 꾸렸다. 19세기 중반 작가들에는 순(純)문학 연구가뿐만 아니라 돈을 위해 일하는 저널리스트, 기술 문서 작성자, 그리고 보헤미안도 포함되었으며, 그래서 그들의 경제적, 사회적, 문화적 자원은 상당히 다양했다. 이는 작가들이 일반적으로 독립적인 부나 유용한 사회적 인맥을 보유할 가능성이 더 적어지고, 문화적 자원이 실용적인 전문 지식의 더 좁은 영역으로 제한될 가능성이 더 높아졌다는 것을 의미한다.", "chunks": []}], "metaphor": "<svg viewBox=\"0 0 600 262\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽 18세기 귀족 작가 한 명이 자금과 교양 두 자원을 모두 넉넉히 지닌 모습과, 오른쪽 19세기 중반 이질적인 여러 작가가 부와 인맥이 흩어진 채 좁은 실용 전문 영역으로 제한되는 모습의 시대 대조 그림\">\n  <!-- 좌: 18C 귀족 작가 -->\n  <g transform=\"translate(20,30)\">\n    <text x=\"135\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">18세기 — 귀족 작가</text>\n    <rect x=\"0\" y=\"0\" width=\"268\" height=\"198\" fill=\"#f0faf3\" fill-opacity=\"0.4\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n\n    <!-- 귀족 figure (실크햇) -->\n    <g transform=\"translate(134,86)\">\n      <!-- 모자 -->\n      <rect x=\"-13\" y=\"-46\" width=\"26\" height=\"18\" fill=\"#1a1a1a\"/>\n      <ellipse cx=\"0\" cy=\"-28\" rx=\"20\" ry=\"3.5\" fill=\"#1a1a1a\"/>\n      <!-- 머리 -->\n      <circle cx=\"0\" cy=\"-16\" r=\"13\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <circle cx=\"-4\" cy=\"-17\" r=\"1.4\" fill=\"#1a1a1a\"/><circle cx=\"4\" cy=\"-17\" r=\"1.4\" fill=\"#1a1a1a\"/>\n      <path d=\"M -4 -11 Q 0 -9 4 -11\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      <!-- 몸 -->\n      <line x1=\"0\" y1=\"-3\" x2=\"0\" y2=\"34\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n      <line x1=\"0\" y1=\"8\" x2=\"-16\" y2=\"20\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"8\" x2=\"16\" y2=\"20\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"34\" x2=\"-11\" y2=\"56\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"34\" x2=\"11\" y2=\"56\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    </g>\n\n    <!-- 자원 주머니 2개 (가득) -->\n    <g transform=\"translate(48,150)\">\n      <path d=\"M -16 0 Q -18 -16 -8 -20 Q 8 -22 16 -16 Q 20 -2 14 6 L 14 14 Q 0 18 -12 14 Z\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n      <text x=\"0\" y=\"-2\" font-family=\"Noto Serif\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">$</text>\n      <text x=\"0\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">자금 funds</text>\n    </g>\n    <g transform=\"translate(220,150)\">\n      <path d=\"M -16 0 Q -18 -16 -8 -20 Q 8 -22 16 -16 Q 20 -2 14 6 L 14 14 Q 0 18 -12 14 Z\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n      <!-- 깃펜 -->\n      <path d=\"M -6 4 L 6 -10\" stroke=\"#1FA34A\" stroke-width=\"1.6\" fill=\"none\"/>\n      <path d=\"M 6 -10 L 3 -9 L 5 -7 Z\" fill=\"#1FA34A\"/>\n      <text x=\"0\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">교양 cultivation</text>\n    </g>\n    <text x=\"134\" y=\"194\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">finances + content secured at once</text>\n  </g>\n\n  <!-- 가운데 By contrast -->\n  <g transform=\"translate(294,108)\">\n    <line x1=\"0\" y1=\"6\" x2=\"14\" y2=\"6\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <polygon points=\"14,6 8,2 8,10\" fill=\"#1a1a1a\"/>\n    <text x=\"6\" y=\"-4\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\">By</text>\n    <text x=\"6\" y=\"22\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\">contrast</text>\n  </g>\n\n  <!-- 우: 19C 중반 이질적 직군 -->\n  <g transform=\"translate(326,30)\">\n    <text x=\"127\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">19세기 중반 — 이질화</text>\n    <rect x=\"0\" y=\"0\" width=\"254\" height=\"198\" fill=\"#fdf2f4\" fill-opacity=\"0.3\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/>\n\n    <!-- 여러 작가 (이질적, 흩어짐) -->\n    <g stroke=\"#1a1a1a\" stroke-width=\"1.2\" fill=\"none\">\n      <g transform=\"translate(40,40)\"><circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#ffffff\"/><line x1=\"0\" y1=\"8\" x2=\"0\" y2=\"26\"/><line x1=\"0\" y1=\"14\" x2=\"-8\" y2=\"22\"/><line x1=\"0\" y1=\"14\" x2=\"8\" y2=\"22\"/><line x1=\"0\" y1=\"26\" x2=\"-6\" y2=\"40\"/><line x1=\"0\" y1=\"26\" x2=\"6\" y2=\"40\"/></g>\n      <g transform=\"translate(95,34)\"><circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#ffffff\"/><line x1=\"0\" y1=\"8\" x2=\"0\" y2=\"26\"/><line x1=\"0\" y1=\"14\" x2=\"-8\" y2=\"22\"/><line x1=\"0\" y1=\"14\" x2=\"8\" y2=\"22\"/><line x1=\"0\" y1=\"26\" x2=\"-6\" y2=\"40\"/><line x1=\"0\" y1=\"26\" x2=\"6\" y2=\"40\"/></g>\n      <g transform=\"translate(150,42)\"><circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#ffffff\"/><line x1=\"0\" y1=\"8\" x2=\"0\" y2=\"26\"/><line x1=\"0\" y1=\"14\" x2=\"-8\" y2=\"22\"/><line x1=\"0\" y1=\"14\" x2=\"8\" y2=\"22\"/><line x1=\"0\" y1=\"26\" x2=\"-6\" y2=\"40\"/><line x1=\"0\" y1=\"26\" x2=\"6\" y2=\"40\"/></g>\n    </g>\n    <text x=\"95\" y=\"98\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">novelists · journalists · hacks · bohemians</text>\n\n    <!-- 부·인맥 분산 (작은 점들 흩어짐) -->\n    <text x=\"200\" y=\"44\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\">부·인맥 ↓</text>\n    <g fill=\"#c8102e\" opacity=\"0.6\"><circle cx=\"186\" cy=\"56\" r=\"2\"/><circle cx=\"208\" cy=\"62\" r=\"2\"/><circle cx=\"222\" cy=\"52\" r=\"2\"/><circle cx=\"198\" cy=\"74\" r=\"2\"/></g>\n\n    <!-- 깔때기: 좁은 실용 전문 영역으로 제한 -->\n    <g transform=\"translate(127,108)\">\n      <path d=\"M -78 0 L 78 0 L 26 40 L 26 64 L -26 64 L -26 40 Z\" fill=\"#ffffff\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/>\n      <text x=\"0\" y=\"82\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">좁은 실용 전문 영역으로 제한</text>\n    </g>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"254\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">writer's resources: united &amp; ample  →  dispersed &amp; narrowed</text>\n</svg>", "caption": "18세기 귀족 작가 vs 19세기 중반 이질화 — 작가 자원의 변천"}, {"no": "33", "title": "Crime and Espionage as Contested Concepts", "ktitle": "‘범죄’는 단순한 개념이 아니다 (정치적 구성)", "field": "정치·사회", "page": "p40 no.33", "oneline": "정치인은 범죄를 단순·명백한 개념인 듯 말한다.", "tldr": ["정치인은 범죄를 단순·명백한 개념인 듯 말한다.", "마약 밀반입처럼 ‘논란 없는 범죄’도 있지만,", "정치적 관점에 따라 범죄의 ‘명백함’은 착각 — 푸틴은 ‘간첩’에 언론 활동까지 포함."], "analogy": "‘범죄=나쁜 짓’이라 명백해 보이지만, 누가 정의하느냐에 따라 달라져요. 러시아는 ‘기자가 취재하는 것’까지 ‘간첩’으로 묶었듯, 범죄의 경계는 정치가 그리는 거예요.", "bg": "‘범죄’가 객관적·명백해 보이지만 사실 정치적 관점에 따라 정의가 달라지는 ‘구성된 개념’임을, 트럼프와 푸틴의 사례로 보여 주는 글이에요.", "flow": [{"k": "통념", "c": "sky", "t": "정치인: 범죄 = 단순·명백한 개념인 듯"}, {"k": "예 ①", "c": "green", "t": "트럼프 ‘멕시코인이 마약을’ — 밀반입은 논란 없는 범죄"}, {"k": "반전", "c": "rose", "t": "정치적 관점 달라지면 ‘명백함’은 착각"}, {"k": "예 ②", "c": "amber", "t": "푸틴: ‘간첩’ 정의에 보도·언론 활동까지 확장"}, {"k": "결론", "c": "violet", "t": "범죄의 경계는 ‘정치적으로 구성’된다"}], "quiz": [["글이 말하는 범죄 개념의 ‘착각’이란?", "범죄가 객관적·명백해 보이지만, 정치적 관점이 달라지면 그 명백함이 환상에 불과하다는 거예요."], ["푸틴 정부의 ‘간첩’ 사례가 보여주는 것은?", "국가가 위협으로 여기는 외국 조직에 정보를 주는 것, 즉 ‘보도·언론 활동’까지 간첩으로 묶어 범죄의 정의를 넓혔다는 점이에요."], ["핵심 한 문장?", "범죄는 객관적·명백해 보이지만, 실제로는 정치적 관점에 따라 정의가 달라지는 구성된 개념이다."]], "vocab": [["obvious", "명백한·뻔한"], ["immigrant", "이민자"], ["stereotype", "고정 관념"], ["uncontroversial", "논란의 여지가 없는"], ["illusory", "착각의·환상의"], ["espionage", "간첩 행위"], ["broaden", "확장하다·넓히다"]], "en": "Politicians tend to speak of crime as if it were a simple, obvious concept. When Donald Trump opened his presidential election campaign in 2015 with the claim that Mexican immigrants were 'bringing crime' across the border, American voters may have agreed or disagreed with him. But they would not, generally speaking, have been confused about what Trump meant by crime. His explanation that Mexicans 'are bringing drugs' may well be an extremely racist stereotype, but as an example of crime, drug smuggling is relatively uncontroversial. However, different political perspectives can easily reveal that the apparent obviousness of crime is illusory. In the years following the mass protests of 2012, Vladimir Putin and the Russian government broadened the definition of espionage to include reporting and other journalistic activities. As Masha Gessen writes, this means that 'contrary to popular perception and common sense, in Russia, \"espionage\" does not need to mean working for a foreign intelligence service or even a foreign government', but includes 'gathering information for any foreign organization the Russian government sees as threatening the security of the country'.", "ko": "정치인들은 범죄에 대해 마치 단순하고 명확한 개념인 것처럼 말하는 경향이 있다. Donald Trump가 멕시코 이민자들이 국경 너머로 '범죄를 가져오고 있다'고 주장하면서 2015년에 대통령 선거 유세를 시작했을 때, 미국 유권자들은 그에게 동의했을 수도 혹은 동의하지 않았을 수도 있다. 하지만 일반적으로 말해서 그들은 Trump가 말한 범죄가 의미하는 바에 관해서는 혼란스러워하지 않았을 것이다. 멕시코인들이 '마약을 가져온다'는 그의 설명은 매우 인종 차별적인 고정 관념이라고 해도 무리가 아니지만, 마약 밀반입은 범죄 행위의 예로서 비교적 논란의 여지가 없다. 그러나 정치적 관점이 달라지면 범죄의 외견상 명백함은 착각에 불과하다는 사실이 쉽게 드러날 수 있다. 2012년 대규모 시위 이후 몇 년 동안, Vladimir Putin과 러시아 정부는 보도나 기타 언론 활동까지 포함하도록 간첩 행위의 정의를 확장시켰다. Masha Gessen의 글에 따르면, 이것은 '대중적인 인식이나 상식과 달리, 러시아에서 '간첩 행위'는 꼭 외국 정보부나 심지어 외국 정부를 위해 일하는 것을 의미할 필요는 없으며', '러시아 정부가 국가 안보를 위협한다고 여기는 그 어떤 외국 조직을 위한 정보 수집 행위'도 포함된다는 것을 의미한다.", "read": [{"en": "Politicians tend to speak of crime as if it were a simple, obvious concept.", "ko": "정치인들은 범죄에 대해 마치 단순하고 명확한 개념인 것처럼 말하는 경향이 있다.", "chunks": []}, {"en": "When Donald Trump opened his presidential election campaign in 2015 with the claim that Mexican immigrants were 'bringing crime' across the border, American voters may have agreed or disagreed with him.", "ko": "Donald Trump가 멕시코 이민자들이 국경 너머로 '범죄를 가져오고 있다'고 주장하면서 2015년에 대통령 선거 유세를 시작했을 때, 미국 유권자들은 그에게 동의했을 수도 혹은 동의하지 않았을 수도 있다.", "chunks": []}, {"en": "But they would not, generally speaking, have been confused about what Trump meant by crime.", "ko": "하지만 일반적으로 말해서 그들은 Trump가 말한 범죄가 의미하는 바에 관해서는 혼란스러워하지 않았을 것이다.", "chunks": []}, {"en": "His explanation that Mexicans 'are bringing drugs' may well be an extremely racist stereotype, but as an example of crime, drug smuggling is relatively uncontroversial.", "ko": "멕시코인들이 '마약을 가져온다'는 그의 설명은 매우 인종 차별적인 고정 관념이라고 해도 무리가 아니지만, 마약 밀반입은 범죄 행위의 예로서 비교적 논란의 여지가 없다.", "chunks": []}, {"en": "However, different political perspectives can easily reveal that the apparent obviousness of crime is illusory.", "ko": "그러나 정치적 관점이 달라지면 범죄의 외견상 명백함은 착각에 불과하다는 사실이 쉽게 드러날 수 있다.", "chunks": []}, {"en": "In the years following the mass protests of 2012, Vladimir Putin and the Russian government broadened the definition of espionage to include reporting and other journalistic activities.", "ko": "2012년 대규모 시위 이후 몇 년 동안, Vladimir Putin과 러시아 정부는 보도나 기타 언론 활동까지 포함하도록 간첩 행위의 정의를 확장시켰다.", "chunks": []}, {"en": "As Masha Gessen writes, this means that 'contrary to popular perception and common sense, in Russia, \"espionage\" does not need to mean working for a foreign intelligence service or even a foreign government', but includes 'gathering information for any foreign organization the Russian government sees as threatening the security of the country'.", "ko": "Masha Gessen의 글에 따르면, 이것은 '대중적인 인식이나 상식과 달리, 러시아에서 '간첩 행위'는 꼭 외국 정보부나 심지어 외국 정부를 위해 일하는 것을 의미할 필요는 없으며', '러시아 정부가 국가 안보를 위협한다고 여기는 그 어떤 외국 조직을 위한 정보 수집 행위'도 포함된다는 것을 의미한다.", "chunks": []}], "metaphor": "<svg viewBox=\"0 0 600 264\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"가운데 같은 행위를 두고 왼쪽 관점은 범죄가 아니라고, 오른쪽 관점은 범죄·간첩이라고 정의 경계를 다르게 긋는 그림. 위쪽 단순·명백하다는 통념은 착각으로 표시되고, 아래쪽 결론은 관점이 정의를 만든다\">\n  <!-- 상단: '단순·명백' 통념 = 착각 -->\n  <g transform=\"translate(300,26)\">\n    <rect x=\"-118\" y=\"-15\" width=\"236\" height=\"24\" rx=\"12\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/>\n    <text x=\"-8\" y=\"2\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">\"simple &amp; obvious\"</text>\n    <text x=\"92\" y=\"2\" font-family=\"Noto Serif KR\" font-size=\"10\" text-anchor=\"middle\" fill=\"#c8102e\">→ 착각</text>\n    <line x1=\"-110\" y1=\"-3\" x2=\"58\" y2=\"-3\" stroke=\"#c8102e\" stroke-width=\"1.1\"/>\n  </g>\n\n  <!-- 가운데 행위 + 움직이는 정의선 -->\n  <g transform=\"translate(300,150)\">\n    <!-- 행위 박스 -->\n    <rect x=\"-46\" y=\"-40\" width=\"92\" height=\"58\" rx=\"4\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <text x=\"0\" y=\"-20\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">하나의 행위</text>\n    <text x=\"0\" y=\"-5\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">e.g. press activity,</text>\n    <text x=\"0\" y=\"7\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">migration</text>\n    <!-- 움직이는 정의선 -->\n    <line x1=\"0\" y1=\"-58\" x2=\"0\" y2=\"40\" stroke=\"#c8102e\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/>\n    <polygon points=\"-12,-52 -4,-56 -4,-48\" fill=\"#c8102e\"/>\n    <polygon points=\"12,-52 4,-56 4,-48\" fill=\"#c8102e\"/>\n    <text x=\"0\" y=\"56\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\">정의의 경계선은 움직인다</text>\n  </g>\n\n  <!-- 좌측 관점 A: 범죄 아님 -->\n  <g transform=\"translate(118,150)\">\n    <ellipse cx=\"0\" cy=\"0\" rx=\"30\" ry=\"40\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.6\"/>\n    <ellipse cx=\"0\" cy=\"0\" rx=\"20\" ry=\"28\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n    <text x=\"0\" y=\"-54\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">perspective A</text>\n    <line x1=\"30\" y1=\"0\" x2=\"120\" y2=\"0\" stroke=\"#1a1a1a\" stroke-width=\"1.2\" stroke-dasharray=\"2 2\"/>\n    <text x=\"0\" y=\"62\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">\"범죄 아님\"</text>\n  </g>\n\n  <!-- 우측 관점 B: 범죄·간첩 (정의 확장) -->\n  <g transform=\"translate(482,150)\">\n    <ellipse cx=\"0\" cy=\"0\" rx=\"30\" ry=\"40\" fill=\"#fdf2f4\" fill-opacity=\"0.5\" stroke=\"#c8102e\" stroke-width=\"1.6\" stroke-dasharray=\"4 3\"/>\n    <ellipse cx=\"0\" cy=\"0\" rx=\"20\" ry=\"28\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1\" stroke-dasharray=\"3 2\"/>\n    <text x=\"0\" y=\"-54\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">perspective B</text>\n    <line x1=\"-30\" y1=\"0\" x2=\"-120\" y2=\"0\" stroke=\"#c8102e\" stroke-width=\"1.2\" stroke-dasharray=\"2 2\"/>\n    <text x=\"0\" y=\"62\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">\"범죄·간첩\" — 정의 확장</text>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"256\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">perspective makes the definition</text>\n</svg>", "caption": "범죄는 명백해 보이지만 — 관점이 그 정의를 바꾼다"}, {"no": "34", "title": "Understanding as Seeing How Facts Hang Together", "ktitle": "이해 ≠ 사실을 아는 것", "field": "인식론", "page": "p41 no.34", "oneline": "이해는 ‘사실을 아는 것’ 그 이상이라는 데 대체로 동의한다.", "tldr": ["이해는 ‘사실을 아는 것’ 그 이상이라는 데 대체로 동의한다.", "DNA 유사성을 ‘앵무새처럼’ 아는 학생은 ‘왜·어떻게’는 모른다.", "이해 = 사실들이 ‘서로 어떻게 맞물리는지’ 파악 → 설명·예측 가능."], "analogy": "퍼즐 조각 이름을 다 외워도, 조각들이 ‘왜·어떻게 맞물려 그림이 되는지’ 모르면 이해한 게 아니죠. 이해는 사실들의 ‘연결’을 보고, 나아가 설명하고 예측까지 할 수 있는 거예요.", "bg": "‘이해’가 단순한 사실 암기와 어떻게 다른지를, DNA 사실을 외우기만 한 학생의 예로 설명한 인식론 글이에요. 이해는 사실들의 상호 연관을 파악하는 것이에요.", "flow": [{"k": "전제", "c": "sky", "t": "이해 = 단순한 ‘사실 지식’ 그 이상 (대체로 합의)"}, {"k": "예시", "c": "rose", "t": "학생: ‘DNA 유사’ 사실은 알지만 ‘왜·중요성’은 모름", "d": "진화 뒷받침도 파악 못 함."}, {"k": "핵심", "c": "green", "t": "이해 = 사실들이 ‘서로 어떻게 맞물리는지’ 봄"}, {"k": "능력", "c": "green", "t": "상호 의존을 파악 → 설명·때로 예측 가능"}, {"k": "결론", "c": "violet", "t": "고립된 사실 암기 ≠ 연결을 보는 이해"}], "quiz": [["사실을 ‘아는 것’과 ‘이해하는 것’의 차이는?", "앵무새처럼 사실만 아는 것과 달리, 이해는 그 사실들이 서로 어떻게 맞물리고 의존하는지 파악하는 거예요."], ["이해를 가진 사람이 할 수 있는 것은?", "생물학을 상호 연관된 정보 집합으로 보고, 그 이해로 현상을 설명하거나 때로는 예측할 수 있어요."], ["핵심 한 문장?", "이해는 고립된 사실의 암기가 아니라, 사실들이 서로 어떻게 연결되는지 파악하는 것이다."]], "vocab": [["plausibility", "타당함·그럴듯함"], ["parrot", "앵무새처럼 따라 하다"], ["clueless", "전혀 모르는"], ["common descent", "공통의 가계·공통 조상"], ["hang together", "서로 맞물리다·일관되다"], ["interrelated", "상호 연관된"], ["depend upon", "~에 의존하다"]], "en": "While there is live debate among philosophers about whether understanding is itself a kind of knowledge, it is generally agreed that understanding is something beyond mere knowledge of facts. To illustrate the plausibility of this idea, consider a student who simply parrots what their biology teacher tells them. This student knows, for example, that the DNA sequences of humans and chimpanzees are extraordinarily similar because the teacher has said this. However, the student may be clueless as to why this is so, or the importance of this similarity within the larger context of biology. The student may have no grasp of how this fact provides support for evolution in general and common descent in particular. What is missing? It seems that whereas the student simply knows these isolated facts, understanding requires seeing how these facts hang together. The person with understanding grasps biology as an interrelated body of information with many connections between the various facts. This person can appreciate how these various facts depend upon one another. Furthermore, the person who understands biology can use this understanding to explain and sometimes predict particular biological phenomena.", "ko": "철학자들 사이에서 이해가 그 자체로 지식의 일종인지에 대한 활발한 논쟁이 있지만, 일반적으로 이해는 사실에 대한 단순한 지식 그 이상의 것이라는 데 의견이 일치한다. 이 생각의 타당함을 예를 들어 설명하기 위해 생물 교사가 하는 말을 그저 앵무새처럼 따라 하는 학생을 생각해 보라. 예를 들어, 이 학생은 선생님이 이렇게 말했기 때문에 인간과 침팬지의 DNA 서열이 대단히 유사하다는 것을 알고 있다. 그러나 그 학생은 이러한 이유 또는 생물학이라는 더 큰 맥락에서 이러한 유사성의 중요성에 대해서는 무지할 수도 있다. 그 학생은 이 사실이 진화 전체와 특별한 공통의 가계(家系)를 어떻게 뒷받침하는지 전혀 이해하지 못할 수도 있다. 무엇이 빠졌을까? 그 학생은 단순히 이 분리된 사실만 알고 있는 반면, 이해는 이러한 사실들이 서로 어떻게 잘 들어맞는지 아는 것을 요구하는 것 같다. 이해를 하는 사람은 생물학을 다양한 사실들 사이에 많은 연관성이 있는 상호 연관된 정보의 집합체로 파악한다. 이러한 사람은 이런 다양한 사실들이 서로 어떻게 의존하는지 이해할 수 있다. 게다가 생물학을 이해하는 사람은 이러한 이해를 특정 생물학적 현상을 설명하고 때로는 예측하는 데 사용할 수 있다.", "read": [{"en": "While there is live debate among philosophers about whether understanding is itself a kind of knowledge, it is generally agreed that understanding is something beyond mere knowledge of facts.", "ko": "철학자들 사이에서 이해가 그 자체로 지식의 일종인지에 대한 활발한 논쟁이 있지만, 일반적으로 이해는 사실에 대한 단순한 지식 그 이상의 것이라는 데 의견이 일치한다.", "chunks": []}, {"en": "To illustrate the plausibility of this idea, consider a student who simply parrots what their biology teacher tells them.", "ko": "이 생각의 타당함을 예를 들어 설명하기 위해 생물 교사가 하는 말을 그저 앵무새처럼 따라 하는 학생을 생각해 보라.", "chunks": []}, {"en": "This student knows, for example, that the DNA sequences of humans and chimpanzees are extraordinarily similar because the teacher has said this.", "ko": "예를 들어, 이 학생은 선생님이 이렇게 말했기 때문에 인간과 침팬지의 DNA 서열이 대단히 유사하다는 것을 알고 있다.", "chunks": []}, {"en": "However, the student may be clueless as to why this is so, or the importance of this similarity within the larger context of biology.", "ko": "그러나 그 학생은 이러한 이유 또는 생물학이라는 더 큰 맥락에서 이러한 유사성의 중요성에 대해서는 무지할 수도 있다.", "chunks": []}, {"en": "The student may have no grasp of how this fact provides support for evolution in general and common descent in particular.", "ko": "그 학생은 이 사실이 진화 전체와 특별한 공통의 가계(家系)를 어떻게 뒷받침하는지 전혀 이해하지 못할 수도 있다.", "chunks": []}, {"en": "What is missing?", "ko": "무엇이 빠졌을까?", "chunks": []}, {"en": "It seems that whereas the student simply knows these isolated facts, understanding requires seeing how these facts hang together.", "ko": "그 학생은 단순히 이 분리된 사실만 알고 있는 반면, 이해는 이러한 사실들이 서로 어떻게 잘 들어맞는지 아는 것을 요구하는 것 같다.", "chunks": []}, {"en": "The person with understanding grasps biology as an interrelated body of information with many connections between the various facts.", "ko": "이해를 하는 사람은 생물학을 다양한 사실들 사이에 많은 연관성이 있는 상호 연관된 정보의 집합체로 파악한다.", "chunks": []}, {"en": "This person can appreciate how these various facts depend upon one another.", "ko": "이러한 사람은 이런 다양한 사실들이 서로 어떻게 의존하는지 이해할 수 있다.", "chunks": []}, {"en": "Furthermore, the person who understands biology can use this understanding to explain and sometimes predict particular biological phenomena.", "ko": "게다가 생물학을 이해하는 사람은 이러한 이해를 특정 생물학적 현상을 설명하고 때로는 예측하는 데 사용할 수 있다.", "chunks": []}], "metaphor": "<svg viewBox=\"0 0 600 252\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽 단순 지식은 인간·침팬지 DNA 유사 같은 사실들이 서로 연결되지 않고 흩어진 모습이고, 오른쪽 이해는 같은 사실들이 선으로 연결된 그물망이 되어 설명과 예측이 가능해지는 대조 그림\">\n  <!-- 좌: 단순 지식 = 분리된 사실 -->\n  <g transform=\"translate(20,30)\">\n    <text x=\"125\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">단순 지식 — 분리된 사실</text>\n    <rect x=\"0\" y=\"0\" width=\"250\" height=\"190\" fill=\"#fdf2f4\" fill-opacity=\"0.3\" stroke=\"#c8102e\" stroke-width=\"1.4\" stroke-dasharray=\"4 3\"/>\n\n    <!-- 흩어진 사실 노드 (연결선 없음) -->\n    <g font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\">\n      <g transform=\"translate(62,48)\"><circle cx=\"0\" cy=\"0\" r=\"22\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1.3\"/><text x=\"0\" y=\"-1\" font-size=\"8\" fill=\"#5e5e5e\">chimp~human</text><text x=\"0\" y=\"9\" fill=\"#5e5e5e\">DNA</text></g>\n      <g transform=\"translate(180,42)\"><circle cx=\"0\" cy=\"0\" r=\"22\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1.3\"/><text x=\"0\" y=\"-1\" fill=\"#5e5e5e\">common</text><text x=\"0\" y=\"9\" fill=\"#5e5e5e\">ancestor</text></g>\n      <g transform=\"translate(70,118)\"><circle cx=\"0\" cy=\"0\" r=\"22\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1.3\"/><text x=\"0\" y=\"3\" fill=\"#5e5e5e\">evolution</text></g>\n      <g transform=\"translate(176,120)\"><circle cx=\"0\" cy=\"0\" r=\"20\" fill=\"#ffffff\" stroke=\"#999\" stroke-width=\"1.3\"/><text x=\"0\" y=\"3\" fill=\"#5e5e5e\">fact</text></g>\n    </g>\n    <!-- 앵무새식 / 물음표 -->\n    <g transform=\"translate(125,80)\">\n      <circle cx=\"0\" cy=\"0\" r=\"12\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.3\"/>\n      <text x=\"0\" y=\"5\" font-family=\"Noto Serif\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">?</text>\n    </g>\n    <text x=\"125\" y=\"180\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">parroted — knows facts, not why</text>\n  </g>\n\n  <!-- 가운데 화살표 understanding -->\n  <g transform=\"translate(278,110)\">\n    <line x1=\"0\" y1=\"0\" x2=\"40\" y2=\"0\" stroke=\"#1FA34A\" stroke-width=\"2\"/>\n    <polygon points=\"40,0 31,-5 31,5\" fill=\"#1FA34A\"/>\n    <text x=\"20\" y=\"-10\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">understanding</text>\n    <text x=\"20\" y=\"19\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">연결을 봄</text>\n  </g>\n\n  <!-- 우: 이해 = 연결된 그물망 -->\n  <g transform=\"translate(330,30)\">\n    <text x=\"125\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">이해 — 연결을 봄</text>\n    <rect x=\"0\" y=\"0\" width=\"250\" height=\"190\" fill=\"#f0faf3\" fill-opacity=\"0.4\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n\n    <!-- 연결선 (초록 실선) -->\n    <g stroke=\"#1FA34A\" stroke-width=\"1.6\">\n      <line x1=\"83\" y1=\"47\" x2=\"159\" y2=\"43\"/>\n      <line x1=\"179\" y1=\"64\" x2=\"176\" y2=\"98\"/>\n      <line x1=\"65\" y1=\"70\" x2=\"69\" y2=\"96\"/>\n      <line x1=\"92\" y1=\"118\" x2=\"154\" y2=\"120\"/>\n    </g>\n    <!-- 같은 노드 (연결됨) -->\n    <g font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\">\n      <g transform=\"translate(62,48)\"><circle cx=\"0\" cy=\"0\" r=\"22\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/><text x=\"0\" y=\"-1\" font-size=\"8\" fill=\"#1FA34A\">chimp~human</text><text x=\"0\" y=\"9\" fill=\"#1FA34A\">DNA</text></g>\n      <g transform=\"translate(180,42)\"><circle cx=\"0\" cy=\"0\" r=\"22\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/><text x=\"0\" y=\"-1\" fill=\"#1FA34A\">common</text><text x=\"0\" y=\"9\" fill=\"#1FA34A\">ancestor</text></g>\n      <g transform=\"translate(70,118)\"><circle cx=\"0\" cy=\"0\" r=\"22\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/><text x=\"0\" y=\"3\" fill=\"#1FA34A\">evolution</text></g>\n      <g transform=\"translate(176,120)\"><circle cx=\"0\" cy=\"0\" r=\"20\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/><text x=\"0\" y=\"3\" fill=\"#1FA34A\">support</text></g>\n    </g>\n    <text x=\"125\" y=\"180\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">see how they hang together → explain &amp; predict</text>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"244\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">isolated facts  ↔  a connected web that explains &amp; predicts</text>\n</svg>", "caption": "단순 지식(분리된 사실) vs 이해(연결을 봄)"}, {"no": "35", "title": "Translation and the “Remainder”", "ktitle": "번역의 ‘나머지’ — 의미는 늘 넘쳐난다", "field": "번역·언어", "page": "p42 no.35~36", "oneline": "번역은 원문의 서사 형태를 전달해야 하지만, ‘변이’를 피할 수 없다.", "tldr": ["번역은 원문의 서사 형태를 전달해야 하지만, ‘변이’를 피할 수 없다.", "비표준 형태(방언·전문어·상투어 등) = Lecercle의 ‘나머지(remainder)’.", "번역은 ‘현지의 나머지’를 방출 → 결과는 늘 단순 전달을 넘어선다."], "analogy": "모든 언어엔 표준을 벗어난 ‘색깔(방언·말투·상투어)’이 있어요. 같은 농담도 다른 나라말로 옮기면 목표어 특유의 그 ‘나머지’가 새로 풀려 나와, 단순한 의미 전달을 늘 넘어서죠.", "bg": "번역이 원문 의미를 ‘그대로’ 전달할 수 없고, 방언·문체 같은 ‘나머지(remainder)’가 늘 따라붙어 언어·문화·사회·정치적 조건을 드러낸다는 번역 이론 글이에요.", "flow": [{"k": "전제", "c": "sky", "t": "번역은 원문의 서사 형태를 전달해야 한다"}, {"k": "그러나", "c": "rose", "t": "이 요소들엔 ‘변이’가 없지 않다"}, {"k": "개념", "c": "green", "t": "비표준 형태(방언·전문어·상투어) = ‘나머지’(Lecercle)", "d": "단일 의미를 넘어 ‘소통의 조건’에 주목."}, {"k": "확장", "c": "amber", "t": "조건 = 언어·문화 → 궁극엔 사회·정치적 요인까지"}, {"k": "결론", "c": "violet", "t": "번역은 ‘현지의 나머지’ 방출 → 늘 단순 전달을 넘어선다"}], "quiz": [["Lecercle이 말한 ‘나머지(remainder)’란?", "방언·전문어·상투어·문체 혁신 같은 비표준 형태로, 단일한 의미 전달을 넘어 소통의 ‘조건’에 주목하게 하는 것이에요."], ["번역 결과가 ‘단순 전달을 넘어선다’는 뜻은?", "원문이 현지 방언·문체로 다시 쓰이며 ‘현지의 나머지’가 새어 나와, 대상 언어·문화 고유의 의미 가능성을 만들어 내기 때문이에요."], ["핵심 한 문장?", "번역은 원문 의미를 그대로 전할 수 없고, 늘 ‘현지의 나머지’가 따라붙어 단순 전달을 넘어선다."]], "vocab": [["narrative form", "서사 형태"], ["variation", "변이·변형"], ["dialect", "방언"], ["jargon", "전문 용어"], ["remainder", "나머지·잔여물"], ["univocal", "단일 의미의"], ["sedimentation", "침전(물)"]], "en": "In current practices, a translation of a novel can and must communicate the basic elements of narrative form that structure the source text. But it is still not true that these elements are free from variation. Any language use is likely to vary the standard dialect by sampling a diversity of nonstandard or minor formations: regional or group dialects, jargons, cliches and slogans, and stylistic innovations. Jean-Jacques Lecercle calls these variations the \"remainder\" because they exceed communication of a univocal meaning and instead draw attention to the conditions of the communicative act, conditions that are in the first instance linguistic and cultural, but that ultimately embrace social and political factors. The remainder in literary texts is much more complicated, of course, usually a sedimentation of forms and themes, past as well as present. Any communication through translating, then, will involve the release of a domestic remainder, especially in the case of literature. The source text is rewritten in domestic dialects, discourses, and styles, which produce textual effects that signify only in the history of the translating language and culture. The translator may produce these effects to communicate the source text, trying to invent analogues for its forms and themes. But the result will always go beyond any communication to release target-oriented possibilities of meaning.", "ko": "현재의 관행에서, 소설의 번역은 원문을 구성하는 서사 형태의 기본 요소들을 전달할 수 있고 전달해야만 한다. 하지만 이러한 요소들에 변이가 없다는 것은 여전히 사실이 아니다. 어떤 언어 사용이든 지역이나 집단 방언, 전문 용어, 상투어와 구호, 문체상의 혁신과 같은 여러 비표준적이거나 부차적인 형태들을 표집함으로써 표준어에 변화를 주기 쉽다. Jean-Jacques Lecercle은 이러한 변이들을 '나머지'라고 부르는데, 이는 그것들이 단일한 의미의 소통을 넘어서며 대신 소통 행위의 조건들에 대한 관심을 끌기 때문인데, 이는 우선은 언어적이고 문화적이지만, 궁극적으로는 사회적이고 정치적인 요인들을 포괄하는 조건이다. 물론, 문학 텍스트에서 나머지는 훨씬 더 복잡하며, 보통 현재뿐만 아니라 과거의 형태와 주제의 침전물이다. 그러면, 번역을 통한 어떠한 소통도 현지의 나머지를 방출하는 것을 포함할 것이며, 특히 문학의 경우에는 그러하다. 원문은 현지 방언과 담화, 문체로 다시 쓰이는데, 이는 번역하는 언어와 문화의 역사 속에서만 의미를 가지는 텍스트적 효과를 만들어 낸다. 번역가는 원문을 전달하기 위해 이러한 효과를 만들어 낼 수 있으며, 그 형태와 주제에 대한 유사물을 창안하려고 노력한다. 그러나 그 결과는 언제나 어떠한 의사소통이라도 그것을 넘어서서, 대상 지향적 의미의 가능성을 드러낼 것이다.", "read": [{"en": "In current practices, a translation of a novel can and must communicate the basic elements of narrative form that structure the source text.", "ko": "현재의 관행에서, 소설의 번역은 원문을 구성하는 서사 형태의 기본 요소들을 전달할 수 있고 전달해야만 한다.", "chunks": []}, {"en": "But it is still not true that these elements are free from variation.", "ko": "하지만 이러한 요소들에 변이가 없다는 것은 여전히 사실이 아니다.", "chunks": []}, {"en": "Any language use is likely to vary the standard dialect by sampling a diversity of nonstandard or minor formations: regional or group dialects, jargons, cliches and slogans, and stylistic innovations.", "ko": "어떤 언어 사용이든 지역이나 집단 방언, 전문 용어, 상투어와 구호, 문체상의 혁신과 같은 여러 비표준적이거나 부차적인 형태들을 표집함으로써 표준어에 변화를 주기 쉽다.", "chunks": []}, {"en": "Jean-Jacques Lecercle calls these variations the \"remainder\" because they exceed communication of a univocal meaning and instead draw attention to the conditions of the communicative act, conditions that are in the first instance linguistic and cultural, but that ultimately embrace social and political factors.", "ko": "Jean-Jacques Lecercle은 이러한 변이들을 '나머지'라고 부르는데, 이는 그것들이 단일한 의미의 소통을 넘어서며 대신 소통 행위의 조건들에 대한 관심을 끌기 때문인데, 이는 우선은 언어적이고 문화적이지만, 궁극적으로는 사회적이고 정치적인 요인들을 포괄하는 조건이다.", "chunks": []}, {"en": "The remainder in literary texts is much more complicated, of course, usually a sedimentation of forms and themes, past as well as present.", "ko": "물론, 문학 텍스트에서 나머지는 훨씬 더 복잡하며, 보통 현재뿐만 아니라 과거의 형태와 주제의 침전물이다.", "chunks": []}, {"en": "Any communication through translating, then, will involve the release of a domestic remainder, especially in the case of literature.", "ko": "그러면, 번역을 통한 어떠한 소통도 현지의 나머지를 방출하는 것을 포함할 것이며, 특히 문학의 경우에는 그러하다.", "chunks": []}, {"en": "The source text is rewritten in domestic dialects, discourses, and styles, which produce textual effects that signify only in the history of the translating language and culture.", "ko": "원문은 현지 방언과 담화, 문체로 다시 쓰이는데, 이는 번역하는 언어와 문화의 역사 속에서만 의미를 가지는 텍스트적 효과를 만들어 낸다.", "chunks": []}, {"en": "The translator may produce these effects to communicate the source text, trying to invent analogues for its forms and themes.", "ko": "번역가는 원문을 전달하기 위해 이러한 효과를 만들어 낼 수 있으며, 그 형태와 주제에 대한 유사물을 창안하려고 노력한다.", "chunks": []}, {"en": "But the result will always go beyond any communication to release target-oriented possibilities of meaning.", "ko": "그러나 그 결과는 언제나 어떠한 의사소통이라도 그것을 넘어서서, 대상 지향적 의미의 가능성을 드러낼 것이다.", "chunks": []}], "metaphor": "<svg viewBox=\"0 0 600 264\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽 원문 소설이 가운데 번역 깔때기로 들어가, 아래로는 서사 형태의 기본 요소가 전달되고, 동시에 방언·전문어·상투어 같은 현지의 나머지가 빨간 점선으로 옆으로 방출되어, 결과적으로 대상 지향적 의미가 드러나는 그림\">\n  <!-- 좌: 원문 소설 -->\n  <g transform=\"translate(28,96)\">\n    <rect x=\"0\" y=\"0\" width=\"62\" height=\"78\" rx=\"3\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <line x1=\"10\" y1=\"0\" x2=\"10\" y2=\"78\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <g stroke=\"#999\" stroke-width=\"0.9\"><line x1=\"20\" y1=\"14\" x2=\"52\" y2=\"14\"/><line x1=\"20\" y1=\"26\" x2=\"52\" y2=\"26\"/><line x1=\"20\" y1=\"38\" x2=\"52\" y2=\"38\"/><line x1=\"20\" y1=\"50\" x2=\"52\" y2=\"50\"/><line x1=\"20\" y1=\"62\" x2=\"52\" y2=\"62\"/></g>\n    <text x=\"31\" y=\"-8\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">원문 소설</text>\n    <text x=\"31\" y=\"92\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">source</text>\n  </g>\n  <!-- 화살표 원문→깔때기 -->\n  <g transform=\"translate(96,132)\"><line x1=\"0\" y1=\"0\" x2=\"34\" y2=\"0\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/><polygon points=\"34,0 26,-5 26,5\" fill=\"#1a1a1a\"/></g>\n\n  <!-- 가운데: 번역 깔때기 -->\n  <g transform=\"translate(300,108)\">\n    <path d=\"M -66 -10 L 66 -10 L 20 40 L 20 64 L -20 64 L -20 40 Z\" fill=\"#ffffff\" stroke=\"#1a1a1a\" stroke-width=\"1.6\"/>\n    <text x=\"0\" y=\"16\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">번역</text>\n    <text x=\"0\" y=\"30\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">translation</text>\n    <text x=\"0\" y=\"-18\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">rewritten in the target language</text>\n  </g>\n\n  <!-- 아래로: 기본 서사 요소 전달 (초록) -->\n  <g transform=\"translate(300,172)\"><line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"22\" stroke=\"#1FA34A\" stroke-width=\"2\"/><polygon points=\"0,22 -5,14 5,14\" fill=\"#1FA34A\"/></g>\n  <g transform=\"translate(300,212)\">\n    <rect x=\"-86\" y=\"-12\" width=\"172\" height=\"26\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n    <circle cx=\"-70\" cy=\"1\" r=\"8\" fill=\"#1FA34A\"/>\n    <path d=\"M -73 1 L -71 4 L -66 -2\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"1.6\"/>\n    <text x=\"8\" y=\"5\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">서사 형태의 기본 요소 전달</text>\n  </g>\n\n  <!-- 옆으로: 나머지 방출 (빨강 점선 spray) -->\n  <g stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\" fill=\"none\">\n    <path d=\"M 360 112 Q 410 100 452 92\"/>\n    <path d=\"M 360 124 Q 414 124 458 124\"/>\n    <path d=\"M 360 136 Q 410 150 452 158\"/>\n  </g>\n  <g fill=\"#c8102e\"><polygon points=\"452,92 444,90 448,97\"/><polygon points=\"458,124 450,120 450,128\"/><polygon points=\"452,158 444,153 448,160\"/></g>\n  <g transform=\"translate(516,124)\">\n    <text x=\"0\" y=\"-30\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">the remainder</text>\n    <text x=\"0\" y=\"-17\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\">'나머지' 방출</text>\n    <g font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">\n      <text x=\"0\" y=\"-2\">dialect</text><text x=\"0\" y=\"9\">jargon</text><text x=\"0\" y=\"20\">cliché</text>\n    </g>\n  </g>\n\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"256\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">always emits a remainder  →  target-oriented meaning</text>\n</svg>", "caption": "번역은 기본 요소를 전달하되 — 현지의 '나머지'를 피할 수 없다"}]};
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function renderTabs() {
+  const tabs = P.data.map((d, i) =>
+    `<button class="tab${i===0?' active':''}" data-t="${d.no}">
+       <span class="tab-no">${d.no}</span>
+       <span class="tab-field">${d.field}</span>
+     </button>`).join('');
+  document.getElementById('tabs').innerHTML = tabs;
+}
+
+function renderTLDR(d) {
+  if (!d.tldr || !d.tldr.length) return '';
+  const items = d.tldr.map(t => `<li>${t}</li>`).join('');
+  return `<details class="tool" data-tool="tldr" open>
+    <summary>
+      <span class="ticon">A</span>
+      <span class="tname">30초 요약</span>
+      <span class="thint">— 빠르게 한 컷</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><ol class="tldr">${items}</ol></div>
+  </details>`;
+}
+
+function renderAnalogy(d) {
+  if (!d.analogy) return '';
+  return `<details class="tool" data-tool="analogy">
+    <summary>
+      <span class="ticon">B</span>
+      <span class="tname">이게 무슨 말이냐면</span>
+      <span class="thint">— 일상 비유</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><p class="callout analogy">${d.analogy}</p></div>
+  </details>`;
+}
+
+function renderBG(d) {
+  if (!d.bg) return '';
+  return `<details class="tool" data-tool="bg">
+    <summary>
+      <span class="ticon">C</span>
+      <span class="tname">배경지식 30초</span>
+      <span class="thint">— 이 글이 어떤 글이냐</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><p class="callout bg">${d.bg}</p></div>
+  </details>`;
+}
+
+function renderFlow(d) {
+  if (!d.flow || !d.flow.length) return '';
+  let body = '<div class="flow">';
+  d.flow.forEach((s, i) => {
+    const cls = s.cls ? ' ' + s.cls : '';
+    body += `<div class="flow-step${cls}">
+      <div class="kind">${s.kind}</div>
+      <div class="body">
+        <div class="t">${s.t}</div>
+        ${s.d ? `<div class="d">${s.d}</div>` : ''}
+      </div>
+    </div>`;
+    if (i < d.flow.length - 1) body += '<div class="flow-arrow">▼</div>';
+  });
+  body += '</div>';
+  return `<details class="tool" data-tool="flow">
+    <summary>
+      <span class="ticon">D</span>
+      <span class="tname">글의 작동 원리</span>
+      <span class="thint">— 논지 흐름</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}</div>
+  </details>`;
+}
+
+function renderRead(d) {
+  if (!d.read || !d.read.length) return '';
+  let body = '';
+  d.read.forEach(r => {
+    let chunks = '';
+    if (r.chunks && r.chunks.length) {
+      chunks = '<div class="chunks">' + r.chunks.map(ch =>
+        `<div class="chunk"><div class="ce">${ch[0]}</div><div class="ck">${ch[1]}</div></div>`
+      ).join('') + '</div>';
+    }
+    body += `<div class="read-sent">
+      <div class="en">${r.en}</div>
+      ${chunks}
+      <div class="ko"><b>전체 해석:</b> ${r.ko}</div>
+    </div>`;
+  });
+  let vocab = '';
+  if (d.vocab && d.vocab.length) {
+    vocab = '<div class="vocab"><div class="vlabel">핵심 어휘</div>' +
+      d.vocab.map(v => `<div class="chip"><b>${v[0]}</b><span>${v[1]}</span></div>`).join('') +
+      '</div>';
+  }
+  return `<details class="tool" data-tool="read">
+    <summary>
+      <span class="ticon">E</span>
+      <span class="tname">끊어읽기 + 어휘</span>
+      <span class="thint">— 문장 단위</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}${vocab}</div>
+  </details>`;
+}
+
+function renderQuiz(d) {
+  if (!d.quiz || !d.quiz.length) return '';
+  const items = d.quiz.map((q, i) =>
+    `<details class="quiz-item">
+      <summary>
+        <span class="qn">Q${i+1}</span>
+        <span>${q[0]}</span>
+        <span class="qarr">정답 ▾</span>
+      </summary>
+      <div class="qa">${q[1]}</div>
+    </details>`).join('');
+  return `<details class="tool" data-tool="quiz">
+    <summary>
+      <span class="ticon">F</span>
+      <span class="tname">확인 퀴즈</span>
+      <span class="thint">— 스스로 점검</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${items}</div>
+  </details>`;
+}
+
+function renderSource(d) {
+  if (!d.en && !d.ko) return '';
+  return `<details class="tool" data-tool="source">
+    <summary>
+      <span class="ticon">G</span>
+      <span class="tname">영어 원문 + 해석</span>
+      <span class="thint">— 시험 직전 점검용</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">
+      <div class="src">
+        <div class="en">${d.en}</div>
+        <div class="ko">${d.ko}</div>
+      </div>
+    </div>
+  </details>`;
+}
+
+function renderPassage(d, idx) {
+  let html = `<section class="passage${idx===0?' active':''}" id="p${d.no}">`;
+  html += `<div class="p-head">
+    <span class="field">${d.field}</span>
+    <h2>${d.title}</h2>
+    <p class="p-kt">${d.ktitle}</p>
+    <p class="p-page">${d.page}</p>
+  </div>`;
+  html += `<div class="oneline">${d.oneline}</div>`;
+  if (d.metaphor) {
+    html += `<div class="metaphor">
+      <div class="m-head">
+        <span class="label">중심 비유</span>
+        <span class="sub">visual metaphor</span>
+      </div>
+      <figure>
+        ${d.metaphor}
+        ${d.caption ? `<figcaption>${d.caption}</figcaption>` : ''}
+      </figure>
+    </div>`;
+  }
+  html += `<div class="tools-intro">막힌 곳만 펴 보세요 · <b>도구 상자</b></div>`;
+  html += renderTLDR(d);
+  html += renderAnalogy(d);
+  html += renderBG(d);
+  html += renderFlow(d);
+  html += renderRead(d);
+  html += renderQuiz(d);
+  html += renderSource(d);
+  html += `</section>`;
+  return html;
+}
+
+renderTabs();
+document.getElementById('main').innerHTML = P.data.map((d, i) => renderPassage(d, i)).join('');
+
+/* 탭 클릭 */
+document.querySelectorAll('.tab').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.passage').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('p' + b.dataset.t).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
