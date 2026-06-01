@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>지문 이해 보조 자료 · 수능특강 영어독해연습 11강</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   김가영어학원 · KIM KA YOUNG ENGLISH
+   수능특강 영어독해연습 08강 지문 이해 — 도구 상자(Toolbox) 디지털 자료
+   Brand v2.1 · System B (학습자료 본문 전용)
+   ============================================================ */
+
+:root {
+  --paper:    #ffffff;
+  --ink:      #1a1a1a;
+  --ink-80:   #333333;
+  --ink-60:   #5e5e5e;
+  --ink-40:   #999;
+  --ink-20:   #cccccc;
+  --ink-10:   #e8e8e8;
+  --ink-05:   #f6f6f6;
+  --red:      #c8102e;
+  --red-tint: #fdf2f4;
+  --green:    #1FA34A;
+  --green-tint: #f0faf3;
+  --serif-kr: 'Noto Serif KR', serif;
+  --serif-en: 'Noto Serif', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--serif-kr);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+em { font-family: var(--serif-en); font-style: italic; }
+.en { font-family: var(--serif-en); }
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 18px 18px 80px;
+}
+
+/* ============================================================
+   학원 브랜드 헤더
+   ============================================================ */
+.brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: 4px;
+}
+.brand .b-title h1 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.brand .b-title .b-sub {
+  font-size: 11px;
+  color: var(--ink-60);
+  margin-top: 2px;
+  font-family: var(--serif-en);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+.brand .b-meta {
+  font-size: 11.5px;
+  color: var(--ink-60);
+  text-align: right;
+  line-height: 1.5;
+}
+.brand .b-meta .en { font-style: italic; }
+
+/* ============================================================
+   사용 안내 (도구 상자 가이드)
+   ============================================================ */
+.guide {
+  background: var(--ink-05);
+  border-left: 3px solid var(--red);
+  padding: 13px 16px 12px;
+  margin: 14px 0;
+  border-radius: 0 4px 4px 0;
+}
+.guide .g-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 9px;
+  font-family: var(--serif-kr);
+}
+.guide .g-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.guide .g-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+.guide .g-when {
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: var(--ink);
+  min-width: 96px;
+}
+.guide .g-sep {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  flex: 0 0 auto;
+}
+.guide .g-tools {
+  color: var(--ink-80);
+  flex: 1;
+}
+.guide .g-tools .k {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 12px;
+  padding: 0 3px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 3px;
+  margin-right: 2px;
+}
+.guide .g-note {
+  margin-top: 9px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+  font-size: 12px;
+  color: var(--ink-60);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.guide .g-note b { color: var(--red); }
+
+/* ============================================================
+   탭 (지문 선택)
+   ============================================================ */
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink-10);
+  z-index: 10;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 10px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 0 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 5px;
+  padding: 7px 12px 5px;
+  font-family: var(--serif-kr);
+  color: var(--ink-60);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  min-width: 78px;
+}
+.tab .tab-no {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.tab .tab-field {
+  display: block;
+  font-size: 10.5px;
+  color: var(--ink-40);
+  margin-top: 1px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.tab:hover { border-color: var(--ink-60); color: var(--ink); }
+.tab.active {
+  background: var(--red-tint);
+  border-color: var(--red);
+  color: var(--red);
+}
+.tab.active .tab-field { color: var(--red); }
+
+/* ============================================================
+   PASSAGE PANEL
+   ============================================================ */
+.passage { display: none; padding-top: 18px; }
+.passage.active { display: block; animation: fadeIn 0.22s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.p-head .field {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--red);
+  border: 0.7px solid var(--red);
+  padding: 2px 8px;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+.p-head h2 {
+  font-family: var(--serif-en);
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.p-head .p-kt {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.p-head .p-page {
+  font-size: 10.5px;
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  letter-spacing: 0.12em;
+  margin-top: 5px;
+}
+
+/* ============================================================
+   한 줄 핵심 (anchor)
+   ============================================================ */
+.oneline {
+  margin: 18px 0 22px;
+  padding: 16px 18px 17px;
+  background: var(--ink-05);
+  border-left: 3px solid var(--ink);
+  border-radius: 0 6px 6px 0;
+  font-size: 17.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  word-break: keep-all;
+  letter-spacing: -0.005em;
+}
+.oneline::before {
+  content: "한 줄 핵심";
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-60);
+  letter-spacing: 0.22em;
+  margin-bottom: 7px;
+}
+.oneline .r { color: var(--red); font-weight: 700; }
+.oneline .g { color: var(--green); font-weight: 700; }
+.oneline em { font-style: italic; }
+
+/* ============================================================
+   메타포 SVG (지문별 한 컷 — 항상 펼쳐짐)
+   ============================================================ */
+.metaphor {
+  margin: 20px 0 22px;
+  border: 1px solid var(--ink-20);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.metaphor .m-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--ink-10);
+  background: var(--ink-05);
+}
+.metaphor .m-head .label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--ink-60);
+}
+.metaphor .m-head .sub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-60);
+}
+.metaphor figure { padding: 18px 18px 14px; }
+.metaphor figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.metaphor figcaption {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-60);
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+  line-height: 1.55;
+}
+.metaphor figcaption .en { font-style: italic; color: var(--ink-80); }
+.metaphor figcaption .r { color: var(--red); font-weight: 700; }
+.metaphor figcaption .g { color: var(--green); font-weight: 700; }
+
+/* ============================================================
+   TOOLBOX 안내 라인
+   ============================================================ */
+.tools-intro {
+  font-size: 12px;
+  color: var(--ink-60);
+  letter-spacing: 0.04em;
+  margin: 18px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tools-intro::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--ink);
+  display: inline-block;
+}
+.tools-intro b { color: var(--ink); font-weight: 700; }
+
+/* ============================================================
+   도구 카드 (Tool) — 아코디언
+   ============================================================ */
+.tool {
+  background: var(--paper);
+  border: 1px solid var(--ink-20);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.tool[open] { border-color: var(--ink-80); }
+.tool > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+.tool > summary::-webkit-details-marker { display: none; }
+.tool > summary:hover { background: var(--ink-05); }
+.tool > summary .tname {
+  flex: 1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.tool > summary .thint {
+  font-size: 11.5px;
+  color: var(--ink-40);
+  font-weight: 400;
+}
+.tool > summary .arr {
+  color: var(--ink-40);
+  font-family: var(--serif-en);
+  font-size: 11px;
+  transition: transform 0.2s;
+  flex: 0 0 auto;
+}
+.tool[open] > summary .arr { transform: rotate(90deg); color: var(--ink); }
+.tool > summary .ticon {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-60);
+  background: var(--ink-05);
+  border: 0.7px solid var(--ink-20);
+}
+.tool[open] > summary .ticon {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.tool .body { padding: 4px 16px 18px; }
+
+/* ============================================================
+   도구별 컨텐츠 스타일
+   ============================================================ */
+
+/* 30초 요약 */
+.tldr {
+  list-style: none;
+  counter-reset: t;
+}
+.tldr li {
+  position: relative;
+  padding: 9px 0 9px 30px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  border-bottom: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+.tldr li:last-child { border-bottom: none; }
+.tldr li::before {
+  counter-increment: t;
+  content: counter(t);
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 20px;
+  height: 20px;
+  background: var(--paper);
+  border: 1px solid var(--green);
+  color: var(--green);
+  border-radius: 50%;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 비유 / 배경지식 */
+.callout {
+  font-size: 14.5px;
+  line-height: 1.7;
+  padding: 13px 15px;
+  border-radius: 6px;
+  word-break: keep-all;
+  background: var(--ink-05);
+}
+.callout.analogy { border-left: 3px solid var(--green); }
+.callout.bg      { border-left: 3px solid var(--ink); }
+.callout em { font-style: italic; }
+
+/* 논지 흐름 */
+.flow { display: flex; flex-direction: column; gap: 6px; }
+.flow-step {
+  display: flex;
+  gap: 12px;
+  padding: 12px 13px;
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  background: var(--paper);
+  align-items: flex-start;
+}
+.flow-step .kind {
+  flex: 0 0 60px;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 0;
+  text-align: center;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  background: var(--ink-05);
+  color: var(--ink-80);
+  border: 0.7px solid var(--ink-20);
+}
+.flow-step.pivot .kind {
+  background: var(--red-tint); color: var(--red); border-color: var(--red);
+}
+.flow-step.close .kind {
+  background: var(--green-tint); color: var(--green); border-color: var(--green);
+}
+.flow-step .body { flex: 1; }
+.flow-step .t {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.flow-step .t .r { color: var(--red); font-weight: 700; }
+.flow-step .t .g { color: var(--green); font-weight: 700; }
+.flow-step .d {
+  font-size: 12.5px;
+  color: var(--ink-60);
+  margin-top: 4px;
+  word-break: keep-all;
+}
+.flow-arrow {
+  text-align: center;
+  color: var(--ink-20);
+  font-size: 13px;
+  font-family: var(--serif-en);
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+/* 끊어읽기 */
+.read-sent {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 11px 13px 11px;
+  margin-bottom: 8px;
+  background: var(--paper);
+}
+.read-sent .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.read-sent .chunks {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--ink-10);
+}
+.read-sent .chunk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px 16px;
+  padding: 3px 0;
+  font-size: 12.5px;
+  border-bottom: 1px dotted var(--ink-10);
+}
+.read-sent .chunk:last-child { border-bottom: none; }
+.read-sent .chunk .ce {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--ink-80);
+  word-break: keep-all;
+}
+.read-sent .chunk .ck { color: var(--ink-60); word-break: keep-all; }
+.read-sent .ko {
+  margin-top: 9px;
+  padding: 7px 11px;
+  background: var(--ink-05);
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--ink-80);
+  word-break: keep-all;
+  line-height: 1.6;
+}
+.read-sent .ko b { color: var(--ink); font-weight: 700; }
+
+/* 어휘 chip */
+.vocab {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--ink-10);
+}
+.vocab .vlabel {
+  width: 100%;
+  font-size: 11px;
+  color: var(--ink-60);
+  letter-spacing: 0.18em;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.vocab .chip {
+  font-size: 12.5px;
+  padding: 5px 9px;
+  background: var(--paper);
+  border: 0.7px solid var(--ink-20);
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.vocab .chip b {
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--red);
+  font-weight: 700;
+}
+.vocab .chip span { color: var(--ink-80); margin-left: 5px; }
+
+/* 퀴즈 */
+.quiz-item {
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  margin-bottom: 6px;
+  background: var(--paper);
+}
+.quiz-item > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 11px 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.quiz-item > summary::-webkit-details-marker { display: none; }
+.quiz-item .qn {
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--green);
+  border-radius: 3px;
+  padding: 2px 6px;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+.quiz-item .qarr {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--green);
+  flex: 0 0 auto;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 700;
+}
+.quiz-item[open] .qarr { visibility: hidden; }
+.quiz-item .qa {
+  padding: 0 13px 13px 44px;
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+.quiz-item .qa b { color: var(--green); font-weight: 700; }
+
+/* 영어 원문 + 한글 해석 */
+.src {
+  background: var(--paper);
+  border: 1px solid var(--ink-10);
+  border-radius: 7px;
+  padding: 14px 16px;
+}
+.src .en {
+  font-family: var(--serif-en);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+.src .ko {
+  font-size: 13.5px;
+  color: var(--ink-80);
+  line-height: 1.85;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px dashed var(--ink-10);
+  word-break: keep-all;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot {
+  margin-top: 36px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink-10);
+  font-size: 10.5px;
+  color: var(--ink-40);
+  text-align: center;
+  font-family: var(--serif-kr);
+  letter-spacing: 0.03em;
+}
+.foot .pub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-60);
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 540px) {
+  .wrap { padding: 14px 13px 60px; }
+  .brand { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .brand .b-meta { text-align: left; }
+  .guide .g-row { flex-direction: column; gap: 1px; padding-bottom: 4px; }
+  .guide .g-row + .g-row { border-top: 1px dashed var(--ink-10); padding-top: 5px; }
+  .guide .g-when { font-size: 12px; min-width: 0; }
+  .guide .g-sep { display: none; }
+  .guide .g-tools { font-size: 12.5px; }
+  .p-head h2 { font-size: 20px; }
+  .oneline { font-size: 16px; padding: 14px 14px; }
+  .read-sent .chunk { grid-template-columns: 1fr; gap: 1px; }
+  .read-sent .chunk .ck { padding-left: 4px; color: var(--ink-60); font-size: 12px; }
+  .flow-step { padding: 10px 11px; gap: 9px; }
+  .flow-step .kind { flex-basis: 52px; font-size: 10.5px; }
+  .tool > summary { padding: 12px 13px; font-size: 14px; }
+  .tool > summary .thint { display: none; }
+  .metaphor figure { padding: 13px 13px 10px; }
+  .metaphor figcaption { font-size: 12px; }
+}
+</style>
+</head>
+<body class="dev-ipad">
+<div class="wrap">
+
+<!-- 학원 브랜드 헤더 -->
+<header class="brand">
+  <div class="b-title">
+    <h1>지문 이해 보조 자료</h1>
+    <div class="b-sub">수능특강 영어독해연습 11강</div>
+  </div>
+  <div class="b-meta">
+    김가영어학원<br>
+    <span class="en">KIM KA YOUNG ENGLISH</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs"></nav>
+
+<!-- 지문 패널 -->
+<main id="main"></main>
+
+<!-- 콜로폰 -->
+<footer class="foot">
+  김가영어학원 · KIM KA YOUNG ENGLISH &nbsp;·&nbsp; 지문 이해 보조 자료
+  <span class="pub">published by warm &amp; wise books</span>
+</footer>
+
+</div>
+
+<script>
+/* ============================================================
+   데이터 (P.data) — 수능특강 영어독해연습 11강
+   각 지문에 metaphor(SVG 문자열) + caption 필드 추가
+   ============================================================ */
+const P = {"data": [{"no": "1", "title": "Defining the Boundaries of a Field", "ktitle": "분야 경계 정의의 함정", "field": "학문·인식", "page": "11강 Ex.01", "oneline": "한 분야의 경계를 정의하려는 시도는 좁게 긋든 넓게 긋든 위험해, 사실상 어리석은 목표일 수 있다.", "tldr": ["한 분야의 경계를 정의하려는 시도가 소재다.", "너무 좁게 그어도, 너무 넓게 그어도 문제가 생긴다.", "그래서 경계 정의는 ‘어리석은 목표’일 수 있다."], "analogy": "", "bg": "분야는 학문·인식론이에요. 핵심 — 한 분야의 ‘경계를 정의(define boundaries)’하는 일이 사실 어리석은 목표일 수 있다는 것. → 경계를 좁게 긋든 넓게 긋든 어떤 위험이 있는지에 주목하며 읽으세요.", "flow": [{"kind": "통념", "t": "분야는 경계를 명확히 해야 한다"}, {"kind": "문제 ①", "t": "너무 좁게 그으면 위험"}, {"kind": "문제 ②", "t": "너무 넓게 그어도 위험"}, {"kind": "결론", "t": "경계 정의는 무의미할 수 있다"}], "quiz": [["분야 경계를 정의하는 일의 문제는?", "좁게 긋든 넓게 긋든 양쪽 다 위험해 사실상 어려운(무의미한) 목표예요."]], "vocab": [["define the boundaries of", "~의 경계를 정의하다"], ["objective", "목표·목적"], ["foolish", "어리석은"], ["narrow definition", "좁은 정의"], ["exclude", "배제하다·제외하다"], ["absorb", "흡수하다·받아들이다"], ["irrelevant", "무관한·관련 없는"], ["scholar", "학자"], ["proceed", "진행하다·나아가다"], ["tactic", "전략·전술"], ["sociology of markets", "시장 사회학"], ["diffuse", "분산된·널리 퍼진"], ["draw a circle around", "~를 중심으로 원을 그리다·경계 짓다"], ["impose", "부과·강제하다"], ["theoretical", "이론적인"], ["presumably", "짐작건대·아마"], ["leave out", "제외하다·빠뜨리다"], ["relevance", "관련성"], ["audience", "청중·독자"], ["reduce A to B", "A를 B로 축소시키다"]], "en": "Defining the boundaries of a field is, perhaps, a foolish objective. A narrow definition risks excluding issues that should be included. Too broad a definition, on the other hand, risks absorbing research problems that are just too irrelevant. In either case, of course, scholars can choose to ignore your definition. There are several ways one can proceed. One tactic is to focus on which scholars define themselves in the field. The problem with this approach is that the field of the sociology of markets is sufficiently diffuse that there may be multiple communities of scholars with differing concerns contained within it. Even if one could draw a circle around the field, one would still not understand what its focus or questions were. The opposite strategy is to impose a theoretical definition of the field. This approach has the advantage of focusing on a theoretical perspective, presumably of interest to a wide number of scholars. But one is likely to leave out scholars and issues that are of relevance to the field. You may quickly reduce your audience to those who agree with you.", "ko": "한 분야의 경계를 정의하는 것은 어쩌면 어리석은 목표이다. 좁은 정의는 포함되어야 할 주제를 배제할 위험이 있다. 반면에 너무 광범위한 정의는 정말로 너무 무관한 연구 문제까지 흡수할 위험이 있다. 물론 둘 중 어느 경우든, 학자들은 여러분의 정의를 무시하기로 선택할 수 있다. 계속 진행할 수 있는 몇 가지 방법이 있다. 한 가지 전략은 어떤 학자가 자신이 그 분야에 속한다고 정의하는지에 초점을 맞추는 것이다. 이 접근 방식과 관련한 문제점은, 시장 사회학 분야가 충분히 분산되어 있어서 그 안에 서로 다른 관심사를 가진 여러 학자 집단이 존재할 수도 있다는 것이다. 그 분야를 중심으로 원을 그릴 수 있을지라도, 그것의 초점이나 논점이 무엇인지는 여전히 이해가 안 될 것이다. 반대의 전략은 해당 분야에 대한 이론적 정의를 강제하는 것이다. 이 접근 방식은 짐작건대 많은 학자들에게 흥미로운 이론적 관점에 초점을 맞춘다는 장점이 있다. 하지만 해당 분야와 관련성이 있는 학자와 주제를 배제할 가능성이 있다. 여러분의 청중이 여러분에게 동의하는 사람들로 빠르게 축소될 수도 있다.", "read": [{"en": "Defining the boundaries of a field is, perhaps, a foolish objective.", "ko": "한 분야의 경계를 정의하는 것은 어쩌면 어리석은 목표이다.", "chunks": [["Defining the boundaries of a field", "한 분야의 경계를 정의하는 것은"], ["is, perhaps,", "어쩌면 ~이다,"], ["a foolish objective.", "어리석은 목표."]]}, {"en": "A narrow definition risks excluding issues that should be included.", "ko": "좁은 정의는 포함되어야 할 주제를 배제할 위험이 있다.", "chunks": [["A narrow definition", "좁은 정의는"], ["risks excluding", "배제할 위험이 있다"], ["issues that should be included.", "포함되어야 할 주제들을."]]}, {"en": "Too broad a definition, on the other hand, risks absorbing research problems that are just too irrelevant.", "ko": "반면에 너무 광범위한 정의는 정말로 너무 무관한 연구 문제까지 흡수할 위험이 있다.", "chunks": [["Too broad a definition,", "너무 광범위한 정의는,"], ["on the other hand,", "반면에,"], ["risks absorbing", "흡수할 위험이 있다"], ["research problems", "연구 문제들을"], ["that are just too irrelevant.", "정말로 너무 무관한."]]}, {"en": "In either case, of course, scholars can choose to ignore your definition.", "ko": "물론 둘 중 어느 경우든, 학자들은 여러분의 정의를 무시하기로 선택할 수 있다.", "chunks": [["In either case,", "둘 중 어느 경우든,"], ["of course,", "물론,"], ["scholars can choose", "학자들은 선택할 수 있다"], ["to ignore your definition.", "여러분의 정의를 무시하기로."]]}, {"en": "There are several ways one can proceed.", "ko": "계속 진행할 수 있는 몇 가지 방법이 있다.", "chunks": [["There are several ways", "여러 가지 방법이 있다"], ["one can proceed.", "계속 진행할 수 있는."]]}, {"en": "One tactic is to focus on which scholars define themselves in the field.", "ko": "한 가지 전략은 어떤 학자가 자신이 그 분야에 속한다고 정의하는지에 초점을 맞추는 것이다.", "chunks": [["One tactic is", "한 가지 전략은 ~이다"], ["to focus on", "~에 초점을 맞추는 것"], ["which scholars define themselves", "어떤 학자가 자신이 ~라고 정의하는지"], ["in the field.", "그 분야에 속한다고."]]}, {"en": "The problem with this approach is that the field of the sociology of markets is sufficiently diffuse that there may be multiple communities of scholars with differing concerns contained within it.", "ko": "이 접근 방식과 관련한 문제점은, 시장 사회학 분야가 충분히 분산되어 있어서 그 안에 서로 다른 관심사를 가진 여러 학자 집단이 존재할 수도 있다는 것이다.", "chunks": [["The problem with this approach", "이 접근 방식과 관련한 문제점은"], ["is that", "~라는 것이다"], ["the field of the sociology of markets", "시장 사회학 분야가"], ["is sufficiently diffuse", "충분히 분산되어 있어서"], ["that there may be multiple communities of scholars", "여러 학자 집단이 존재할 수도 있다"], ["with differing concerns", "서로 다른 관심사를 가진"], ["contained within it.", "그 안에 포함된."]]}, {"en": "Even if one could draw a circle around the field, one would still not understand what its focus or questions were.", "ko": "그 분야를 중심으로 원을 그릴 수 있을지라도, 그것의 초점이나 논점이 무엇인지는 여전히 이해가 안 될 것이다.", "chunks": [["Even if one could draw a circle", "비록 원을 그릴 수 있을지라도"], ["around the field,", "그 분야를 중심으로,"], ["one would still not understand", "여전히 이해하지 못할 것이다"], ["what its focus or questions were.", "그것의 초점이나 논점이 무엇인지를."]]}, {"en": "The opposite strategy is to impose a theoretical definition of the field.", "ko": "반대의 전략은 해당 분야에 대한 이론적 정의를 강제하는 것이다.", "chunks": [["The opposite strategy", "반대의 전략은"], ["is to impose", "강제하는 것이다"], ["a theoretical definition of the field.", "해당 분야에 대한 이론적 정의를."]]}, {"en": "This approach has the advantage of focusing on a theoretical perspective, presumably of interest to a wide number of scholars.", "ko": "이 접근 방식은 짐작건대 많은 학자들에게 흥미로운 이론적 관점에 초점을 맞춘다는 장점이 있다.", "chunks": [["This approach has the advantage", "이 접근 방식은 장점이 있다"], ["of focusing on a theoretical perspective,", "이론적 관점에 초점을 맞춘다는,"], ["presumably of interest", "짐작건대 흥미로운"], ["to a wide number of scholars.", "많은 학자들에게."]]}, {"en": "But one is likely to leave out scholars and issues that are of relevance to the field.", "ko": "하지만 해당 분야와 관련성이 있는 학자와 주제를 배제할 가능성이 있다.", "chunks": [["But one is likely to leave out", "하지만 ~을 배제할 가능성이 있다"], ["scholars and issues", "학자와 주제들을"], ["that are of relevance to the field.", "해당 분야와 관련성이 있는."]]}, {"en": "You may quickly reduce your audience to those who agree with you.", "ko": "여러분의 청중이 여러분에게 동의하는 사람들로 빠르게 축소될 수도 있다.", "chunks": [["You may quickly reduce", "여러분은 빠르게 축소할 수도 있다"], ["your audience", "여러분의 청중을"], ["to those who agree with you.", "여러분에게 동의하는 사람들로."]]}], "metaphor": "<svg viewBox=\"0 0 600 270\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"가운데 분야 경계 원에서 좁히면 포함할 주제가 밖으로 배제되고 넓히면 무관한 문제가 안으로 흡수되어 양쪽 모두 빨강으로 실패하며, 아래 두 전략도 실패해 어리석은 목표가 됨을 보여주는 그림\">\n  <!-- 중앙 경계 원 -->\n  <circle cx=\"300\" cy=\"88\" r=\"46\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.6\"/>\n  <text x=\"300\" y=\"84\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">분야 경계</text>\n  <text x=\"300\" y=\"98\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">a field</text>\n  <!-- 좁히면 → 배제 (좌) -->\n  <text x=\"150\" y=\"40\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">좁히면</text>\n  <path d=\"M 256 80 Q 200 70 158 62\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/>\n  <polygon points=\"158,62 166,62 162,68\" fill=\"#c8102e\"/>\n  <g transform=\"translate(140,62)\"><circle cx=\"0\" cy=\"0\" r=\"10\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.5\"/><line x1=\"-4\" y1=\"-4\" x2=\"4\" y2=\"4\" stroke=\"#c8102e\" stroke-width=\"1.5\"/><line x1=\"4\" y1=\"-4\" x2=\"-4\" y2=\"4\" stroke=\"#c8102e\" stroke-width=\"1.5\"/></g>\n  <text x=\"120\" y=\"88\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">포함할 주제 배제</text>\n  <text x=\"120\" y=\"101\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\">excluded</text>\n  <!-- 넓히면 → 흡수 (우) -->\n  <text x=\"450\" y=\"40\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">넓히면</text>\n  <path d=\"M 460 62 Q 400 70 344 82\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/>\n  <polygon points=\"344,82 352,76 353,85\" fill=\"#c8102e\"/>\n  <g transform=\"translate(470,62)\"><circle cx=\"0\" cy=\"0\" r=\"10\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.5\"/><line x1=\"-4\" y1=\"-4\" x2=\"4\" y2=\"4\" stroke=\"#c8102e\" stroke-width=\"1.5\"/><line x1=\"4\" y1=\"-4\" x2=\"-4\" y2=\"4\" stroke=\"#c8102e\" stroke-width=\"1.5\"/></g>\n  <text x=\"490\" y=\"88\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">무관 문제 흡수</text>\n  <text x=\"490\" y=\"101\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\">absorbed</text>\n  <!-- 두 전략 (둘 다 실패) -->\n  <text x=\"300\" y=\"158\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#5e5e5e\">두 해결 전략도 실패</text>\n  <g transform=\"translate(60,168)\">\n    <rect x=\"0\" y=\"0\" width=\"225\" height=\"42\" rx=\"5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.3\" stroke-dasharray=\"4 3\"/>\n    <text x=\"112\" y=\"18\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">전략① 자기 정의</text>\n    <text x=\"112\" y=\"33\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#c8102e\">→ 분야가 분산돼 무의미</text>\n  </g>\n  <g transform=\"translate(315,168)\">\n    <rect x=\"0\" y=\"0\" width=\"225\" height=\"42\" rx=\"5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.3\" stroke-dasharray=\"4 3\"/>\n    <text x=\"112\" y=\"18\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">전략② 이론적 정의 강제</text>\n    <text x=\"112\" y=\"33\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#c8102e\">→ 관련 학자·주제까지 배제</text>\n  </g>\n  <!-- 결론 -->\n  <text x=\"300\" y=\"238\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">either way, scholars can ignore it → a foolish objective</text>\n  <text x=\"300\" y=\"256\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">어느 쪽이든 학자가 무시하면 그만 — 경계 정의는 어리석은 목표</text>\n</svg>", "caption": "가운데 분야 경계 원에서 좁히면 포함할 주제가 밖으로 배제되고 넓히면 무관한 문제가 안으로 흡수되어 양쪽 모두 빨강으로 실패하며, 아래 두 전략도 실패해 어리석은 목표가 됨을 보여주는 그림"}, {"no": "2", "title": "The Deep Ocean Is No Longer Out of Reach", "ktitle": "더 이상 멀지 않은 심해", "field": "환경·해양", "page": "11강 Ex.02", "oneline": "인간 손길 밖이라 여겨지던 심해가 이제는 더 이상 그렇지 않다.", "tldr": ["심해는 오랫동안 인간 손길 밖이라 여겨졌다.", "그러나 이제는 더 이상 그렇지 않다.", "인간 활동이 심해까지 닿고 있다."], "analogy": "", "bg": "분야는 환경·해양이에요. ‘심해(deep ocean)는 인간 손길 밖’이라는 통념이 배경. → 심해가 더 이상 그렇지 않게 된 현실에 주목하며 읽으세요.", "flow": [{"kind": "통념", "t": "심해 = 인간 손길 밖"}, {"kind": "반전", "t": "더 이상 그렇지 않다"}, {"kind": "전개", "t": "인간 활동이 심해에 도달"}, {"kind": "함의", "t": "심해도 위협에 노출"}], "quiz": [["심해에 대한 통념은?", "인간의 손길이 닿지 않는 곳이라는 거예요."], ["글이 말하는 현실은?", "이제 심해도 인간 영향 밖이 아니에요."]], "vocab": [["out of sight and out of mind", "보이지도 않고 마음에도 없는·관심 밖의"], ["deep ocean", "심해"], ["vast", "광활한·광대한"], ["substantially", "크게·상당히"], ["mistakenness", "잘못됨·오류"], ["coastal", "해안의·연안의"], ["use up", "다 써 버리다·고갈시키다"], ["fishery", "어장·수산업"], ["fossil hydrocarbon", "화석 탄화수소"], ["exploitation", "이용·개발·착취"], ["extract", "추출하다·뽑아내다"], ["mineral", "광물·미네랄"], ["biochemical", "생화학적인"], ["depletion", "고갈·소실"], ["acidification", "산성화"], ["carbon dioxide concentration", "이산화탄소 농도"], ["ecosystem", "생태계"], ["recover from", "~로부터 회복하다"]], "en": "For most people, the deep ocean is out of sight and out of mind. Not long ago, common (even academic) thinking was that the ocean was so vast that humans were not capable of changing it substantially. This was especially true for the deep sea away from coastal human concentrations. The mistakenness of this idea is becoming increasingly clear. As we use up coastal resources such as fisheries and fossil hydrocarbons, we have moved into increasingly deeper water to continue exploitation. Also, new methods are being developed for extracting from the deep ocean new resources, such as important minerals rare on the continents, or for exploiting unusual biochemical characteristics of deep-sea organisms. Meanwhile, as we explore, we are increasingly finding the results of human activities, including plastics and other pollution as well as temperature changes, oxygen depletion, and acidification from increasing carbon dioxide concentrations. We are also learning how very long it would take ecosystems of the deep ocean to recover from damages we may cause.", "ko": "대부분의 사람에게 심해는 보이지도 않고 마음에도 없다. 얼마 전까지만 해도, 일반인의 (심지어 학계의) 생각은 바다가 매우 광활하여 인간이 그것을 크게 변화시킬 수 없다는 것이었다. 이것은 해안의 인구 집중 지역에서 멀리 떨어진 심해의 경우에 특히 그러했다. 이러한 생각이 잘못되었음이 점점 더 분명해지고 있다. 우리가 어장과 화석 탄화수소와 같은 해안 자원을 고갈시킴에 따라, 우리는 이용을 계속하기 위해 점점 더 더욱 깊은 바다로 나아갔다. 또한 심해로부터 육지에서는 희귀한 주요 광물 같은 새로운 자원을 추출하거나, 심해 생물의 특이한 생화학적 특성을 이용하기 위한 새로운 방법들이 개발되고 있다. 그러는 사이에 우리는 탐사하면서 이산화탄소 농도 증가로 인한 온도 변화, 산소 고갈, 그리고 산성화뿐만 아니라 플라스틱 및 기타 오염물도 포함하여 인간 활동의 결과를 점점 더 많이 발견하고 있다. 우리는 또한 우리가 초래할 수도 있는 손상으로부터 심해 생태계가 회복하는 데 정말로 얼마나 오랜 시간이 걸릴 것인지를 깨닫고 있다.", "read": [{"en": "For most people, the deep ocean is out of sight and out of mind.", "ko": "대부분의 사람에게 심해는 보이지도 않고 마음에도 없다.", "chunks": [["For most people,", "대부분의 사람에게,"], ["the deep ocean is", "심해는 ~이다"], ["out of sight and out of mind.", "보이지도 않고 마음에도 없는."]]}, {"en": "Not long ago, common (even academic) thinking was that the ocean was so vast that humans were not capable of changing it substantially.", "ko": "얼마 전까지만 해도, 일반인의 (심지어 학계의) 생각은 바다가 매우 광활하여 인간이 그것을 크게 변화시킬 수 없다는 것이었다.", "chunks": [["Not long ago,", "얼마 전까지만 해도,"], ["common (even academic) thinking was", "일반인의 (심지어 학계의) 생각은 ~이었다"], ["that the ocean was so vast", "바다가 매우 광활하여"], ["that humans were not capable of changing it", "인간이 그것을 변화시킬 수 없다는"], ["substantially.", "크게."]]}, {"en": "This was especially true for the deep sea away from coastal human concentrations.", "ko": "이것은 해안의 인구 집중 지역에서 멀리 떨어진 심해의 경우에 특히 그러했다.", "chunks": [["This was especially true", "이것은 특히 그러했다"], ["for the deep sea", "심해의 경우에"], ["away from coastal human concentrations.", "해안의 인구 집중 지역에서 멀리 떨어진."]]}, {"en": "The mistakenness of this idea is becoming increasingly clear.", "ko": "이러한 생각이 잘못되었음이 점점 더 분명해지고 있다.", "chunks": [["The mistakenness of this idea", "이러한 생각이 잘못되었음이"], ["is becoming increasingly clear.", "점점 더 분명해지고 있다."]]}, {"en": "As we use up coastal resources such as fisheries and fossil hydrocarbons, we have moved into increasingly deeper water to continue exploitation.", "ko": "우리가 어장과 화석 탄화수소와 같은 해안 자원을 고갈시킴에 따라, 우리는 이용을 계속하기 위해 점점 더 더욱 깊은 바다로 나아갔다.", "chunks": [["As we use up coastal resources", "우리가 해안 자원을 고갈시킴에 따라"], ["such as fisheries and fossil hydrocarbons,", "어장과 화석 탄화수소와 같은,"], ["we have moved into", "우리는 이동했다"], ["increasingly deeper water", "점점 더 깊은 바다로"], ["to continue exploitation.", "이용을 계속하기 위해."]]}, {"en": "Also, new methods are being developed for extracting from the deep ocean new resources, such as important minerals rare on the continents, or for exploiting unusual biochemical characteristics of deep-sea organisms.", "ko": "또한 심해로부터 육지에서는 희귀한 주요 광물 같은 새로운 자원을 추출하거나, 심해 생물의 특이한 생화학적 특성을 이용하기 위한 새로운 방법들이 개발되고 있다.", "chunks": [["Also, new methods are being developed", "또한 새로운 방법들이 개발되고 있다"], ["for extracting from the deep ocean", "심해로부터 추출하기 위한"], ["new resources,", "새로운 자원을,"], ["such as important minerals rare on the continents,", "육지에서 희귀한 주요 광물 같은,"], ["or for exploiting", "또는 이용하기 위해"], ["unusual biochemical characteristics of deep-sea organisms.", "심해 생물의 특이한 생화학적 특성을."]]}, {"en": "Meanwhile, as we explore, we are increasingly finding the results of human activities, including plastics and other pollution as well as temperature changes, oxygen depletion, and acidification from increasing carbon dioxide concentrations.", "ko": "그러는 사이에 우리는 탐사하면서 이산화탄소 농도 증가로 인한 온도 변화, 산소 고갈, 그리고 산성화뿐만 아니라 플라스틱 및 기타 오염물도 포함하여 인간 활동의 결과를 점점 더 많이 발견하고 있다.", "chunks": [["Meanwhile, as we explore,", "그러는 사이에, 우리는 탐사하면서,"], ["we are increasingly finding", "점점 더 많이 발견하고 있다"], ["the results of human activities,", "인간 활동의 결과를,"], ["including plastics and other pollution", "플라스틱 및 기타 오염물도 포함하여"], ["as well as temperature changes,", "온도 변화뿐만 아니라,"], ["oxygen depletion,", "산소 고갈,"], ["and acidification from increasing carbon dioxide concentrations.", "그리고 이산화탄소 농도 증가로 인한 산성화."]]}, {"en": "We are also learning how very long it would take ecosystems of the deep ocean to recover from damages we may cause.", "ko": "우리는 또한 우리가 초래할 수도 있는 손상으로부터 심해 생태계가 회복하는 데 정말로 얼마나 오랜 시간이 걸릴 것인지를 깨닫고 있다.", "chunks": [["We are also learning", "우리는 또한 깨닫고 있다"], ["how very long it would take", "얼마나 오랜 시간이 걸릴 것인지"], ["ecosystems of the deep ocean", "심해 생태계가"], ["to recover from damages", "손상으로부터 회복하는 데"], ["we may cause.", "우리가 초래할 수도 있는."]]}], "metaphor": "<svg viewBox=\"0 0 600 268\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"바다 단면도. 왼쪽 과거는 인간 손이 닿지 않는 회색 심해, 오른쪽 현재는 해안 고갈과 새 기술로 인간이 심해로 진출해 플라스틱 온도 산소 산성화의 흔적을 남긴 모습을 빨강으로 표시\">\n  <!-- 수면 -->\n  <line x1=\"20\" y1=\"52\" x2=\"580\" y2=\"52\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n  <g stroke=\"#999\" stroke-width=\"0.9\" fill=\"none\"><path d=\"M 40 60 Q 55 56 70 60\"/><path d=\"M 110 60 Q 125 56 140 60\"/><path d=\"M 470 60 Q 485 56 500 60\"/><path d=\"M 530 60 Q 545 56 560 60\"/></g>\n  <!-- 바다 본체 -->\n  <rect x=\"20\" y=\"52\" width=\"560\" height=\"180\" fill=\"#f6f6f6\"/>\n  <!-- 좌우 구분선 -->\n  <line x1=\"300\" y1=\"52\" x2=\"300\" y2=\"232\" stroke=\"#ccc\" stroke-width=\"1\" stroke-dasharray=\"4 3\"/>\n  <!-- 좌: 과거 (회색, out of reach) -->\n  <text x=\"160\" y=\"44\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#5e5e5e\">과거 — out of reach</text>\n  <text x=\"160\" y=\"135\" font-family=\"Noto Serif KR\" font-size=\"10\" text-anchor=\"middle\" fill=\"#999\">너무 광활 →</text>\n  <text x=\"160\" y=\"151\" font-family=\"Noto Serif KR\" font-size=\"10\" text-anchor=\"middle\" fill=\"#999\">인간이 못 바꾼다(통념)</text>\n  <text x=\"160\" y=\"172\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#999\">vast · untouched</text>\n  <!-- 우: 현재 (빨강 흔적) -->\n  <text x=\"445\" y=\"44\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">현재 — 인간 흔적이 심해까지</text>\n  <!-- 진출 화살표 (해안 고갈 + 새 기술) -->\n  <path d=\"M 320 60 Q 360 110 400 200\" fill=\"none\" stroke=\"#c8102e\" stroke-width=\"1.6\" stroke-dasharray=\"5 3\"/>\n  <polygon points=\"400,200 393,193 405,191\" fill=\"#c8102e\"/>\n  <text x=\"355\" y=\"80\" font-family=\"Noto Serif KR\" font-size=\"8.5\" fill=\"#c8102e\" font-weight=\"700\">해안 고갈 + 새 기술 → 진출</text>\n  <!-- 4 흔적 마커 (빨강) -->\n  <g font-family=\"Noto Serif KR\" font-size=\"8.5\" font-weight=\"700\">\n    <g transform=\"translate(470,95)\"><rect x=\"-9\" y=\"-9\" width=\"18\" height=\"22\" rx=\"2\" fill=\"#fff\" stroke=\"#c8102e\" stroke-width=\"1.3\"/><rect x=\"-4\" y=\"-13\" width=\"8\" height=\"5\" fill=\"#c8102e\"/><text x=\"22\" y=\"3\" fill=\"#c8102e\">플라스틱</text></g>\n    <g transform=\"translate(470,135)\"><line x1=\"0\" y1=\"-10\" x2=\"0\" y2=\"7\" stroke=\"#c8102e\" stroke-width=\"1.5\"/><circle cx=\"0\" cy=\"9\" r=\"4.5\" fill=\"#c8102e\"/><path d=\"M 4 -10 l 5 -3 M 4 -5 l 5 -3\" stroke=\"#c8102e\" stroke-width=\"1.2\"/><text x=\"22\" y=\"4\" fill=\"#c8102e\">온도 변화 ↑</text></g>\n    <g transform=\"translate(470,172)\"><circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"#fff\" stroke=\"#c8102e\" stroke-width=\"1.3\"/><text x=\"0\" y=\"3\" font-family=\"Noto Serif\" font-size=\"8\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">O₂↓</text><text x=\"22\" y=\"3\" fill=\"#c8102e\">산소 고갈</text></g>\n    <g transform=\"translate(470,205)\"><circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"#fff\" stroke=\"#c8102e\" stroke-width=\"1.3\"/><text x=\"0\" y=\"3\" font-family=\"Noto Serif\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">pH↓</text><text x=\"22\" y=\"3\" fill=\"#c8102e\">산성화</text></g>\n  </g>\n  <!-- 하단 -->\n  <text x=\"300\" y=\"252\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">already changing it — and recovery takes a very long time</text>\n</svg>", "caption": "바다 단면도. 왼쪽 과거는 인간 손이 닿지 않는 회색 심해, 오른쪽 현재는 해안 고갈과 새 기술로 인간이 심해로 진출해 플라스틱 온도 산소 산성화의 흔적을 남긴 모습을 빨강으로 표시"}, {"no": "3", "title": "Animal Feelings and Human Supremacy", "ktitle": "동물 감정과 인간 우월주의", "field": "윤리·동물", "page": "11강 Ex.03", "oneline": "동물 감정 인식은 생물학적 사실만이 아니라 사회적으로 구성되며, 인간 우월주의가 작용한다.", "tldr": ["동물의 감정 인식은 생물학적 사실만의 문제가 아니다.", "그것은 사회적으로 구성되는 면이 있다.", "인간 우월주의가 그 인식에 작용한다."], "analogy": "", "bg": "분야는 윤리·동물이에요. ‘동물의 감정 인식’이 단순 생물학적 사실인지, 사회적으로 구성되는지가 핵심. → 동물 감정에 대한 인식이 무엇에 좌우되는지에 주목하며 읽으세요.", "flow": [{"kind": "통념", "t": "동물 감정 = 생물학적 사실"}, {"kind": "반론", "t": "사회적으로 구성되기도 함"}, {"kind": "전개", "t": "인간 우월주의가 작용"}, {"kind": "결론", "t": "인식은 사실+사회 구성"}], "quiz": [["동물 감정 인식이 ‘사회적 구성’이라는 건?", "순수 생물학적 사실이 아니라 사회·인식 틀에 따라 달라진다는 거예요."]], "vocab": [["acknowledge", "인정하다·시인하다"], ["not necessarily", "반드시 ~은 아닌"], ["perceive", "인식하다·인지하다"], ["setting", "환경·맥락·상황"], ["research laboratory", "연구 실험실"], ["deprive A of B", "A에게서 B를 박탈하다"], ["legally and illegally", "합법·불법으로"], ["pandemic", "팬데믹·세계적 유행병"], ["buffer", "완충물·완화 장치"], ["emotional capacity", "감정 능력"], ["flow-on effect", "연동 효과·파급 효과"], ["wellbeing", "복지·안녕"], ["human-dominated", "인간이 지배하는"], ["contradictory", "상충하는·모순되는"], ["supremacy", "우월성·우위"], ["biological fact", "생물학적 사실"], ["social construct", "사회적 구성 개념"], ["dominant", "지배적인·우세한"]], "en": "Acknowledging that some animals can experience feelings ─ although not necessarily in a way that humans can understand ─ directly affects the way that different animals are perceived and treated in many settings, not just research laboratories. Animals are eaten, worn, deprived of their freedom and natural environments, legally and illegally sold, blamed for pandemics and used as a buffer to loneliness, to name just a few. In all these scenarios, the existence and extent of their emotional capacity is perceived differently both between and within species, with a direct flow-on effect on their life experiences and wellbeing in a human-dominated world. Questioning the basis for these at times contradictory perceptions of different species, or members of the same species in different environments, reveals the extent of human supremacy. It also reveals that perception of emotion in animals is not always driven by biological facts. In many cases, this perception is based on a social construct created and maintained by human beings as the more dominant animal. Human perceptions of animal emotions vary across species and contexts, shaping animals' wellbeing in ways that reveal human supremacy and reflect socially constructed beliefs rather than biological facts.", "ko": "비록 반드시 인간이 이해할 수 있는 방식으로는 아닐지라도 일부 동물이 감정을 경험할 수 있다는 것을 인정하는 것은 단지 연구 실험실뿐만이 아니라 다양한 환경에서 여러 동물이 인식되고 대우받는 방식에 직접적으로 영향을 미친다. 몇 개만 예를 들자면, 동물은 잡아먹히고, 착용되고, 자유와 자연 환경을 박탈당하고, 합법적으로 그리고 불법적으로 판매되며, 팬데믹의 원인으로 지목되고, 외로움에 대한 완충물로 사용된다. 이러한 모든 시나리오에서, 동물의 감정 능력의 존재와 정도는 종 간에 그리고 종 내에서도 다르게 인식되며, 인간이 지배하는 세상에서 동물의 삶의 경험과 복지에 직접적인 연동 효과를 미친다. 서로 다른 종의, 혹은 서로 다른 환경에 있는 같은 종 구성원에 대한 이러한 때로는 상충하는 인식의 근거를 따지는 것은 인간 우월성의 정도를 드러낸다. 그것은 또한 동물에게 있는 감정에 대한 인식이 항상 생물학적 사실에 의해 이끌리는 것은 아니라는 점을 드러낸다. 많은 경우, 이러한 인식은 더 지배적인 동물로서의 인간에 의해 창조되고 유지되는 사회적 구성 개념에 기초한다. 동물의 감정에 대한 인간의 인식은 종과 환경에 따라 다르며, 인간의 우월성을 드러내고 생물학적 사실보다는 사회적으로 구성된 생각을 반영하는 방식으로 동물의 복지에 영향을 미친다.", "read": [{"en": "Acknowledging that some animals can experience feelings ─ although not necessarily in a way that humans can understand ─ directly affects the way that different animals are perceived and treated in many settings, not just research laboratories.", "ko": "비록 반드시 인간이 이해할 수 있는 방식으로는 아닐지라도 일부 동물이 감정을 경험할 수 있다는 것을 인정하는 것은 단지 연구 실험실뿐만이 아니라 다양한 환경에서 여러 동물이 인식되고 대우받는 방식에 직접적으로 영향을 미친다.", "chunks": [["Acknowledging that some animals can experience feelings", "일부 동물이 감정을 경험할 수 있다는 것을 인정하는 것은"], ["─ although not necessarily in a way that humans can understand ─", "─ 비록 반드시 인간이 이해할 수 있는 방식으로는 아닐지라도 ─"], ["directly affects the way", "방식에 직접적으로 영향을 미친다"], ["that different animals are perceived and treated", "여러 동물이 인식되고 대우받는"], ["in many settings,", "다양한 환경에서,"], ["not just research laboratories.", "단지 연구 실험실뿐만이 아니라."]]}, {"en": "Animals are eaten, worn, deprived of their freedom and natural environments, legally and illegally sold, blamed for pandemics and used as a buffer to loneliness, to name just a few.", "ko": "몇 개만 예를 들자면, 동물은 잡아먹히고, 착용되고, 자유와 자연 환경을 박탈당하고, 합법적으로 그리고 불법적으로 판매되며, 팬데믹의 원인으로 지목되고, 외로움에 대한 완충물로 사용된다.", "chunks": [["Animals are eaten, worn,", "동물은 잡아먹히고, 착용되고,"], ["deprived of their freedom and natural environments,", "자유와 자연 환경을 박탈당하고,"], ["legally and illegally sold,", "합법적으로 그리고 불법적으로 판매되며,"], ["blamed for pandemics", "팬데믹의 원인으로 지목되고,"], ["and used as a buffer to loneliness,", "그리고 외로움에 대한 완충물로 사용된다,"], ["to name just a few.", "몇 개만 예를 들자면."]]}, {"en": "In all these scenarios, the existence and extent of their emotional capacity is perceived differently both between and within species, with a direct flow-on effect on their life experiences and wellbeing in a human-dominated world.", "ko": "이러한 모든 시나리오에서, 동물의 감정 능력의 존재와 정도는 종 간에 그리고 종 내에서도 다르게 인식되며, 인간이 지배하는 세상에서 동물의 삶의 경험과 복지에 직접적인 연동 효과를 미친다.", "chunks": [["In all these scenarios,", "이러한 모든 시나리오에서,"], ["the existence and extent of their emotional capacity", "동물의 감정 능력의 존재와 정도는"], ["is perceived differently", "다르게 인식된다"], ["both between and within species,", "종 간에 그리고 종 내에서도,"], ["with a direct flow-on effect", "직접적인 연동 효과를 미치며"], ["on their life experiences and wellbeing", "동물의 삶의 경험과 복지에"], ["in a human-dominated world.", "인간이 지배하는 세상에서."]]}, {"en": "Questioning the basis for these at times contradictory perceptions of different species, or members of the same species in different environments, reveals the extent of human supremacy.", "ko": "서로 다른 종의, 혹은 서로 다른 환경에 있는 같은 종 구성원에 대한 이러한 때로는 상충하는 인식의 근거를 따지는 것은 인간 우월성의 정도를 드러낸다.", "chunks": [["Questioning the basis for", "근거를 따지는 것은"], ["these at times contradictory perceptions", "때로는 상충하는 이러한 인식들의"], ["of different species,", "서로 다른 종의,"], ["or members of the same species", "혹은 같은 종 구성원의"], ["in different environments,", "서로 다른 환경에 있는,"], ["reveals the extent of human supremacy.", "인간 우월성의 정도를 드러낸다."]]}, {"en": "It also reveals that perception of emotion in animals is not always driven by biological facts.", "ko": "그것은 또한 동물에게 있는 감정에 대한 인식이 항상 생물학적 사실에 의해 이끌리는 것은 아니라는 점을 드러낸다.", "chunks": [["It also reveals that", "그것은 또한 ~을 드러낸다"], ["perception of emotion in animals", "동물에게 있는 감정에 대한 인식이"], ["is not always driven by", "항상 ~에 의해 이끌리는 것은 아니라는"], ["biological facts.", "생물학적 사실."]]}, {"en": "In many cases, this perception is based on a social construct created and maintained by human beings as the more dominant animal.", "ko": "많은 경우, 이러한 인식은 더 지배적인 동물로서의 인간에 의해 창조되고 유지되는 사회적 구성 개념에 기초한다.", "chunks": [["In many cases,", "많은 경우,"], ["this perception is based on", "이러한 인식은 ~에 기초한다"], ["a social construct", "사회적 구성 개념"], ["created and maintained by human beings", "인간에 의해 창조되고 유지되는"], ["as the more dominant animal.", "더 지배적인 동물로서."]]}, {"en": "Human perceptions of animal emotions vary across species and contexts, shaping animals' wellbeing in ways that reveal human supremacy and reflect socially constructed beliefs rather than biological facts.", "ko": "동물의 감정에 대한 인간의 인식은 종과 환경에 따라 다르며, 인간의 우월성을 드러내고 생물학적 사실보다는 사회적으로 구성된 생각을 반영하는 방식으로 동물의 복지에 영향을 미친다.", "chunks": [["Human perceptions of animal emotions", "동물의 감정에 대한 인간의 인식은"], ["vary across species and contexts,", "종과 환경에 따라 다르며,"], ["shaping animals' wellbeing", "동물의 복지에 영향을 미치며"], ["in ways that reveal human supremacy", "인간의 우월성을 드러내는 방식으로"], ["and reflect socially constructed beliefs", "그리고 사회적으로 구성된 생각을 반영하는"], ["rather than biological facts.", "생물학적 사실보다는."]]}], "metaphor": "<svg viewBox=\"0 0 600 270\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽 생물학적으로 유사한 감정 능력을 지닌 여러 동물이 가운데 인간 우월성이라는 렌즈를 통과하면서, 오른쪽에서는 어떤 동물은 공감받고 어떤 동물은 이용되는 모순된 인식으로 갈리는 그림\">\n  <!-- 좌: 생물학적으로 유사한 동물들 -->\n  <text x=\"95\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">유사한 감정 능력</text>\n  <text x=\"95\" y=\"46\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">(biological fact)</text>\n  <!-- 개 -->\n  <g transform=\"translate(60,80)\">\n    <ellipse cx=\"0\" cy=\"0\" rx=\"16\" ry=\"9\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <circle cx=\"-14\" cy=\"-4\" r=\"7\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <ellipse cx=\"-18\" cy=\"-9\" rx=\"2.5\" ry=\"4\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n    <circle cx=\"-16\" cy=\"-4\" r=\"0.9\" fill=\"#1a1a1a\"/>\n    <path d=\"M 16 -2 Q 22 -8 24 -12\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"-2\" y=\"22\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">dog</text>\n  </g>\n  <!-- 돼지 -->\n  <g transform=\"translate(60,125)\">\n    <ellipse cx=\"0\" cy=\"0\" rx=\"17\" ry=\"10\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <circle cx=\"15\" cy=\"-2\" r=\"7\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <ellipse cx=\"20\" cy=\"-2\" rx=\"3\" ry=\"2.5\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n    <circle cx=\"13\" cy=\"-4\" r=\"0.9\" fill=\"#1a1a1a\"/>\n    <path d=\"M -16 2 Q -22 4 -22 -2\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n    <text x=\"0\" y=\"24\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">pig</text>\n  </g>\n  <!-- 소 -->\n  <g transform=\"translate(60,170)\">\n    <ellipse cx=\"0\" cy=\"0\" rx=\"18\" ry=\"10\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <circle cx=\"16\" cy=\"-3\" r=\"6\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <path d=\"M 13 -8 Q 11 -12 14 -11 M 19 -8 Q 21 -12 18 -11\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n    <circle cx=\"15\" cy=\"-3\" r=\"0.9\" fill=\"#1a1a1a\"/>\n    <text x=\"0\" y=\"24\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">cow</text>\n  </g>\n  <!-- 화살표 → 렌즈 -->\n  <line x1=\"95\" y1=\"125\" x2=\"175\" y2=\"125\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/><polygon points=\"175,125 167,121 167,129\" fill=\"#1a1a1a\"/>\n  <!-- 가운데 렌즈 (인간 우월성 · 사회적 구성) -->\n  <g transform=\"translate(230,125)\">\n    <ellipse cx=\"0\" cy=\"0\" rx=\"30\" ry=\"58\" fill=\"#fdf2f4\" fill-opacity=\"0.5\" stroke=\"#c8102e\" stroke-width=\"2\"/>\n    <line x1=\"0\" y1=\"-58\" x2=\"0\" y2=\"58\" stroke=\"#c8102e\" stroke-width=\"1\" stroke-dasharray=\"3 2\"/>\n    <text x=\"0\" y=\"-2\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">인간</text>\n    <text x=\"0\" y=\"11\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">우월성</text>\n    <text x=\"0\" y=\"78\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#c8102e\">social construct</text>\n  </g>\n  <line x1=\"262\" y1=\"125\" x2=\"340\" y2=\"100\" stroke=\"#c8102e\" stroke-width=\"1.3\" stroke-dasharray=\"3 2\"/>\n  <line x1=\"262\" y1=\"125\" x2=\"340\" y2=\"170\" stroke=\"#c8102e\" stroke-width=\"1.3\" stroke-dasharray=\"3 2\"/>\n  <!-- 우: 모순된 인식 -->\n  <text x=\"455\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">모순된 인식·대우</text>\n  <!-- 공감받음 (초록) -->\n  <g transform=\"translate(350,72)\">\n    <rect x=\"0\" y=\"0\" width=\"215\" height=\"46\" rx=\"6\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n    <g transform=\"translate(22,23)\"><circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#fff\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/><path d=\"M -4 0 L -1 3.5 L 5 -4\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1.7\"/></g>\n    <text x=\"130\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">감정 인정 · 공감</text>\n    <text x=\"130\" y=\"35\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">feelings acknowledged (e.g. pet)</text>\n  </g>\n  <!-- 이용됨 (빨강) -->\n  <g transform=\"translate(350,148)\">\n    <rect x=\"0\" y=\"0\" width=\"215\" height=\"46\" rx=\"6\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.5\"/>\n    <g transform=\"translate(22,23)\"><circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#fff\" stroke=\"#c8102e\" stroke-width=\"1.3\"/><line x1=\"-4\" y1=\"-4\" x2=\"4\" y2=\"4\" stroke=\"#c8102e\" stroke-width=\"1.6\"/><line x1=\"4\" y1=\"-4\" x2=\"-4\" y2=\"4\" stroke=\"#c8102e\" stroke-width=\"1.6\"/></g>\n    <text x=\"130\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">감정 무시 · 이용</text>\n    <text x=\"130\" y=\"35\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#c8102e\">eaten · worn · used</text>\n  </g>\n  <!-- 하단 -->\n  <text x=\"300\" y=\"253\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">biology alone can't explain it — a social construct decides</text>\n</svg>", "caption": "왼쪽 생물학적으로 유사한 감정 능력을 지닌 여러 동물이 가운데 인간 우월성이라는 렌즈를 통과하면서, 오른쪽에서는 어떤 동물은 공감받고 어떤 동물은 이용되는 모순된 인식으로 갈리는 그림"}, {"no": "4", "title": "Limits of the Experimental Method — The Tariff Example", "ktitle": "실험 방법의 한계 — 관세 사례", "field": "과학방법·사회과학", "page": "11강 Ex.04", "oneline": "사회 과학에선 변수를 통제할 수 없어 실험 방법에 본질적 한계가 있다(관세 예시).", "tldr": ["실험 방법은 변수 통제에 의존한다.", "사회 과학에선 변수를 통제할 수 없다(관세 예).", "그래서 실험 방법에 본질적 한계가 있다."], "analogy": "", "bg": "분야는 과학 방법론이에요. 핵심 — 사회 과학에선 변수를 통제할 수 없어 ‘실험 방법(experimental method)’에 한계가 있다는 것(관세 예시). → 자연과학과 달리 무엇이 안 되는지에 주목하며 읽으세요.", "flow": [{"kind": "전제", "t": "실험 = 변수 통제"}, {"kind": "문제", "t": "사회과학은 변수 통제 불가"}, {"kind": "예시", "t": "관세(tariff) 사례"}, {"kind": "결론", "t": "실험 방법의 한계"}], "quiz": [["사회 과학에서 실험 방법의 한계는?", "변수를 통제할 수 없어서예요(관세 사례)."]], "vocab": [["limit", "한계·제약"], ["experimental method", "실험 방법·실험법"], ["control", "통제·제어하다"], ["significant", "중요한·의미 있는"], ["controlled experiment", "통제된 실험"], ["investigator", "연구자·조사자"], ["prove or disprove", "증명하거나 반증하다"], ["proposition", "명제·제안"], ["tariff", "관세"], ["prosperity", "번영·번창"], ["hold constant", "일정하게 유지하다·통제하다"], ["sustained", "지속적인·꾸준한"], ["substantial", "상당한·실질적인"], ["thesis", "명제·논제"], ["duties", "관세 (= tariffs)"], ["tariff policy", "관세 정책"], ["in effect", "시행 중인·실제로"], ["strike", "파업"], ["establishment", "설립·확립"], ["doubtless", "의심할 여지 없이·필시"]], "en": "There are limits to the use of the experimental method when a scientist cannot control the situations that are significant for the solution of problems. In the social sciences, less use can be made of the method of controlled experiment because the investigator cannot control the situations. For example, one way to prove or disprove the proposition that high tariffs bring prosperity would be to apply very heavy tariffs to all goods entering the United States for a considerable period of time, while holding constant all other factors affecting business activity. If a sustained increase in prosperity followed, we would then have substantial evidence to support the thesis that high duties are a cause of prosperity. No investigator can control the country's tariff policy; and even if she could, while the high tariff was in effect, many other social changes would be taking place, such as strikes, the establishment of new industries, and perhaps even wars. Some of these other changes would doubtless have much more influence on the state of national prosperity than would the high tariff and would make it impossible to separate out the effects of the high tariff from the effects of all these other events.", "ko": "과학자가 문제 해결에 중요한 상황을 통제할 수 없을 때 실험 방법의 사용에 한계가 있다. 사회 과학에서는, 연구자가 상황을 통제할 수 없기 때문에 통제된 실험 방법이 덜 활용될 수 있다. 예를 들어, 높은 관세가 번영을 가져온다는 명제를 증명하거나 그 오류를 입증하는 한 가지 방법은 경제 활동에 영향을 미치는 다른 모든 요인을 일정하게 유지하면서 상당한 기간 동안 미국에 들어오는 모든 상품에 대해 매우 무거운 관세를 적용하는 것일 터이다. 만약 지속적인 번영의 증가가 이어진다면, 우리는 그렇다면 높은 세금이 번영의 원인이라는 명제를 뒷받침할 상당한 증거를 확보하게 될 것이다. 그 어떤 연구자도 국가의 관세 정책을 통제할 수 없으며, 설령 그렇게 할 수 있다 하더라도 높은 관세가 시행되는 중에 파업, 새로운 산업의 설립, 그리고 어쩌면 심지어 전쟁과 같은 다른 많은 사회적 변화가 일어나고 있을 것이다. 이러한 다른 변화 중 일부는 필시 높은 관세보다 국가 번영 상태에 훨씬 더 큰 영향을 미칠 것이며, 높은 관세의 효과를 이런 다른 모든 사건의 효과와 분리하는 것을 불가능하게 만들 것이다.", "read": [{"en": "There are limits to the use of the experimental method when a scientist cannot control the situations that are significant for the solution of problems.", "ko": "과학자가 문제 해결에 중요한 상황을 통제할 수 없을 때 실험 방법의 사용에 한계가 있다.", "chunks": [["There are limits", "한계가 있다"], ["to the use of the experimental method", "실험 방법의 사용에"], ["when a scientist cannot control the situations", "과학자가 상황을 통제할 수 없을 때"], ["that are significant for the solution of problems.", "문제 해결에 중요한."]]}, {"en": "In the social sciences, less use can be made of the method of controlled experiment because the investigator cannot control the situations.", "ko": "사회 과학에서는, 연구자가 상황을 통제할 수 없기 때문에 통제된 실험 방법이 덜 활용될 수 있다.", "chunks": [["In the social sciences,", "사회 과학에서는,"], ["less use can be made of", "~이 덜 활용될 수 있다"], ["the method of controlled experiment", "통제된 실험 방법이"], ["because the investigator cannot control the situations.", "연구자가 상황을 통제할 수 없기 때문에."]]}, {"en": "For example, one way to prove or disprove the proposition that high tariffs bring prosperity would be to apply very heavy tariffs to all goods entering the United States for a considerable period of time, while holding constant all other factors affecting business activity.", "ko": "예를 들어, 높은 관세가 번영을 가져온다는 명제를 증명하거나 그 오류를 입증하는 한 가지 방법은 경제 활동에 영향을 미치는 다른 모든 요인을 일정하게 유지하면서 상당한 기간 동안 미국에 들어오는 모든 상품에 대해 매우 무거운 관세를 적용하는 것일 터이다.", "chunks": [["For example, one way", "예를 들어, 한 가지 방법은"], ["to prove or disprove the proposition", "명제를 증명하거나 반증하는"], ["that high tariffs bring prosperity", "높은 관세가 번영을 가져온다는"], ["would be to apply very heavy tariffs", "매우 무거운 관세를 적용하는 것일 것이다"], ["to all goods entering the United States", "미국에 들어오는 모든 상품에"], ["for a considerable period of time,", "상당한 기간 동안,"], ["while holding constant all other factors", "다른 모든 요인을 일정하게 유지하면서"], ["affecting business activity.", "경제 활동에 영향을 미치는."]]}, {"en": "If a sustained increase in prosperity followed, we would then have substantial evidence to support the thesis that high duties are a cause of prosperity.", "ko": "만약 지속적인 번영의 증가가 이어진다면, 우리는 그렇다면 높은 세금이 번영의 원인이라는 명제를 뒷받침할 상당한 증거를 확보하게 될 것이다.", "chunks": [["If a sustained increase in prosperity followed,", "만약 지속적인 번영의 증가가 이어진다면,"], ["we would then have substantial evidence", "우리는 그렇다면 상당한 증거를 확보하게 될 것이다"], ["to support the thesis", "명제를 뒷받침할"], ["that high duties are a cause of prosperity.", "높은 세금이 번영의 원인이라는."]]}, {"en": "No investigator can control the country's tariff policy; and even if she could, while the high tariff was in effect, many other social changes would be taking place, such as strikes, the establishment of new industries, and perhaps even wars.", "ko": "그 어떤 연구자도 국가의 관세 정책을 통제할 수 없으며, 설령 그렇게 할 수 있다 하더라도 높은 관세가 시행되는 중에 파업, 새로운 산업의 설립, 그리고 어쩌면 심지어 전쟁과 같은 다른 많은 사회적 변화가 일어나고 있을 것이다.", "chunks": [["No investigator can control", "그 어떤 연구자도 통제할 수 없으며"], ["the country's tariff policy;", "국가의 관세 정책을;"], ["and even if she could,", "설령 그렇게 할 수 있다 하더라도,"], ["while the high tariff was in effect,", "높은 관세가 시행되는 중에,"], ["many other social changes would be taking place,", "다른 많은 사회적 변화가 일어나고 있을 것이다,"], ["such as strikes,", "파업,"], ["the establishment of new industries,", "새로운 산업의 설립,"], ["and perhaps even wars.", "그리고 어쩌면 심지어 전쟁과 같은."]]}, {"en": "Some of these other changes would doubtless have much more influence on the state of national prosperity than would the high tariff and would make it impossible to separate out the effects of the high tariff from the effects of all these other events.", "ko": "이러한 다른 변화 중 일부는 필시 높은 관세보다 국가 번영 상태에 훨씬 더 큰 영향을 미칠 것이며, 높은 관세의 효과를 이런 다른 모든 사건의 효과와 분리하는 것을 불가능하게 만들 것이다.", "chunks": [["Some of these other changes", "이러한 다른 변화 중 일부는"], ["would doubtless have much more influence", "필시 훨씬 더 큰 영향을 미칠 것이며"], ["on the state of national prosperity", "국가 번영 상태에"], ["than would the high tariff", "높은 관세보다"], ["and would make it impossible", "그리고 ~을 불가능하게 만들 것이다"], ["to separate out the effects of the high tariff", "높은 관세의 효과를 분리하는 것을"], ["from the effects of all these other events.", "이런 다른 모든 사건의 효과로부터."]]}], "metaphor": "<svg viewBox=\"0 0 600 268\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽 실험실은 단일 변수를 통제해 깔끔하게 인과를 분리하지만, 오른쪽 사회에서는 고관세에서 번영으로 가는 작은 신호가 파업 신산업 전쟁이라는 큰 교란 변수에 묻혀 효과를 분리할 수 없음을 보여주는 그림\">\n  <!-- 좌: 실험실 (통제 가능) -->\n  <g transform=\"translate(20,40)\">\n    <rect x=\"0\" y=\"0\" width=\"250\" height=\"158\" rx=\"7\" fill=\"#f0faf3\" fill-opacity=\"0.4\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n    <text x=\"125\" y=\"22\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">실험실 — 변수 통제 가능</text>\n    <!-- 단일 변수 입력 → 결과 -->\n    <g transform=\"translate(40,85)\">\n      <rect x=\"0\" y=\"-16\" width=\"46\" height=\"32\" rx=\"4\" fill=\"#fff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n      <text x=\"23\" y=\"4\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\">변수 1개</text>\n    </g>\n    <line x1=\"86\" y1=\"85\" x2=\"135\" y2=\"85\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/><polygon points=\"135,85 127,81 127,89\" fill=\"#1FA34A\"/>\n    <g transform=\"translate(138,85)\">\n      <rect x=\"0\" y=\"-16\" width=\"72\" height=\"32\" rx=\"4\" fill=\"#fff\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n      <text x=\"36\" y=\"-1\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1FA34A\">결과</text>\n      <text x=\"36\" y=\"11\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">cause isolated</text>\n    </g>\n    <text x=\"125\" y=\"138\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">one variable → clean inference</text>\n  </g>\n  <!-- 우: 사회 (통제 불가) -->\n  <g transform=\"translate(330,40)\">\n    <rect x=\"0\" y=\"0\" width=\"250\" height=\"158\" rx=\"7\" fill=\"#fdf2f4\" fill-opacity=\"0.4\" stroke=\"#c8102e\" stroke-width=\"1.5\"/>\n    <text x=\"125\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">사회 — 변수 통제 불가</text>\n    <!-- 작은 신호: 고관세 → 번영? (얇음) -->\n    <text x=\"55\" y=\"40\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">고관세→번영?</text>\n    <line x1=\"28\" y1=\"50\" x2=\"82\" y2=\"50\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/><polygon points=\"82,50 75,47 75,53\" fill=\"#1FA34A\"/>\n    <!-- 큰 교란 변수 3개 (굵음·평행) -->\n    <g stroke=\"#c8102e\" stroke-width=\"3.4\" fill=\"#c8102e\">\n      <line x1=\"28\" y1=\"78\" x2=\"186\" y2=\"78\"/><polygon points=\"186,78 176,73 176,83\"/>\n      <line x1=\"28\" y1=\"106\" x2=\"186\" y2=\"106\"/><polygon points=\"186,106 176,101 176,111\"/>\n      <line x1=\"28\" y1=\"134\" x2=\"186\" y2=\"134\"/><polygon points=\"186,134 176,129 176,139\"/>\n    </g>\n    <g font-family=\"Noto Serif KR\" font-size=\"9\" font-weight=\"700\" fill=\"#c8102e\">\n      <text x=\"195\" y=\"82\">파업</text>\n      <text x=\"195\" y=\"110\">신산업</text>\n      <text x=\"195\" y=\"138\">전쟁</text>\n    </g>\n    <text x=\"100\" y=\"152\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">confounders much larger</text>\n  </g>\n  <!-- 가운데 두 벽 라벨 -->\n  <g transform=\"translate(300,118)\">\n    <text x=\"0\" y=\"-30\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">vs</text>\n  </g>\n  <!-- 하단 두 벽 + 결론 -->\n  <g font-family=\"Noto Serif KR\" font-size=\"8.5\" font-weight=\"700\">\n    <g transform=\"translate(70,212)\"><rect x=\"0\" y=\"0\" width=\"215\" height=\"22\" rx=\"3\" fill=\"#fff\" stroke=\"#c8102e\" stroke-width=\"1.1\"/><text x=\"107\" y=\"15\" text-anchor=\"middle\" fill=\"#c8102e\">벽① 관세 정책 자체 통제 불가</text></g>\n    <g transform=\"translate(315,212)\"><rect x=\"0\" y=\"0\" width=\"215\" height=\"22\" rx=\"3\" fill=\"#fff\" stroke=\"#c8102e\" stroke-width=\"1.1\"/><text x=\"107\" y=\"15\" text-anchor=\"middle\" fill=\"#c8102e\">벽② 다른 변수 동시 변동</text></g>\n  </g>\n  <text x=\"300\" y=\"256\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">the tariff effect can't be isolated — limits of the experimental method</text>\n</svg>", "caption": "왼쪽 실험실은 단일 변수를 통제해 깔끔하게 인과를 분리하지만, 오른쪽 사회에서는 고관세에서 번영으로 가는 작은 신호가 파업 신산업 전쟁이라는 큰 교란 변수에 묻혀 효과를 분리할 수 없음을 보여주는 그림"}, {"no": "5", "title": "Tourism, HRM, and the Cyclical Vulnerability of Employees", "ktitle": "관광 산업 직원의 주기적 취약성", "field": "경영·관광", "page": "11강 Ex.05", "oneline": "관광 산업 직원은 평시엔 최대 자산이지만 위기 때 가장 먼저 희생되는 주기적 취약성을 띤다.", "tldr": ["관광 산업에서 직원은 평시엔 최대 자산이다.", "그러나 위기 때는 가장 먼저 희생된다.", "이 주기적 취약성이 핵심 문제다."], "analogy": "", "bg": "분야는 경영·관광이에요. 관광 산업 직원이 ‘평시엔 최대 자산, 위기엔 희생 대상’이라는 모순이 핵심. → 직원이 왜 ‘주기적으로 취약(cyclical vulnerability)’해지는지에 주목하며 읽으세요.", "flow": [{"kind": "명제", "t": "직원 = 최대 자산"}, {"kind": "반전", "t": "위기엔 가장 먼저 희생"}, {"kind": "전개", "t": "경기 순환에 따른 취약성"}, {"kind": "결론", "t": "주기적 취약성"}], "quiz": [["관광 산업 직원의 모순적 위치는?", "평시엔 최대 자산, 위기엔 가장 먼저 희생되는 거예요."]], "vocab": [["tourism and hospitality industry", "관광·환대 산업"], ["sensitive to", "~에 민감한·취약한"], ["economic cycles", "경제 주기·경기 순환"], ["political trouble", "정치적 혼란·격동"], ["uncertainty", "불확실성"], ["vulnerable to", "~에 취약한"], ["fluctuation", "변동·기복"], ["economic downturn", "경제 침체"], ["outbreak", "발생·발발"], ["fragility", "취약성·연약함"], ["pronounced", "두드러진·뚜렷한"], ["trade union", "노동 조합"], ["rail against", "~에 격분하다·맹비난하다"], ["shock absorber", "충격 흡수재·완충제"], ["cyclical", "순환적·주기적"], ["hard approach", "강경한 접근법"], ["HRM (human resource management)", "인적 자원 관리"], ["redundancy programme", "정리 해고 프로그램"], ["soft approach", "유연한 접근법"], ["customer responsiveness", "고객 대응 능력"]], "en": "The tourism and hospitality industry is particularly sensitive to economic cycles and political trouble and can be badly affected in times of uncertainty. For example, the global nature of the industry means that it is vulnerable to external events that cause fluctuations in tourist visits and spend. The global 2001-2004 economic downturn, 9/11, the Iraq War and the outbreak of SARS all led to a drop in revenue in the industry. These factors reduced the number of travellers internationally and left uncertainty and fragility in the tourism market. Many of these aspects are particularly pronounced in the airline industry and trade unions have often railed against the manner in which employees are used as 'shock absorbers' to protect the industry from the cyclical nature of the market. These hard approaches to HRM have seen major redundancy programmes in a number of airlines in recent years, especially after 9/11. On the other hand, a number of companies have sought a more soft approach to HRM which aimed at increasing the customer responsiveness of their front-line staff. British Airways, for example, had a series of initiatives in the 1980s and 1990s such as 'Putting People First' and 'Winning for Customers'. Among other things, these initiatives sought to introduce teamwork, implement extensive training programmes, enhance quality procedures, and develop multi-skilled staff. As companies alternate between hard and soft approaches to HRM, employees may become confused as to what the company message is. Ultimately, employees may well be a company's 'greatest asset', but in times of uncertainty and downturn are equally expendable as recent history suggests.", "ko": "관광 및 환대 산업은 경제 주기와 정치적 혼란에 특히 민감하며, 불확실한 시기에는 심각한 타격을 받을 수 있다. 예를 들어, 해당 산업의 전 세계적인 특성은 그것이 관광객 방문 및 지출의 변동을 초래하는 외부 사건에 취약하다는 것을 의미한다. 2001년부터 2004년까지의 세계 경제 침체, 9/11 테러, 이라크 전쟁, 그리고 SARS 발생은 모두 해당 산업의 수익 감소로 이어졌다. 이러한 요인들은 국제적으로 여행객 수를 줄였으며, 관광 시장에 불확실성과 취약성을 남겼다. 이러한 측면의 많은 부분은 특히 항공 산업에서 두드러지고, 노동 조합은 시장의 순환적 성격으로부터 해당 산업을 보호하기 위해 직원들이 '충격 흡수재'로 쓰이는 방식에 대해 자주 격분해 왔다. 인적 자원 관리(HRM)에 대한 이러한 강경한 접근법은 특히 9/11 테러 이후 최근에 여러 항공사에서 대규모 정리 해고를 일으켰다. 반면, 다수의 기업들은 고객을 직접 응대하는 직원들의 고객 대응 능력을 향상하는 데 목표를 둔 HRM에 대한 더욱 유연한 접근법을 추구했다. 예를 들어, British Airways는 1980년대와 1990년대에 '사람을 최우선으로'와 '고객을 위한 승리'와 같은 일련의 진취적 계획을 도입하였다. 무엇보다도, 이러한 진취적 계획은 팀워크 도입, 광범위한 교육 프로그램 시행, 수준 높은 서비스 절차 강화, 그리고 다기능 직원 육성을 목표로 하였다. 기업이 HRM에 대한 강경한 접근법과 유연한 접근법을 번갈아 적용하면서, 직원은 회사의 메시지가 무엇인지에 대해 혼란스러워질 수도 있다. 결국, 직원은 아마도 기업의 '가장 큰 자산'이겠지만, 불확실성과 경기 침체의 시기에는 최근의 역사가 보여 주듯이 한편으로는 쉽게 희생될 수 있다.", "read": [{"en": "The tourism and hospitality industry is particularly sensitive to economic cycles and political trouble and can be badly affected in times of uncertainty.", "ko": "관광 및 환대 산업은 경제 주기와 정치적 혼란에 특히 민감하며, 불확실한 시기에는 심각한 타격을 받을 수 있다.", "chunks": [["The tourism and hospitality industry", "관광 및 환대 산업은"], ["is particularly sensitive to", "~에 특히 민감하며"], ["economic cycles and political trouble", "경제 주기와 정치적 혼란"], ["and can be badly affected", "그리고 심각한 타격을 받을 수 있다"], ["in times of uncertainty.", "불확실한 시기에는."]]}, {"en": "For example, the global nature of the industry means that it is vulnerable to external events that cause fluctuations in tourist visits and spend.", "ko": "예를 들어, 해당 산업의 전 세계적인 특성은 그것이 관광객 방문 및 지출의 변동을 초래하는 외부 사건에 취약하다는 것을 의미한다.", "chunks": [["For example,", "예를 들어,"], ["the global nature of the industry", "해당 산업의 전 세계적인 특성은"], ["means that", "~을 의미한다"], ["it is vulnerable to external events", "그것이 외부 사건에 취약하다는 것을"], ["that cause fluctuations in tourist visits and spend.", "관광객 방문 및 지출의 변동을 초래하는."]]}, {"en": "The global 2001-2004 economic downturn, 9/11, the Iraq War and the outbreak of SARS all led to a drop in revenue in the industry.", "ko": "2001년부터 2004년까지의 세계 경제 침체, 9/11 테러, 이라크 전쟁, 그리고 SARS 발생은 모두 해당 산업의 수익 감소로 이어졌다.", "chunks": [["The global 2001-2004 economic downturn,", "2001년부터 2004년까지의 세계 경제 침체,"], ["9/11, the Iraq War", "9/11 테러, 이라크 전쟁"], ["and the outbreak of SARS", "그리고 SARS 발생은"], ["all led to", "모두 ~로 이어졌다"], ["a drop in revenue in the industry.", "해당 산업의 수익 감소."]]}, {"en": "These factors reduced the number of travellers internationally and left uncertainty and fragility in the tourism market.", "ko": "이러한 요인들은 국제적으로 여행객 수를 줄였으며, 관광 시장에 불확실성과 취약성을 남겼다.", "chunks": [["These factors reduced", "이러한 요인들은 줄였다"], ["the number of travellers internationally", "국제적으로 여행객 수를"], ["and left uncertainty and fragility", "그리고 불확실성과 취약성을 남겼다"], ["in the tourism market.", "관광 시장에."]]}, {"en": "Many of these aspects are particularly pronounced in the airline industry and trade unions have often railed against the manner in which employees are used as 'shock absorbers' to protect the industry from the cyclical nature of the market.", "ko": "이러한 측면의 많은 부분은 특히 항공 산업에서 두드러지고, 노동 조합은 시장의 순환적 성격으로부터 해당 산업을 보호하기 위해 직원들이 '충격 흡수재'로 쓰이는 방식에 대해 자주 격분해 왔다.", "chunks": [["Many of these aspects", "이러한 측면의 많은 부분은"], ["are particularly pronounced", "특히 두드러진다"], ["in the airline industry", "항공 산업에서"], ["and trade unions have often railed against", "그리고 노동 조합은 자주 격분해 왔다"], ["the manner in which employees are used", "직원들이 ~로 쓰이는 방식에 대해"], ["as 'shock absorbers'", "'충격 흡수재'로"], ["to protect the industry from", "~로부터 해당 산업을 보호하기 위해"], ["the cyclical nature of the market.", "시장의 순환적 성격."]]}, {"en": "These hard approaches to HRM have seen major redundancy programmes in a number of airlines in recent years, especially after 9/11.", "ko": "인적 자원 관리(HRM)에 대한 이러한 강경한 접근법은 특히 9/11 테러 이후 최근에 여러 항공사에서 대규모 정리 해고를 일으켰다.", "chunks": [["These hard approaches to HRM", "인적 자원 관리(HRM)에 대한 이러한 강경한 접근법은"], ["have seen major redundancy programmes", "대규모 정리 해고를 일으켰다"], ["in a number of airlines in recent years,", "최근 여러 항공사에서,"], ["especially after 9/11.", "특히 9/11 테러 이후."]]}, {"en": "On the other hand, a number of companies have sought a more soft approach to HRM which aimed at increasing the customer responsiveness of their front-line staff.", "ko": "반면, 다수의 기업들은 고객을 직접 응대하는 직원들의 고객 대응 능력을 향상하는 데 목표를 둔 HRM에 대한 더욱 유연한 접근법을 추구했다.", "chunks": [["On the other hand,", "반면,"], ["a number of companies have sought", "다수의 기업들은 추구했다"], ["a more soft approach to HRM", "HRM에 대한 더욱 유연한 접근법을"], ["which aimed at increasing", "향상하는 데 목표를 둔"], ["the customer responsiveness", "고객 대응 능력을"], ["of their front-line staff.", "고객을 직접 응대하는 직원들의."]]}, {"en": "British Airways, for example, had a series of initiatives in the 1980s and 1990s such as 'Putting People First' and 'Winning for Customers'.", "ko": "예를 들어, British Airways는 1980년대와 1990년대에 '사람을 최우선으로'와 '고객을 위한 승리'와 같은 일련의 진취적 계획을 도입하였다.", "chunks": [["British Airways, for example,", "예를 들어, British Airways는"], ["had a series of initiatives", "일련의 진취적 계획을 도입하였다"], ["in the 1980s and 1990s", "1980년대와 1990년대에"], ["such as 'Putting People First'", "'사람을 최우선으로'와 같은"], ["and 'Winning for Customers'.", "그리고 '고객을 위한 승리'."]]}, {"en": "Among other things, these initiatives sought to introduce teamwork, implement extensive training programmes, enhance quality procedures, and develop multi-skilled staff.", "ko": "무엇보다도, 이러한 진취적 계획은 팀워크 도입, 광범위한 교육 프로그램 시행, 수준 높은 서비스 절차 강화, 그리고 다기능 직원 육성을 목표로 하였다.", "chunks": [["Among other things,", "무엇보다도,"], ["these initiatives sought to", "이러한 진취적 계획은 ~을 목표로 하였다"], ["introduce teamwork,", "팀워크 도입,"], ["implement extensive training programmes,", "광범위한 교육 프로그램 시행,"], ["enhance quality procedures,", "수준 높은 서비스 절차 강화,"], ["and develop multi-skilled staff.", "그리고 다기능 직원 육성."]]}, {"en": "As companies alternate between hard and soft approaches to HRM, employees may become confused as to what the company message is.", "ko": "기업이 HRM에 대한 강경한 접근법과 유연한 접근법을 번갈아 적용하면서, 직원은 회사의 메시지가 무엇인지에 대해 혼란스러워질 수도 있다.", "chunks": [["As companies alternate between", "기업이 ~ 사이를 번갈아 적용하면서"], ["hard and soft approaches to HRM,", "HRM에 대한 강경한 접근법과 유연한 접근법,"], ["employees may become confused", "직원은 혼란스러워질 수도 있다"], ["as to what the company message is.", "회사의 메시지가 무엇인지에 대해."]]}, {"en": "Ultimately, employees may well be a company's 'greatest asset', but in times of uncertainty and downturn are equally expendable as recent history suggests.", "ko": "결국, 직원은 아마도 기업의 '가장 큰 자산'이겠지만, 불확실성과 경기 침체의 시기에는 최근의 역사가 보여 주듯이 한편으로는 쉽게 희생될 수 있다.", "chunks": [["Ultimately, employees may well be", "결국, 직원은 아마도 ~일 것이다"], ["a company's 'greatest asset',", "기업의 '가장 큰 자산',"], ["but in times of uncertainty and downturn", "하지만 불확실성과 경기 침체의 시기에는"], ["are equally expendable", "한편으로는 쉽게 희생될 수 있다"], ["as recent history suggests.", "최근의 역사가 보여 주듯이."]]}], "metaphor": "<svg viewBox=\"0 0 600 292\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽 외부 충격이 가운데 직원이라는 충격 흡수재 코일을 거쳐 오른쪽 관광 산업을 보호하고, 그 아래 강경 HRM과 유연 HRM을 왕복하면 직원이 혼란에 빠지며, 맨 아래 평시 최대 자산과 위기 희생의 역설을 보여주는 그림\">\n  <!-- Row1: 충격 → 흡수재 → 산업 -->\n  <g transform=\"translate(20,40)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"66\" rx=\"5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n    <text x=\"75\" y=\"16\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">외부 충격</text>\n    <text x=\"75\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#c8102e\">경기침체 · 9/11</text>\n    <text x=\"75\" y=\"46\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#c8102e\">이라크전 · SARS</text>\n    <text x=\"75\" y=\"60\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\">revenue ↓</text>\n  </g>\n  <line x1=\"172\" y1=\"73\" x2=\"208\" y2=\"73\" stroke=\"#c8102e\" stroke-width=\"2.4\"/><polygon points=\"208,73 199,68 199,78\" fill=\"#c8102e\"/>\n  <!-- 충격 흡수재 (직원) -->\n  <g transform=\"translate(212,40)\">\n    <rect x=\"0\" y=\"6\" width=\"8\" height=\"62\" fill=\"#1a1a1a\"/>\n    <polyline points=\"8,40 22,24 36,56 50,24 64,56 78,24 92,56 106,40\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"2\"/>\n    <rect x=\"106\" y=\"6\" width=\"8\" height=\"62\" fill=\"#1a1a1a\"/>\n    <text x=\"57\" y=\"84\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">직원 = 충격 흡수재</text>\n    <text x=\"57\" y=\"-2\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">\"shock absorbers\"</text>\n  </g>\n  <line x1=\"328\" y1=\"73\" x2=\"364\" y2=\"73\" stroke=\"#1FA34A\" stroke-width=\"2.4\"/><polygon points=\"364,73 355,68 355,78\" fill=\"#1FA34A\"/>\n  <g transform=\"translate(368,46)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"54\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n    <text x=\"75\" y=\"24\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">관광 산업</text>\n    <text x=\"75\" y=\"40\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">protected</text>\n  </g>\n  <!-- Row2: 강경 ⇄ 유연 → 혼란 -->\n  <g transform=\"translate(40,150)\">\n    <rect x=\"0\" y=\"0\" width=\"175\" height=\"46\" rx=\"5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n    <text x=\"87\" y=\"19\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">강경 HRM (Hard)</text>\n    <text x=\"87\" y=\"35\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#c8102e\">→ 대규모 정리 해고</text>\n  </g>\n  <g transform=\"translate(385,150)\">\n    <rect x=\"0\" y=\"0\" width=\"175\" height=\"46\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <text x=\"87\" y=\"19\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">유연 HRM (Soft)</text>\n    <text x=\"87\" y=\"35\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1FA34A\">→ 역량 강화 (BA)</text>\n  </g>\n  <!-- 왕복 화살표 -->\n  <g transform=\"translate(300,173)\">\n    <line x1=\"-78\" y1=\"-6\" x2=\"78\" y2=\"-6\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/><polygon points=\"78,-6 70,-10 70,-2\" fill=\"#1a1a1a\"/>\n    <line x1=\"78\" y1=\"8\" x2=\"-78\" y2=\"8\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/><polygon points=\"-78,8 -70,4 -70,12\" fill=\"#1a1a1a\"/>\n    <text x=\"0\" y=\"-12\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">왕복 alternate</text>\n    <text x=\"0\" y=\"26\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">→ 직원 혼란</text>\n  </g>\n  <!-- Row3: 역설 -->\n  <g transform=\"translate(40,222)\">\n    <rect x=\"0\" y=\"0\" width=\"520\" height=\"40\" rx=\"6\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"135\" y=\"25\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">평시 = 최대 자산</text>\n    <text x=\"260\" y=\"25\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">↔</text>\n    <text x=\"390\" y=\"25\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">위기 = 희생 가능</text>\n  </g>\n  <text x=\"300\" y=\"282\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"10\" text-anchor=\"middle\" fill=\"#5e5e5e\">the greatest asset in good times, expendable in crisis</text>\n</svg>", "caption": "왼쪽 외부 충격이 가운데 직원이라는 충격 흡수재 코일을 거쳐 오른쪽 관광 산업을 보호하고, 그 아래 강경 HRM과 유연 HRM을 왕복하면 직원이 혼란에 빠지며, 맨 아래 평시 최대 자산과 위기 희생의 역설을 보여주는 그림"}, {"no": "6", "title": "AI Predictive Policing and Algorithmic Bias", "ktitle": "예측 치안 AI와 알고리즘 편향", "field": "기술·윤리", "page": "11강 Ex.06", "oneline": "예측 치안 AI는 알고리즘 편향으로 차별을 낳을 수 있어 신중한 설계가 필요하다.", "tldr": ["예측 치안 AI는 범죄를 미리 예측하려 한다.", "그러나 학습 데이터의 편향이 차별을 낳는다.", "따라서 신중한 설계가 필요하다."], "analogy": "", "bg": "분야는 기술·윤리예요. 핵심어 ‘예측 치안(predictive policing)’과 ‘알고리즘 편향(algorithmic bias)’. → 예측 치안 AI가 왜 차별을 낳을 수 있고 신중한 설계가 필요한지에 주목하며 읽으세요.", "flow": [{"kind": "도입", "t": "예측 치안 AI 등장"}, {"kind": "문제", "t": "알고리즘 편향"}, {"kind": "결과", "t": "차별 재생산"}, {"kind": "결론", "t": "신중한 설계 필요"}], "quiz": [["예측 치안 AI의 문제는?", "데이터 편향 때문에 차별을 재생산할 수 있어요."]], "vocab": [["widely debated", "널리 논의되는"], ["application", "적용·응용"], ["law enforcement", "법 집행·치안"], ["predictive policing", "예측 치안"], ["algorithm", "알고리즘"], ["historical", "과거의·역사적인"], ["high-risk", "고위험의"], ["allocate", "할당하다·배분하다"], ["perpetuate", "영속화하다·지속시키다"], ["bias", "편견·편향"], ["discrimination", "차별"], ["minority community", "소수 공동체·소수 집단"], ["biased", "편향된"], ["over-policing", "과잉 치안·과도한 단속"], ["disproportionately", "불균형적으로"], ["reinforce", "강화하다·심화시키다"], ["inequality", "불평등"], ["unjust", "부당한"], ["heightened", "강화된·고조된"], ["surveillance", "감시"]], "en": "One of the most widely debated applications of AI in law enforcement is predictive policing, where algorithms analyze historical crime data to predict where crimes are likely to occur and who may be involved. By identifying high-risk areas and individuals, predictive policing aims to allocate law enforcement resources more efficiently and reduce crime. However, predictive policing has been criticized for perpetuating bias and discrimination, particularly against minority communities. If an AI system is trained on biased data that reflects historical patterns of over-policing in certain neighborhoods, it may disproportionately target those areas for increased law enforcement presence, reinforcing existing inequalities. This has raised concerns about the fairness and accuracy of predictive policing systems and the potential for unjust outcomes. For example, a predictive policing system used by the Los Angeles Police Department was found to disproportionately target Black and Latino communities, leading to heightened surveillance and increased arrests in those areas. Critics argue that predictive policing systems must be carefully designed and rigorously tested to ensure that they do not perpetuate racial bias or undermine trust in law enforcement.", "ko": "법 집행 분야에서 가장 널리 논의되는 AI의 적용 중 하나는 예측 치안인데, 여기서는 알고리즘이 과거 범죄 데이터를 분석하여 범죄가 어디에서 발생할 가능성이 있고 누가 연루될 수 있는지 예측한다. 고위험 지역과 개인들을 알아냄으로써, 예측 치안은 법 집행 자원을 더 효율적으로 할당하고 범죄를 줄이는 것을 목표로 한다. 그러나 예측 치안은, 특히 소수 공동체에 대한 편견과 차별을 영속화한다는 이유로 비판을 받아 왔다. 만약 AI 시스템이 특정 지역에서 과거의 과잉 치안 패턴을 반영하는 편향된 데이터로 훈련된다면, 그 지역을 불균형적으로 법 집행 인력을 증가할 표적으로 삼아 기존의 불평등을 강화시킬 수도 있을 것이다. 이는 예측 치안 시스템의 공정성과 정확성, 그리고 부당한 결과의 가능성에 대한 우려를 제기했다. 예를 들어, 로스앤젤레스 경찰국에서 사용된 예측 치안 시스템은 흑인과 라틴계 공동체를 불균형적으로 표적 삼아, 그러한 지역들에서 감시 강화와 체포 증가로 이어진 것으로 밝혀졌다. 비판론자들은 예측 치안 시스템이 인종적 편견을 영속화하거나 법 집행에 대한 신뢰를 훼손하지 않도록 신중하게 설계되고 엄격하게 테스트되어야 한다고 주장한다.", "read": [{"en": "One of the most widely debated applications of AI in law enforcement is predictive policing, where algorithms analyze historical crime data to predict where crimes are likely to occur and who may be involved.", "ko": "법 집행 분야에서 가장 널리 논의되는 AI의 적용 중 하나는 예측 치안인데, 여기서는 알고리즘이 과거 범죄 데이터를 분석하여 범죄가 어디에서 발생할 가능성이 있고 누가 연루될 수 있는지 예측한다.", "chunks": [["One of the most widely debated applications", "가장 널리 논의되는 적용 중 하나는"], ["of AI in law enforcement is", "법 집행 분야에서 AI의"], ["predictive policing,", "예측 치안인데,"], ["where algorithms analyze historical crime data", "여기서는 알고리즘이 과거 범죄 데이터를 분석한다"], ["to predict where crimes are likely to occur", "범죄가 어디에서 발생할 가능성이 있는지 예측하기 위해"], ["and who may be involved.", "그리고 누가 연루될 수 있는지."]]}, {"en": "By identifying high-risk areas and individuals, predictive policing aims to allocate law enforcement resources more efficiently and reduce crime.", "ko": "고위험 지역과 개인들을 알아냄으로써, 예측 치안은 법 집행 자원을 더 효율적으로 할당하고 범죄를 줄이는 것을 목표로 한다.", "chunks": [["By identifying high-risk areas and individuals,", "고위험 지역과 개인들을 알아냄으로써,"], ["predictive policing aims to", "예측 치안은 ~을 목표로 한다"], ["allocate law enforcement resources more efficiently", "법 집행 자원을 더 효율적으로 할당"], ["and reduce crime.", "그리고 범죄를 줄이는 것."]]}, {"en": "However, predictive policing has been criticized for perpetuating bias and discrimination, particularly against minority communities.", "ko": "그러나 예측 치안은, 특히 소수 공동체에 대한 편견과 차별을 영속화한다는 이유로 비판을 받아 왔다.", "chunks": [["However, predictive policing has been criticized", "그러나 예측 치안은 비판을 받아 왔다"], ["for perpetuating bias and discrimination,", "편견과 차별을 영속화한다는 이유로,"], ["particularly against minority communities.", "특히 소수 공동체에 대한."]]}, {"en": "If an AI system is trained on biased data that reflects historical patterns of over-policing in certain neighborhoods, it may disproportionately target those areas for increased law enforcement presence, reinforcing existing inequalities.", "ko": "만약 AI 시스템이 특정 지역에서 과거의 과잉 치안 패턴을 반영하는 편향된 데이터로 훈련된다면, 그 지역을 불균형적으로 법 집행 인력을 증가할 표적으로 삼아 기존의 불평등을 강화시킬 수도 있을 것이다.", "chunks": [["If an AI system is trained on biased data", "만약 AI 시스템이 편향된 데이터로 훈련된다면"], ["that reflects historical patterns of over-policing", "과거의 과잉 치안 패턴을 반영하는"], ["in certain neighborhoods,", "특정 지역에서,"], ["it may disproportionately target those areas", "그것은 그 지역을 불균형적으로 표적으로 삼을 수도 있을 것이다"], ["for increased law enforcement presence,", "법 집행 인력을 증가할,"], ["reinforcing existing inequalities.", "기존의 불평등을 강화하면서."]]}, {"en": "This has raised concerns about the fairness and accuracy of predictive policing systems and the potential for unjust outcomes.", "ko": "이는 예측 치안 시스템의 공정성과 정확성, 그리고 부당한 결과의 가능성에 대한 우려를 제기했다.", "chunks": [["This has raised concerns about", "이는 ~에 대한 우려를 제기했다"], ["the fairness and accuracy", "공정성과 정확성"], ["of predictive policing systems", "예측 치안 시스템의"], ["and the potential for unjust outcomes.", "그리고 부당한 결과의 가능성."]]}, {"en": "For example, a predictive policing system used by the Los Angeles Police Department was found to disproportionately target Black and Latino communities, leading to heightened surveillance and increased arrests in those areas.", "ko": "예를 들어, 로스앤젤레스 경찰국에서 사용된 예측 치안 시스템은 흑인과 라틴계 공동체를 불균형적으로 표적 삼아, 그러한 지역들에서 감시 강화와 체포 증가로 이어진 것으로 밝혀졌다.", "chunks": [["For example,", "예를 들어,"], ["a predictive policing system used by", "예측 치안 시스템은 ~에 의해 사용된"], ["the Los Angeles Police Department", "로스앤젤레스 경찰국"], ["was found to disproportionately target", "불균형적으로 표적 삼은 것으로 밝혀졌다"], ["Black and Latino communities,", "흑인과 라틴계 공동체를,"], ["leading to heightened surveillance", "감시 강화로 이어져"], ["and increased arrests", "그리고 체포 증가"], ["in those areas.", "그러한 지역들에서."]]}, {"en": "Critics argue that predictive policing systems must be carefully designed and rigorously tested to ensure that they do not perpetuate racial bias or undermine trust in law enforcement.", "ko": "비판론자들은 예측 치안 시스템이 인종적 편견을 영속화하거나 법 집행에 대한 신뢰를 훼손하지 않도록 신중하게 설계되고 엄격하게 테스트되어야 한다고 주장한다.", "chunks": [["Critics argue that", "비판론자들은 ~라고 주장한다"], ["predictive policing systems must be carefully designed", "예측 치안 시스템이 신중하게 설계되어야 한다"], ["and rigorously tested", "그리고 엄격하게 테스트되어야"], ["to ensure that they do not perpetuate racial bias", "인종적 편견을 영속화하지 않도록"], ["or undermine trust in law enforcement.", "또는 법 집행에 대한 신뢰를 훼손하지 않도록."]]}], "metaphor": "<svg viewBox=\"0 0 600 275\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"가운데 편향된 과거 데이터에서 AI 예측, 소수 공동체 표적, 체포 기록 누적으로 다시 데이터로 돌아오는 빨강 악순환 고리가 있고, 오른쪽에 신중 설계와 엄격 테스트라는 초록 차단 장치가 고리를 끊는 그림\">\n  <!-- 명목 목표 -->\n  <text x=\"215\" y=\"22\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">명목 목표: 효율적 자원 배분 · 범죄 감소</text>\n  <!-- 4 노드 악순환 -->\n  <g font-family=\"Noto Serif KR\" font-weight=\"700\">\n    <g transform=\"translate(140,38)\"><rect x=\"0\" y=\"0\" width=\"150\" height=\"34\" rx=\"5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/><text x=\"75\" y=\"15\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\">① 편향된 과거 데이터</text><text x=\"75\" y=\"28\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\">over-policing history</text></g>\n    <g transform=\"translate(300,128)\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"34\" rx=\"5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/><text x=\"60\" y=\"15\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\">② AI 예측</text><text x=\"60\" y=\"28\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\">high-risk areas</text></g>\n    <g transform=\"translate(140,218)\"><rect x=\"0\" y=\"0\" width=\"150\" height=\"34\" rx=\"5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/><text x=\"75\" y=\"15\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\">③ 소수 공동체 표적</text><text x=\"75\" y=\"28\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\">surveillance · arrests ↑</text></g>\n    <g transform=\"translate(10,128)\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"34\" rx=\"5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/><text x=\"60\" y=\"15\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#c8102e\">④ 기록 누적</text><text x=\"60\" y=\"28\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\">more biased data</text></g>\n  </g>\n  <!-- 순환 화살표 (빨강, 시계방향) -->\n  <g stroke=\"#c8102e\" stroke-width=\"1.6\" fill=\"none\">\n    <path d=\"M 290 58 Q 340 75 350 124\" /><polygon points=\"350,124 345,116 354,117\" fill=\"#c8102e\"/>\n    <path d=\"M 340 162 Q 320 200 290 220\" /><polygon points=\"290,220 298,214 297,223\" fill=\"#c8102e\"/>\n    <path d=\"M 140 232 Q 90 215 80 164\" /><polygon points=\"80,164 75,172 84,171\" fill=\"#c8102e\"/>\n    <path d=\"M 90 128 Q 110 90 140 70\" /><polygon points=\"140,70 132,72 135,80\" fill=\"#c8102e\"/>\n  </g>\n  <text x=\"215\" y=\"148\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">악순환</text>\n  <text x=\"215\" y=\"163\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#c8102e\">bias reinforced</text>\n  <!-- 차단 장치 (초록) -->\n  <g transform=\"translate(450,108)\">\n    <rect x=\"0\" y=\"0\" width=\"135\" height=\"58\" rx=\"6\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.8\"/>\n    <text x=\"67\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">신중 설계 +</text>\n    <text x=\"67\" y=\"35\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">엄격 테스트</text>\n    <text x=\"67\" y=\"50\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">designed · tested</text>\n  </g>\n  <!-- 차단 표시: ①→② 화살표 끊기 (픽토폰트 대신 도형 슬래시) -->\n  <line x1=\"368\" y1=\"104\" x2=\"448\" y2=\"124\" stroke=\"#1FA34A\" stroke-width=\"1.6\" stroke-dasharray=\"3 2\"/>\n  <g stroke=\"#1FA34A\" stroke-width=\"2.4\" fill=\"none\">\n    <line x1=\"346\" y1=\"118\" x2=\"360\" y2=\"100\"/>\n    <line x1=\"354\" y1=\"121\" x2=\"368\" y2=\"103\"/>\n  </g>\n  <text x=\"450\" y=\"80\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">→ 편향·불신 방지</text>\n  <!-- LAPD 주석 -->\n  <text x=\"215\" y=\"270\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">예: LAPD — 흑인·라틴계 공동체 과잉 표적 → 불평등 강화</text>\n</svg>", "caption": "가운데 편향된 과거 데이터에서 AI 예측, 소수 공동체 표적, 체포 기록 누적으로 다시 데이터로 돌아오는 빨강 악순환 고리가 있고, 오른쪽에 신중 설계와 엄격 테스트라는 초록 차단 장치가 고리를 끊는 그림"}, {"no": "7", "title": "The Oceans — Food Source and Waste Repository", "ktitle": "바다 — 식량원이자 쓰레기 저장소", "field": "환경·해양", "page": "11강 Ex.07", "oneline": "바다는 식량원이자 쓰레기 저장소 두 기능을 하는데, 둘 다 한계에 도달하고 있다.", "tldr": ["바다는 식량원이자 쓰레기 저장소 역할을 한다.", "두 기능 모두 한계에 도달하고 있다.", "바다의 수용력은 무한하지 않다."], "analogy": "", "bg": "분야는 환경·해양이에요. 바다가 ‘식량원’이자 ‘쓰레기 저장소’ 두 기능을 동시에 한다는 것이 핵심. → 두 기능 모두 어떤 한계에 부딪히는지에 주목하며 읽으세요.", "flow": [{"kind": "기능 ①", "t": "식량원"}, {"kind": "기능 ②", "t": "쓰레기 저장소"}, {"kind": "문제", "t": "두 기능 모두 한계"}, {"kind": "결론", "t": "바다 수용력의 유한함"}], "quiz": [["바다의 두 기능은?", "식량원과 쓰레기 저장소예요 — 둘 다 한계에 부딪혀요."]], "vocab": [["fishing method", "어획 방법"], ["efficient", "효율적인"], ["deplete", "고갈시키다·격감시키다"], ["fish stocks", "수산 자원·어족 자원"], ["marine organism", "해양 생물"], ["agriculture", "농업·경작"], ["farm the land", "육지를 경작하다"], ["untapped", "미개발의·이용되지 않은"], ["food resource", "식량 자원"], ["repository", "저장소·보관소"], ["infinite", "무한한"], ["absorb", "흡수하다"], ["pollutant", "오염 물질"], ["incidence", "발생률·빈도"], ["toxic plankton bloom", "유독성 플랑크톤 대발생"], ["undesirable", "바람직하지 않은"], ["operate", "작동하다·운영되다"]], "en": "We use the oceans as a source of food. However, present fishing methods have become so efficient that we have dangerously depleted fish stocks over large parts of the ocean. We are only just beginning to develop the technology to grow marine organisms as agriculture in the same way as we farm the land. Indeed, this is probably the last major untapped food resource on the planet. At the same time, we use the oceans as a repository for our waste, often assuming the oceans are so large that they have an infinite capacity to absorb our pollutants. Yet, it is clear from the increased incidence of toxic plankton blooms and other undesirable effects that this is not true. For all these reasons, it is important that we study the oceans and understand how they operate.", "ko": "우리는 바다를 식량의 원천으로 사용한다. 하지만 현재의 어획 방법은 매우 효율화되어서 우리는 바다의 광범위한 지역에서 수산 자원을 위험할 정도로 고갈시켰다. 우리는 육지를 경작하듯이 해양 생물을 농업 형태로 기르는 기술을 이제 막 개발하기 시작하고 있다. 실제로 이것이 아마 지구상에 있는 마지막 주요 미개발 식량 자원일 것이다. 동시에 우리는 바다를 우리의 쓰레기 저장소로 사용하면서, 많은 경우 바다는 매우 커서 우리의 오염 물질을 흡수할 수 있는 무한한 용량을 가진다고 가정한다. 하지만 유독성 플랑크톤 대발생과 다른 바람직하지 않은 결과의 발생률 증가로 보아 이것이 사실이 아님은 분명하다. 이 모든 이유로 우리는 바다를 연구하고 그 작동 방식을 이해하는 것이 중요하다.", "read": [{"en": "We use the oceans as a source of food.", "ko": "우리는 바다를 식량의 원천으로 사용한다.", "chunks": [["We use the oceans", "우리는 바다를 사용한다"], ["as a source of food.", "식량의 원천으로."]]}, {"en": "However, present fishing methods have become so efficient that we have dangerously depleted fish stocks over large parts of the ocean.", "ko": "하지만 현재의 어획 방법은 매우 효율화되어서 우리는 바다의 광범위한 지역에서 수산 자원을 위험할 정도로 고갈시켰다.", "chunks": [["However, present fishing methods have become", "하지만 현재의 어획 방법은 ~이 되었다"], ["so efficient that", "매우 효율적이어서"], ["we have dangerously depleted", "우리가 위험할 정도로 고갈시켰다"], ["fish stocks over large parts of the ocean.", "바다의 광범위한 지역에서 수산 자원을."]]}, {"en": "We are only just beginning to develop the technology to grow marine organisms as agriculture in the same way as we farm the land.", "ko": "우리는 육지를 경작하듯이 해양 생물을 농업 형태로 기르는 기술을 이제 막 개발하기 시작하고 있다.", "chunks": [["We are only just beginning", "우리는 이제 막 시작하고 있다"], ["to develop the technology", "기술을 개발하기"], ["to grow marine organisms as agriculture", "해양 생물을 농업 형태로 기르는"], ["in the same way as we farm the land.", "우리가 육지를 경작하는 것과 똑같은 방식으로."]]}, {"en": "Indeed, this is probably the last major untapped food resource on the planet.", "ko": "실제로 이것이 아마 지구상에 있는 마지막 주요 미개발 식량 자원일 것이다.", "chunks": [["Indeed,", "실제로,"], ["this is probably", "이것이 아마 ~일 것이다"], ["the last major untapped food resource", "마지막 주요 미개발 식량 자원"], ["on the planet.", "지구상에 있는."]]}, {"en": "At the same time, we use the oceans as a repository for our waste, often assuming the oceans are so large that they have an infinite capacity to absorb our pollutants.", "ko": "동시에 우리는 바다를 우리의 쓰레기 저장소로 사용하면서, 많은 경우 바다는 매우 커서 우리의 오염 물질을 흡수할 수 있는 무한한 용량을 가진다고 가정한다.", "chunks": [["At the same time,", "동시에,"], ["we use the oceans as a repository for our waste,", "우리는 바다를 우리의 쓰레기 저장소로 사용한다,"], ["often assuming", "많은 경우 ~이라고 가정하면서"], ["the oceans are so large that", "바다는 매우 커서"], ["they have an infinite capacity", "무한한 용량을 가진다"], ["to absorb our pollutants.", "우리의 오염 물질을 흡수할."]]}, {"en": "Yet, it is clear from the increased incidence of toxic plankton blooms and other undesirable effects that this is not true.", "ko": "하지만 유독성 플랑크톤 대발생과 다른 바람직하지 않은 결과의 발생률 증가로 보아 이것이 사실이 아님은 분명하다.", "chunks": [["Yet, it is clear", "하지만 ~은 분명하다"], ["from the increased incidence of toxic plankton blooms", "유독성 플랑크톤 대발생의 증가로 보아"], ["and other undesirable effects", "그리고 다른 바람직하지 않은 결과의"], ["that this is not true.", "이것이 사실이 아님은."]]}, {"en": "For all these reasons, it is important that we study the oceans and understand how they operate.", "ko": "이 모든 이유로 우리는 바다를 연구하고 그 작동 방식을 이해하는 것이 중요하다.", "chunks": [["For all these reasons,", "이 모든 이유로,"], ["it is important that", "~이 중요하다"], ["we study the oceans", "우리가 바다를 연구하고"], ["and understand how they operate.", "그리고 그 작동 방식을 이해하는 것이."]]}], "metaphor": "<svg viewBox=\"0 0 600 268\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"가운데 바다에서 왼쪽 식량원 기능은 어획으로 자원이 고갈되고 양식은 이제 시작이며, 오른쪽 쓰레기 저장소 기능은 무한 흡수 가정이 유독성 플랑크톤으로 반증되어 두 기능 모두 한계임을 보여주는 그림\">\n  <!-- 중앙 바다 -->\n  <g transform=\"translate(255,95)\">\n    <ellipse cx=\"45\" cy=\"30\" rx=\"68\" ry=\"40\" fill=\"#f6f6f6\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <g stroke=\"#999\" stroke-width=\"0.9\" fill=\"none\"><path d=\"M 12 22 Q 24 18 36 22\"/><path d=\"M 54 28 Q 66 24 78 28\"/><path d=\"M 24 40 Q 36 36 48 40\"/></g>\n    <text x=\"45\" y=\"34\" font-family=\"Noto Serif KR\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">바다</text>\n    <text x=\"45\" y=\"48\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">two functions</text>\n  </g>\n  <!-- 좌 기능: 식량원 -->\n  <line x1=\"255\" y1=\"120\" x2=\"200\" y2=\"120\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/><polygon points=\"200,120 208,116 208,124\" fill=\"#1a1a1a\"/>\n  <text x=\"120\" y=\"34\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">① 식량원</text>\n  <g transform=\"translate(15,48)\">\n    <rect x=\"0\" y=\"0\" width=\"180\" height=\"40\" rx=\"5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n    <text x=\"90\" y=\"17\" font-family=\"Noto Serif KR\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">어획 과효율 → 자원 고갈</text>\n    <text x=\"90\" y=\"32\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\">fish stocks depleted</text>\n  </g>\n  <g transform=\"translate(15,150)\">\n    <rect x=\"0\" y=\"0\" width=\"180\" height=\"40\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n    <text x=\"90\" y=\"17\" font-family=\"Noto Serif KR\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">양식 = 이제 시작</text>\n    <text x=\"90\" y=\"32\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#1FA34A\">last untapped resource</text>\n  </g>\n  <line x1=\"150\" y1=\"120\" x2=\"150\" y2=\"150\" stroke=\"#1a1a1a\" stroke-width=\"1\" stroke-dasharray=\"2 2\"/>\n  <line x1=\"150\" y1=\"120\" x2=\"150\" y2=\"88\" stroke=\"#1a1a1a\" stroke-width=\"1\" stroke-dasharray=\"2 2\"/>\n  <!-- 우 기능: 쓰레기 저장소 -->\n  <line x1=\"368\" y1=\"120\" x2=\"423\" y2=\"120\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/><polygon points=\"423,120 415,116 415,124\" fill=\"#1a1a1a\"/>\n  <text x=\"480\" y=\"34\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">② 쓰레기 저장소</text>\n  <g transform=\"translate(405,48)\">\n    <rect x=\"0\" y=\"0\" width=\"180\" height=\"40\" rx=\"5\" fill=\"#fff\" stroke=\"#999\" stroke-width=\"1.3\" stroke-dasharray=\"4 3\"/>\n    <text x=\"90\" y=\"17\" font-family=\"Noto Serif KR\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#5e5e5e\">'무한 흡수' 가정</text>\n    <text x=\"90\" y=\"32\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#999\">assumed infinite</text>\n  </g>\n  <g transform=\"translate(405,150)\">\n    <rect x=\"0\" y=\"0\" width=\"180\" height=\"40\" rx=\"5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n    <text x=\"90\" y=\"17\" font-family=\"Noto Serif KR\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">유독성 플랑크톤 → 반증</text>\n    <text x=\"90\" y=\"32\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\">not true</text>\n  </g>\n  <line x1=\"450\" y1=\"120\" x2=\"450\" y2=\"150\" stroke=\"#c8102e\" stroke-width=\"1.2\" stroke-dasharray=\"2 2\"/><polygon points=\"450,150 446,143 454,143\" fill=\"#c8102e\"/>\n  <line x1=\"450\" y1=\"120\" x2=\"450\" y2=\"88\" stroke=\"#1a1a1a\" stroke-width=\"1\" stroke-dasharray=\"2 2\"/>\n  <!-- 하단 결론 -->\n  <text x=\"300\" y=\"232\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">both functions are limited → we must study and understand the oceans</text>\n  <text x=\"300\" y=\"252\" font-family=\"Noto Serif KR\" font-size=\"9.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">두 기능 모두 한계 → 바다 연구·이해가 필수</text>\n</svg>", "caption": "가운데 바다에서 왼쪽 식량원 기능은 어획으로 자원이 고갈되고 양식은 이제 시작이며, 오른쪽 쓰레기 저장소 기능은 무한 흡수 가정이 유독성 플랑크톤으로 반증되어 두 기능 모두 한계임을 보여주는 그림"}, {"no": "8", "title": "Prepared Learning, Memes, and the Spread of Agriculture", "ktitle": "밈은 모방으로 퍼진다", "field": "인지·문화", "page": "11강 Ex.08", "oneline": "밈은 유용해서가 아니라 ‘모방’으로 퍼진다(농업 확산이 예증).", "tldr": ["밈은 반드시 유용해서 퍼지는 게 아니다.", "‘모방’ 자체가 확산의 동력이다.", "농업의 확산이 이를 예증한다."], "analogy": "", "bg": "분야는 인지·문화 진화예요. 핵심 — ‘밈(meme)’은 유용성이 아니라 ‘모방’으로 퍼진다는 것(농업 확산으로 예증). → 무엇이 밈의 확산을 좌우하는지에 주목하며 읽으세요.", "flow": [{"kind": "통념", "t": "밈 = 유용해서 확산"}, {"kind": "반론", "t": "모방으로 확산"}, {"kind": "예시", "t": "농업의 확산"}, {"kind": "결론", "t": "모방이 확산의 동력"}], "quiz": [["밈은 무엇으로 퍼지나요?", "유용성보다 ‘모방’으로 퍼져요(농업 확산이 예)."]], "vocab": [["at the very minimum", "최소한·아무리 적게 잡아도"], ["genetic evolution", "유전적 진화"], ["sense organs", "감각 기관"], ["developmental", "발달의·발달상의"], ["bias", "편향·성향"], ["prepared learning", "준비된 학습"], ["innately", "선천적으로·타고나게"], ["predisposed", "~하는 성향이 있는"], ["set about", "~하기 시작하다·착수하다"], ["imitate", "모방하다·따라 하다"], ["multiplication tables", "구구단"], ["replicate", "복제하다·재현하다"], ["host", "숙주"], ["meme", "밈·문화적 정보 단위"], ["beneficial", "유익한·이로운"], ["infectious", "전염성 있는"], ["fashionable", "유행하는·인기 있는"], ["be tied to", "~에 묶여 있다·구속되다"], ["vulnerable to", "~에 취약한"], ["endless toil", "끝없는 고된 노동"]], "en": "At the very minimum, genetic evolution has given all humans similarly programmed sense organs and brains, giving them a developmental bias called 'prepared learning'. This means that humans are innately prepared to learn certain behaviours and predisposed to avoid others. Humans are innately set up to see and hear things and then to set about imitating them. Thus, useful things like multiplication tables and less useful things like the crazy frog ring-tone are replicated and spread. Humans are the physical hosts needed for memes to spread. The meme does not need to be useful to the host. It does not even need to make sense or be beneficial. As an example, Blackmore argues that it was through infectious imitation, rather than an understanding of its long-term benefit, that agriculture became fashionable. Farming uses far more energy and time than hunting and gathering. Being tied to one location makes the farmer more vulnerable to drought, flood, disease or attack. So the farmer seems to have chosen a risky life of endless toil for no obvious benefit. Humans inherently learn some behaviours and avoid others, spreading memes not for usefulness but by copying others' actions or reactions, as shown in agriculture.", "ko": "최소한, 유전적 진화는 모든 인간에게 유사하게 프로그램된 감각 기관과 뇌를 부여하여, '준비된 학습'이라고 불리는 발달 편향을 제공했다. 이것은 인간이 특정 행동을 배우도록 선천적으로 준비되어 있고 다른 행동을 피하는 성향이 있다는 것을 의미한다. 인간은 선천적으로 사물을 보고 들은 다음, 그것들을 모방하기 시작하도록 설정되어 있다. 따라서 구구단과 같은 유용한 것들과 미친 개구리 벨소리와 같은 덜 유용한 것들이 복제되어 퍼진다. 인간은 밈이 퍼지는 데 필요한 물리적 숙주이다. 밈은 숙주에게 유용할 필요가 없다. 그것은 심지어 이치에 맞거나 유익할 필요도 없다. 예를 들어, Blackmore의 주장에 따르면, 농업이 유행하게 된 것은 장기적인 이점에 대한 이해보다는 바로 전염성 있는 모방을 통해서였다. 농업은 수렵과 채집보다 훨씬 더 많은 에너지와 시간을 사용한다. 한 장소에 묶여 있음으로써 농부는 가뭄, 홍수, 질병 또는 공격에 더 취약해진다. 따라서 농부는 명백한 이점 없이 끝없는 고된 노동의 위험한 삶을 선택한 것처럼 보인다. 인간은 선천적으로 어떤 행동들은 배우고 다른 행동들은 피하며, 농업에서 보이듯 유용성 때문이 아니라 다른 사람들의 행동이나 반응을 모방함으로써 밈을 퍼뜨린다.", "read": [{"en": "At the very minimum, genetic evolution has given all humans similarly programmed sense organs and brains, giving them a developmental bias called 'prepared learning'.", "ko": "최소한, 유전적 진화는 모든 인간에게 유사하게 프로그램된 감각 기관과 뇌를 부여하여, '준비된 학습'이라고 불리는 발달 편향을 제공했다.", "chunks": [["At the very minimum,", "최소한,"], ["genetic evolution has given all humans", "유전적 진화는 모든 인간에게 부여했다"], ["similarly programmed sense organs and brains,", "유사하게 프로그램된 감각 기관과 뇌를,"], ["giving them a developmental bias", "발달 편향을 제공하면서"], ["called 'prepared learning'.", "'준비된 학습'이라고 불리는."]]}, {"en": "This means that humans are innately prepared to learn certain behaviours and predisposed to avoid others.", "ko": "이것은 인간이 특정 행동을 배우도록 선천적으로 준비되어 있고 다른 행동을 피하는 성향이 있다는 것을 의미한다.", "chunks": [["This means that", "이것은 ~을 의미한다"], ["humans are innately prepared", "인간이 선천적으로 준비되어 있고"], ["to learn certain behaviours", "특정 행동을 배우도록"], ["and predisposed to avoid others.", "그리고 다른 행동을 피하는 성향이 있다는 것을."]]}, {"en": "Humans are innately set up to see and hear things and then to set about imitating them.", "ko": "인간은 선천적으로 사물을 보고 들은 다음, 그것들을 모방하기 시작하도록 설정되어 있다.", "chunks": [["Humans are innately set up", "인간은 선천적으로 설정되어 있다"], ["to see and hear things", "사물을 보고 듣고"], ["and then to set about imitating them.", "그리고 그것을 모방하기 시작하도록."]]}, {"en": "Thus, useful things like multiplication tables and less useful things like the crazy frog ring-tone are replicated and spread.", "ko": "따라서 구구단과 같은 유용한 것들과 미친 개구리 벨소리와 같은 덜 유용한 것들이 복제되어 퍼진다.", "chunks": [["Thus, useful things", "따라서 유용한 것들"], ["like multiplication tables", "구구단과 같은"], ["and less useful things", "그리고 덜 유용한 것들"], ["like the crazy frog ring-tone", "미친 개구리 벨소리와 같은"], ["are replicated and spread.", "복제되어 퍼진다."]]}, {"en": "Humans are the physical hosts needed for memes to spread.", "ko": "인간은 밈이 퍼지는 데 필요한 물리적 숙주이다.", "chunks": [["Humans are the physical hosts", "인간은 물리적 숙주이다"], ["needed for memes to spread.", "밈이 퍼지는 데 필요한."]]}, {"en": "The meme does not need to be useful to the host. It does not even need to make sense or be beneficial.", "ko": "밈은 숙주에게 유용할 필요가 없다. 그것은 심지어 이치에 맞거나 유익할 필요도 없다.", "chunks": [["The meme does not need to be useful", "밈은 유용할 필요가 없다"], ["to the host.", "숙주에게."], ["It does not even need", "그것은 심지어 ~할 필요도 없다"], ["to make sense or be beneficial.", "이치에 맞거나 유익할."]]}, {"en": "As an example, Blackmore argues that it was through infectious imitation, rather than an understanding of its long-term benefit, that agriculture became fashionable.", "ko": "예를 들어, Blackmore의 주장에 따르면, 농업이 유행하게 된 것은 장기적인 이점에 대한 이해보다는 바로 전염성 있는 모방을 통해서였다.", "chunks": [["As an example,", "예를 들어,"], ["Blackmore argues that", "Blackmore는 ~라고 주장한다"], ["it was through infectious imitation,", "바로 전염성 있는 모방을 통해서였다"], ["rather than an understanding of its long-term benefit,", "장기적인 이점에 대한 이해보다는,"], ["that agriculture became fashionable.", "농업이 유행하게 된 것은."]]}, {"en": "Farming uses far more energy and time than hunting and gathering.", "ko": "농업은 수렵과 채집보다 훨씬 더 많은 에너지와 시간을 사용한다.", "chunks": [["Farming uses far more energy and time", "농업은 훨씬 더 많은 에너지와 시간을 사용한다"], ["than hunting and gathering.", "수렵과 채집보다."]]}, {"en": "Being tied to one location makes the farmer more vulnerable to drought, flood, disease or attack.", "ko": "한 장소에 묶여 있음으로써 농부는 가뭄, 홍수, 질병 또는 공격에 더 취약해진다.", "chunks": [["Being tied to one location", "한 장소에 묶여 있음으로써"], ["makes the farmer more vulnerable", "농부를 더 취약하게 만든다"], ["to drought, flood, disease or attack.", "가뭄, 홍수, 질병 또는 공격에."]]}, {"en": "So the farmer seems to have chosen a risky life of endless toil for no obvious benefit.", "ko": "따라서 농부는 명백한 이점 없이 끝없는 고된 노동의 위험한 삶을 선택한 것처럼 보인다.", "chunks": [["So the farmer seems", "따라서 농부는 ~인 것처럼 보인다"], ["to have chosen a risky life", "위험한 삶을 선택한 것"], ["of endless toil", "끝없는 고된 노동의"], ["for no obvious benefit.", "명백한 이점 없이."]]}, {"en": "Humans inherently learn some behaviours and avoid others, spreading memes not for usefulness but by copying others' actions or reactions, as shown in agriculture.", "ko": "인간은 선천적으로 어떤 행동들은 배우고 다른 행동들은 피하며, 농업에서 보이듯 유용성 때문이 아니라 다른 사람들의 행동이나 반응을 모방함으로써 밈을 퍼뜨린다.", "chunks": [["Humans inherently learn some behaviours", "인간은 선천적으로 어떤 행동들은 배우고"], ["and avoid others,", "다른 행동들은 피하며,"], ["spreading memes", "밈을 퍼뜨린다"], ["not for usefulness", "유용성 때문이 아니라"], ["but by copying others' actions or reactions,", "다른 사람들의 행동이나 반응을 모방함으로써,"], ["as shown in agriculture.", "농업에서 보이듯이."]]}], "metaphor": "<svg viewBox=\"0 0 600 272\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽은 인간 숙주에서 유용한 곱셈표와 무용한 벨소리가 똑같이 모방으로 복제 확산되어 유용성과 무관함을 보여주고, 오른쪽은 비효율적인 농업이 그럼에도 전염성 모방으로 유행한 사례를 보여주는 그림\">\n  <!-- 좌 패널: 모방 확산 (유용성 무관) -->\n  <g transform=\"translate(20,40)\">\n    <rect x=\"0\" y=\"0\" width=\"320\" height=\"172\" rx=\"7\" fill=\"#fff\" stroke=\"#999\" stroke-width=\"1.2\"/>\n    <text x=\"160\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">확산 동력 = 모방 (유용성과 무관)</text>\n    <!-- 숙주 인간 -->\n    <g transform=\"translate(45,90)\">\n      <circle cx=\"0\" cy=\"0\" r=\"12\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <circle cx=\"-4\" cy=\"-2\" r=\"1.3\" fill=\"#1a1a1a\"/><circle cx=\"4\" cy=\"-2\" r=\"1.3\" fill=\"#1a1a1a\"/>\n      <path d=\"M -4 4 Q 0 7 4 4\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1\"/>\n      <line x1=\"0\" y1=\"12\" x2=\"0\" y2=\"38\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n      <line x1=\"0\" y1=\"20\" x2=\"-11\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/><line x1=\"0\" y1=\"20\" x2=\"11\" y2=\"28\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <line x1=\"0\" y1=\"38\" x2=\"-8\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/><line x1=\"0\" y1=\"38\" x2=\"8\" y2=\"54\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n      <text x=\"0\" y=\"70\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">인간 = 숙주</text>\n    </g>\n    <!-- 전염성 모방 확산 화살표 -->\n    <g stroke=\"#1FA34A\" stroke-width=\"1.4\" fill=\"none\">\n      <path d=\"M 62 75 Q 110 55 150 52\"/><path d=\"M 62 90 Q 120 90 160 105\"/><path d=\"M 62 105 Q 110 125 150 140\"/>\n    </g>\n    <polygon points=\"150,52 142,50 145,57\" fill=\"#1FA34A\"/><polygon points=\"160,105 152,102 153,110\" fill=\"#1FA34A\"/><polygon points=\"150,140 143,135 141,143\" fill=\"#1FA34A\"/>\n    <!-- 유용 밈 -->\n    <g transform=\"translate(160,40)\">\n      <rect x=\"0\" y=\"0\" width=\"140\" height=\"32\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.4\"/>\n      <g transform=\"translate(16,16)\"><circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#fff\" stroke=\"#1FA34A\" stroke-width=\"1.2\"/><path d=\"M -3.5 0 L -1 3 L 4 -3\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/></g>\n      <text x=\"86\" y=\"13\" font-family=\"Noto Serif KR\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">곱셈표 (유용)</text>\n      <text x=\"86\" y=\"26\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">replicated</text>\n    </g>\n    <!-- 무용 밈 -->\n    <g transform=\"translate(160,124)\">\n      <rect x=\"0\" y=\"0\" width=\"140\" height=\"32\" rx=\"5\" fill=\"#fff\" stroke=\"#999\" stroke-width=\"1.3\"/>\n      <g transform=\"translate(16,16)\"><circle cx=\"0\" cy=\"0\" r=\"8\" fill=\"#fff\" stroke=\"#999\" stroke-width=\"1.2\"/><path d=\"M -3.5 0 L -1 3 L 4 -3\" fill=\"none\" stroke=\"#999\" stroke-width=\"1.5\"/></g>\n      <text x=\"86\" y=\"13\" font-family=\"Noto Serif KR\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#5e5e5e\">벨소리 (무용)</text>\n      <text x=\"86\" y=\"26\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#999\">replicated too</text>\n    </g>\n    <text x=\"160\" y=\"100\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#1FA34A\" font-weight=\"700\">both spread equally</text>\n  </g>\n  <!-- 우 패널: 농업 사례 -->\n  <g transform=\"translate(355,40)\">\n    <rect x=\"0\" y=\"0\" width=\"225\" height=\"172\" rx=\"7\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.2\"/>\n    <text x=\"112\" y=\"20\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">예: 농업</text>\n    <!-- 비용 (빨강) -->\n    <g transform=\"translate(20,32)\">\n      <rect x=\"0\" y=\"0\" width=\"185\" height=\"56\" rx=\"5\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.4\"/>\n      <text x=\"92\" y=\"18\" font-family=\"Noto Serif KR\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">비효율 — 에너지·시간 ↑</text>\n      <text x=\"92\" y=\"34\" font-family=\"Noto Serif KR\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">재해·공격에 취약</text>\n      <text x=\"92\" y=\"49\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\">more energy &amp; time than foraging</text>\n    </g>\n    <!-- 그래도 유행 (초록) -->\n    <g transform=\"translate(112,98)\"><line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"16\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/><polygon points=\"0,16 -4,9 4,9\" fill=\"#1FA34A\"/></g>\n    <g transform=\"translate(20,116)\">\n      <rect x=\"0\" y=\"0\" width=\"185\" height=\"40\" rx=\"5\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.5\"/>\n      <text x=\"92\" y=\"18\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">그래도 전염성 모방으로 유행</text>\n      <text x=\"92\" y=\"33\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">spread by infectious imitation</text>\n    </g>\n  </g>\n  <!-- 하단 -->\n  <text x=\"300\" y=\"258\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">spread not for usefulness, but by copying</text>\n</svg>", "caption": "왼쪽은 인간 숙주에서 유용한 곱셈표와 무용한 벨소리가 똑같이 모방으로 복제 확산되어 유용성과 무관함을 보여주고, 오른쪽은 비효율적인 농업이 그럼에도 전염성 모방으로 유행한 사례를 보여주는 그림"}, {"no": "9", "title": "Censorship in Ancient Greek History", "ktitle": "고대 그리스의 검열", "field": "역사·윤리", "page": "11강 Ex.09", "oneline": "고대 그리스 검열은 ‘공동선’을 명분으로 내세웠지만 실체는 가혹한 억압이었다.", "tldr": ["고대 그리스 검열은 ‘공동선’을 명분으로 삼았다.", "그러나 실제로는 가혹한 억압이었다.", "명분과 실체 사이에 괴리가 있다."], "analogy": "", "bg": "분야는 역사·윤리예요. 고대 그리스 ‘검열(censorship)’이 ‘공동선’을 명분으로 내세웠다는 점이 핵심. → 그 명분 뒤의 가혹한 억압 실체에 주목하며 읽으세요.", "flow": [{"kind": "명분", "t": "공동선(common good)"}, {"kind": "실체", "t": "가혹한 억압"}, {"kind": "대비", "t": "명분 vs 실체"}, {"kind": "결론", "t": "명분 뒤의 억압"}], "quiz": [["그리스 검열의 명분과 실체는?", "명분은 ‘공동선’, 실체는 가혹한 억압이었어요."]], "vocab": [["censorship", "검열"], ["authority", "권력 기관·당국"], ["practise", "시행하다·실행하다"], ["in the name of", "~의 명목으로"], ["heresy", "이단"], ["treason", "반역"], ["ideological error", "이념적 오류"], ["universally", "보편적으로"], ["impiety", "불경죄·불경"], ["charge", "죄목·혐의"], ["city state", "도시 국가"], ["invoke", "불러일으키다·자아내다"], ["divine", "신성한·신의"], ["impious", "불경한·신성 모독적인"], ["rigid", "엄격한·경직된"], ["militarism", "군국주의"], ["ban", "금지하다"], ["tyrant", "참주·폭군"], ["silence", "침묵시키다·잠재우다"], ["opponent", "반대자·정적"]], "en": "Censorship is a means of preventing the expression of ideas, speech, or behaviour. Social, religious, political, military, and other authorities practise censorship in the name of the common good of society, seeking to protect it from heresy, treason, or ideological error. In one form or another, censorship has existed universally throughout Greek history. Most of the censorship among the ancient Greeks occurred over religious and political ideas. The common charge was impiety (asebeia). Since they believed that the gods could actively help or harm the city state, impious behaviour that might invoke divine anger was punished. Sparta imposed a rigid system of censorship to protect its militarism: books, music, and even learned men were banned. Greek tyrants exercised censorship to silence and eliminate their opponents. Generally speaking, under the tyrants, and many other rulers, censorship was identical with harsh repression.", "ko": "검열은 사상, 언론 또는 행동의 표현을 막는 수단이다. 사회, 종교, 정치, 군사 및 기타의 권력 기관들은 사회의 공동선이라는 명목으로 검열을 시행하여, 사회를 이단, 반역, 혹은 이념적 오류로부터 보호하고자 한다. 어떤 형태로든 검열은 그리스 역사 전반에 걸쳐 보편적으로 존재해 왔다. 고대 그리스인들 사이에서 대부분의 검열은 종교적 및 정치적 사상에 대해 이루어졌다. 일반적인 죄목은 불경죄(아세베이아)였다. 그들은 신들이 도시 국가를 적극적으로 돕거나 해칠 수 있다고 믿었기 때문에, 신의 분노를 불러올 수도 있는 불경스러운 행동은 처벌되었다. 스파르타는 그들의 군국주의를 보호하기 위해 엄격한 검열 제도를 부과했고, 곧 책, 음악, 심지어 학식 있는 사람들까지 금지되었다. 그리스의 참주는 자신의 반대자들을 침묵시키고 제거하기 위해 검열을 시행했다. 일반적으로 말해서, 참주와 많은 다른 통치자들 치하에서 검열은 가혹한 억압과 동일했다.", "read": [{"en": "Censorship is a means of preventing the expression of ideas, speech, or behaviour.", "ko": "검열은 사상, 언론 또는 행동의 표현을 막는 수단이다.", "chunks": [["Censorship is a means of", "검열은 ~의 수단이다"], ["preventing the expression", "표현을 막는"], ["of ideas, speech, or behaviour.", "사상, 언론, 또는 행동의."]]}, {"en": "Social, religious, political, military, and other authorities practise censorship in the name of the common good of society, seeking to protect it from heresy, treason, or ideological error.", "ko": "사회, 종교, 정치, 군사 및 기타의 권력 기관들은 사회의 공동선이라는 명목으로 검열을 시행하여, 사회를 이단, 반역, 혹은 이념적 오류로부터 보호하고자 한다.", "chunks": [["Social, religious, political, military, and other authorities", "사회, 종교, 정치, 군사 및 기타의 권력 기관들은"], ["practise censorship", "검열을 시행한다"], ["in the name of the common good of society,", "사회의 공동선이라는 명목으로,"], ["seeking to protect it", "사회를 보호하고자 하면서"], ["from heresy, treason,", "이단, 반역,"], ["or ideological error.", "혹은 이념적 오류로부터."]]}, {"en": "In one form or another, censorship has existed universally throughout Greek history.", "ko": "어떤 형태로든 검열은 그리스 역사 전반에 걸쳐 보편적으로 존재해 왔다.", "chunks": [["In one form or another,", "어떤 형태로든,"], ["censorship has existed universally", "검열은 보편적으로 존재해 왔다"], ["throughout Greek history.", "그리스 역사 전반에 걸쳐."]]}, {"en": "Most of the censorship among the ancient Greeks occurred over religious and political ideas.", "ko": "고대 그리스인들 사이에서 대부분의 검열은 종교적 및 정치적 사상에 대해 이루어졌다.", "chunks": [["Most of the censorship", "대부분의 검열은"], ["among the ancient Greeks", "고대 그리스인들 사이에서"], ["occurred over", "~에 대해 이루어졌다"], ["religious and political ideas.", "종교적 및 정치적 사상."]]}, {"en": "The common charge was impiety (asebeia).", "ko": "일반적인 죄목은 불경죄(아세베이아)였다.", "chunks": [["The common charge was", "일반적인 죄목은 ~이었다"], ["impiety (asebeia).", "불경죄(아세베이아)."]]}, {"en": "Since they believed that the gods could actively help or harm the city state, impious behaviour that might invoke divine anger was punished.", "ko": "그들은 신들이 도시 국가를 적극적으로 돕거나 해칠 수 있다고 믿었기 때문에, 신의 분노를 불러올 수도 있는 불경스러운 행동은 처벌되었다.", "chunks": [["Since they believed that", "그들은 ~라고 믿었기 때문에"], ["the gods could actively help or harm the city state,", "신들이 도시 국가를 적극적으로 돕거나 해칠 수 있다고,"], ["impious behaviour", "불경스러운 행동은"], ["that might invoke divine anger", "신의 분노를 불러올 수도 있는"], ["was punished.", "처벌되었다."]]}, {"en": "Sparta imposed a rigid system of censorship to protect its militarism: books, music, and even learned men were banned.", "ko": "스파르타는 그들의 군국주의를 보호하기 위해 엄격한 검열 제도를 부과했고, 곧 책, 음악, 심지어 학식 있는 사람들까지 금지되었다.", "chunks": [["Sparta imposed", "스파르타는 부과했다"], ["a rigid system of censorship", "엄격한 검열 제도를"], ["to protect its militarism:", "그들의 군국주의를 보호하기 위해:"], ["books, music, and even learned men", "책, 음악, 그리고 심지어 학식 있는 사람들까지"], ["were banned.", "금지되었다."]]}, {"en": "Greek tyrants exercised censorship to silence and eliminate their opponents.", "ko": "그리스의 참주는 자신의 반대자들을 침묵시키고 제거하기 위해 검열을 시행했다.", "chunks": [["Greek tyrants exercised censorship", "그리스의 참주는 검열을 시행했다"], ["to silence and eliminate their opponents.", "자신의 반대자들을 침묵시키고 제거하기 위해."]]}, {"en": "Generally speaking, under the tyrants, and many other rulers, censorship was identical with harsh repression.", "ko": "일반적으로 말해서, 참주와 많은 다른 통치자들 치하에서 검열은 가혹한 억압과 동일했다.", "chunks": [["Generally speaking,", "일반적으로 말해서,"], ["under the tyrants,", "참주 치하에서,"], ["and many other rulers,", "그리고 다른 많은 통치자들 치하에서,"], ["censorship was identical with", "검열은 ~과 동일했다"], ["harsh repression.", "가혹한 억압."]]}], "metaphor": "<svg viewBox=\"0 0 600 268\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"왼쪽 화자의 표현이 가운데 검열 장벽에 막히는데, 장벽 앞면에는 공동선이라는 명분이 회색으로 붙어 있고 그 실체는 빨강 가혹한 억압이며, 오른쪽에 스파르타와 참주 두 사례가 제시된 그림\">\n  <!-- 좌: 화자 + 표현 -->\n  <g transform=\"translate(40,100)\">\n    <circle cx=\"0\" cy=\"0\" r=\"13\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <circle cx=\"-4\" cy=\"-2\" r=\"1.4\" fill=\"#1a1a1a\"/><circle cx=\"4\" cy=\"-2\" r=\"1.4\" fill=\"#1a1a1a\"/>\n    <path d=\"M -4 5 Q 0 8 4 5\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"1.1\"/>\n    <line x1=\"0\" y1=\"13\" x2=\"0\" y2=\"42\" stroke=\"#1a1a1a\" stroke-width=\"1.4\"/>\n    <line x1=\"0\" y1=\"22\" x2=\"-13\" y2=\"16\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/><line x1=\"0\" y1=\"22\" x2=\"13\" y2=\"30\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <line x1=\"0\" y1=\"42\" x2=\"-9\" y2=\"60\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/><line x1=\"0\" y1=\"42\" x2=\"9\" y2=\"60\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <text x=\"0\" y=\"76\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">화자</text>\n  </g>\n  <g transform=\"translate(70,55)\">\n    <rect x=\"0\" y=\"0\" width=\"92\" height=\"30\" rx=\"8\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n    <text x=\"46\" y=\"14\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\">사상·언론·</text>\n    <text x=\"46\" y=\"26\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#1a1a1a\">행동의 표현</text>\n    <path d=\"M 14 30 L 8 42 L 26 30 Z\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.3\"/>\n  </g>\n  <!-- 표현이 장벽으로 -->\n  <line x1=\"120\" y1=\"110\" x2=\"160\" y2=\"110\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/><polygon points=\"160,110 152,106 152,114\" fill=\"#1a1a1a\"/>\n  <!-- 가운데 검열 장벽 -->\n  <g transform=\"translate(195,45)\">\n    <rect x=\"0\" y=\"0\" width=\"46\" height=\"140\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.8\"/>\n    <text x=\"23\" y=\"78\" font-family=\"Noto Serif KR\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\" transform=\"rotate(-90 23 78)\">검 열</text>\n  </g>\n  <!-- 막힘 표시 -->\n  <g transform=\"translate(176,110)\"><circle cx=\"0\" cy=\"0\" r=\"9\" fill=\"#fff\" stroke=\"#c8102e\" stroke-width=\"1.6\"/><line x1=\"-4\" y1=\"-4\" x2=\"4\" y2=\"4\" stroke=\"#c8102e\" stroke-width=\"1.7\"/><line x1=\"4\" y1=\"-4\" x2=\"-4\" y2=\"4\" stroke=\"#c8102e\" stroke-width=\"1.7\"/></g>\n  <!-- 명분 라벨 (회색, 앞면) -->\n  <g transform=\"translate(150,200)\">\n    <rect x=\"0\" y=\"0\" width=\"140\" height=\"26\" rx=\"4\" fill=\"#f6f6f6\" stroke=\"#999\" stroke-width=\"1.3\"/>\n    <text x=\"70\" y=\"16\" font-family=\"Noto Serif KR\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#5e5e5e\">명분: 공동선 (common good)</text>\n  </g>\n  <!-- 실체 (빨강) -->\n  <text x=\"320\" y=\"40\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#c8102e\">실체 = 가혹한 억압</text>\n  <g transform=\"translate(300,55)\">\n    <rect x=\"0\" y=\"0\" width=\"285\" height=\"44\" rx=\"6\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.5\"/>\n    <text x=\"12\" y=\"19\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" fill=\"#c8102e\">사례① 스파르타</text>\n    <text x=\"12\" y=\"34\" font-family=\"Noto Serif KR\" font-size=\"8.5\" fill=\"#c8102e\">군국주의 보호 → 책·음악·학자 금지</text>\n  </g>\n  <g transform=\"translate(300,108)\">\n    <rect x=\"0\" y=\"0\" width=\"285\" height=\"44\" rx=\"6\" fill=\"#fdf2f4\" stroke=\"#c8102e\" stroke-width=\"1.5\"/>\n    <text x=\"12\" y=\"19\" font-family=\"Noto Serif KR\" font-size=\"9.5\" font-weight=\"700\" fill=\"#c8102e\">사례② 참주 (tyrants)</text>\n    <text x=\"12\" y=\"34\" font-family=\"Noto Serif KR\" font-size=\"8.5\" fill=\"#c8102e\">반대자 침묵·제거</text>\n  </g>\n  <text x=\"442\" y=\"172\" font-family=\"Noto Serif KR\" font-size=\"8.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">종교·정치 사상 집중 · 불경죄(asebeia)가 일반 죄목</text>\n  <!-- 하단 -->\n  <text x=\"300\" y=\"250\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"11\" text-anchor=\"middle\" fill=\"#1a1a1a\" font-weight=\"700\">a 'common good' banner hides harsh repression</text>\n</svg>", "caption": "왼쪽 화자의 표현이 가운데 검열 장벽에 막히는데, 장벽 앞면에는 공동선이라는 명분이 회색으로 붙어 있고 그 실체는 빨강 가혹한 억압이며, 오른쪽에 스파르타와 참주 두 사례가 제시된 그림"}, {"no": "10", "title": "C. P. Snow and the Two Cultures — Science and the Humanities", "ktitle": "C. P. Snow의 두 문화", "field": "학문·문화", "page": "11강 Ex.10", "oneline": "C. P. Snow의 ‘두 문화’ — 단절된 과학과 인문학은 서로 협력해야 한다.", "tldr": ["C. P. Snow는 과학과 인문학을 ‘두 문화’로 보았다.", "둘은 서로 단절되어 있다.", "두 문화의 협력이 필요하다."], "analogy": "", "bg": "분야는 학문·문화론이에요. 핵심 개념 — C. P. Snow의 ‘두 문화(two cultures)’: 과학과 인문학의 단절. → 두 문화가 왜 협력해야 하는지에 주목하며 읽으세요.", "flow": [{"kind": "개념", "t": "두 문화(과학·인문학)"}, {"kind": "문제", "t": "서로 단절"}, {"kind": "주장", "t": "협력이 필요"}, {"kind": "결론", "t": "두 문화의 통합"}], "quiz": [["‘두 문화’란?", "C. P. Snow가 말한 과학과 인문학의 단절이에요 — 협력이 필요하죠."]], "vocab": [["curiously", "흥미롭게도"], ["trendy", "유행하는·인기 있는"], ["popular belief", "대중적인 믿음"], ["scientific knowledge", "과학적 지식"], ["at odds with", "~과 상충하는·맞지 않는"], ["cultured", "교양 있는"], ["central to", "~의 핵심인·중심적인"], ["deliver a lecture", "강연을 하다"], ["animosity", "적대감"], ["two cultures", "두 문화 (과학·인문학)"], ["humanities", "인문학"], ["hold up", "방해하다·지체시키다"], ["narrow", "좁아지다·좁히다"], ["philistinism", "속물근성·문화 무지"], ["appreciation", "이해·감상"], ["make the most of", "~을 최대한 활용하다"], ["mourn", "애도하다·슬퍼하다"], ["poetically", "시적으로"], ["deep regret", "깊은 후회"], ["invoke", "환기하다·불러일으키다"]], "en": "Curiously, it became rather trendy in the late 20th century to claim to know nothing about science or mathematics. There was a popular belief that scientific knowledge was somehow at odds with being a cultured individual, when in fact it is central to it. In 1959, the English scientist and novelist C. P. Snow delivered a famous lecture in which he spoke of the distance and even animosity that existed between the 'two cultures' of science and the arts, or humanities. This deep division in intellectual life was, he felt, holding up human progress. The divide remained, and even increased, in the following decades. It might now be narrowing, but it's far from closed. More people, though, now recognize that knowing about science is not a mark of philistinism, but the very opposite. An informed appreciation of the world around us, the laws it follows and how we can discover those laws, puts us in the best position to make the most of our individual lives and the resources the planet affords us as a species. The loss of wild places was mourned poetically by 19th-century writers such as Wordsworth or Thoreau and demonstrated a need to find out how to renew and protect the environment. But this deep regret for what humans have done to the world, invoked through the arts, can be used in helpful action through the application of science and understanding.", "ko": "흥미롭게도, 20세기 후반에는 과학이나 수학에 대해 아무 것도 모른다고 주장하는 것이 꽤 유행처럼 되었다. 사실은 그것이 교양 있는 개인이라는 것의 핵심이지만 과학적 지식이 교양 있는 개인이라는 것과 왠지 상충한다는 대중적인 믿음이 있었다. 1959년에 영국의 과학자이자 소설가인 C. P. Snow는 과학과 인문학(the arts, 즉 humanities)이라는 '두 문화' 사이에 존재하는 거리감과 심지어 적대감에 대해 이야기하는 유명한 강연을 했다. 그가 느끼기에, 지적인 삶에서의 이러한 깊은 분열이 인간의 진보를 방해하고 있었다. 그 분열은 다음 수십 년 동안 남아 있었고, 심지어 증가했다. 이제는 좁혀지고 있을지도 모르지만, 완전히 없어진 것은 결코 아니다. 그러나 이제는 더 많은 사람들이 과학에 대해 아는 것이 속물성의 표시가 아니라 정반대라는 것을 인식한다. 우리 주변 세상, 그것이 따르는 법칙들, 그리고 우리가 그러한 법칙들을 어떻게 발견할 수 있는지에 대한 깊이 있게 아는 이해를 통해, 우리는 각자의 삶, 그리고 지구가 하나의 종으로서의 우리에게 제공하는 자원을 최대한 활용할 수 있는 최상의 위치에 놓이게 된다. 야생 지역의 상실은 Wordsworth와 Thoreau와 같은 19세기 작가들에 의해 시적으로 애도되었고 환경을 되살리고 보호할 방법을 찾아야 할 필요성을 보여 주었다. 그러나 인간이 세상에 저지른 일에 대한 이러한 깊은 후회는, 인문학을 통해 환기되는데, 과학과 이해의 적용을 통해 도움이 되는 행동으로 쓰일 수 있다.", "read": [{"en": "Curiously, it became rather trendy in the late 20th century to claim to know nothing about science or mathematics.", "ko": "흥미롭게도, 20세기 후반에는 과학이나 수학에 대해 아무 것도 모른다고 주장하는 것이 꽤 유행처럼 되었다.", "chunks": [["Curiously,", "흥미롭게도,"], ["it became rather trendy", "꽤 유행처럼 되었다"], ["in the late 20th century", "20세기 후반에는"], ["to claim to know nothing", "아무 것도 모른다고 주장하는 것이"], ["about science or mathematics.", "과학이나 수학에 대해."]]}, {"en": "There was a popular belief that scientific knowledge was somehow at odds with being a cultured individual, when in fact it is central to it.", "ko": "사실은 그것이 교양 있는 개인이라는 것의 핵심이지만 과학적 지식이 교양 있는 개인이라는 것과 왠지 상충한다는 대중적인 믿음이 있었다.", "chunks": [["There was a popular belief that", "~라는 대중적인 믿음이 있었다"], ["scientific knowledge was", "과학적 지식이"], ["somehow at odds with", "왠지 ~과 상충한다는"], ["being a cultured individual,", "교양 있는 개인이라는 것과,"], ["when in fact it is central to it.", "사실은 그것이 그것의 핵심이지만."]]}, {"en": "In 1959, the English scientist and novelist C. P. Snow delivered a famous lecture in which he spoke of the distance and even animosity that existed between the 'two cultures' of science and the arts, or humanities.", "ko": "1959년에 영국의 과학자이자 소설가인 C. P. Snow는 과학과 인문학(the arts, 즉 humanities)이라는 '두 문화' 사이에 존재하는 거리감과 심지어 적대감에 대해 이야기하는 유명한 강연을 했다.", "chunks": [["In 1959,", "1959년에,"], ["the English scientist and novelist C. P. Snow", "영국의 과학자이자 소설가인 C. P. Snow는"], ["delivered a famous lecture", "유명한 강연을 했다"], ["in which he spoke of", "그 강연에서 그는 ~에 대해 이야기했다"], ["the distance and even animosity", "거리감과 심지어 적대감"], ["that existed between", "~ 사이에 존재하는"], ["the 'two cultures' of science and the arts,", "과학과 인문학(the arts)이라는 '두 문화',"], ["or humanities.", "즉 humanities."]]}, {"en": "This deep division in intellectual life was, he felt, holding up human progress.", "ko": "그가 느끼기에, 지적인 삶에서의 이러한 깊은 분열이 인간의 진보를 방해하고 있었다.", "chunks": [["This deep division", "이러한 깊은 분열이"], ["in intellectual life was,", "지적인 삶에서,"], ["he felt,", "그가 느끼기에,"], ["holding up human progress.", "인간의 진보를 방해하고 있었다."]]}, {"en": "The divide remained, and even increased, in the following decades. It might now be narrowing, but it's far from closed.", "ko": "그 분열은 다음 수십 년 동안 남아 있었고, 심지어 증가했다. 이제는 좁혀지고 있을지도 모르지만, 완전히 없어진 것은 결코 아니다.", "chunks": [["The divide remained,", "그 분열은 남아 있었다,"], ["and even increased,", "그리고 심지어 증가했다,"], ["in the following decades.", "다음 수십 년 동안."], ["It might now be narrowing,", "이제는 좁혀지고 있을지도 모른다,"], ["but it's far from closed.", "하지만 완전히 없어진 것은 결코 아니다."]]}, {"en": "More people, though, now recognize that knowing about science is not a mark of philistinism, but the very opposite.", "ko": "그러나 이제는 더 많은 사람들이 과학에 대해 아는 것이 속물성의 표시가 아니라 정반대라는 것을 인식한다.", "chunks": [["More people, though,", "그러나 더 많은 사람들이,"], ["now recognize that", "이제는 ~을 인식한다"], ["knowing about science", "과학에 대해 아는 것이"], ["is not a mark of philistinism,", "속물성의 표시가 아니라,"], ["but the very opposite.", "정반대라는 것을."]]}, {"en": "An informed appreciation of the world around us, the laws it follows and how we can discover those laws, puts us in the best position to make the most of our individual lives and the resources the planet affords us as a species.", "ko": "우리 주변 세상, 그것이 따르는 법칙들, 그리고 우리가 그러한 법칙들을 어떻게 발견할 수 있는지에 대한 깊이 있게 아는 이해를 통해, 우리는 각자의 삶, 그리고 지구가 하나의 종으로서의 우리에게 제공하는 자원을 최대한 활용할 수 있는 최상의 위치에 놓이게 된다.", "chunks": [["An informed appreciation of", "~에 대한 깊이 있게 아는 이해"], ["the world around us,", "우리 주변 세상,"], ["the laws it follows", "그것이 따르는 법칙들"], ["and how we can discover those laws,", "그리고 우리가 그러한 법칙들을 어떻게 발견할 수 있는지에 대한,"], ["puts us in the best position", "우리를 최상의 위치에 놓이게 한다"], ["to make the most of our individual lives", "각자의 삶을 최대한 활용할"], ["and the resources the planet affords us", "그리고 지구가 우리에게 제공하는 자원을"], ["as a species.", "하나의 종으로서."]]}, {"en": "The loss of wild places was mourned poetically by 19th-century writers such as Wordsworth or Thoreau and demonstrated a need to find out how to renew and protect the environment.", "ko": "야생 지역의 상실은 Wordsworth와 Thoreau와 같은 19세기 작가들에 의해 시적으로 애도되었고 환경을 되살리고 보호할 방법을 찾아야 할 필요성을 보여 주었다.", "chunks": [["The loss of wild places", "야생 지역의 상실은"], ["was mourned poetically", "시적으로 애도되었다"], ["by 19th-century writers", "19세기 작가들에 의해"], ["such as Wordsworth or Thoreau", "Wordsworth와 Thoreau와 같은"], ["and demonstrated a need", "그리고 필요성을 보여 주었다"], ["to find out how to renew and protect the environment.", "환경을 되살리고 보호할 방법을 찾아야 할."]]}, {"en": "But this deep regret for what humans have done to the world, invoked through the arts, can be used in helpful action through the application of science and understanding.", "ko": "그러나 인간이 세상에 저지른 일에 대한 이러한 깊은 후회는, 인문학을 통해 환기되는데, 과학과 이해의 적용을 통해 도움이 되는 행동으로 쓰일 수 있다.", "chunks": [["But this deep regret", "그러나 이러한 깊은 후회는"], ["for what humans have done to the world,", "인간이 세상에 저지른 일에 대한,"], ["invoked through the arts,", "인문학을 통해 환기되는데,"], ["can be used in helpful action", "도움이 되는 행동으로 쓰일 수 있다"], ["through the application of science and understanding.", "과학과 이해의 적용을 통해."]]}], "metaphor": "<svg viewBox=\"0 0 600 290\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"상단에 과거 과학 무지가 유행에서 현재 과학 지식이 교양 핵심으로 인식 변화, 가운데 과학 섬과 인문학 섬이 분열되어 있던 것을 초록 협력 다리가 잇고, 인문학의 문제 인식과 과학의 이해 적용이 합쳐져 행동 진보로 이어지는 그림\">\n  <!-- 상단 인식 변화 -->\n  <g transform=\"translate(40,28)\">\n    <rect x=\"0\" y=\"0\" width=\"245\" height=\"26\" rx=\"4\" fill=\"#f6f6f6\" stroke=\"#999\" stroke-width=\"1.2\"/>\n    <text x=\"122\" y=\"17\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#5e5e5e\">과거: 과학 무지가 '유행'</text>\n    <line x1=\"252\" y1=\"13\" x2=\"282\" y2=\"13\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/><polygon points=\"282,13 274,9 274,17\" fill=\"#1FA34A\"/>\n    <rect x=\"285\" y=\"0\" width=\"235\" height=\"26\" rx=\"4\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"1.3\"/>\n    <text x=\"402\" y=\"17\" font-family=\"Noto Serif KR\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">현재: 과학 지식 = 교양의 핵심</text>\n  </g>\n  <!-- 두 섬 -->\n  <g transform=\"translate(35,150)\">\n    <path d=\"M 0 40 Q 0 10 30 10 L 150 10 Q 180 10 180 40 L 180 60 L 0 60 Z\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <text x=\"90\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">과학 (science)</text>\n    <text x=\"90\" y=\"48\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">laws · understanding · application</text>\n  </g>\n  <g transform=\"translate(385,150)\">\n    <path d=\"M 0 40 Q 0 10 30 10 L 150 10 Q 180 10 180 40 L 180 60 L 0 60 Z\" fill=\"#fff\" stroke=\"#1a1a1a\" stroke-width=\"1.5\"/>\n    <text x=\"90\" y=\"32\" font-family=\"Noto Serif KR\" font-size=\"10.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1a1a1a\">인문학 (arts)</text>\n    <text x=\"90\" y=\"48\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"8\" text-anchor=\"middle\" fill=\"#5e5e5e\">regret · awareness of problems</text>\n  </g>\n  <!-- 분열 표시 (가운데 틈, 빨강) -->\n  <text x=\"300\" y=\"150\" font-family=\"Noto Serif KR\" font-size=\"9\" text-anchor=\"middle\" fill=\"#c8102e\" font-weight=\"700\">분열 (Snow 1959)</text>\n  <text x=\"300\" y=\"163\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#c8102e\">divide · animosity</text>\n  <g stroke=\"#c8102e\" stroke-width=\"1.3\"><line x1=\"290\" y1=\"172\" x2=\"290\" y2=\"200\"/><line x1=\"310\" y1=\"172\" x2=\"310\" y2=\"200\"/></g>\n  <!-- 협력 다리 (초록) -->\n  <path d=\"M 215 175 Q 300 135 385 175\" fill=\"none\" stroke=\"#1FA34A\" stroke-width=\"2.4\"/>\n  <text x=\"300\" y=\"128\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">협력 (bridge)</text>\n  <!-- 합류 → 행동 -->\n  <line x1=\"125\" y1=\"210\" x2=\"270\" y2=\"240\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n  <line x1=\"475\" y1=\"210\" x2=\"330\" y2=\"240\" stroke=\"#1FA34A\" stroke-width=\"1.6\"/>\n  <g transform=\"translate(225,242)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"36\" rx=\"18\" fill=\"#f0faf3\" stroke=\"#1FA34A\" stroke-width=\"2\"/>\n    <text x=\"75\" y=\"16\" font-family=\"Noto Serif KR\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1FA34A\">행동 · 진보</text>\n    <text x=\"75\" y=\"29\" font-family=\"Noto Serif\" font-style=\"italic\" font-size=\"7.5\" text-anchor=\"middle\" fill=\"#5e5e5e\">turned into action</text>\n  </g>\n  <polygon points=\"270,240 262,238 265,246\" fill=\"#1FA34A\"/><polygon points=\"330,240 335,246 338,238\" fill=\"#1FA34A\"/>\n</svg>", "caption": "상단에 과거 과학 무지가 유행에서 현재 과학 지식이 교양 핵심으로 인식 변화, 가운데 과학 섬과 인문학 섬이 분열되어 있던 것을 초록 협력 다리가 잇고, 인문학의 문제 인식과 과학의 이해 적용이 합쳐져 행동 진보로 이어지는 그림"}]};
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+function renderTabs() {
+  const tabs = P.data.map((d, i) =>
+    `<button class="tab${i===0?' active':''}" data-t="${d.no}">
+       <span class="tab-no">${d.no}</span>
+       <span class="tab-field">${d.field}</span>
+     </button>`).join('');
+  document.getElementById('tabs').innerHTML = tabs;
+}
+
+function renderTLDR(d) {
+  if (!d.tldr || !d.tldr.length) return '';
+  const items = d.tldr.map(t => `<li>${t}</li>`).join('');
+  return `<details class="tool" data-tool="tldr" open>
+    <summary>
+      <span class="ticon">A</span>
+      <span class="tname">30초 요약</span>
+      <span class="thint">— 빠르게 한 컷</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><ol class="tldr">${items}</ol></div>
+  </details>`;
+}
+
+function renderAnalogy(d) {
+  if (!d.analogy) return '';
+  return `<details class="tool" data-tool="analogy">
+    <summary>
+      <span class="ticon">B</span>
+      <span class="tname">이게 무슨 말이냐면</span>
+      <span class="thint">— 일상 비유</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body"><p class="callout analogy">${d.analogy}</p></div>
+  </details>`;
+}
+
+function renderBG(d) {
+  if (!d.bg) return '';
+  var _i = d.bg.indexOf('→');
+  var _intro = _i>=0 ? d.bg.slice(0,_i).trim() : d.bg.trim();
+  var _dir = _i>=0 ? d.bg.slice(_i+1).trim() : '';
+  var _body = '<p class="callout bg">'+_intro+'</p>' + (_dir ? '<p class="callout bg" style="margin-top:7px"><span style="color:#c8102e;font-weight:700">→ 이렇게 읽어요</span><br>'+_dir+'</p>' : '');
+  return `<details class="tool" data-tool="bg">
+    <summary>
+      <span class="ticon">C</span>
+      <span class="tname">읽기 전 30초</span>
+      <span class="thint">— 분야와 읽는 방향</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${_body}</div>
+  </details>`;
+}
+
+function renderFlow(d) {
+  if (!d.flow || !d.flow.length) return '';
+  let body = '<div class="flow">';
+  d.flow.forEach((s, i) => {
+    const cls = s.cls ? ' ' + s.cls : '';
+    body += `<div class="flow-step${cls}">
+      <div class="kind">${s.kind}</div>
+      <div class="body">
+        <div class="t">${s.t}</div>
+        ${s.d ? `<div class="d">${s.d}</div>` : ''}
+      </div>
+    </div>`;
+    if (i < d.flow.length - 1) body += '<div class="flow-arrow">▼</div>';
+  });
+  body += '</div>';
+  return `<details class="tool" data-tool="flow">
+    <summary>
+      <span class="ticon">D</span>
+      <span class="tname">글의 흐름</span>
+      <span class="thint">— 논지 흐름</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}</div>
+  </details>`;
+}
+
+function renderRead(d) {
+  if (!d.read || !d.read.length) return '';
+  let body = '';
+  d.read.forEach(r => {
+    let chunks = '';
+    if (r.chunks && r.chunks.length) {
+      chunks = '<div class="chunks">' + r.chunks.map(ch =>
+        `<div class="chunk"><div class="ce">${ch[0]}</div><div class="ck">${ch[1]}</div></div>`
+      ).join('') + '</div>';
+    }
+    body += `<div class="read-sent">
+      <div class="en">${r.en}</div>
+      ${chunks}
+      <div class="ko"><b>전체 해석:</b> ${r.ko}</div>
+    </div>`;
+  });
+  let vocab = '';
+  if (d.vocab && d.vocab.length) {
+    vocab = '<div class="vocab"><div class="vlabel">핵심 어휘</div>' +
+      d.vocab.map(v => `<div class="chip"><b>${v[0]}</b><span>${v[1]}</span></div>`).join('') +
+      '</div>';
+  }
+  return `<details class="tool" data-tool="read">
+    <summary>
+      <span class="ticon">E</span>
+      <span class="tname">끊어읽기 + 어휘</span>
+      <span class="thint">— 문장 단위</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${body}${vocab}</div>
+  </details>`;
+}
+
+function renderQuiz(d) {
+  if (!d.quiz || !d.quiz.length) return '';
+  const items = d.quiz.map((q, i) =>
+    `<details class="quiz-item">
+      <summary>
+        <span class="qn">Q${i+1}</span>
+        <span>${q[0]}</span>
+        <span class="qarr">정답 ▾</span>
+      </summary>
+      <div class="qa">${q[1]}</div>
+    </details>`).join('');
+  return `<details class="tool" data-tool="quiz">
+    <summary>
+      <span class="ticon">F</span>
+      <span class="tname">확인 퀴즈</span>
+      <span class="thint">— 스스로 점검</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">${items}</div>
+  </details>`;
+}
+
+function renderSource(d) {
+  if (!d.en && !d.ko) return '';
+  return `<details class="tool" data-tool="source">
+    <summary>
+      <span class="ticon">G</span>
+      <span class="tname">영어 원문 + 해석</span>
+      <span class="thint">— 시험 직전 점검용</span>
+      <span class="arr">▶</span>
+    </summary>
+    <div class="body">
+      <div class="src">
+        <div class="en">${d.en}</div>
+        <div class="ko">${d.ko}</div>
+      </div>
+    </div>
+  </details>`;
+}
+
+function renderPassage(d, idx) {
+  let html = `<section class="passage${idx===0?' active':''}" id="p${d.no}">`;
+  html += `<div class="p-head">
+    <span class="field">${d.field}</span>
+    <h2>${d.title}</h2>
+    <p class="p-kt">${d.ktitle}</p>
+    <p class="p-page">${d.page}</p>
+  </div>`;
+  html += `<div class="oneline">${d.oneline}</div>`;
+  if (d.metaphor) {
+    html += `<div class="metaphor">
+      <div class="m-head">
+        <span class="label">중심 비유</span>
+        <span class="sub">visual metaphor</span>
+      </div>
+      <figure>
+        ${d.metaphor}
+        ${d.caption ? `<figcaption>${d.caption}</figcaption>` : ''}
+      </figure>
+    </div>`;
+  }
+  html += `<div class="tools-intro">막힌 곳만 펴 보세요 · <b>도구 상자</b></div>`;
+  html += renderTLDR(d);
+  html += renderAnalogy(d);
+  html += renderBG(d);
+  html += renderFlow(d);
+  html += renderRead(d);
+  html += renderQuiz(d);
+  html += renderSource(d);
+  html += `</section>`;
+  return html;
+}
+
+renderTabs();
+document.getElementById('main').innerHTML = P.data.map((d, i) => renderPassage(d, i)).join('');
+
+/* 탭 클릭 */
+document.querySelectorAll('.tab').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.passage').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('p' + b.dataset.t).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
