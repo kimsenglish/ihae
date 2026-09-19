@@ -48,8 +48,8 @@
     function renderQuestions(items,pi,prefix,p){return items.map((q,qi)=>{const evidence=(q.refs||[]).map(n=>p.sentences.find(s=>s.n===n)).filter(Boolean).map(s=>`<p><b>S${s.n}</b> ${esc(s.en)}</p>`).join('');return `<div class="quiz-item" data-answer="${q.answer}" data-why="${esc(q.why)}">${q.type?`<span class="qtype">${esc(q.type)}</span>`:''}<div class="quiz-q">${qi+1}. ${esc(q.q)}</div>${q.choices.map((c,ci)=>`<label class="choice"><input type="radio" name="${prefix}-${pi}-${qi}" value="${ci}">${esc(c)}</label>`).join('')}<div class="quiz-actions"><button class="check">확인</button><p class="feedback" aria-live="polite"></p><div class="q-evidence"><strong>다시 볼 영어 근거</strong>${evidence}</div></div></div>`}).join('')}
     function renderPassage(p,pi){
       const prev=dataset.passages[pi-1],next=dataset.passages[pi+1];
-      const prevNav=prev?`<a class="passage-switch" href="#${prev.id}" data-id="${prev.id}">← ${prev.id.slice(1)}번</a>`:'<span class="disabled">← 이전</span>';
-      const nextNav=next?`<a class="passage-switch" href="#${next.id}" data-id="${next.id}">${next.id.slice(1)}번 →</a>`:'<span class="disabled">다음 →</span>';
+      const prevNav=prev?`<a class="passage-switch" href="#${prev.id}" data-id="${prev.id}">← ${prev.id.slice(1)}번</a>`:'<a href="index.html">← 목록</a>';
+      const nextNav=next?`<a class="passage-switch" href="#${next.id}" data-id="${next.id}">${next.id.slice(1)}번 →</a>`:'<a href="index.html">목록으로 →</a>';
       const sentenceByN=n=>p.sentences.find(s=>s.n===n);
       const flow=p.flow.map(x=>{const ev=x.refs.map(sentenceByN).filter(Boolean).map(s=>`<p><b>S${s.n}</b> ${esc(s.en)}</p>`).join('');return `<button class="flow-card inline-source" data-refs="${refs(x.refs)}"><b>${esc(x.label)}</b><small>${esc(x.sentences)}</small><p>${esc(x.text)}</p><span class="backlink">근거 영어 펼치기 ＋</span><div class="inline-evidence">${ev}</div></button>`}).join('');
       const isContrast=Array.isArray(p.contrast),structureItems=isContrast?p.contrast:(p.structure||[]);
