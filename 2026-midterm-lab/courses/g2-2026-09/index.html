@@ -15,7 +15,7 @@
       <div class="course-title">
         <span class="eyebrow">2026년 9월 · 고2</span>
         <h1>지문 번호를<br>골라 보세요.</h1>
-        <p>시험 범위 18~45번을 네 묶음으로 나눴습니다. 25·27·28번은 제외입니다.</p>
+        <p>18~45번을 네 묶음으로 나눴습니다. 학교별 시험 범위는 다르니 학교 안내와 함께 확인해 주세요.</p>
       </div>
       <aside class="guide">
         <strong>사용 방법</strong>
@@ -61,7 +61,7 @@
       </article>
     </section>
 
-    <p class="notice">현재 시험 범위 25개 번호가 모두 연결되었습니다. 25·27·28번은 시험 범위 제외입니다.</p>
+    <p class="notice">현재 25개 번호가 연결되었습니다. 연결되지 않은 번호는 자료 준비 중입니다.</p>
     <footer>고2 9월 모의고사 · 지문 이해 LAB</footer>
   </main>
 
@@ -70,7 +70,7 @@
     const routeByNumber={"18": "q18", "19": "q19", "20": "q20", "21": "q21", "22": "q22", "23": "q23", "24": "q24", "26": "q26", "29": "q29", "30": "q30", "31": "q31", "32": "q32", "33": "q33", "34": "q34", "35": "q35", "36": "q36", "37": "q37", "38": "q38", "39": "q39", "40": "q40", "41": "q41", "42": "q41", "43": "q43", "44": "q43", "45": "q43"};
     document.querySelectorAll('.number-grid').forEach(grid => {
       const numbers = grid.textContent.trim().split(','); grid.textContent = '';
-      numbers.forEach(number => { const button=document.createElement('button'); button.className='passage-button'; button.type='button'; button.textContent=number+'번'; button.dataset.number=number; button.setAttribute('aria-pressed','false'); if(!readyNumbers.has(number)){button.disabled=true;button.title='시험 범위 제외';button.setAttribute('aria-label',number+'번 시험 범위 제외')} grid.appendChild(button); });
+      numbers.forEach(number => { const button=document.createElement('button'); button.className='passage-button'; button.type='button'; button.textContent=number+'번'; button.dataset.number=number; button.setAttribute('aria-pressed','false'); if(!readyNumbers.has(number)){button.disabled=true;button.title='자료 준비 중';button.setAttribute('aria-label',number+'번 자료 준비 중')} grid.appendChild(button); });
     });
     document.getElementById('unit-list').addEventListener('click', event => {
       const head=event.target.closest('.unit-head');
