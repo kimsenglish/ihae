@@ -4,209 +4,112 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5f1e8">
-  <title>KIM'S ENGLISH · 지문 이해 LAB</title>
-  <link rel="stylesheet" href="assets/site.css?v=20260916d">
+  <title>학교 선택 · KIM'S ENGLISH 이해 LAB</title>
+  <link rel="stylesheet" href="assets/site.css?v=20260924school">
 </head>
 <body>
-  <main class="shell">
+  <main class="shell school-home">
     <header class="site-head">
       <a class="brand" href="index.html"><span class="brand-mark">K</span><span>KIM'S ENGLISH</span></a>
-      <span class="quiet-chip">클릭형 · 학습 기록 없음</span>
+      <span class="quiet-chip">지문 이해 LAB</span>
     </header>
 
-    <section class="hero">
+    <section class="school-hero" aria-labelledby="school-title">
       <span class="eyebrow">2026년 2학기 시험 대비</span>
-      <h1>외우기 전에,<br>지문부터 이해하자.</h1>
-      <p>학년과 자료를 고른 뒤 지문 번호를 선택하세요. 영어 원문과 근거 문장으로 글의 흐름을 익히고, 장면이 도움이 되는 지문에서는 그림도 함께 봅니다.</p>
-      <div class="path" aria-label="학습 자료 이용 순서">
-        <span>자료 선택</span><span>범위 선택</span><span>지문 번호</span><span>이해 LAB</span>
+      <h1 id="school-title">우리 학교를<br>선택하세요.</h1>
+      <p>학교를 누르면 이용할 수 있는 자료가 나옵니다.</p>
+    </section>
+
+    <section id="schools" aria-label="학교와 학년 선택">
+      <div class="school-grid" id="school-grid">
+        <button type="button" class="school-pick" data-school="daea1" aria-pressed="false"><span>대아고</span><strong>1학년</strong></button>
+        <button type="button" class="school-pick" data-school="daea2" aria-pressed="false"><span>대아고</span><strong>2학년</strong></button>
+        <button type="button" class="school-pick" data-school="gyeonghae1" aria-pressed="false"><span>경해여고</span><strong>1학년</strong></button>
+        <button type="button" class="school-pick" data-school="gyeonghae2" aria-pressed="false"><span>경해여고</span><strong>2학년</strong></button>
+        <button type="button" class="school-pick" data-school="jinju1" aria-pressed="false"><span>진주여고</span><strong>1학년</strong></button>
+        <button type="button" class="school-pick" data-school="jinju2" aria-pressed="false"><span>진주여고</span><strong>2학년</strong></button>
+        <button type="button" class="school-pick" data-school="jingo1" aria-pressed="false"><span>진주고</span><strong>1학년</strong></button>
+        <button type="button" class="school-pick" data-school="jingo2" aria-pressed="false"><span>진주고</span><strong>2학년</strong></button>
+        <button type="button" class="school-pick" data-school="dongmyeong2" aria-pressed="false"><span>동명고</span><strong>2학년</strong></button>
       </div>
     </section>
 
-    <div class="section-head">
-      <div><h2>모의고사</h2><p>학년과 시험 범위를 확인하고 자료를 고르세요.</p></div>
-    </div>
-
-    <section class="course-grid" aria-label="모의고사 선택">
-      <a class="course-card active" data-order="1" href="courses/g1-2026-09/index.html">
-        <span class="status">고1 연결 완료</span>
-        <img class="course-thumb" src="assets/g1-20-learning-game.webp" alt="" loading="lazy" decoding="async">
-        <h3>고1<br>9월 모의고사</h3>
-        <p>학교별 시험 범위를 합쳐 필요한 지문을 한곳에서 선택합니다.</p>
-        <span class="range">20–24 · 26 · 29–42번</span>
-        <span class="enter">지문 번호 고르기 →</span>
-      </a>
-
-      <a class="course-card active" data-order="2" href="courses/g2-2026-09/index.html">
-        <span class="status">28개 번호 · 25개 화면 연결</span>
-        <img class="course-thumb" src="assets/g2-20-critical-reader.webp" alt="" loading="lazy" decoding="async">
-        <h3>고2<br>9월 모의고사</h3>
-        <p>18번부터 45번까지 시험 범위 지문을 같은 학습 흐름으로 연결했습니다.</p>
-        <span class="range">18–45번 · 학교별 범위 확인</span>
-        <span class="enter">지문 번호 고르기 →</span>
-      </a>
-
-      <a class="course-card active" data-order="3" href="courses/jinju2-2025-10-mock/index.html">
-        <span class="status">6지문 연결</span>
-        <h3>진주여고2<br>2025년 10월 모의고사</h3>
-        <p>시험 범위 여섯 지문을 관계형 도식과 원문 근거로 연결했습니다.</p>
-        <span class="range">22·23·33·34·37·38번</span>
-        <span class="enter">지문 번호 고르기 →</span>
-      </a>
+    <section class="school-materials" id="school-materials" aria-live="polite" tabindex="-1" hidden>
+      <div class="school-materials-head">
+        <div><span class="eyebrow">자료 선택</span><h2 id="selected-school"></h2></div>
+        <a href="#schools" id="choose-again">다른 학교</a>
+      </div>
+      <div class="material-grid" id="material-grid"></div>
+      <p class="material-note">각 자료에서 학교 시험범위에 해당하는 단원·번호를 확인하세요.</p>
     </section>
 
-    <div class="section-head">
-      <div><h2>교과서</h2><p>시험 범위 본문을 Word 원문·공식 해석 기준으로 읽어 보세요.</p></div>
-    </div>
-
-    <section class="course-grid" aria-label="학교별 교과서 선택">
-      <a class="course-card active" href="courses/daea1-textbook/index.html">
-        <span class="status">2개 단원 · 16단락 연결</span>
-        <h3>대아고1<br>공통영어2 교과서</h3>
-        <p>Word 본문·공식 해석과 한눈 도식, 핵심 문법 포인트를 함께 봅니다.</p>
-        <span class="range">1과 Embrace Connections · 2과 From Problems to Solutions</span>
-        <span class="enter">단원과 단락 고르기 →</span>
-      </a>
-      <a class="course-card active" href="courses/gyeonghae1-textbook/index.html">
-        <span class="status">4개 범위 · 14개 화면 연결</span>
-        <h3>경해여고1<br>공통영어2 교과서</h3>
-        <p>Word 본문·공식 해석과 교과서 42·43쪽 문법 예문을 함께 봅니다.</p>
-        <span class="range">1과 본문·Reading about Technology · 2과 본문·Grammar in Context</span>
-        <span class="enter">단원과 단락 고르기 →</span>
-      </a>
-      <a class="course-card active" href="courses/gyeonghae2-textbook/index.html">
-        <span class="status">3개 범위 · 17단락 연결</span>
-        <img class="course-thumb" src="assets/gyeonghae2-textbook-story-cliffhanger-four-panel.webp" alt="" loading="lazy" decoding="async">
-        <h3>경해여고2<br>영어독해와작문 교과서</h3>
-        <p>긴 서사는 4·6컷으로, 개념 관계는 정확한 도식으로 한눈에 정리합니다.</p>
-        <span class="range">1과·2과 본문 전체 · 3과 본문 2</span>
-        <span class="enter">단원과 단락 고르기 →</span>
-      </a>
-      <a class="course-card active" href="courses/daea2-textbook/index.html">
-        <span class="status">1과 본문 1·2 · 7단락</span>
-        <img class="course-thumb" src="assets/gyeonghae2-textbook-rbg-six-panel.webp" alt="" loading="lazy" decoding="async">
-        <h3>대아고2<br>영어독해와작문 교과서</h3>
-        <p>공유 교과서의 Word 원문·공식 해석과 설명자료로 본문을 읽습니다.</p>
-        <span class="range">시험 범위 1과 p8–33 중 본문 1·2</span>
-        <span class="enter">단원과 단락 고르기 →</span>
-      </a>
-      <a class="course-card active" href="courses/jinju1-textbook/index.html">
-        <span class="status">1·3과 본문 · 8개 화면</span>
-        <h3>진주여고1<br>공통영어2 교과서</h3>
-        <p>사진 속 단서와 한국의 호랑이 상징을 쪽별 도식과 원문으로 읽습니다.</p>
-        <span class="range">확정 범위 중 1과 17–20쪽 · 3과 65–68쪽</span>
-        <span class="enter">쪽별로 읽기 →</span>
-      </a>
-      <a class="course-card active" href="courses/jingo1-textbook/index.html">
-        <span class="status">1·2과 본문 + Special Lesson 1 · 14개 화면</span>
-        <h3>진주고1<br>공통영어2 교과서</h3>
-        <p>본문의 사건·선택과 문어의 특징을 그림·과정 도식·영어 원문으로 살펴봅니다.</p>
-        <span class="range">연결: 1과 17–20쪽 · 2과 37–40쪽 · Special Lesson 1</span>
-        <span class="enter">본문 읽기 →</span>
-      </a>
-      <a class="course-card active" href="courses/jinju2-textbook/index.html">
-        <span class="status">1·3과 본문·활동 연결</span>
-        <h3>진주여고2<br>영어II 교과서</h3>
-        <p>쪽별 본문을 원문과 도식으로 읽고, 어휘·문법은 클릭으로 확인합니다.</p>
-        <span class="range">1과 17–23·28·29(A)쪽, Culture Zoom-in · 3과 73–81·85–86쪽</span>
-        <span class="enter">단원과 활동 고르기 →</span>
-      </a>
-      <a class="course-card active" href="courses/jingo2-textbook/index.html">
-        <span class="status">1·3과 본문 + Further Reading</span>
-        <h3>진주고2<br>영어II 교과서</h3>
-        <p>공유 Word 본문을 쪽별로 읽고 원문 근거와 도식으로 내용을 확인합니다.</p>
-        <span class="range">1과 17–23쪽 · 3과 본문 73–79쪽 · Further Reading 82–83쪽</span>
-        <span class="enter">단원과 본문 고르기 →</span>
-      </a>
-    </section>
-
-    <div class="section-head">
-      <div><h2>학교별 부교재</h2><p>학교와 학년을 고른 뒤 시험 범위 지문을 찾아보세요.</p></div>
-    </div>
-
-    <section class="course-grid" aria-label="학교별 부교재 선택">
-
-      <a class="course-card active" data-order="4" href="courses/daea1-booster/index.html">
-        <span class="status">3개 단원 · 21지문 연결</span>
-        <img class="course-thumb" src="assets/daea1-ch04-03-idea-sequence.webp" alt="" loading="lazy" decoding="async">
-        <h3>대아고1<br>부교재</h3>
-        <p>Booster 4과·5과·고난도 TEST 1회를 단원별로 고릅니다.</p>
-        <span class="range">4과 독해 · 5과 독해 · TEST 1회 · 문법 준비 중</span>
-        <span class="enter">단원과 지문 고르기 →</span>
-      </a>
-
-      <a class="course-card active" data-order="5" href="courses/daea2-supplement/index.html">
-        <span class="status">7개 단원 · 62지문 연결</span>
-        <img class="course-thumb" src="assets/daea2-minute13-04-valley-sound.webp" alt="" loading="lazy" decoding="async">
-        <h3>대아고2<br>부교재</h3>
-        <p>N제 2~5강과 미닛15 13~15회를 단원별로 고릅니다.</p>
-        <span class="range">원문·해석·흐름 62지문 · 전 지문 클릭형 확인 문제 연결</span>
-        <span class="enter">단원과 지문 고르기 →</span>
-      </a>
-
-      <a class="course-card active" data-order="6" href="courses/gyeonghae2-supplement/index.html">
-        <span class="status">4개 단원 · 16지문 연결</span>
-        <img class="course-thumb" src="assets/gyeonghae2-light13-03-turtles.webp" alt="" loading="lazy" decoding="async">
-        <h3>경해여고2<br>부교재</h3>
-        <p>수특라이트 영어 12~15과를 단원별로 고릅니다.</p>
-        <span class="range">원문·해석·시각 자료·흐름 · 클릭형 확인 문제</span>
-        <span class="enter">단원과 지문 고르기 →</span>
-      </a>
-
-      <a class="course-card active" data-order="7" href="courses/gyeonghae1-supplement/index.html">
-        <span class="status">4개 단원 · 12지문 연결</span>
-        <img class="course-thumb" src="assets/gyeonghae1-olym12-02-mug-texture.webp" alt="" loading="lazy" decoding="async">
-        <h3>경해여고1<br>부교재</h3>
-        <p>올림포스 영독 기본1의 12~15강 중 시험 범위 지문을 고릅니다.</p>
-        <span class="range">12강 서술·논술형 · 13~14강 · 15강 Analysis·1번</span>
-        <span class="enter">단원과 지문 고르기 →</span>
-      </a>
-
-      <a class="course-card active" data-order="8" href="courses/jinju1-supplement/index.html">
-        <span class="status">3·4·5·8·9강 21지문 연결</span>
-        <img class="course-thumb" src="assets/jinju1-olym03-03-jigsaw.webp" alt="" loading="lazy" decoding="async">
-        <h3>진주여고1<br>부교재</h3>
-        <p>올림포스 영독 기본1의 3·4·5·8강과 9강 p60~63을 공부합니다.</p>
-        <span class="range">연결: 3·4·5·8강, 9강 p60~63</span>
-        <span class="enter">단원과 지문 고르기 →</span>
-      </a>
-
-      <a class="course-card active" data-order="9" href="courses/jingo1-supplement/index.html">
-        <span class="status">8지문 연결</span>
-        <img class="course-thumb" src="assets/jingo1-light09-10-02-active-wayfinding.webp" alt="" loading="lazy" decoding="async">
-        <h3>진주고1<br>부교재</h3>
-        <p>수특 Light 영어의 시험 범위 지문을 고릅니다.</p>
-        <span class="range">9·10·11강 · 8지문</span>
-        <span class="enter">단원과 지문 고르기 →</span>
-      </a>
-
-      <a class="course-card active" data-order="10" href="courses/jingo2-supplement/index.html">
-        <span class="status">19지문 연결</span>
-        <img class="course-thumb" src="assets/jingo2-light05-03-center-of-mass.webp" alt="" loading="lazy" decoding="async">
-        <h3>진주고2<br>부교재</h3>
-        <p>수특 Light 영독연습의 시험 범위 지문을 고릅니다.</p>
-        <span class="range">5·7·8·10강 · 19지문</span>
-        <span class="enter">단원과 지문 고르기 →</span>
-      </a>
-
-      <a class="course-card active" data-order="11" href="courses/dongmyeong2-supplement/index.html">
-        <span class="status">3개 범위 · 26지문 연결</span>
-        <h3>동명고2<br>부교재</h3>
-        <p>올림포스 9대 변별유형의 핵심 관계를 그림처럼 보고, 영어 근거로 확인합니다.</p>
-        <span class="range">Chapter 3 · Chapter 4 QN35~37</span>
-        <span class="enter">범위와 지문 고르기 →</span>
-      </a>
-    </section>
-
-    <aside class="principle">
-      <strong>이 자료의 역할</strong>
-      <p>정답을 외우는 문제집이 아니라 지문의 장면·핵심·논리·영어 근거를 스스로 연결하는 이해 보조 자료입니다.</p>
-    </aside>
-
-    <footer>누른 선택은 저장되거나 전송되지 않습니다.</footer>
+    <footer>선택 내용은 저장하거나 전송하지 않습니다.</footer>
   </main>
   <script>
-    document.querySelector('.course-card[data-order="2"] .status').textContent = '25\uac1c \ud654\uba74 \u00b7 \uc804 \ubc88\ud638 \uc5f0\uacb0';
+    const mock1 = {type:'모의고사', name:'고1 · 9월', href:'courses/g1-2026-09/index.html'};
+    const mock2 = {type:'모의고사', name:'고2 · 9월', href:'courses/g2-2026-09/index.html'};
+    const schools = {
+      daea1: {name:'대아고 1학년', materials:[
+        {type:'교과서', name:'공통영어2', href:'courses/daea1-textbook/index.html'},
+        {type:'부교재', name:'Booster', href:'courses/daea1-booster/index.html'}, mock1]},
+      daea2: {name:'대아고 2학년', materials:[
+        {type:'교과서', name:'영어독해와작문', href:'courses/daea2-textbook/index.html'},
+        {type:'부교재', name:'N제 · 미닛15', href:'courses/daea2-supplement/index.html'}, mock2]},
+      gyeonghae1: {name:'경해여고 1학년', materials:[
+        {type:'교과서', name:'공통영어2', href:'courses/gyeonghae1-textbook/index.html'},
+        {type:'부교재', name:'올림포스 영독 기본1', href:'courses/gyeonghae1-supplement/index.html'}, mock1]},
+      gyeonghae2: {name:'경해여고 2학년', materials:[
+        {type:'교과서', name:'영어독해와작문', href:'courses/gyeonghae2-textbook/index.html'},
+        {type:'부교재', name:'수특 Light 영어', href:'courses/gyeonghae2-supplement/index.html'}, mock2]},
+      jinju1: {name:'진주여고 1학년', materials:[
+        {type:'교과서', name:'공통영어2', href:'courses/jinju1-textbook/index.html'},
+        {type:'부교재', name:'올림포스 영독 기본1', href:'courses/jinju1-supplement/index.html'}, mock1]},
+      jinju2: {name:'진주여고 2학년', materials:[
+        {type:'교과서', name:'영어II', href:'courses/jinju2-textbook/index.html'},
+        {type:'모의고사', name:'2025년 10월', href:'courses/jinju2-2025-10-mock/index.html'}, mock2]},
+      jingo1: {name:'진주고 1학년', materials:[
+        {type:'교과서', name:'공통영어2', href:'courses/jingo1-textbook/index.html'},
+        {type:'부교재', name:'수특 Light 영어', href:'courses/jingo1-supplement/index.html'}, mock1]},
+      jingo2: {name:'진주고 2학년', materials:[
+        {type:'교과서', name:'영어II', href:'courses/jingo2-textbook/index.html'},
+        {type:'부교재', name:'수특 Light 영독연습', href:'courses/jingo2-supplement/index.html'}, mock2]},
+      dongmyeong2: {name:'동명고 2학년', materials:[
+        {type:'부교재', name:'올림포스 9대 변별유형', href:'courses/dongmyeong2-supplement/index.html'}, mock2]},
+    };
+
+    const panel = document.getElementById('school-materials');
+    const buttons = [...document.querySelectorAll('.school-pick')];
+    function showSchool(id, moveFocus=false) {
+      const school = schools[id];
+      buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.school===id)));
+      if (!school) { panel.hidden=true; return; }
+      document.getElementById('selected-school').textContent=school.name;
+      document.getElementById('material-grid').replaceChildren(...school.materials.map(item => {
+        const link=document.createElement('a');
+        link.className='material-link'; link.href=item.href;
+        const type=document.createElement('span'); type.className='material-type'; type.textContent=item.type;
+        const name=document.createElement('strong'); name.textContent=item.name;
+        const arrow=document.createElement('span'); arrow.className='material-arrow'; arrow.setAttribute('aria-hidden','true'); arrow.textContent='→';
+        link.append(type,name,arrow);
+        return link;
+      }));
+      panel.hidden=false;
+      if (moveFocus) { panel.scrollIntoView({behavior:'smooth',block:'start'}); panel.focus({preventScroll:true}); }
+    }
+    buttons.forEach(button => button.addEventListener('click', () => {
+      const id=button.dataset.school;
+      if (location.hash.slice(1)===id) showSchool(id,true);
+      else location.hash=id;
+    }));
+    window.addEventListener('hashchange', () => showSchool(location.hash.slice(1),true));
+    document.getElementById('choose-again').addEventListener('click', event => {
+      event.preventDefault();
+      history.replaceState(null,'',location.pathname+location.search);
+      showSchool('');
+      document.getElementById('school-grid').scrollIntoView({behavior:'smooth',block:'start'});
+      buttons[0].focus({preventScroll:true});
+    });
+    showSchool(location.hash.slice(1));
   </script>
 </body>
 </html>
